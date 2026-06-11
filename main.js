@@ -113,7 +113,7 @@ function initMobileThumbnailGrid(projects, container) {
 
   const bg = document.createElementNS(svgNS, 'rect');
   bg.setAttribute('width', W); bg.setAttribute('height', H);
-  bg.setAttribute('fill', '#F8F6F2');
+  bg.setAttribute('fill', '#F5F1E6');
   svg.appendChild(bg);
 
   // <defs> for clip paths
@@ -125,7 +125,7 @@ function initMobileThumbnailGrid(projects, container) {
     const l = document.createElementNS(svgNS, 'line');
     l.setAttribute('x1', x1); l.setAttribute('y1', y1);
     l.setAttribute('x2', x2); l.setAttribute('y2', y2);
-    l.setAttribute('stroke', '#D4CFC8'); l.setAttribute('stroke-width', '0.8');
+    l.setAttribute('stroke', '#CEC6B4'); l.setAttribute('stroke-width', '0.8');
     return l;
   }
   svg.appendChild(line(PAD, H / 2, W - PAD, H / 2));
@@ -195,8 +195,8 @@ function initMobileThumbnailGrid(projects, container) {
     border.setAttribute('x', rx); border.setAttribute('y', ry);
     border.setAttribute('width', tw); border.setAttribute('height', th);
     border.setAttribute('rx', '2');
-    border.setAttribute('fill', p.thumbnail ? 'none' : (p.featured ? '#C4603A' : '#D4CFC8'));
-    border.setAttribute('stroke', p.featured ? '#C4603A' : '#D4CFC8');
+    border.setAttribute('fill', p.thumbnail ? 'none' : (p.featured ? '#5578A0' : '#CEC6B4'));
+    border.setAttribute('stroke', p.featured ? '#5578A0' : '#CEC6B4');
     border.setAttribute('stroke-width', p.featured ? '1.5' : '0.8');
     g.appendChild(border);
 
@@ -208,8 +208,8 @@ function initMobileThumbnailGrid(projects, container) {
     g.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') handleProjectClick(p.id);
     });
-    g.addEventListener('mouseenter', () => border.setAttribute('stroke', '#C4603A'));
-    g.addEventListener('mouseleave', () => border.setAttribute('stroke', p.featured ? '#C4603A' : '#D4CFC8'));
+    g.addEventListener('mouseenter', () => border.setAttribute('stroke', '#5578A0'));
+    g.addEventListener('mouseleave', () => border.setAttribute('stroke', p.featured ? '#5578A0' : '#CEC6B4'));
 
     svg.appendChild(g);
   });

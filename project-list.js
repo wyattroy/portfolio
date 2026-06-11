@@ -425,7 +425,7 @@ function formatText(text) {
 function vimeoEmbed(url) {
   // Convert vimeo.com/12345 → player.vimeo.com/video/12345?autoplay=1
   const match = url.match(/vimeo\.com\/(\d+)/);
-  if (match) return `https://player.vimeo.com/video/${match[1]}?autoplay=1&color=C4603A`;
+  if (match) return `https://player.vimeo.com/video/${match[1]}?autoplay=1&color=5578A0`;
   // YouTube
   const ytMatch = url.match(/youtube\.com\/watch\?v=([^&]+)|youtu\.be\/([^?]+)/);
   if (ytMatch) {
@@ -470,7 +470,7 @@ function categoryIcon(categories = []) {
 function buildQuadrantSvg(axes) {
   if (!axes) {
     return `<svg class="quadrant-indicator" viewBox="0 0 20 20" aria-hidden="true">
-      <rect width="20" height="20" rx="3" fill="#E2DED8"/>
+      <rect width="20" height="20" rx="3" fill="#DDD5C4"/>
     </svg>`;
   }
 
@@ -485,10 +485,10 @@ function buildQuadrantSvg(axes) {
   // q-sp: poetic+institutional (left+top)
   // q-si: pragmatic+institutional (right+top)
   const quadColors = {
-    tl: top && !right ? 'var(--color-q-sp)' : '#E2DED8',
-    tr: top && right ? 'var(--color-q-si)' : '#E2DED8',
-    bl: !top && !right ? 'var(--color-q-ip)' : '#E2DED8',
-    br: !top && right ? 'var(--color-q-ii)' : '#E2DED8',
+    tl: top && !right ? 'var(--color-q-sp)' : '#DDD5C4',
+    tr: top && right ? 'var(--color-q-si)' : '#DDD5C4',
+    bl: !top && !right ? 'var(--color-q-ip)' : '#DDD5C4',
+    br: !top && right ? 'var(--color-q-ii)' : '#DDD5C4',
   };
 
   return `<svg class="quadrant-indicator" viewBox="0 0 20 20" aria-hidden="true" title="Quadrant: ${getQuadrantName(pragmatic, institutional)}">

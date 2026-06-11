@@ -61,7 +61,7 @@
     "institutional": 0.1
   },
   "thumbnail": "assets/projects/arena/Home.png",
-  "hero": "assets/projects/arena/Home.png",
+  "hero": "assets/projects/arena/arena-hero.png",
   "liveUrl": "https://arenaofwants.com",
   "sourceUrl": null,
   "images": [
@@ -72,10 +72,14 @@
     "assets/projects/arena/ArenaStep.png",
     "assets/projects/arena/Finish.png",
     "assets/projects/arena/Wants.png",
-    "assets/projects/arena/lovable.png"
+    "assets/projects/arena/lovable.png",
+    "assets/projects/arena/arena-hero.png"
   ],
   "videos": [
-    "arenaofwants.com"
+    {
+      "url": "arenaofwants.com",
+      "heroOverride": true
+    }
   ],
   "awards": []
 }

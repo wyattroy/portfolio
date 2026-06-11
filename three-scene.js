@@ -87,8 +87,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
   // Scene
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color('#F8F6F2');
-  scene.fog = new THREE.Fog('#F8F6F2', 25, 50);
+  scene.background = new THREE.Color('#F5F1E6');
+  scene.fog = new THREE.Fog('#F5F1E6', 25, 50);
 
   // Renderer
   const renderer = new THREE.WebGLRenderer({
@@ -185,11 +185,11 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     const geo = new THREE.BoxGeometry(1.6, 1.0, 0.05);
 
     // Per-mesh materials (not shared) so we can control opacity independently
-    const mkWarm  = () => new THREE.MeshLambertMaterial({ color: '#D4CFC8', transparent: true, opacity: 0 });
+    const mkWarm  = () => new THREE.MeshLambertMaterial({ color: '#CEC6B4', transparent: true, opacity: 0 });
     const accentMat = new THREE.MeshLambertMaterial({
-      color: p.featured ? '#C4603A' : '#B8AFA6', transparent: true, opacity: 0
+      color: p.featured ? '#5578A0' : '#B8AFA6', transparent: true, opacity: 0
     });
-    const frontMat = new THREE.MeshLambertMaterial({ color: '#E8E4DF', transparent: true, opacity: 0 });
+    const frontMat = new THREE.MeshLambertMaterial({ color: '#EAE6DA', transparent: true, opacity: 0 });
     const materials = [mkWarm(), mkWarm(), accentMat, mkWarm(), frontMat, mkWarm()];
 
     const mesh = new THREE.Mesh(geo, materials);

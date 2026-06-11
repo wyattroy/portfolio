@@ -2,18 +2,18 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  --color-bg: #F8F6F2;
-  --color-surface: #FFFFFF;
-  --color-text: #1A1A1A;
-  --color-text-muted: #6B6B6B;
-  --color-accent: #C4603A;
-  --color-accent-2: #4A6B5C;
-  --color-border: #E2DED8;
-  --color-grid: #D4CFC8;
-  --color-q-ip: #E8C4A0;
-  --color-q-ii: #A0B8C8;
-  --color-q-sp: #B8C4A0;
-  --color-q-si: #C4A0A0;
+  --color-bg: #F5F1E6;
+  --color-surface: #FDFBF5;
+  --color-text: #1C1810;
+  --color-text-muted: #6B6358;
+  --color-accent: #5578A0;
+  --color-accent-2: #7A9B8A;
+  --color-border: #DDD5C4;
+  --color-grid: #CEC6B4;
+  --color-q-ip: #DAE4EF;
+  --color-q-ii: #C8D9EC;
+  --color-q-sp: #D8EEE4;
+  --color-q-si: #EDE4D8;
 
   --font-heading: 'DM Serif Display', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
@@ -873,8 +873,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .cta-btn.primary:hover {
-  background: #b05230;
-  border-color: #b05230;
+  background: #4D6C90;
+  border-color: #4D6C90;
   color: #fff;
 }
 
@@ -1274,7 +1274,7 @@ footer {
 }
 
 .about-email-btn:hover {
-  background: #b05230;
+  background: #4D6C90;
   transform: translateY(-1px);
 }
 
@@ -1446,7 +1446,7 @@ footer {
 }
 
 .more-btn:hover {
-  background: #a84e2e;
+  background: #486688;
   transform: translateX(2px);
 }
 
@@ -1770,7 +1770,7 @@ footer {
   gap: 6px;
 }
 .pp-ctas .cta-btn.primary { background: var(--color-accent); color: #fff; }
-.pp-ctas .cta-btn.primary:hover { background: #a84e2e; }
+.pp-ctas .cta-btn.primary:hover { background: #486688; }
 .pp-ctas .cta-btn.secondary {
   background: transparent;
   color: var(--color-text);
