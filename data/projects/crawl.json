@@ -1,0 +1,153 @@
+{
+  "id": "crawl",
+  "title": "Crawl",
+  "year": 2024,
+  "month": 11,
+  "tagline": "Crawl through Harvard Yard for free speech in a 20-foot shirt",
+  "description": "Performance art for the Harvard Community",
+  "what": [
+    {
+      "type": "text",
+      "content": "Harvard came in last place out of 258 universities in the 2024 free speech rankings. Over half the students self-censor on campus. To ensure everyone knows how to follow the guidelines, Roy handwrote the entire Campus Use Rules on a shirt and crawled through Harvard Yard to make it easier for the community to read these Rules.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/crawl/img1.jpg"
+    },
+    {
+      "type": "text",
+      "content": "**Piece 1: Hand Writing the Harvard Campus Use Rules**\n\nLocation: Cambridge, MA\n\nOccurred: November 14, 2024, 8pm - 11:30pm\n\nI hand-wrote the 2,121-word Harvard Campus Use Rules on a twenty-foot long hand-made shirt.",
+      "align": "left"
+    },
+    {
+      "type": "embed",
+      "src": "https://www.twitch.tv/videos/2302682610",
+      "title": "Live Stream Handwriting",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Piece 2: Harvard Campus Use Rules Feedback**\n\nLocation: Online\n\nOccurred: December 4, 2024, 12:04pm\n\nI submitted the following feedback on the Rules:\n\n*Typo 1: In section \"Open flames\" there is a space missing between \"policies\" and \"and\": \"...Health and Safety guidance and fire and safety policiesand may be… \"\n\nTypo 2: In section \"Definitions\" the word \"intefere\" is misspelled.\n\nSuggestion: These rules are written with such care to ensure the community may feel safe while existing on campus. How might we rewrite them with equal concern for how to help our community feel safe expressing themselves on campus?*",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/crawl/img5.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Piece 3: The Crawl**\n\nLocation: Harvard Yard\n\nOccured: November 16, 2024",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/crawl/img6.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Gallery Exhibition**\n\nArtifacts including the shirt and recording of The Crawl were displayed in the Sackler Gallery, 485 Broadway, Cambridge. \n\nDecember, 2024.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/crawl/img4.jpg",
+      "align": "right"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "The Rules prohibit people from showing exhibits/displays, including “self-mounted displays” without the advance approval of “the relevant Local Contact”, so this artwork had to be performed without a display: hence I wrote the Rules on a piece of clothing. The shirt’s length was required to be twenty feet long in order to accommodate the 2,121 word text of the Rules.\n\nDuring the performance, I crawled from the John Harvard statue into the main yard, and up the Widener Library steps, the library that suspended university faculty and students for their “study-ins” protesting Harvard’s involvement with Palestine in 2024. This piece is inspired by, and in homage to, the crawling body of work by Pope.L.\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/crawl/img2.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "It’s easy to dissociate during a performance. All the planning has been done, everything is set in motion, what’s going to happen is going to happen. All you have to do is execute. So crawl.\n\nThis was a simple act: disseminating the university’s own words to its own community. But with every hand-step and knee-step of this crawl, I embodied the fear embedded in the words written across my back: the fear felt by the institution that wrote them, in order to try and support the safe flourishing of a very diverse community, and fear felt by the students who felt disempowered by these guidelines. I felt my own deep fear that I would be punished, penalized, or expelled for doing this. By the time I reached the top step of Widener, I was crying under the weight of it.\n\nBut where did all that fear come from? How did the Rules get over 2,000 words long? Why did no one else feel safe enough to crawl with me?\n\nHandwriting the Rules onto the shirt gave some clues. I found typos and duplications, which was expected in a living document that has been updated and added to after every recent major protest. But most surprising was that it seemed like the authors genuinely were trying to support the community with as much clarity as they could muster about what was not allowed. There were dozens of links out to other resources just to make it convenient for the reader to stay compliant. They also include two requests for feedback. The Rules did not seem intentionally cumbersome and long-winded – rather, they seemed to be written by an exasperated parent unsure of how to guide their family towards unity.\n\nWriting out the Rules filled me with compassion for the difficult exercise of nurturing a diverse community. Harvard has to simultaneously make the campus feel safe to exist in for all of its members, and it must make the campus feel safe for them to express themselves. These values are sometimes at odds. The Rules are the outcome. My intention with the piece was simply to hold a mirror up to this outcome and say, I don’t think we’re nailing it. There must be a better way. How do we come together as a community to engage compassionately with our differences, instead of relying on fear to keep them in check? How do we nurture our diverse community from within, instead of legislating it into silence from above?\n"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/crawl/img16.jpg"
+    },
+    {
+      "type": "text",
+      "content": "Performer, writer, artist: Wyatt Roy\n\nFilm credit and collaborators: Tania Bruguera, Danny Clarke, Kenneth Bailey, Brennis Carrillo, Julia Mattis, Lina, Hasna Sal, Julia Szejnblum, Gui Becker, Maggie Wong, Leigh, Alexander Augustus, Andre Zollinger, Ieva Lygnugaryte, Mark, Elija, Olivia, Paulo, Jesus Morales"
+    }
+  ],
+  "medium": "Narrative",
+  "tags": [
+    "performance art",
+    "activism",
+    "art",
+    "theatre",
+    "free speech"
+  ],
+  "axes": {
+    "pragmatic": 0.12,
+    "institutional": 1
+  },
+  "thumbnail": "assets/projects/crawl/thumb.jpg",
+  "hero": "assets/projects/crawl/thumb-sm.jpg",
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/design/crawl",
+  "images": [
+    "assets/projects/crawl/img1.jpg",
+    "assets/projects/crawl/img2.jpg",
+    "assets/projects/crawl/img4.jpg",
+    "assets/projects/crawl/img5.jpg",
+    "assets/projects/crawl/img6.jpg",
+    "assets/projects/crawl/img10.jpg",
+    "assets/projects/crawl/img16.jpg",
+    "assets/projects/crawl/thumb-sm.jpg"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=UHrHAV20xh0",
+      "heroOverride": true
+    },
+    {
+      "url": "https://www.twitch.tv/videos/2302682610",
+      "heroOverride": false
+    }
+  ],
+  "awards": [],
+  "scraped_raw_text": [
+    "Harvard Crawl",
+    "Performance art for the Harvard Community",
+    "Harvard came in last place out of 258 universities in the 2024 free speech rankings. Over half the students self-censor on campus. To ensure everyone knows how to follow the guidelines, Roy handwrote the entire Campus Use Rules on a shirt and crawled through Harvard Yard to make it easier for the community to read these Rules.",
+    "The Rules prohibit people from showing exhibits/displays, including “self-mounted displays” without the advance approval of “the relevant Local Contact”, so this artwork had to be performed without a display: hence I wrote the Rules on a piece of clothing. The shirt’s length was required to be twenty feet long in order to accommodate the 2,121 word text of the Rules.",
+    "During the performance, I crawled from the John Harvard statue into the main yard, and up the Widener Library steps, the library that suspended university faculty and students for their “study-ins” protesting Harvard’s involvement with Palestine in 2024. This piece is inspired by, and in homage to, the crawling body of work by Pope.L.",
+    "Hand Writing the Harvard Campus Use Rules",
+    "Location: Cambridge, MA",
+    "Occurred: November 14, 2024, 8pm - 11:30pm",
+    "I hand-wrote the 2,121-word Harvard Campus Use Rules on a twenty-foot long hand-made shirt.",
+    "Harvard Campus Use Rules Feedback",
+    "Location: Online",
+    "Occurred: December 4, 2024, 12:04pm",
+    "I submitted the following feedback on the Rules:",
+    "Typo 1: In section \"Open flames\" there is a space missing between \"policies\" and \"and\": \"...Health and Safety guidance and fire and safety policiesand may be… \"",
+    "Typo 2: In section \"Definitions\" the word \"intefere\" is misspelled.",
+    "Suggestion: These rules are written with such care to ensure the community may feel safe while existing on campus. How might we rewrite them with equal concern for how to help our community feel safe expressing themselves on campus?",
+    "Gallery Exhibition",
+    "Artifacts including the shirt and recording of The Crawl were displayed in the Sackler Gallery, 485 Broadway, Cambridge. December, 2024.",
+    "Reflection",
+    "It’s easy to dissociate during a performance. All the planning has been done, everything is set in motion, what’s going to happen is going to happen. All you have to do is execute. So crawl.",
+    "This was a simple act: disseminating the university’s own words to its own community. But with every hand-step and knee-step of this crawl, I embodied the fear embedded in the words written across my back: the fear felt by the institution that wrote them, in order to try and support the safe flourishing of a very diverse community, and fear felt by the students who felt disempowered by these guidelines. I felt my own deep fear that I would be punished, penalized, or expelled for doing this. By the time I reached the top step of Widener, I was crying under the weight of it.",
+    "But where did all that fear come from? How did the Rules get over 2,000 words long? Why did no one else feel safe enough to crawl with me?",
+    "Handwriting the Rules onto the shirt gave some clues. I found typos and duplications, which was expected in a living document that has been updated and added to after every recent major protest. But most surprising was that it seemed like the authors genuinely were trying to support the community with as much clarity as they could muster about what was not allowed. There were dozens of links out to other resources just to make it convenient for the reader to stay compliant. They also include two requests for feedback. The Rules did not seem intentionally cumbersome and long-winded – rather, they seemed to be written by an exasperated parent unsure of how to guide their family towards unity.",
+    "Writing out the Rules filled me with compassion for the difficult exercise of nurturing a diverse community. Harvard has to simultaneously make the campus feel safe to exist in for all of its members, and it must make the campus feel safe for them to express themselves. These values are sometimes at odds. The Rules are the outcome. My intention with the piece was simply to hold a mirror up to this outcome and say, I don’t think we’re nailing it. There must be a better way. How do we come together as a community to engage compassionately with our differences, instead of relying on fear to keep them in check – nurturing our diverse community from within, instead of legislating our community into silence from above?",
+    "CREATIVE TEAM",
+    "Performer, writer, artist:",
+    "Film credit and collaborators:",
+    "Tania Bruguera, Danny Clarke, Kenneth Bailey, Brennis Carrillo, Julia Mattis, Lina, Hasna Sal, Julia Szejnblum, Gui Becker, Maggie Wong, Leigh, Alexander Augustus, Andre Zollinger, Ieva Lygnugaryte, Mark, Elija, Olivia, Paulo, Jesus Morales"
+  ],
+  "scraped_url": "https://www.wyattroy.com/design/crawl"
+}

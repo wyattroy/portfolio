@@ -1,0 +1,141 @@
+{
+  "id": "bufferzone",
+  "title": "Bufferzone",
+  "year": 2016,
+  "month": 2,
+  "tagline": "Documentary about women, solar power, and wildlife at the ede of a Nepali jungle, where humans and wildlife share a border",
+  "description": "At the edge of a Nepali jungle, ordinary people live amongst wild animals.",
+  "what": [
+    {
+      "type": "text",
+      "content": "A documentary about the buffer zone at the edge of Chitwan National Park, Nepal — where ordinary people live alongside wild animals, the army protects rhinos from illegal poaching, and women move out of poverty by selling solar light.\n\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/thumb-sm.jpg"
+    },
+    {
+      "type": "text",
+      "content": "Created for two American solar power nonprofits: Empowered By Light and Empower Generation, who supported a host of electrification projects for communities across the bufferzone.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_1301.JPG"
+    },
+    {
+      "type": "text",
+      "content": "The nonprofits worked with local Nepali organizations to fund projects that were important to their community - the first was installing solar panels on a ecotourism treehouse at the edge of the park so tourists could watch rhinos in comfort and safety.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/SCSE6734.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "We all stayed together in the treehouses during installation. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/NOEG3082.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "The second was teaching local women to sell small solar lamps door-to-door. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/CDGI6401.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "These lamps were helpful for children so that they could study from home even when the power grid went down. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_1474.JPG",
+      "align": "right"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "My brief was to make a three-minute mini-documentary. Two trips, four weeks of shooting, and hundreds of hours of footage later, I realized that this many perspectives required more time.\n\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_1429.JPG"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_1433.JPG"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_1952.JPG"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Director, Editor: Wyatt Roy \n\nProducer: Alyssa Newman \n\nPre-production: Arthur Scott, Ashley Gremmel\n\nCinematographers: Wyatt Roy, Briene Lermitte, Jack Wachtel\n\nLine Producer: Trishagni Sakya\n\nAerial: Justin Cox\n\nStarring: Ashley Gremmel, Abhinaya Pathak, Bashu Dhungana, Sita Adhikari, Laxmi Neupana, Tulsi, Runa, and the communities of Chitwan and Kathmandu.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_5188.JPG"
+    }
+  ],
+  "medium": "Film",
+  "tags": [],
+  "axes": {
+    "pragmatic": 0.25,
+    "institutional": 0.38
+  },
+  "thumbnail": "assets/projects/bufferzone/thumb.jpg",
+  "hero": "assets/projects/bufferzone/thumb-sm.jpg",
+  "liveUrl": null,
+  "sourceUrl": "https://vimeo.com/205989860",
+  "images": [
+    "assets/projects/bufferzone/IMG_1433.JPG",
+    "assets/projects/bufferzone/IMG_1520.JPG",
+    "assets/projects/bufferzone/NOEG3082.JPG",
+    "assets/projects/bufferzone/CDGI6401.JPG",
+    "assets/projects/bufferzone/IMG_1394.JPG",
+    "assets/projects/bufferzone/IMG_1322.JPG",
+    "assets/projects/bufferzone/IMG_1429.JPG",
+    "assets/projects/bufferzone/IYAG5080.JPG",
+    "assets/projects/bufferzone/IMG_1435.JPG",
+    "assets/projects/bufferzone/IMG_1526.JPG",
+    "assets/projects/bufferzone/IMG_5188.JPG",
+    "assets/projects/bufferzone/ORXL8135.JPG",
+    "assets/projects/bufferzone/IMG_1445.JPG",
+    "assets/projects/bufferzone/IMG_1474.JPG",
+    "assets/projects/bufferzone/IMG_1952.JPG",
+    "assets/projects/bufferzone/IMG_1301.JPG",
+    "assets/projects/bufferzone/SCSE6734.JPG",
+    "assets/projects/bufferzone/thumb-sm.jpg"
+  ],
+  "videos": [
+    "https://vimeo.com/205989860"
+  ],
+  "awards": [],
+  "scraped_raw_text": [
+    "Bufferzone",
+    "Documentary",
+    "At the edge of a Nepali jungle, ordinary people live amongst wild animals.",
+    "The army protects rhinos from illegal poaching.",
+    "Women move out of the shadows by selling light.",
+    "My brief was to make a three minute mini-documentary. Two trips, four weeks of shooting and hundreds of hours of footage later, I realized that this many perspectives required more time."
+  ],
+  "scraped_url": "https://www.wyattroy.com/video/bufferzone"
+}

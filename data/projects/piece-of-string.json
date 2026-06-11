@@ -1,0 +1,52 @@
+{
+  "id": "piece-of-string",
+  "title": "Piece of String",
+  "year": 2021,
+  "month": 9,
+  "tagline": "VR photogrammetry piece \u2014 follow a string through a real home and the memories left behind",
+  "description": "An Architectural dreamscape rendered at home",
+  "what": "An Architectural dreamscape rendered at home\n\nFollow a piece of string through this real home, and explore the emotions and memories that people leave behind in the spaces they inhabit.\n\nThis work questions the way a space can affect you when you're not in it, or when it's gone. When the only record of it is a digital representation that you can step into only through a VR headset, or on a computer screen. Does it evoke the same emotions? What does it mean if the answer is yes?\n\nPhotogrammetry scans captured on DSLR and processed in Reality Capture\n\nMeshes cleaned in VR in Oculus Medium\n\nModels decimated and compiled in Blender",
+  "why": "Built in Unity\n\nPlay the experience\n\nRECOGNITION\n\nNEWVIEW International VR Award\n\nTUTORIALS",
+  "categories": [
+    "XR",
+    "Art"
+  ],
+  "axes": {
+    "pragmatic": 0.1,
+    "institutional": 0.12
+  },
+  "thumbnail": "assets/projects/piece-of-string/thumb.jpg",
+  "images": [
+    "assets/projects/piece-of-string/img1.jpg",
+    "assets/projects/piece-of-string/img2.jpg",
+    "assets/projects/piece-of-string/img3.jpg",
+    "assets/projects/piece-of-string/img4.jpg"
+  ],
+  "videos": [
+    "https://www.youtube.com/watch?v=23MrooAnZnw",
+    "https://www.youtube.com/watch?v=2QDeK5TuUCk",
+    "https://www.youtube.com/watch?v=CSxPDyEeEpI",
+    "https://www.youtube.com/watch?v=4XdjYU6LM-c",
+    "https://www.youtube.com/watch?v=oglCYukp77E",
+    "https://www.youtube.com/watch?v=XUi42iU19rw"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/xr/piece-of-string",
+  "awards": [],
+  "scraped_raw_text": [
+    "Piece of String",
+    "An Architectural dreamscape rendered at home",
+    "Follow a piece of string through this real home, and explore the emotions and memories that people leave behind in the spaces they inhabit.",
+    "This work questions the way a space can affect you when you're not in it, or when it's gone. When the only record of it is a digital representation that you can step into only through a VR headset, or on a computer screen. Does it evoke the same emotions? What does it mean if the answer is yes?",
+    "Photogrammetry scans captured on DSLR and processed in Reality Capture",
+    "Meshes cleaned in VR in Oculus Medium",
+    "Models decimated and compiled in Blender",
+    "Built in Unity",
+    "Play the experience",
+    "RECOGNITION",
+    "NEWVIEW International VR Award",
+    "TUTORIALS"
+  ],
+  "scraped_url": "https://www.wyattroy.com/xr/piece-of-string",
+  "medium": "VR"
+}

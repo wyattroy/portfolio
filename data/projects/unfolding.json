@@ -1,0 +1,72 @@
+{
+  "id": "unfolding",
+  "title": "Unfolding",
+  "year": 2025,
+  "month": 5,
+  "tagline": "VR cinematic experiment to develop narrative conventions",
+  "description": "A short film in 180-3D virtual reality.",
+  "what": "A short film in 180-3D virtual reality.\n\nPut on a headset and step inside the film. Sit next to the characters and share their space.\n\nUnfolding is a new kind of film.\n\nIt is a spatial narrative experienced in virtual reality, capturing the final moments of an intimate relationship unraveling. Set inside a meticulously scanned apartment, the story follows two women as they navigate the tender, painful terrain of letting go. One craves connection and clarity, yearning for love\u2014even if it means moving on. The other, paralyzed by fear of change and loss, clings to the comfort of what was. As they confront the emotional residue of an attempted open relationship, tensions surface through subtle gestures and fragmented conversations. The home\u2014once a shared space\u2014becomes a quiet witness to their parting. Crushed origami scattered across the floor echoes a failed attempt at reconciliation, a symbol of words unspoken and love unrevealed. Through embodied presence, spatial sound, and atmospheric storytelling, Unfolding immerses the viewer in a breakup that is neither bitter nor dramatic, but intimate, complex, and deeply human.\n\nYou're not watching the characters, you're with them. As they brush their teeth, water their plants, and dismantle their relationship, you sit with them in their home. As you never can, even with your closest friends.\n\nWritten, produced, directed, shot and edited by Wyatt Roy. Featuring Nia Weeks and Claire Liu. With thanks to Tala Hadid, Madison Howard, Julia Mattis, Luis Zanforlin, CS50, and Cathy Zoi\n\nWhat does 180-3D VR mean?\n\nVirtual reality storytelling can mean many different things: interactive branching narratives, games that the audience participates in, linear 360-degree documentaries.\n\nI've written about the challenges with giving audiences too many affordances here, and created a taxonomy for different storytelling mediums here.\n\nIn a word, VR storytelling is unsolved. But many major creators including Apple and Meta are aligning on 180-3D as the most promising direction.\n\nIn 180-3D:\n\nYou can look around. 180 means you can look anywhere in front of you, but aren't distracted by what is behind you.\n\nYou can see clearly. The resolution is higher because pixels aren't wasted showing what is irrelevant and behind them. And filmed are shot on actual cameras, so the fidelity is lifelike, unlike anything generated in a computer game.\n\nYou see normally. 3D means that each of your eyes sees a slightly different view -- just like you would in real life. The effect is not like seeing a 3D movie, where things pop out at you. It's subtler in a headset: you just feel like you're with them.",
+  "why": "You are directed. The 3D effect is most comfortable when you look directly ahead, +/- 45 degrees - which means that the director still controls your perspective, even though the conventional \"frame\" of cinema fades insvisibly at your periphery.\n\nYour story is linear. There are no branching narratives, no choices to make. Just like conventional cinema, you simply dissolve into the narrative.\n\nYou don't interact. Because the story is linear, you can try to pick up objects or talk to characters, but nothing will happen. Just like conventional stories that have been told around campfires for millennia, your only role is to observe.\n\nHow to Watch Unfolding\n\nUnfolding will soon be viewable in any VR headset, pending its release. It is currently touring the international film festivals, so is not available to view publicly.\n\nProduction\n\nThe process for creating a VR film is similar to a conventional flat film. The primary differences are the gear used to capture the footage for two eyes simultaneously, and then the post-production workflow to interpret, align, and handle that footage.\n\nScreenwriting\n\nCasting\n\nPre-production\n\nProduction - the camera (pictured below) is a ZCam K1 with no screen or battery (external power pack hanging behind) and it must be offset from the tripod so the tripod's legs don't appear in the 180-degree shot\n\nEdit - an extra series of steps combines fish-eye footage from both lenses into one equirectangular prores video file that can be edited in Premiere\n\nDistribution - though you can upload 180 videos to youtube and other online players, the effect is completely different when viewing these films on a flat screen versus in a headset.\n\nThe simplest, smallest audiovisual setup for the K1.",
+  "categories": [
+    "XR"
+  ],
+  "axes": {
+    "pragmatic": 0.15,
+    "institutional": 0.35
+  },
+  "thumbnail": "assets/projects/unfolding/thumb.jpg",
+  "images": [
+    "assets/projects/unfolding/img1.jpg",
+    "assets/projects/unfolding/img2.jpg",
+    "assets/projects/unfolding/img3.jpg",
+    "assets/projects/unfolding/img4.jpg",
+    "assets/projects/unfolding/img5.jpg",
+    "assets/projects/unfolding/img6.jpg",
+    "assets/projects/unfolding/img8.jpg",
+    "assets/projects/unfolding/img10.jpg"
+  ],
+  "videos": [
+    "https://www.youtube.com/watch?v=wtlhi_1HNiQ"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/xr/unfolding",
+  "awards": [
+    "CineTejo Official Selection 2025",
+    "MIX Brasil 2025",
+    "Barcelona Planet Film Festival \u2014 Best VR 2025",
+    "Miami Art Tech Summit Official Selection 2025"
+  ],
+  "scraped_raw_text": [
+    "Unfolding",
+    "A short film in 180-3D virtual reality.",
+    "Put on a headset and step inside the film. Sit next to the characters and share their space.",
+    "Unfolding is a new kind of film.",
+    "It is a spatial narrative experienced in virtual reality, capturing the final moments of an intimate relationship unraveling. Set inside a meticulously scanned apartment, the story follows two women as they navigate the tender, painful terrain of letting go. One craves connection and clarity, yearning for love\u2014even if it means moving on. The other, paralyzed by fear of change and loss, clings to the comfort of what was. As they confront the emotional residue of an attempted open relationship, tensions surface through subtle gestures and fragmented conversations. The home\u2014once a shared space\u2014becomes a quiet witness to their parting. Crushed origami scattered across the floor echoes a failed attempt at reconciliation, a symbol of words unspoken and love unrevealed. Through embodied presence, spatial sound, and atmospheric storytelling, Unfolding immerses the viewer in a breakup that is neither bitter nor dramatic, but intimate, complex, and deeply human.",
+    "You're not watching the characters, you're with them. As they brush their teeth, water their plants, and dismantle their relationship, you sit with them in their home. As you never can, even with your closest friends.",
+    "Written, produced, directed, shot and edited by Wyatt Roy. Featuring Nia Weeks and Claire Liu. With thanks to Tala Hadid, Madison Howard, Julia Mattis, Luis Zanforlin, CS50, and Cathy Zoi",
+    "What does 180-3D VR mean?",
+    "Virtual reality storytelling can mean many different things: interactive branching narratives, games that the audience participates in, linear 360-degree documentaries.",
+    "I've written about the challenges with giving audiences too many affordances here, and created a taxonomy for different storytelling mediums here.",
+    "In a word, VR storytelling is unsolved. But many major creators including Apple and Meta are aligning on 180-3D as the most promising direction.",
+    "In 180-3D:",
+    "You can look around. 180 means you can look anywhere in front of you, but aren't distracted by what is behind you.",
+    "You can see clearly. The resolution is higher because pixels aren't wasted showing what is irrelevant and behind them. And filmed are shot on actual cameras, so the fidelity is lifelike, unlike anything generated in a computer game.",
+    "You see normally. 3D means that each of your eyes sees a slightly different view -- just like you would in real life. The effect is not like seeing a 3D movie, where things pop out at you. It's subtler in a headset: you just feel like you're with them.",
+    "You are directed. The 3D effect is most comfortable when you look directly ahead, +/- 45 degrees - which means that the director still controls your perspective, even though the conventional \"frame\" of cinema fades insvisibly at your periphery.",
+    "Your story is linear. There are no branching narratives, no choices to make. Just like conventional cinema, you simply dissolve into the narrative.",
+    "You don't interact. Because the story is linear, you can try to pick up objects or talk to characters, but nothing will happen. Just like conventional stories that have been told around campfires for millennia, your only role is to observe.",
+    "How to Watch Unfolding",
+    "Unfolding will soon be viewable in any VR headset, pending its release. It is currently touring the international film festivals, so is not available to view publicly.",
+    "Production",
+    "The process for creating a VR film is similar to a conventional flat film. The primary differences are the gear used to capture the footage for two eyes simultaneously, and then the post-production workflow to interpret, align, and handle that footage.",
+    "Screenwriting",
+    "Casting",
+    "Pre-production",
+    "Production - the camera (pictured below) is a ZCam K1 with no screen or battery (external power pack hanging behind) and it must be offset from the tripod so the tripod's legs don't appear in the 180-degree shot",
+    "Edit - an extra series of steps combines fish-eye footage from both lenses into one equirectangular prores video file that can be edited in Premiere",
+    "Distribution - though you can upload 180 videos to youtube and other online players, the effect is completely different when viewing these films on a flat screen versus in a headset.",
+    "The simplest, smallest audiovisual setup for the K1."
+  ],
+  "scraped_url": "https://www.wyattroy.com/xr/unfolding",
+  "medium": "VR"
+}

@@ -1,0 +1,133 @@
+{
+  "id": "cinnabot",
+  "title": "CinnaBot",
+  "year": 2025,
+  "month": 4,
+  "tagline": "Robot that draws cinnamon patterns on cakes",
+  "description": "A drawing robot with a polar gantry system that uses a vibrating end effector to deposit cinnamon in precise circles on cakes and coffee.",
+  "what": [
+    {
+      "type": "text",
+      "content": "Cinnabot is a polar-coordinate drawing robot designed to deposit cinnamon onto the surface of a cake in precise, programmatically controlled patterns. Unlike conventional cartesian gantry systems, it operates on R and Theta axes — radius and rotation — making it naturally suited to round surfaces. ",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/IMG_2381-2.jpg"
+    },
+    {
+      "type": "text",
+      "content": "The machine consists of three integrated systems: a rotating acrylic platform riding on roller bearings and driven by a gear train, a custom-designed end effector that releases cinnamon only when a vibration motor activates, and a microcontroller managing the stepper motors and limit-switch homing sequence. The result is a machine capable of drawing clean, repeatable circles on a cake (or latte).",
+      "align": "none"
+    },
+    {
+      "type": "embed",
+      "src": "https://youtube.com/shorts/5Z-XmH3V_fc?feature=share",
+      "title": "Cinnabot Demo"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "The team was immediately on board with this completely unhinged idea beacuse no one knew how to use food as a medium, The concept came from my partner, who is a pastry chef — I wanted to build something that spoke to her world and could draw with cinnamon on her cakes. She also promised to bake us a demo cake if we pulled it off.\n\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/IMG_2397.jpg"
+    },
+    {
+      "type": "text",
+      "content": "Choosing polar coordinates was both a practical and philosophical decision: they are the native geometry of circular surfaces, and committing to them meant designing every system — mechanical, electrical, and computational — from scratch, without the scaffolding of existing lab equipment. That constraint turned out to be generative. It forced our team to prototype more aggressively, make stranger decisions, and ultimately produce something that felt genuinely original rather than a variation on familiar forms.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/schema.jpeg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "I designed the gantry through five major iterations, moving from cardstock mockups to laser-cut wood to a final acrylic platform stabilized by roller bearings I sourced and bracketed myself. The platform meshes with a stepper motor via a 21-to-119 tooth gear ratio, giving smooth rotational control. \n\nTeam: Ian Palk, Marcus, and Calvin.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/protogantry1.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/protogantry2.jpg",
+      "align": "right"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/protogantry3.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/gantryfinalishinf.gif"
+    },
+    {
+      "type": "text",
+      "content": "A lead-screw stepper handles radial movement, carrying the end effector — for which we iterated through dozens of prints to find the precise cone geometry and vibration motor placement that produces a clean cinnamon line without spillage. Power isolation for the vibration motor, solved through a LiPo battery and transistor-switched circuit with common ground, was one of the final breakthroughs before the machine drew its first successful circles at 4:36 AM.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/ee_evolution.jpg",
+      "align": "right"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cinnabot/ee_final.png",
+      "align": "right"
+    }
+  ],
+  "medium": "Fabrication",
+  "tags": [
+    "robotics",
+    "polar coordinates",
+    "stepper motor",
+    "fabrication",
+    "PS70",
+    "xiao",
+    "arduino",
+    "food"
+  ],
+  "axes": {
+    "pragmatic": 0.62,
+    "institutional": 0.12
+  },
+  "thumbnail": "assets/projects/cinnabot/gantryfinalishinf.gif",
+  "hero": "assets/projects/cinnabot/IMG_3370-2.jpg",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "images": [
+    "assets/projects/cinnabot/banner.jpg",
+    "assets/projects/cinnabot/ee_evolution.jpg",
+    "assets/projects/cinnabot/ee_final.png",
+    "assets/projects/cinnabot/schema.jpeg",
+    "assets/projects/cinnabot/working1.jpg",
+    "assets/projects/cinnabot/protogantry3.jpeg",
+    "assets/projects/cinnabot/protogantry2.jpg",
+    "assets/projects/cinnabot/protogantry.jpeg",
+    "assets/projects/cinnabot/protogantry1.jpeg",
+    "assets/projects/cinnabot/gantryfinalishinf.gif",
+    "assets/projects/cinnabot/IMG_2381-2.jpg",
+    "assets/projects/cinnabot/IMG_2397.jpg",
+    "assets/projects/cinnabot/IMG_3370-2.jpg"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=mFyxSnjmy2I",
+      "heroOverride": false
+    }
+  ],
+  "awards": [
+    "Digital Fabrication Award - Best End Effector 2025"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "hug",
+  "title": "Hug",
+  "year": 2024,
+  "month": 12,
+  "tagline": "Ginkgo leaf digital sculpture \u2014 holding on and letting go",
+  "description": "A digital sculpture about holding on and letting go",
+  "what": "Two people photographed hugging, photogrammetry-scanned into 3D meshes, decimated, and reconstructed in Rhino/Grasshopper with a custom script that tiles ginkgo leaves across every face of the mesh \u2014 each leaf oriented to the face normal and scripted to blow away in simulated wind. Multi-material resin print. Three earlier iterations were abandoned (subtracting one body to reveal an invisible hugger; stretching the legs to suggest precariousness; 3D printing the mesh wireframe) before the leaf system emerged as the form that could actually carry the emotion.",
+  "why": "A hug is one of the most human things there is, and also one of the most impossible to hold onto. The ginkgo leaf \u2014 which drops all at once, suddenly, after holding on all season \u2014 became the formal language for this paradox: we try to keep what we love, but the trying is both foolish and impossible. Seeing beauty in temporariness is a clearer, kinder path.",
+  "categories": [
+    "Art",
+    "Fabrication"
+  ],
+  "axes": {
+    "pragmatic": 0.05,
+    "institutional": 0.08
+  },
+  "thumbnail": "assets/projects/hug/thumb.jpg",
+  "images": [
+    "assets/projects/hug/img1.jpg",
+    "assets/projects/hug/img2.jpg",
+    "assets/projects/hug/img3.jpg",
+    "assets/projects/hug/img4.jpg",
+    "assets/projects/hug/img5.jpg",
+    "assets/projects/hug/img6.jpg",
+    "assets/projects/hug/img8.jpg",
+    "assets/projects/hug/img10.jpg",
+    "assets/projects/hug/img12.jpg",
+    "assets/projects/hug/img14.jpg",
+    "assets/projects/hug/img16.jpg",
+    "assets/projects/hug/img18.jpg",
+    "assets/projects/hug/img22.jpg"
+  ],
+  "videos": [
+    "https://www.youtube.com/watch?v=2uZDsgMP-xM"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/design/the-hug",
+  "awards": [],
+  "scraped_raw_text": [
+    "The Hug",
+    "A digital sculpture about holding on and letting go",
+    "INTENTION",
+    "There are at least two ways to interpret this scultpure:",
+    "1) The gingko leaf form represents your partner: they are wild, and you must love them by letting them be free. We cannot (and must not) try to control our partners, and instead celebrate their agency and independence and difference from us.",
+    "2) The gingko leaf form represents time: specifically, this moment. We can hug it, cherish it, adore it, and yet it will still slip away. So let go of beautiful things and to be curious about what may grow in their place.",
+    "In both cases: we try and hold onto things that we love. But that's both foolish and impossible. Seeing the beauty in their temporariness is a clearer, kinder, truer path.",
+    "PROCESS",
+    "We started by taking hundreds of photographs of two people hugging. The models had to hold their poses completely still because any movement would make them look deformed when turned into a 3D model.",
+    "For this piece we needed to scan both people separately, so we carefully set up tripods to support our limbs while the other person climbed out of the embrace. One less technical side note: it was important to work with two people who actually wanted to be hugging. If the pure human emotion isn\u2019t present in the source, no amount of digital wizardry can put it there.",
+    "Resolution difference between capturing video versus still images. Video is on the left.",
+    "On the technical end, we also switched to capturing video, instead of photos, so that the hugger could be captured quicker and their inevitable movement would be less problematic. Video has less detail in it than photos, but the trade off between resolution and movement made the final 3D model more accurate despite using a lower quality data set. We uploaded the videos to Polycam, and when the mesh was ready we decimated it so that it had fewer triangles and would be easier to work with in Rhino.",
+    "We manually cleaned the meshes in Blender to remove the tripods and close the holes, as well as align the models because they had shifted slightly during capture. Then we exported low-poly versions and brought them into Rhino and Grasshopper.",
+    "ITERATIONS",
+    "For our first experiment, we subtracted one hugger\u2019s body from the other\u2019s, so that you could see the imprint that a hug leaves on them. The invisible hugger. This ended up looking like not much, and was a ton of work, and totally failed to convey the emotion we wanted.",
+    "For our second experiment, we stretched the models\u2019 legs so that they would look delicate and precarious in their hug, by translating each vertex in the mesh downwards exponentially according to its distance from a parametrically set midpoint threshold. That\u2019s a lot of words that just mean, you get to choose where to start stretching them. This didn\u2019t convey the emotion either.",
+    "For our third experiment, we 3D printed the mesh. We wrote our own 3D printing tool path in grasshopper to control the look and feel of the hugger. We experimented with different ways to print the form, including printing just the outlines of the triangles, so the huggers would be see-through, and printing the huggers as melting. This certainly evoked something, but not really an emotion.",
+    "For our final experiment we deconstructed the mesh to get a list of each face on it, as well as its normal. The normal is basically which direction the face is facing. We drew a nurbs curve based on a gingko leaf we found under a tree, and deformed it to match the curve of our real leaf.",
+    "Then we made a copy of the leaf for every face on the model\u2019s mesh, and translated its position to the mesh. This ended up crashing Grasshopper because there were 2000 leaves, so we created a sparseness control so our computer would work while continuing to write code, without having to re-compute 2000 gingko leaves every time. We also randomized the leaf\u2019s Z direction so that it looked more organic.",
+    "Finally we created a script to generate planes for the leaves blowing off the mesh. We take in the original mesh, and use its maximum and minimum values, as well as a wind direction and wind force, to randomly create new leaves flying off of the figure in the right output. We also multiplied the x and y values of the leaves by their own exponent so that we could cluster the leaves around the model, and then we got rid of half the leaves because it just felt right.",
+    "FINAL THOUGHTS",
+    "Ultimately, this was an iterative process. Making anything has ups and downs where you have an idea, build it, wonder if it\u2019s actually doing the thing you want it to, then try something new. We hope you like where we ended up, and have a better sense of how to make something like this yourself.",
+    "CREATIVE TEAM",
+    "Wyatt Roy, Chiun Lee, Yongrui Jin"
+  ],
+  "scraped_url": "https://www.wyattroy.com/design/the-hug",
+  "medium": "Fabrication"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "splatcubes",
+  "title": "SplatCubes",
+  "year": 2025,
+  "month": 5,
+  "tagline": "Gaussian splat \u2192 3D printed physical sculpture via Grasshopper and C#",
+  "description": "A workflow for converting 3D Gaussian Splat captures into physical 3D-printed sculptures.",
+  "what": "A novel computational design pipeline for converting 3D Gaussian Splat captures of reality into printable forms, fabricated on multi-material resin printers. Uses custom Grasshopper scripts in C# to translate the digital representation of a Gaussian Splat into a physical artifact that can be held, viewed from any angle, and appreciated as a form of tangible volumetric memory.",
+  "why": "Gaussian Splatting captures scenes as probabilistic, spatially distributed semi-opaque volumes \u2014 more accurate approximations of physical reality than mesh topology. But splats remain inherently digital. This pipeline physically manifests splats via 3D printing, emphasizing the blurriness and continuity of real-world boundaries that hard mesh edges erase.",
+  "categories": [
+    "Fabrication",
+    "Creative Technology"
+  ],
+  "axes": {
+    "pragmatic": 0.55,
+    "institutional": 0.12
+  },
+  "thumbnail": "assets/projects/splatcubes/thumb.jpg",
+  "images": [
+    "assets/projects/splatcubes/img1.jpg",
+    "assets/projects/splatcubes/img2.jpg",
+    "assets/projects/splatcubes/img3.jpg",
+    "assets/projects/splatcubes/img4.jpg",
+    "assets/projects/splatcubes/img5.jpg",
+    "assets/projects/splatcubes/img6.jpg"
+  ],
+  "videos": [
+    "https://www.youtube.com/watch?v=uxgzOpmmEbI"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://wyattroy.github.io/codeart/",
+  "awards": [],
+  "medium": "Fabrication"
+}

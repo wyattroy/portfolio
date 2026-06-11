@@ -1,0 +1,69 @@
+{
+  "id": "play-me",
+  "title": "Play Me",
+  "year": 2023,
+  "month": 3,
+  "tagline": "Live performance art on Twitch \u2014 the audience controlled my every action for 30 minutes",
+  "description": "If I gave a group of people radical control over my life and actions, would they connect with me more?  Would they empathize?  Or would they treat both me and everyone around me like mere playthings?",
+  "what": "If I gave a group of people radical control over my life and actions, would they connect with me more? Would they empathize? Or would they treat both me and everyone around me like mere playthings?\n\nAnswer:\n\nPlay Me - Alpha.\n\nWHAT\n\nAn experimental interactive story where I live streamed my point of view to an internet audience who decided my every action.\n\nThis project combined improvisational theatre, performance art, and computer gaming to test what would happen if a group of people were given radical control over my life and actions. My hypothesis was that they would they connect and empathize with me more, because they would share both my perspective and responsibility for my actions. However, each player experienced deindividuation within the group (Johnson, 1979) because decisions were collective. My hypothesis was disproved, and they treated both me and everyone around like NPCs, or non-player characters \u2014 to humorous effect.\n\nThe tech stack was built around Twitch, including a helmet-mounted rig with multiple iPhones live-streaming and receiving moderator voice commands. A Twitch Bot solicited audience suggestions for my actions and compiled votes, which the moderator used to direct me every 60 seconds.\n\nRULES\n\nHere\u2019s how it works:\n\nYou are going to play me, as a character, as a game, as a story -- but it\u2019s actually me\n\nYou will see what I see\n\nI will do whatever you say, as long as it doesn\u2019t cause harm. \u201cHarm\u201d is up to my discretion\n\nThe half-hour episode will only be as good as you collectively make it, so make good offers, and make your partner look good\n\nDetails\n\nYou will suggest things for me to do by typing it into the chat in Twitch\n\nMy friend coded a chatbot to help keep everything organized\n\nHe will be the moderator. He will be the only voice I can hear during the episode.\n\nFirst you\u2019ll have a chance to suggest things for me to do. Then, you\u2019ll have a chance to vote for which action I actually do. Finally, he will tell me the winning action, and I\u2019ll do it. Repeat.",
+  "why": "To keep things simple, we will only ask you to vote between three options -- the first one submitted, the last one submitted, and a random option from the middle.\n\nI cannot go outside, I will lose wifi\n\nThe episode will run for half an hour, after which we\u2019ll stop and have a quick debrief.\n\nLara (my partner) is another character in this story, and I can interact with her, but you cannot control her. She will react to anything I do as she normally would.\n\nStory\n\nI am moving away soon, and need to go on one final grocery run to my local corner store.\n\nI am not sure what I need to get, but I know we\u2019re running low on some things.\n\nThere\u2019s a man who sometimes works behind the counter there who I\u2019ve become friends with over the years, but I\u2019ve forgotten his name.\n\nI want to figure out a way to let him know I\u2019m moving away and say bye, but I don\u2019t know if he\u2019ll be there.\n\nHelp me prepare for this outing.\n\nWatch the recording on Twitch\n\nCREATIVE TEAM\n\nCreative Director\n\nActor-Player\n\nLead Developer\n\nGordon Lanza\n\nModerator",
+  "categories": [
+    "Art",
+    "Installation"
+  ],
+  "axes": {
+    "pragmatic": 0.2,
+    "institutional": 0.22
+  },
+  "thumbnail": "assets/projects/play-me/thumb.jpg",
+  "images": [
+    "assets/projects/play-me/img1.jpg"
+  ],
+  "videos": [
+    "https://www.twitch.tv/videos/599702982"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/interactive/play-me",
+  "awards": [],
+  "scraped_raw_text": [
+    "Play Me",
+    "Question:",
+    "If I gave a group of people radical control over my life and actions, would they connect with me more? Would they empathize? Or would they treat both me and everyone around me like mere playthings?",
+    "Answer:",
+    "Play Me - Alpha.",
+    "WHAT",
+    "An experimental interactive story where I live streamed my point of view to an internet audience who decided my every action.",
+    "This project combined improvisational theatre, performance art, and computer gaming to test what would happen if a group of people were given radical control over my life and actions. My hypothesis was that they would they connect and empathize with me more, because they would share both my perspective and responsibility for my actions. However, each player experienced deindividuation within the group (Johnson, 1979) because decisions were collective. My hypothesis was disproved, and they treated both me and everyone around like NPCs, or non-player characters \u2014 to humorous effect.",
+    "The tech stack was built around Twitch, including a helmet-mounted rig with multiple iPhones live-streaming and receiving moderator voice commands. A Twitch Bot solicited audience suggestions for my actions and compiled votes, which the moderator used to direct me every 60 seconds.",
+    "RULES",
+    "Here\u2019s how it works:",
+    "You are going to play me, as a character, as a game, as a story -- but it\u2019s actually me",
+    "You will see what I see",
+    "I will do whatever you say, as long as it doesn\u2019t cause harm. \u201cHarm\u201d is up to my discretion",
+    "The half-hour episode will only be as good as you collectively make it, so make good offers, and make your partner look good",
+    "Details",
+    "You will suggest things for me to do by typing it into the chat in Twitch",
+    "My friend coded a chatbot to help keep everything organized",
+    "He will be the moderator. He will be the only voice I can hear during the episode.",
+    "First you\u2019ll have a chance to suggest things for me to do. Then, you\u2019ll have a chance to vote for which action I actually do. Finally, he will tell me the winning action, and I\u2019ll do it. Repeat.",
+    "To keep things simple, we will only ask you to vote between three options -- the first one submitted, the last one submitted, and a random option from the middle.",
+    "I cannot go outside, I will lose wifi",
+    "The episode will run for half an hour, after which we\u2019ll stop and have a quick debrief.",
+    "Lara (my partner) is another character in this story, and I can interact with her, but you cannot control her. She will react to anything I do as she normally would.",
+    "Story",
+    "I am moving away soon, and need to go on one final grocery run to my local corner store.",
+    "I am not sure what I need to get, but I know we\u2019re running low on some things.",
+    "There\u2019s a man who sometimes works behind the counter there who I\u2019ve become friends with over the years, but I\u2019ve forgotten his name.",
+    "I want to figure out a way to let him know I\u2019m moving away and say bye, but I don\u2019t know if he\u2019ll be there.",
+    "Help me prepare for this outing.",
+    "Watch the recording on Twitch",
+    "CREATIVE TEAM",
+    "Creative Director",
+    "Actor-Player",
+    "Lead Developer",
+    "Gordon Lanza",
+    "Moderator"
+  ],
+  "scraped_url": "https://www.wyattroy.com/interactive/play-me",
+  "medium": "Narrative"
+}

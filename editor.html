@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Editor — Wyatt Roy</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 14px;
+      background: #F0EDE8;
+      color: #2A2520;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      background: #2A2520;
+      color: #F0EDE8;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      flex-shrink: 0;
+    }
+    .topbar h1 { font-size: 14px; font-weight: 500; letter-spacing: 0.05em; }
+    .topbar .sep { opacity: 0.3; }
+    #open-btn {
+      background: #C4603A;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    #open-btn:hover { background: #a84e2f; }
+    #status { font-size: 12px; opacity: 0.6; margin-left: auto; }
+    #save-btn {
+      background: #3A7C5A;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      display: none;
+    }
+    #save-btn:hover { background: #2d6347; }
+    #save-btn.visible { display: block; }
+    #save-indicator { font-size: 12px; color: #3A7C5A; display: none; }
+    #save-indicator.visible { display: block; }
+    #new-project-btn {
+      background: transparent;
+      color: #F0EDE8;
+      border: 1px solid rgba(240, 237, 232, 0.3);
+      border-radius: 4px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      display: none;
+    }
+    #new-project-btn:hover { border-color: rgba(240, 237, 232, 0.7); background: rgba(240, 237, 232, 0.1); }
+    #new-project-btn.visible { display: block; }
+
+    /* ── Layout ── */
+    .main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: 220px;
+      background: #E8E4DF;
+      border-right: 1px solid #D4CFC8;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+    .sidebar-search {
+      padding: 8px;
+      border-bottom: 1px solid #D4CFC8;
+      position: sticky;
+      top: 0;
+      background: #E8E4DF;
+      z-index: 1;
+    }
+    .sidebar-search input {
+      width: 100%;
+      padding: 5px 8px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      background: #fff;
+      font-size: 12px;
+    }
+    .project-item {
+      padding: 8px 12px;
+      cursor: pointer;
+      border-bottom: 1px solid #D4CFC8;
+      transition: background 0.1s;
+    }
+    .project-item:hover { background: #DEDAD4; }
+    .project-item.active { background: #C4603A; color: #fff; }
+    .project-item .item-title { font-weight: 500; font-size: 13px; }
+    .project-item .item-year { font-size: 11px; opacity: 0.6; margin-top: 1px; }
+    .project-item.active .item-year { opacity: 0.75; }
+    .project-item.unsaved .item-title::after {
+      content: ' •';
+      color: #C4603A;
+    }
+    .project-item.active.unsaved .item-title::after {
+      color: #ffb89e;
+    }
+
+    /* ── Editor pane ── */
+    .editor {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #8A8078;
+      gap: 8px;
+    }
+    .empty-state p { font-size: 15px; }
+    .empty-state small { font-size: 13px; }
+
+    /* Form */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 900px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8A8078;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 7px 10px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      background: #fff;
+      font-size: 13px;
+      font-family: inherit;
+      color: #2A2520;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #C4603A;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+      line-height: 1.5;
+    }
+    .form-group textarea.tall { min-height: 140px; }
+
+    .section-heading {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8A8078;
+      margin: 24px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #D4CFC8;
+      max-width: 900px;
+    }
+
+    /* Tags input */
+    .tags-input-wrap {
+      background: #fff;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      padding: 4px 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      min-height: 36px;
+      cursor: text;
+    }
+    .tags-input-wrap:focus-within { border-color: #C4603A; }
+    .tag-pill {
+      background: #E8E4DF;
+      border: 1px solid #C4BEB8;
+      border-radius: 12px;
+      padding: 1px 8px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tag-pill button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 1;
+      color: #8A8078;
+      padding: 0 0 1px;
+    }
+    .tag-pill button:hover { color: #C4603A; }
+    .tags-input-wrap input {
+      border: none !important;
+      outline: none !important;
+      font-size: 12px;
+      min-width: 80px;
+      flex: 1;
+      padding: 2px 4px;
+      background: transparent;
+    }
+
+    /* Axes */
+    .axes-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .axis-control label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8A8078;
+      margin-bottom: 4px;
+    }
+    .axis-control label span { font-weight: 400; }
+    .axis-control input[type=range] {
+      width: 100%;
+      accent-color: #C4603A;
+      border: none;
+      padding: 0;
+    }
+    .axis-labels { display: flex; justify-content: space-between; font-size: 10px; color: #B0A8A0; margin-top: 2px; }
+
+    /* Images */
+    .images-section { max-width: 900px; }
+    .images-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    /* ── Images panel (right) ── */
+    .images-panel {
+      width: 220px;
+      background: #E8E4DF;
+      border-left: 1px solid #D4CFC8;
+      overflow-y: auto;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .images-panel-header {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8A8078;
+      padding: 10px 12px 8px;
+      border-bottom: 1px solid #D4CFC8;
+      background: #E8E4DF;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .images-panel-hint {
+      font-size: 10px;
+      color: #B0A8A0;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      display: block;
+      margin-top: 2px;
+    }
+    .images-panel-empty {
+      color: #B0A8A0;
+      font-size: 12px;
+      padding: 20px 12px;
+      text-align: center;
+    }
+    .images-panel-body {
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .images-panel .images-grid {
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 6px;
+      margin-bottom: 0;
+    }
+    .images-panel .add-image-wrap {
+      flex-direction: column;
+      gap: 5px;
+    }
+    .images-panel .add-image-wrap input {
+      min-width: unset;
+      width: 100%;
+      font-size: 11px;
+    }
+    .images-panel .add-image-wrap button {
+      font-size: 11px;
+      width: 100%;
+    }
+    .image-card {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #E8E4DF;
+      aspect-ratio: 16/10;
+      border: 1px solid #D4CFC8;
+      cursor: grab;
+    }
+    .image-card.dragging { opacity: 0.4; }
+    .image-card.drag-over { border-color: #C4603A; }
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .image-card .img-remove {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 13px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .image-card:hover .img-remove { opacity: 1; }
+    .img-path {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 9px;
+      padding: 2px 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .image-card:hover .img-path { opacity: 1; }
+
+    .add-image-wrap {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .add-image-wrap input {
+      flex: 1;
+      min-width: 200px;
+      padding: 6px 10px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      font-size: 12px;
+      background: #fff;
+    }
+    .add-image-wrap button {
+      padding: 6px 12px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .add-image-wrap button:hover { background: #E8E4DF; }
+
+    /* Pick from assets */
+    #asset-picker-btn {
+      background: #fff;
+      border: 1px dashed #C4BEB8;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      color: #8A8078;
+    }
+    #asset-picker-btn:hover { border-color: #C4603A; color: #C4603A; }
+
+    /* Videos */
+    .video-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .video-row input {
+      flex: 1;
+      padding: 6px 10px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      font-size: 12px;
+      background: #fff;
+    }
+    .video-row button {
+      padding: 5px 8px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+      color: #8A8078;
+    }
+    .video-row button:hover { color: #C4603A; border-color: #C4603A; }
+    .video-hero-label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: #8A8078;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .video-hero-label input[type="checkbox"] {
+      cursor: pointer;
+      accent-color: #C4603A;
+    }
+
+    /* Awards */
+    .award-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .award-row input {
+      flex: 1;
+      padding: 6px 10px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      font-size: 12px;
+      background: #fff;
+    }
+    .award-row button {
+      padding: 5px 8px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+      color: #8A8078;
+    }
+    .add-row-btn {
+      padding: 5px 10px;
+      border: 1px dashed #C4BEB8;
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+      color: #8A8078;
+      margin-top: 4px;
+    }
+    .add-row-btn:hover { border-color: #C4603A; color: #C4603A; }
+
+    /* ── Block editor ── */
+    .block-editor {
+      max-width: 900px;
+      border: 1px solid #D4CFC8;
+      border-radius: 6px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .block-editor-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8A8078;
+      padding: 10px 14px 8px;
+      border-bottom: 1px solid #E8E4DF;
+      background: #F8F5F2;
+    }
+    .block-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .block-drop-zone {
+      height: 6px;
+      background: transparent;
+      transition: height 0.15s, background 0.15s;
+      flex-shrink: 0;
+    }
+    .block-drop-zone.drag-over {
+      height: 28px;
+      background: rgba(196, 96, 58, 0.12);
+      border: 1px dashed #C4603A;
+      border-radius: 3px;
+      margin: 2px 8px;
+    }
+    .block-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 6px 10px;
+      border-bottom: 1px solid #F0EDE8;
+    }
+    .block-item:last-child { border-bottom: none; }
+    .block-item-handle {
+      color: #C4BEB8;
+      cursor: grab;
+      font-size: 14px;
+      padding: 6px 2px;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .block-item-handle:active { cursor: grabbing; }
+    .block-item-body { flex: 1; min-width: 0; }
+    .block-item-body textarea {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #D4CFC8;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: inherit;
+      line-height: 1.5;
+      resize: vertical;
+      min-height: 72px;
+      background: #FAFAF8;
+    }
+    .block-item-body textarea:focus {
+      outline: none;
+      border-color: #C4603A;
+      background: #fff;
+    }
+    .block-image-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 0;
+    }
+    .block-image-thumb {
+      width: 80px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid #D4CFC8;
+    }
+    .block-image-meta { flex: 1; display: flex; flex-direction: column; gap: 5px; }
+    .block-image-path {
+      font-size: 10px;
+      color: #8A8078;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .block-align-btns {
+      display: flex;
+      gap: 4px;
+    }
+    .block-align-btn {
+      padding: 2px 8px;
+      border: 1px solid #C4BEB8;
+      border-radius: 3px;
+      font-size: 11px;
+      cursor: pointer;
+      background: #fff;
+      color: #8A8078;
+    }
+    .block-align-btn.active {
+      background: #C4603A;
+      color: #fff;
+      border-color: #C4603A;
+    }
+    .block-item-remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #C4BEB8;
+      font-size: 16px;
+      padding: 4px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .block-item-remove:hover { color: #C4603A; }
+    .block-editor-footer {
+      padding: 8px 10px;
+      border-top: 1px solid #E8E4DF;
+      background: #F8F5F2;
+    }
+    .add-text-block-btn {
+      padding: 4px 10px;
+      border: 1px dashed #C4BEB8;
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      font-size: 11px;
+      color: #8A8078;
+    }
+    .add-text-block-btn:hover { border-color: #C4603A; color: #C4603A; }
+
+    /* Format toolbar */
+    .format-toolbar {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 4px;
+    }
+    .format-btn {
+      padding: 1px 7px;
+      border: 1px solid #C4BEB8;
+      border-radius: 3px;
+      background: #F8F5F2;
+      cursor: pointer;
+      font-size: 12px;
+      font-family: inherit;
+      color: #4A4540;
+      line-height: 1.5;
+    }
+    .format-btn:hover { background: #fff; border-color: #C4603A; color: #C4603A; }
+    .format-btn.bold { font-weight: 700; }
+    .format-btn.italic { font-style: italic; }
+
+    /* Embed block */
+    .block-embed-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 4px 0;
+    }
+    .block-embed-row input {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #D4CFC8;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: inherit;
+      background: #FAFAF8;
+    }
+    .block-embed-row input:focus {
+      outline: none;
+      border-color: #C4603A;
+      background: #fff;
+    }
+    .block-embed-label {
+      font-size: 10px;
+      color: #B0A8A0;
+    }
+
+    /* Images panel draggable source */
+    .image-card.drag-source { cursor: grab; }
+    .image-card.drag-source:active { cursor: grabbing; }
+
+    /* Usage badge on gallery cards */
+    .img-usage-badge {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      background: rgba(40, 110, 76, 0.88);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 2px 4px;
+      border-radius: 3px;
+      line-height: 1.3;
+      max-width: calc(100% - 8px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .image-card.img-in-use {
+      border-color: rgba(40, 110, 76, 0.35);
+    }
+
+    /* Drop zone for thumbnail / hero fields */
+    .image-drop-field {
+      border: 1.5px dashed #C4BEB8;
+      border-radius: 4px;
+      background: #F8F5F2;
+      overflow: hidden;
+      transition: border-color 0.15s, background 0.15s;
+      margin-bottom: 4px;
+    }
+    .image-drop-field.drag-over {
+      border-color: #C4603A;
+      background: rgba(196, 96, 58, 0.07);
+    }
+    .image-drop-field-preview {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .image-drop-field-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    .image-drop-field-preview img.loaded {
+      display: block;
+    }
+    .image-drop-field-hint {
+      font-size: 10px;
+      color: #B0A8A0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Asset browser modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      display: none;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: 8px;
+      width: 700px;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid #E8E4DF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h2 { font-size: 14px; font-weight: 600; }
+    .modal-header button { background: none; border: none; cursor: pointer; font-size: 18px; color: #8A8078; }
+    .modal-header #asset-refresh-btn,
+    .modal-header #asset-change-folder-btn {
+      font-size: 12px; padding: 3px 8px; border-radius: 4px;
+      background: #F0EDE9; border: 1px solid #D8D4CF; color: #4A4540;
+    }
+    .modal-header #asset-refresh-btn:hover,
+    .modal-header #asset-change-folder-btn:hover { background: #E5E1DC; }
+    .asset-grid {
+      padding: 12px;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 8px;
+    }
+    .asset-thumb {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      aspect-ratio: 16/10;
+      background: #E8E4DF;
+    }
+    .asset-thumb:hover { border-color: #C4603A; }
+    .asset-thumb.selected { border-color: #C4603A; }
+    .asset-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .asset-thumb .asset-name { font-size: 9px; padding: 2px 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .modal-footer {
+      padding: 10px 16px;
+      border-top: 1px solid #E8E4DF;
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .modal-footer button {
+      padding: 7px 16px;
+      border-radius: 4px;
+      border: 1px solid #C4BEB8;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .modal-footer .confirm-btn {
+      background: #C4603A;
+      color: #fff;
+      border-color: #C4603A;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Project Editor</h1>
+  <span class="sep">|</span>
+  <button id="open-btn">📂 Open data/ folder</button>
+  <button id="new-project-btn">+ New project</button>
+  <span id="status">No folder loaded</span>
+  <span id="save-indicator"></span>
+  <button id="save-btn">💾 Save</button>
+</div>
+
+<div class="main">
+  <div class="sidebar">
+    <div class="sidebar-search">
+      <input type="search" id="sidebar-search" placeholder="Filter projects…">
+    </div>
+    <div id="project-list"></div>
+  </div>
+
+  <div class="editor" id="editor">
+    <div class="empty-state">
+      <p>No project selected</p>
+      <small>Open the data/projects folder, then pick a project</small>
+    </div>
+  </div>
+
+  <div class="images-panel" id="images-panel">
+    <div class="images-panel-header">
+      Images
+      <span class="images-panel-hint">Drag into WHAT · WHY · HOW</span>
+    </div>
+    <div class="images-panel-empty" id="images-panel-empty">Open a project to manage images</div>
+    <div class="images-panel-body" id="images-panel-body" style="display:none">
+      <div class="images-grid" id="images-grid"></div>
+      <div class="add-image-wrap">
+        <input id="img-path-input" placeholder="assets/…/img.jpg" type="text">
+        <button onclick="addImagePath()">+ Add path</button>
+        <button id="asset-picker-btn" onclick="openAssetPicker()">🖼 Browse assets</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Asset browser modal -->
+<div class="modal-overlay" id="asset-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Pick images — <span id="asset-modal-title">assets</span></h2>
+      <div style="display:flex;gap:6px;align-items:center">
+        <button id="asset-refresh-btn" title="Re-scan folder">↺ Refresh</button>
+        <button id="asset-change-folder-btn" title="Pick a different assets/projects folder">📂 Change folder</button>
+        <button id="asset-modal-close">×</button>
+      </div>
+    </div>
+    <div class="asset-grid" id="asset-grid"></div>
+    <div class="modal-footer">
+      <button id="asset-cancel">Cancel</button>
+      <button class="confirm-btn" id="asset-confirm">Add selected</button>
+    </div>
+  </div>
+</div>
+
+<!-- New project modal -->
+<div class="modal-overlay" id="new-project-modal">
+  <div class="modal" style="width:420px">
+    <div class="modal-header">
+      <h2>New project</h2>
+      <button id="np-close">×</button>
+    </div>
+    <div style="padding:20px;display:flex;flex-direction:column;gap:14px;">
+      <div class="form-group">
+        <label>Title</label>
+        <input id="np-title" placeholder="My New Project">
+      </div>
+      <div class="form-group">
+        <label>ID / slug <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:10px;">(auto-generated, editable)</span></label>
+        <input id="np-id" placeholder="my-new-project">
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <input id="np-year" type="number" placeholder="2026">
+      </div>
+      <div id="np-checklist" style="font-size:12px;color:#8A8078;display:flex;flex-direction:column;gap:3px;"></div>
+      <div id="np-msg" style="font-size:12px;min-height:16px;"></div>
+    </div>
+    <div class="modal-footer">
+      <button id="np-cancel">Cancel</button>
+      <button class="confirm-btn" id="np-create">Create project</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────────
+let dataRootHandle = null;    // FileSystemDirectoryHandle for data/ (enables projects.json editing)
+let dirHandle = null;         // FileSystemDirectoryHandle for data/projects/
+let assetsHandle = null;      // FileSystemDirectoryHandle for assets/projects/
+let projectFiles = [];        // { name, handle }
+let currentFile = null;       // { name, handle }
+let currentData = null;       // parsed JSON
+let unsavedIds = new Set();
+let selectedAssets = new Set();
+let allAssetPaths = [];       // for asset browser
+let assetHandleMap = new Map(); // path → FileSystemFileHandle (for blob URL preview)
+
+// ── Open folder ───────────────────────────────────────────────────────────────
+document.getElementById('open-btn').addEventListener('click', async () => {
+  try {
+    const picked = await window.showDirectoryPicker({ mode: 'readwrite' });
+
+    if (picked.name === 'projects') {
+      // Backward compat: user picked data/projects/ directly
+      dirHandle = picked;
+      dataRootHandle = null;
+    } else {
+      // Expect data/ folder — derive projects/ from it
+      try {
+        dirHandle = await picked.getDirectoryHandle('projects');
+        dataRootHandle = picked;
+      } catch(e) {
+        alert(`Couldn't find a "projects" subfolder inside "${picked.name}".\n\nPlease select:\n• the "data" folder (recommended — enables projects.json editing)\n• or the "data/projects" folder`);
+        return;
+      }
+    }
+
+    document.getElementById('status').textContent = `📁 ${picked.name}`;
+    document.getElementById('new-project-btn').classList.add('visible');
+    await loadProjectList();
+  } catch (e) {
+    if (e.name !== 'AbortError') console.error(e);
+  }
+});
+
+async function loadProjectList() {
+  projectFiles = [];
+  for await (const [name, handle] of dirHandle.entries()) {
+    if (name.endsWith('.json') && handle.kind === 'file') {
+      projectFiles.push({ name, handle });
+    }
+  }
+  projectFiles.sort((a, b) => a.name.localeCompare(b.name));
+  renderSidebar(projectFiles);
+}
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+function renderSidebar(files) {
+  const list = document.getElementById('project-list');
+  list.innerHTML = '';
+  files.forEach(f => {
+    const id = f.name.replace('.json', '');
+    const item = document.createElement('div');
+    item.className = 'project-item' + (unsavedIds.has(id) ? ' unsaved' : '');
+    item.dataset.id = id;
+    item.innerHTML = `<div class="item-title">${id}</div>`;
+    item.addEventListener('click', () => loadProject(f));
+    if (currentFile && currentFile.name === f.name) item.classList.add('active');
+    list.appendChild(item);
+  });
+}
+
+document.getElementById('sidebar-search').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  const filtered = q ? projectFiles.filter(f => f.name.includes(q)) : projectFiles;
+  renderSidebar(filtered);
+});
+
+// ── Load project ──────────────────────────────────────────────────────────────
+async function loadProject(file) {
+  currentFile = file;
+  const text = await (await file.handle.getFile()).text();
+  currentData = JSON.parse(text);
+
+  // Update sidebar active state
+  document.querySelectorAll('.project-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.id === file.name.replace('.json',''));
+  });
+
+  renderEditor(currentData);
+  document.getElementById('save-btn').classList.add('visible');
+}
+
+// ── Block editor state ────────────────────────────────────────────────────────
+// sectionBlocks: { what: [...], why: [...], how: [...] }
+let sectionBlocks = { what: [], why: [], how: [] };
+
+function normalizeBlocks(content) {
+  if (!content) return [{ type: 'text', content: '' }];
+  if (typeof content === 'string') return [{ type: 'text', content }];
+  if (Array.isArray(content) && content.length) return content.map(b => ({ ...b }));
+  return [{ type: 'text', content: '' }];
+}
+
+function buildBlockEditor(sectionKey) {
+  const container = document.getElementById(`block-editor-${sectionKey}`);
+  if (!container) return;
+  const blocks = sectionBlocks[sectionKey];
+  container.innerHTML = '';
+
+  function makeDropZone(insertIdx) {
+    const dz = document.createElement('div');
+    dz.className = 'block-drop-zone';
+    dz.dataset.insertIdx = insertIdx;
+
+    dz.addEventListener('dragover', e => {
+      if (e.dataTransfer.types.includes('text/image-src')) {
+        e.preventDefault();
+        dz.classList.add('drag-over');
+      }
+    });
+    dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
+    dz.addEventListener('drop', e => {
+      e.preventDefault();
+      dz.classList.remove('drag-over');
+      const src = e.dataTransfer.getData('text/image-src');
+      if (!src) return;
+      const idx = parseInt(dz.dataset.insertIdx);
+      sectionBlocks[sectionKey].splice(idx, 0, { type: 'image', src, align: 'right' });
+      buildBlockEditor(sectionKey);
+      markUnsaved();
+    });
+    return dz;
+  }
+
+  const list = document.createElement('div');
+  list.className = 'block-list';
+
+  blocks.forEach((block, idx) => {
+    list.appendChild(makeDropZone(idx));
+
+    const item = document.createElement('div');
+    item.className = 'block-item';
+    item.draggable = false;
+    item.dataset.idx = idx;
+
+    const handle = document.createElement('div');
+    handle.className = 'block-item-handle';
+    handle.textContent = '⠿';
+
+    handle.addEventListener('mousedown', () => {
+      item.draggable = true;
+      const reset = () => { item.draggable = false; };
+      item.addEventListener('dragend', reset, { once: true });
+      document.addEventListener('mouseup', reset, { once: true });
+    });
+
+    // Block drag-to-reorder
+    item.addEventListener('dragstart', e => {
+      e.dataTransfer.setData('text/block-reorder', JSON.stringify({ key: sectionKey, idx }));
+      e.dataTransfer.effectAllowed = 'move';
+    });
+
+    const body = document.createElement('div');
+    body.className = 'block-item-body';
+
+    if (block.type === 'text') {
+      const toolbar = document.createElement('div');
+      toolbar.className = 'format-toolbar';
+
+      const boldBtn = document.createElement('button');
+      boldBtn.type = 'button';
+      boldBtn.className = 'format-btn bold';
+      boldBtn.textContent = 'B';
+      boldBtn.title = 'Bold (**text**)';
+
+      const italicBtn = document.createElement('button');
+      italicBtn.type = 'button';
+      italicBtn.className = 'format-btn italic';
+      italicBtn.textContent = 'I';
+      italicBtn.title = 'Italic (*text*)';
+
+      toolbar.appendChild(boldBtn);
+      toolbar.appendChild(italicBtn);
+      body.appendChild(toolbar);
+
+      const ta = document.createElement('textarea');
+      ta.value = block.content || '';
+      ta.rows = 4;
+      ta.addEventListener('input', () => {
+        sectionBlocks[sectionKey][idx].content = ta.value;
+        markUnsaved();
+        // Auto-resize
+        ta.style.height = 'auto';
+        ta.style.height = ta.scrollHeight + 'px';
+      });
+      // Auto-resize on mount
+      setTimeout(() => {
+        ta.style.height = 'auto';
+        ta.style.height = ta.scrollHeight + 'px';
+      }, 0);
+      body.appendChild(ta);
+
+      boldBtn.addEventListener('click', () => wrapSelection(ta, '**', '**'));
+      italicBtn.addEventListener('click', () => wrapSelection(ta, '*', '*'));
+
+      const linkHint = document.createElement('div');
+      linkHint.style.cssText = 'font-size:10px;color:#B0A8A0;margin-top:3px;';
+      linkHint.textContent = 'Bold: **text** · Italic: *text* · Link: [text](https://url.com)';
+      body.appendChild(linkHint);
+
+      // Align controls for text blocks (none = clear:both, breaks out of image floats)
+      const textAlignRow = document.createElement('div');
+      textAlignRow.style.cssText = 'display:flex;gap:4px;margin-top:5px;align-items:center;';
+      const textAlignLabel = document.createElement('span');
+      textAlignLabel.textContent = 'break:';
+      textAlignLabel.style.cssText = 'font-size:10px;color:#B0A8A0;';
+      textAlignRow.appendChild(textAlignLabel);
+      const textAlignBtns = document.createElement('div');
+      textAlignBtns.className = 'block-align-btns';
+      ['left', 'right', 'none'].forEach(align => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'block-align-btn' + (block.align === align ? ' active' : '');
+        btn.textContent = align;
+        btn.title = align === 'none' ? 'Clear floats — place this text below any floated images' : `Float text ${align}`;
+        btn.addEventListener('click', () => {
+          // Toggle: clicking the active align removes it
+          sectionBlocks[sectionKey][idx].align = (sectionBlocks[sectionKey][idx].align === align) ? undefined : align;
+          buildBlockEditor(sectionKey);
+          markUnsaved();
+        });
+        textAlignBtns.appendChild(btn);
+      });
+      textAlignRow.appendChild(textAlignBtns);
+      body.appendChild(textAlignRow);
+    } else if (block.type === 'image') {
+      const row = document.createElement('div');
+      row.className = 'block-image-row';
+
+      const img = document.createElement('img');
+      img.className = 'block-image-thumb';
+      img.onerror = () => { img.style.opacity = '0.3'; };
+      const blockHandle = assetHandleMap.get(block.src);
+      if (blockHandle) {
+        blockHandle.getFile().then(f => { img.src = URL.createObjectURL(f); });
+      } else {
+        img.src = block.src || '';
+      }
+
+      const meta = document.createElement('div');
+      meta.className = 'block-image-meta';
+
+      const pathEl = document.createElement('div');
+      pathEl.className = 'block-image-path';
+      pathEl.textContent = block.src || '';
+
+      const alignBtns = document.createElement('div');
+      alignBtns.className = 'block-align-btns';
+      ['left', 'right', 'none'].forEach(align => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'block-align-btn' + (block.align === align || (!block.align && align === 'none') ? ' active' : '');
+        btn.textContent = align;
+        btn.addEventListener('click', () => {
+          sectionBlocks[sectionKey][idx].align = align === 'none' ? undefined : align;
+          buildBlockEditor(sectionKey);
+          markUnsaved();
+        });
+        alignBtns.appendChild(btn);
+      });
+
+      meta.appendChild(pathEl);
+      meta.appendChild(alignBtns);
+      row.appendChild(img);
+      row.appendChild(meta);
+      body.appendChild(row);
+    } else if (block.type === 'embed') {
+      const row = document.createElement('div');
+      row.className = 'block-embed-row';
+
+      const srcLabel = document.createElement('div');
+      srcLabel.className = 'block-embed-label';
+      srcLabel.textContent = 'Embed URL (iframe src)';
+
+      const srcInput = document.createElement('input');
+      srcInput.type = 'url';
+      srcInput.placeholder = 'https://poly.cam/capture/…/embed  — or paste full <iframe> tag';
+      srcInput.value = block.src || '';
+      srcInput.addEventListener('input', () => {
+        sectionBlocks[sectionKey][idx].src = srcInput.value;
+        markUnsaved();
+      });
+      srcInput.addEventListener('paste', e => {
+        const pasted = (e.clipboardData || window.clipboardData).getData('text');
+        const srcMatch = pasted.match(/\bsrc=["']([^"']+)["']/);
+        if (!srcMatch) return; // not an iframe tag, let default paste happen
+        e.preventDefault();
+        srcInput.value = srcMatch[1];
+        sectionBlocks[sectionKey][idx].src = srcMatch[1];
+        // Also extract title if present and field is empty
+        const titleMatch = pasted.match(/\btitle=["']([^"']+)["']/);
+        if (titleMatch && !titleInput.value) {
+          titleInput.value = titleMatch[1];
+          sectionBlocks[sectionKey][idx].title = titleMatch[1];
+        }
+        markUnsaved();
+      });
+
+      const titleLabel = document.createElement('div');
+      titleLabel.className = 'block-embed-label';
+      titleLabel.textContent = 'Title (for accessibility)';
+
+      const titleInput = document.createElement('input');
+      titleInput.type = 'text';
+      titleInput.placeholder = 'e.g. Polycam capture viewer';
+      titleInput.value = block.title || '';
+      titleInput.addEventListener('input', () => {
+        sectionBlocks[sectionKey][idx].title = titleInput.value;
+        markUnsaved();
+      });
+
+      const heightLabel = document.createElement('div');
+      heightLabel.className = 'block-embed-label';
+      heightLabel.textContent = 'Height in px (default 480)';
+
+      const heightInput = document.createElement('input');
+      heightInput.type = 'number';
+      heightInput.placeholder = '480';
+      heightInput.value = block.height || '';
+      heightInput.addEventListener('input', () => {
+        const val = parseInt(heightInput.value);
+        sectionBlocks[sectionKey][idx].height = isNaN(val) ? undefined : val;
+        markUnsaved();
+      });
+
+      const alignLabel = document.createElement('div');
+      alignLabel.className = 'block-embed-label';
+      alignLabel.textContent = 'Alignment';
+
+      const alignBtns = document.createElement('div');
+      alignBtns.className = 'block-align-btns';
+      ['left', 'right', 'none'].forEach(align => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'block-align-btn' + (block.align === align || (!block.align && align === 'none') ? ' active' : '');
+        btn.textContent = align;
+        btn.title = align === 'none' ? 'Full width (default)' : `Float embed ${align}`;
+        btn.addEventListener('click', () => {
+          sectionBlocks[sectionKey][idx].align = align === 'none' ? undefined : align;
+          buildBlockEditor(sectionKey);
+          markUnsaved();
+        });
+        alignBtns.appendChild(btn);
+      });
+
+      row.appendChild(srcLabel);
+      row.appendChild(srcInput);
+      row.appendChild(titleLabel);
+      row.appendChild(titleInput);
+      row.appendChild(heightLabel);
+      row.appendChild(heightInput);
+      row.appendChild(alignLabel);
+      row.appendChild(alignBtns);
+      body.appendChild(row);
+    }
+
+    const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'block-item-remove';
+    removeBtn.textContent = '×';
+    removeBtn.addEventListener('click', () => {
+      sectionBlocks[sectionKey].splice(idx, 1);
+      if (!sectionBlocks[sectionKey].length) sectionBlocks[sectionKey].push({ type: 'text', content: '' });
+      buildBlockEditor(sectionKey);
+      markUnsaved();
+    });
+
+    item.appendChild(handle);
+    item.appendChild(body);
+    item.appendChild(removeBtn);
+    list.appendChild(item);
+  });
+
+  // Final drop zone (after all blocks)
+  list.appendChild(makeDropZone(blocks.length));
+
+  container.appendChild(list);
+
+  // Footer with Add Text Block button
+  const footer = document.createElement('div');
+  footer.className = 'block-editor-footer';
+  const addBtn = document.createElement('button');
+  addBtn.type = 'button';
+  addBtn.className = 'add-text-block-btn';
+  addBtn.textContent = '+ Add text block';
+  addBtn.addEventListener('click', () => {
+    sectionBlocks[sectionKey].push({ type: 'text', content: '' });
+    buildBlockEditor(sectionKey);
+    markUnsaved();
+    // Focus the new textarea
+    setTimeout(() => {
+      const tas = container.querySelectorAll('textarea');
+      if (tas.length) tas[tas.length - 1].focus();
+    }, 50);
+  });
+  footer.appendChild(addBtn);
+
+  const addEmbedBtn = document.createElement('button');
+  addEmbedBtn.type = 'button';
+  addEmbedBtn.className = 'add-text-block-btn';
+  addEmbedBtn.textContent = '+ Add embed';
+  addEmbedBtn.addEventListener('click', () => {
+    sectionBlocks[sectionKey].push({ type: 'embed', src: '', title: '' });
+    buildBlockEditor(sectionKey);
+    markUnsaved();
+    setTimeout(() => {
+      const inputs = container.querySelectorAll('.block-embed-row input[type="url"]');
+      if (inputs.length) inputs[inputs.length - 1].focus();
+    }, 50);
+  });
+  footer.appendChild(addEmbedBtn);
+
+  container.appendChild(footer);
+
+  // Drop zones also handle block reorder drops
+  container.querySelectorAll('.block-drop-zone').forEach(dz => {
+    dz.addEventListener('dragover', e => {
+      if (e.dataTransfer.types.includes('text/block-reorder')) {
+        e.preventDefault();
+        dz.classList.add('drag-over');
+      }
+    });
+    dz.addEventListener('drop', e => {
+      const raw = e.dataTransfer.getData('text/block-reorder');
+      if (!raw) return;
+      const { key, idx: from } = JSON.parse(raw);
+      const to = parseInt(dz.dataset.insertIdx);
+      if (key === sectionKey) {
+        // Same-section reorder
+        const adjusted = to > from ? to - 1 : to;
+        if (from === adjusted) return;
+        const [moved] = sectionBlocks[sectionKey].splice(from, 1);
+        sectionBlocks[sectionKey].splice(adjusted, 0, moved);
+        buildBlockEditor(sectionKey);
+      } else {
+        // Cross-section move
+        const [moved] = sectionBlocks[key].splice(from, 1);
+        if (!sectionBlocks[key].length) sectionBlocks[key].push({ type: 'text', content: '' });
+        sectionBlocks[sectionKey].splice(to, 0, moved);
+        buildBlockEditor(key);
+        buildBlockEditor(sectionKey);
+      }
+      markUnsaved();
+    });
+  });
+
+  refreshImageUsage();
+}
+
+function getBlockEditorValue(sectionKey) {
+  const blocks = sectionBlocks[sectionKey];
+  if (!blocks || !blocks.length) return undefined;
+  // If single text block with empty content, return undefined
+  if (blocks.length === 1 && blocks[0].type === 'text' && !blocks[0].content?.trim()) return undefined;
+  // If single text block, return as plain string for backward compat
+  if (blocks.length === 1 && blocks[0].type === 'text') return blocks[0].content;
+  return blocks;
+}
+
+// ── Editor ────────────────────────────────────────────────────────────────────
+function renderEditor(p) {
+  const editor = document.getElementById('editor');
+
+  // Initialize block state
+  sectionBlocks = {
+    what: normalizeBlocks(p.what),
+    why:  normalizeBlocks(p.why),
+    how:  normalizeBlocks(p.how),
+  };
+
+  editor.innerHTML = `
+    <p class="section-heading">Core</p>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>ID</label>
+        <input id="f-id" value="${esc(p.id || '')}" placeholder="unfolding">
+      </div>
+      <div class="form-group">
+        <label>Title</label>
+        <input id="f-title" value="${esc(p.title || '')}" placeholder="Unfolding">
+      </div>
+      <div class="form-group">
+        <label>Year</label>
+        <input id="f-year" type="number" value="${p.year || ''}" placeholder="2025">
+      </div>
+      <div class="form-group">
+        <label>Month</label>
+        <input id="f-month" type="number" min="1" max="12" value="${p.month || ''}" placeholder="5">
+      </div>
+      <div class="form-group full">
+        <label>Tagline</label>
+        <input id="f-tagline" value="${esc(p.tagline || '')}" placeholder="Short description shown in card">
+      </div>
+      <div class="form-group full">
+        <label>Description (fallback)</label>
+        <textarea id="f-description">${esc(p.description || '')}</textarea>
+      </div>
+    </div>
+
+    <p class="section-heading">Content</p>
+    <div style="max-width:900px;display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <div class="block-editor" id="block-editor-wrap-what">
+          <div class="block-editor-label">WHAT</div>
+          <div id="block-editor-what"></div>
+        </div>
+      </div>
+      <div>
+        <div class="block-editor" id="block-editor-wrap-why">
+          <div class="block-editor-label">WHY</div>
+          <div id="block-editor-why"></div>
+        </div>
+      </div>
+      <div>
+        <div class="block-editor" id="block-editor-wrap-how">
+          <div class="block-editor-label">HOW</div>
+          <div id="block-editor-how"></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-heading">Classification</p>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Medium</label>
+        <input id="f-medium" value="${esc(p.medium || '')}" placeholder="Web, Film, VR, Fabrication…">
+      </div>
+      <div class="form-group">
+        <label>Tags</label>
+        <div class="tags-input-wrap" id="tags-wrap"></div>
+      </div>
+    </div>
+    <div class="axes-wrap" style="max-width:900px;margin-top:12px;">
+      <div class="axis-control">
+        <label>Pragmatic axis <span id="pragmatic-val">${(p.axes?.pragmatic ?? 0.5).toFixed(2)}</span></label>
+        <input type="range" id="f-pragmatic" min="0" max="1" step="0.01" value="${p.axes?.pragmatic ?? 0.5}">
+        <div class="axis-labels"><span>Poetic</span><span>Pragmatic</span></div>
+      </div>
+      <div class="axis-control">
+        <label>Institutional axis <span id="institutional-val">${(p.axes?.institutional ?? 0.5).toFixed(2)}</span></label>
+        <input type="range" id="f-institutional" min="0" max="1" step="0.01" value="${p.axes?.institutional ?? 0.5}">
+        <div class="axis-labels"><span>Individual</span><span>Institutional</span></div>
+      </div>
+    </div>
+
+    <p class="section-heading">Links</p>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Thumbnail</label>
+        <div class="image-drop-field" id="drop-thumbnail">
+          <div class="image-drop-field-preview">
+            <img src="${esc(p.thumbnail || '')}">
+            <span class="image-drop-field-hint">Drop image from gallery</span>
+          </div>
+        </div>
+        <input id="f-thumbnail" value="${esc(p.thumbnail || '')}" placeholder="assets/projects/x/thumb.jpg">
+      </div>
+      <div class="form-group">
+        <label>Hero image</label>
+        <div class="image-drop-field" id="drop-hero">
+          <div class="image-drop-field-preview">
+            <img src="${esc(p.hero || '')}">
+            <span class="image-drop-field-hint">Drop image from gallery</span>
+          </div>
+        </div>
+        <input id="f-hero" value="${esc(p.hero || '')}" placeholder="assets/projects/x/hero.jpg">
+      </div>
+      <div class="form-group">
+        <label>Live URL</label>
+        <input id="f-liveUrl" value="${esc(p.liveUrl || '')}" placeholder="https://…">
+      </div>
+      <div class="form-group">
+        <label>Source URL</label>
+        <input id="f-sourceUrl" value="${esc(p.sourceUrl || '')}" placeholder="https://…">
+      </div>
+    </div>
+
+    <p class="section-heading">Videos</p>
+    <div id="videos-wrap"></div>
+    <button class="add-row-btn" onclick="addVideoRow('')">+ Add video URL</button>
+
+    <p class="section-heading">Awards</p>
+    <div id="awards-wrap"></div>
+    <button class="add-row-btn" onclick="addAwardRow('')">+ Add award</button>
+
+    <div style="height:48px;"></div>
+  `;
+
+  buildTagsInput('tags-wrap', p.tags || []);
+
+  // Show images panel
+  document.getElementById('images-panel-empty').style.display = 'none';
+  document.getElementById('images-panel-body').style.display = '';
+  buildImagesGrid(p.images || []);
+
+  buildVideoRows(p.videos || []);
+  buildAwardRows(p.awards || []);
+
+  // Build block editors
+  buildBlockEditor('what');
+  buildBlockEditor('why');
+  buildBlockEditor('how');
+
+  // Axis sliders live update
+  document.getElementById('f-pragmatic').addEventListener('input', e => {
+    document.getElementById('pragmatic-val').textContent = parseFloat(e.target.value).toFixed(2);
+  });
+  document.getElementById('f-institutional').addEventListener('input', e => {
+    document.getElementById('institutional-val').textContent = parseFloat(e.target.value).toFixed(2);
+  });
+
+  // Mark unsaved on any change
+  editor.querySelectorAll('input,select').forEach(el => {
+    el.addEventListener('input', markUnsaved);
+    el.addEventListener('change', markUnsaved);
+  });
+
+  setupDropFields();
+  refreshImageUsage();
+}
+
+// ── Tags input ────────────────────────────────────────────────────────────────
+function buildTagsInput(wrapperId, initialTags) {
+  const wrap = document.getElementById(wrapperId);
+  wrap.innerHTML = '';
+  const tags = [...initialTags];
+
+  function render() {
+    wrap.innerHTML = '';
+    tags.forEach((t, i) => {
+      const pill = document.createElement('span');
+      pill.className = 'tag-pill';
+      pill.innerHTML = `${esc(t)}<button type="button" title="Remove">×</button>`;
+      pill.querySelector('button').addEventListener('click', () => {
+        tags.splice(i, 1);
+        render();
+        markUnsaved();
+      });
+      wrap.appendChild(pill);
+    });
+    const input = document.createElement('input');
+    input.placeholder = 'Add…';
+    input.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ',') && input.value.trim()) {
+        e.preventDefault();
+        tags.push(input.value.trim());
+        render();
+        markUnsaved();
+      }
+      if (e.key === 'Backspace' && !input.value && tags.length) {
+        tags.pop();
+        render();
+        markUnsaved();
+      }
+    });
+    wrap.appendChild(input);
+    wrap.dataset.tags = JSON.stringify(tags);
+    wrap.addEventListener('click', () => input.focus());
+  }
+
+  render();
+}
+
+function getTags(wrapperId) {
+  const wrap = document.getElementById(wrapperId);
+  return wrap ? JSON.parse(wrap.dataset.tags || '[]') : [];
+}
+
+// ── Image drop fields (thumbnail / hero) ──────────────────────────────────────
+function setupDropFields() {
+  [
+    { field: 'thumbnail', zoneId: 'drop-thumbnail' },
+    { field: 'hero',      zoneId: 'drop-hero'      },
+  ].forEach(({ field, zoneId }) => {
+    const zone  = document.getElementById(zoneId);
+    const input = document.getElementById(`f-${field}`);
+    if (!zone || !input) return;
+    const previewImg  = zone.querySelector('.image-drop-field-preview img');
+    const hint        = zone.querySelector('.image-drop-field-hint');
+
+    function setPreview(src) {
+      if (!src) {
+        previewImg.classList.remove('loaded');
+        previewImg.src = '';
+        if (hint) hint.style.display = '';
+        return;
+      }
+      previewImg.onload  = () => { previewImg.classList.add('loaded'); if (hint) hint.style.display = 'none'; };
+      previewImg.onerror = () => { previewImg.classList.remove('loaded'); if (hint) hint.style.display = ''; };
+      previewImg.src = src;
+      // If image already cached, onload may not fire — check naturalWidth
+      if (previewImg.complete && previewImg.naturalWidth) {
+        previewImg.classList.add('loaded');
+        if (hint) hint.style.display = 'none';
+      }
+    }
+
+    setPreview(input.value.trim());
+
+    zone.addEventListener('dragover', e => {
+      if (e.dataTransfer.types.includes('text/image-src')) {
+        e.preventDefault();
+        zone.classList.add('drag-over');
+      }
+    });
+    zone.addEventListener('dragleave', e => {
+      if (!zone.contains(e.relatedTarget)) zone.classList.remove('drag-over');
+    });
+    zone.addEventListener('drop', e => {
+      e.preventDefault();
+      zone.classList.remove('drag-over');
+      const src = e.dataTransfer.getData('text/image-src');
+      if (!src) return;
+      input.value = src;
+      setPreview(src);
+      markUnsaved();
+      refreshImageUsage();
+    });
+
+    input.addEventListener('input', () => {
+      setPreview(input.value.trim());
+      refreshImageUsage();
+    });
+  });
+}
+
+// ── Usage tracking ────────────────────────────────────────────────────────────
+function getUsageLabels(src) {
+  const labels = [];
+  const thumb = document.getElementById('f-thumbnail')?.value?.trim();
+  const hero  = document.getElementById('f-hero')?.value?.trim();
+  if (thumb === src) labels.push('thumb');
+  if (hero  === src) labels.push('hero');
+  ['what', 'why', 'how'].forEach(key => {
+    if (sectionBlocks[key]?.some(b => b.type === 'image' && b.src === src))
+      labels.push(key.toUpperCase());
+  });
+  return labels;
+}
+
+function refreshImageUsage() {
+  const grid = document.getElementById('images-grid');
+  if (!grid || grid.dataset.images === undefined) return;
+  buildImagesGrid(JSON.parse(grid.dataset.images));
+}
+
+// ── Images grid ───────────────────────────────────────────────────────────────
+function buildImagesGrid(images) {
+  const grid = document.getElementById('images-grid');
+  grid.innerHTML = '';
+
+  images.forEach((src, i) => {
+    const usageLabels = getUsageLabels(src);
+    const card = document.createElement('div');
+    card.className = 'image-card drag-source' + (usageLabels.length ? ' img-in-use' : '');
+    card.draggable = true;
+    card.dataset.idx = i;
+    card.innerHTML = `
+      <img onerror="this.style.opacity=0.2">
+      <div class="img-path">${esc(src)}</div>
+      <button class="img-remove" title="Remove">×</button>
+      ${usageLabels.length ? `<div class="img-usage-badge">${esc(usageLabels.join(' · '))}</div>` : ''}`;
+    const imgEl = card.querySelector('img');
+    const handle = assetHandleMap.get(src);
+    if (handle) {
+      handle.getFile().then(f => { imgEl.src = URL.createObjectURL(f); });
+    } else {
+      imgEl.src = src;
+    }
+    card.querySelector('.img-remove').addEventListener('click', () => {
+      images.splice(i, 1);
+      buildImagesGrid(images);
+      markUnsaved();
+    });
+
+    card.addEventListener('dragstart', e => {
+      // Set both reorder data and image-src data so block editors can receive it
+      e.dataTransfer.setData('text/plain', String(i));
+      e.dataTransfer.setData('text/image-src', src);
+      e.dataTransfer.effectAllowed = 'copyMove';
+      card.classList.add('dragging');
+    });
+    card.addEventListener('dragend', () => card.classList.remove('dragging'));
+
+    // Reorder within images grid
+    card.addEventListener('dragover', e => {
+      if (e.dataTransfer.types.includes('text/plain') && !e.dataTransfer.types.includes('text/image-src')) {
+        e.preventDefault(); card.classList.add('drag-over');
+      } else if (e.dataTransfer.types.includes('text/plain')) {
+        e.preventDefault(); card.classList.add('drag-over');
+      }
+    });
+    card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
+    card.addEventListener('drop', e => {
+      e.preventDefault();
+      card.classList.remove('drag-over');
+      const from = parseInt(e.dataTransfer.getData('text/plain'));
+      const to = i;
+      if (!isNaN(from) && from !== to) {
+        const [moved] = images.splice(from, 1);
+        images.splice(to, 0, moved);
+        buildImagesGrid(images);
+        markUnsaved();
+      }
+    });
+
+    grid.appendChild(card);
+  });
+
+  // Store reference for collect
+  grid.dataset.images = JSON.stringify(images);
+}
+
+window.addImagePath = function() {
+  const input = document.getElementById('img-path-input');
+  const val = input.value.trim();
+  if (!val) return;
+  const grid = document.getElementById('images-grid');
+  const images = JSON.parse(grid.dataset.images || '[]');
+  images.push(val);
+  buildImagesGrid(images);
+  input.value = '';
+  markUnsaved();
+};
+
+function getImages() {
+  const grid = document.getElementById('images-grid');
+  return grid ? JSON.parse(grid.dataset.images || '[]') : [];
+}
+
+// ── Video rows ────────────────────────────────────────────────────────────────
+function buildVideoRows(videos) {
+  const wrap = document.getElementById('videos-wrap');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  videos.forEach(v => addVideoRow(v));
+}
+
+window.addVideoRow = function(val) {
+  const url = typeof val === 'string' ? val : (val?.url || '');
+  const heroOverride = typeof val === 'object' && val !== null ? (val.heroOverride !== false) : true;
+  const wrap = document.getElementById('videos-wrap');
+  const row = document.createElement('div');
+  row.className = 'video-row';
+  row.innerHTML = `<input type="url" value="${esc(url)}" placeholder="https://vimeo.com/… or https://youtu.be/…">
+    <label class="video-hero-label"><input type="checkbox" class="video-hero-cb"${heroOverride ? ' checked' : ''}> Hero</label>
+    <button onclick="this.parentElement.remove(); markUnsaved();">×</button>`;
+  row.querySelector('input[type="url"]').addEventListener('input', markUnsaved);
+  row.querySelector('.video-hero-cb').addEventListener('change', markUnsaved);
+  wrap.appendChild(row);
+};
+
+function getVideos() {
+  return Array.from(document.querySelectorAll('#videos-wrap .video-row'))
+    .map(row => {
+      const url = row.querySelector('input[type="url"]')?.value.trim() || '';
+      const heroOverride = row.querySelector('.video-hero-cb')?.checked ?? true;
+      return url ? { url, heroOverride } : null;
+    }).filter(Boolean);
+}
+
+// ── Award rows ────────────────────────────────────────────────────────────────
+function buildAwardRows(awards) {
+  const wrap = document.getElementById('awards-wrap');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  awards.forEach(a => addAwardRow(a));
+}
+
+window.addAwardRow = function(val) {
+  const wrap = document.getElementById('awards-wrap');
+  const row = document.createElement('div');
+  row.className = 'award-row';
+  row.innerHTML = `<input type="text" value="${esc(val)}" placeholder="Festival name — Best XR 2025">
+    <button onclick="this.parentElement.remove(); markUnsaved();">×</button>`;
+  row.querySelector('input').addEventListener('input', markUnsaved);
+  wrap.appendChild(row);
+};
+
+function getAwards() {
+  return Array.from(document.querySelectorAll('#awards-wrap .award-row input'))
+    .map(i => i.value.trim()).filter(Boolean);
+}
+
+// ── Unsaved state ─────────────────────────────────────────────────────────────
+window.markUnsaved = function() {
+  if (!currentFile) return;
+  const id = currentFile.name.replace('.json', '');
+  unsavedIds.add(id);
+  document.querySelectorAll(`.project-item[data-id="${id}"]`).forEach(el => el.classList.add('unsaved'));
+};
+
+// ── Collect form data ─────────────────────────────────────────────────────────
+function collectFormData() {
+  const get = id => document.getElementById(id)?.value?.trim() ?? '';
+  const whatVal = getBlockEditorValue('what');
+  const whyVal  = getBlockEditorValue('why');
+  const howVal  = getBlockEditorValue('how');
+  return {
+    id:          get('f-id') || currentData.id,
+    title:       get('f-title'),
+    year:        parseInt(get('f-year')) || undefined,
+    month:       parseInt(get('f-month')) || undefined,
+    tagline:     get('f-tagline'),
+    description: get('f-description'),
+    ...(whatVal !== undefined && { what: whatVal }),
+    ...(whyVal  !== undefined && { why:  whyVal  }),
+    ...(howVal  !== undefined && { how:  howVal  }),
+    medium:      get('f-medium') || undefined,
+    tags:        getTags('tags-wrap'),
+    axes: {
+      pragmatic:     parseFloat(document.getElementById('f-pragmatic')?.value ?? 0.5),
+      institutional: parseFloat(document.getElementById('f-institutional')?.value ?? 0.5),
+    },
+    thumbnail:  get('f-thumbnail') || undefined,
+    hero:       get('f-hero') || undefined,
+    liveUrl:    get('f-liveUrl') || null,
+    sourceUrl:  get('f-sourceUrl') || null,
+    images:     getImages(),
+    videos:     getVideos(),
+    awards:     getAwards(),
+    // Preserve extra fields, excluding removed ones
+    ...Object.fromEntries(
+      Object.entries(currentData).filter(([k]) =>
+        !['id','title','year','month','tagline','description','what','why','how',
+          'medium','categories','tags','axes','thumbnail','hero','liveUrl','sourceUrl',
+          'status','featured','images','videos','awards'].includes(k)
+      )
+    ),
+  };
+}
+
+// ── Save ──────────────────────────────────────────────────────────────────────
+document.getElementById('save-btn').addEventListener('click', saveProject);
+
+async function saveProject() {
+  if (!currentFile || !dirHandle) return;
+  const data = collectFormData();
+  const json = JSON.stringify(data, null, 2) + '\n';
+
+  try {
+    const writable = await currentFile.handle.createWritable();
+    await writable.write(json);
+    await writable.close();
+
+    currentData = data;
+    const id = currentFile.name.replace('.json', '');
+    unsavedIds.delete(id);
+    document.querySelectorAll(`.project-item[data-id="${id}"]`).forEach(el => el.classList.remove('unsaved'));
+
+    const ind = document.getElementById('save-indicator');
+    ind.textContent = '✓ Saved';
+    ind.classList.add('visible');
+    setTimeout(() => ind.classList.remove('visible'), 2000);
+  } catch(e) {
+    alert('Save failed: ' + e.message);
+  }
+}
+
+// Keyboard shortcut Cmd+S / Ctrl+S
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+    e.preventDefault();
+    saveProject();
+  }
+});
+
+// ── Asset browser ─────────────────────────────────────────────────────────────
+async function pickAssetsFolder() {
+  try {
+    const handle = await window.showDirectoryPicker({
+      mode: 'readwrite',
+      id: 'assets-folder',
+      startIn: 'documents',
+    });
+    if (handle.name !== 'projects') {
+      alert(`Wrong folder selected: "${handle.name}"\n\nPlease select the "assets/projects" folder.\n\nThe folder to select is: wyattroy-portfolio/assets/projects`);
+      return null;
+    }
+    return handle;
+  } catch(e) {
+    return null;
+  }
+}
+
+async function runAssetScan() {
+  if (!assetsHandle) return;
+
+  const grid = document.getElementById('asset-grid');
+  const titleEl = document.getElementById('asset-modal-title');
+  grid.innerHTML = '<p style="padding:16px;color:#8A8078">Scanning assets…</p>';
+  selectedAssets.clear();
+
+  const slug = currentFile ? currentFile.name.replace('.json', '') : null;
+
+  // Try to scope scan to current project's subfolder
+  let scanHandle = assetsHandle;
+  let scanPath = 'assets/projects/';
+  if (slug) {
+    try {
+      scanHandle = await assetsHandle.getDirectoryHandle(slug);
+      scanPath = `assets/projects/${slug}/`;
+    } catch(e) {
+      // subfolder doesn't exist yet — fall back to full tree
+    }
+  }
+
+  titleEl.textContent = slug ? slug : 'assets/projects';
+
+  const images = [];
+  async function scan(handle, path) {
+    for await (const [name, entry] of handle.entries()) {
+      if (entry.kind === 'directory') {
+        await scan(entry, path + name + '/');
+      } else if (/\.(jpg|jpeg|png|gif|webp|avif)$/i.test(name)) {
+        images.push({ path: path + name, handle: entry });
+        assetHandleMap.set(path + name, entry);
+      }
+    }
+  }
+
+  try {
+    await scan(scanHandle, scanPath);
+  } catch(e) {}
+
+  allAssetPaths = images;
+  grid.innerHTML = '';
+
+  images.slice(0, 200).forEach(({ path, handle }) => {
+    const card = document.createElement('div');
+    card.className = 'asset-thumb';
+    card.dataset.path = path;
+
+    handle.getFile().then(f => {
+      const url = URL.createObjectURL(f);
+      card.innerHTML = `<img src="${url}" loading="lazy"><div class="asset-name">${path.split('/').pop()}</div>`;
+    });
+
+    card.addEventListener('click', () => {
+      card.classList.toggle('selected');
+      if (card.classList.contains('selected')) {
+        selectedAssets.add(path);
+      } else {
+        selectedAssets.delete(path);
+      }
+    });
+
+    grid.appendChild(card);
+  });
+
+  if (images.length === 0) {
+    grid.innerHTML = '<p style="padding:16px;color:#8A8078">No images found in this folder.</p>';
+  }
+}
+
+window.openAssetPicker = async function() {
+  if (!dirHandle) { alert('Open the data/projects folder first.'); return; }
+
+  if (!assetsHandle) {
+    assetsHandle = await pickAssetsFolder();
+    if (!assetsHandle) return;
+  }
+
+  document.getElementById('asset-modal').classList.add('open');
+  await runAssetScan();
+};
+
+document.getElementById('asset-refresh-btn').addEventListener('click', async () => {
+  await runAssetScan();
+});
+
+document.getElementById('asset-change-folder-btn').addEventListener('click', async () => {
+  assetsHandle = await pickAssetsFolder();
+  if (assetsHandle) await runAssetScan();
+});
+
+document.getElementById('asset-modal-close').addEventListener('click', closeAssetModal);
+document.getElementById('asset-cancel').addEventListener('click', closeAssetModal);
+document.getElementById('asset-confirm').addEventListener('click', () => {
+  const grid = document.getElementById('images-grid');
+  const images = JSON.parse(grid.dataset.images || '[]');
+  selectedAssets.forEach(path => {
+    if (!images.includes(path)) images.push(path);
+  });
+  buildImagesGrid(images);
+  markUnsaved();
+  closeAssetModal();
+});
+
+function closeAssetModal() {
+  document.getElementById('asset-modal').classList.remove('open');
+  selectedAssets.clear();
+}
+
+// ── New project ───────────────────────────────────────────────────────────────
+function toSlug(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function updateNewProjectChecklist() {
+  const slug = document.getElementById('np-id').value.trim();
+  const list = document.getElementById('np-checklist');
+  const items = [
+    { label: `data/projects/${slug || '<id>'}.json`, always: true },
+    { label: `assets/projects/${slug || '<id>'}/ (image folder)`, active: !!assetsHandle },
+    { label: `data/projects.json entry`, active: !!dataRootHandle },
+  ];
+  list.innerHTML = items.map(it => {
+    const check = it.always || it.active ? '✓' : '○';
+    const color = it.always || it.active ? '#3A7C5A' : '#B0A8A0';
+    const note = !it.always && !it.active
+      ? (it.label.includes('assets') ? ' — grant assets/projects/ to enable' : ' — open data/ folder to enable')
+      : '';
+    return `<span style="color:${color}">${check} ${it.label}${note}</span>`;
+  }).join('');
+}
+
+document.getElementById('np-title').addEventListener('input', e => {
+  const slugInput = document.getElementById('np-id');
+  slugInput.value = toSlug(e.target.value);
+  updateNewProjectChecklist();
+});
+
+document.getElementById('np-id').addEventListener('input', updateNewProjectChecklist);
+
+document.getElementById('new-project-btn').addEventListener('click', () => {
+  if (!dirHandle) { alert('Open the data/ folder first.'); return; }
+  document.getElementById('np-year').value = new Date().getFullYear();
+  document.getElementById('np-title').value = '';
+  document.getElementById('np-id').value = '';
+  document.getElementById('np-msg').textContent = '';
+  document.getElementById('np-msg').style.color = '';
+  updateNewProjectChecklist();
+  document.getElementById('new-project-modal').classList.add('open');
+  setTimeout(() => document.getElementById('np-title').focus(), 50);
+});
+
+['np-close', 'np-cancel'].forEach(id => {
+  document.getElementById(id).addEventListener('click', () => {
+    document.getElementById('new-project-modal').classList.remove('open');
+  });
+});
+
+document.getElementById('np-create').addEventListener('click', async () => {
+  const slug  = document.getElementById('np-id').value.trim();
+  const title = document.getElementById('np-title').value.trim();
+  const year  = parseInt(document.getElementById('np-year').value) || new Date().getFullYear();
+  const msg   = document.getElementById('np-msg');
+
+  if (!slug) { msg.textContent = 'ID is required'; msg.style.color = '#C4603A'; return; }
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(slug)) {
+    msg.textContent = 'ID must be lowercase letters, numbers, and hyphens only';
+    msg.style.color = '#C4603A';
+    return;
+  }
+
+  let exists = false;
+  try { await dirHandle.getFileHandle(slug + '.json', { create: false }); exists = true; } catch(e) {}
+  if (exists) { msg.textContent = `"${slug}.json" already exists`; msg.style.color = '#C4603A'; return; }
+
+  msg.textContent = 'Creating…'; msg.style.color = '#8A8078';
+  document.getElementById('np-create').disabled = true;
+
+  try {
+    // 1. Create data/projects/<slug>.json
+    const template = {
+      id: slug,
+      title: title || slug,
+      year,
+      tagline: '',
+      what: '',
+      why: '',
+      axes: { pragmatic: 0.5, institutional: 0.5 },
+      thumbnail: `assets/projects/${slug}/thumb.jpg`,
+      images: [],
+      videos: [],
+      awards: [],
+    };
+    const fh = await dirHandle.getFileHandle(slug + '.json', { create: true });
+    const fw = await fh.createWritable();
+    await fw.write(JSON.stringify(template, null, 2) + '\n');
+    await fw.close();
+
+    const done = [`${slug}.json`];
+
+    // 2. Create assets/projects/<slug>/ subfolder
+    if (assetsHandle) {
+      try {
+        await assetsHandle.getDirectoryHandle(slug, { create: true });
+        done.push(`assets folder`);
+      } catch(e) {
+        console.warn('Could not create assets subfolder:', e);
+      }
+    }
+
+    // 3. Update data/projects.json master list
+    if (dataRootHandle) {
+      try {
+        const listFH = await dataRootHandle.getFileHandle('projects.json');
+        const txt = await (await listFH.getFile()).text();
+        const list = JSON.parse(txt);
+        if (!list.find(p => p.id === slug)) {
+          list.unshift({
+            id: slug,
+            title: title || slug,
+            year,
+            tagline: '',
+            axes: { pragmatic: 0.5, institutional: 0.5 },
+            thumbnail: `assets/projects/${slug}/thumb.jpg`,
+            tags: [],
+            featured: false,
+          });
+          const lw = await listFH.createWritable();
+          await lw.write(JSON.stringify(list, null, 2) + '\n');
+          await lw.close();
+          done.push(`projects.json updated`);
+        }
+      } catch(e) {
+        console.warn('Could not update projects.json:', e);
+      }
+    }
+
+    // Reload sidebar and open the new project
+    await loadProjectList();
+    const newFile = projectFiles.find(f => f.name === slug + '.json');
+    if (newFile) await loadProject(newFile);
+
+    document.getElementById('new-project-modal').classList.remove('open');
+
+    const ind = document.getElementById('save-indicator');
+    ind.textContent = '✓ Created: ' + done.join(' · ');
+    ind.classList.add('visible');
+    setTimeout(() => ind.classList.remove('visible'), 4000);
+
+  } catch(e) {
+    msg.textContent = 'Error: ' + e.message;
+    msg.style.color = '#C4603A';
+  } finally {
+    document.getElementById('np-create').disabled = false;
+  }
+});
+
+// ── Utility ───────────────────────────────────────────────────────────────────
+function wrapSelection(textarea, before, after) {
+  const start = textarea.selectionStart;
+  const end = textarea.selectionEnd;
+  const selected = textarea.value.slice(start, end);
+  const replacement = before + selected + after;
+  textarea.value = textarea.value.slice(0, start) + replacement + textarea.value.slice(end);
+  const cursor = selected ? start + replacement.length : start + before.length;
+  textarea.setSelectionRange(selected ? start : cursor, cursor);
+  textarea.dispatchEvent(new Event('input'));
+  textarea.focus();
+}
+
+function esc(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>

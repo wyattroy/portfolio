@@ -1,0 +1,80 @@
+{
+  "id": "canada",
+  "title": "Athletics Canada",
+  "year": 2016,
+  "month": 9,
+  "tagline": "Growth mindset film for para-athletes, televised to 7.2 million people",
+  "description": "Psychology-informed short film empowering paralympic youth",
+  "what": [
+    {
+      "type": "text",
+      "content": "Athletics Canada commissioned this short film, televised to 7.2 million people during the 2016 Paralympics, to inspire and recruit the next generation of Canadian para-athletes. We filmed vision-impaired, paraplegic, and amputee teens to deliver a growth mindset intervention, applying psychology research by Mueller & Dweck (1998) directly to the story.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canada/img8.jpg"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "People with growth mindsets interpret failure as proof they need to work harder; people with fixed mindsets attribute failure to unchangeable qualities. Research shows mindsets can shift through targeted messaging. This was an experiment in applied social psychology — taking scientific literature, designing a storyboard around it, and using television to deliver the intervention to millions of children.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canada/img1.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Shot on RED cinema cameras with documentary-style direction, intercut with archival footage. \n\nCreative Director/Director: Kris Cheng\n\nDirector of Photography: Garrett Gunther and Wyatt Roy\n\nAssistant Camera: Wyatt Roy\n\nProducer: Briene Lermitte\n\nMusic: Steven Richard Davis\n\nSound Design and Mix: Jeremiah Moore\n\nColor Grading: Ayumi Ashley",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canada/img2.jpg"
+    }
+  ],
+  "medium": "Film",
+  "tags": [],
+  "axes": {
+    "pragmatic": 0.31,
+    "institutional": 0.78
+  },
+  "thumbnail": "assets/projects/canada/thumb.jpg",
+  "liveUrl": null,
+  "sourceUrl": "https://vimeo.com/181522057",
+  "images": [
+    "assets/projects/canada/img1.jpg",
+    "assets/projects/canada/img2.jpg",
+    "assets/projects/canada/img8.jpg"
+  ],
+  "videos": [
+    "https://vimeo.com/181522057"
+  ],
+  "awards": [],
+  "scraped_raw_text": [
+    "Athletics Canada",
+    "Psychology-informed short film empowering paralympic youth",
+    "This short film was televised to 7.2 million people during the 2016 Paralympics to inspire and recruit the next generation of Canadian para-athletes.",
+    "WHAT",
+    "Athletics Canada approached me at the filmmaking agency I co-founded, Maku Creative, to make a short film that would be televised to 7.2 million people during the 2016 Paralympics to inspire and recruit the next generation of Canadian para-athletes. We filmed vision-impaired, paraplegic, and amputee teens to deliver a “growth mindset” intervention.",
+    "People with “growth mindsets” (Mueller, C. M., & Dweck, C. S., 1998) interpret their failures as proof that they need to work harder. People with “fixed mindsets” attribute their failures to not being smart/fast/good enough, fixed qualities that can’t change. Research shows that people can be shifted to a growth mindset relatively easily, by being exposed to messaging that demonstrates how the growth mindset operates.",
+    "ARTISTIC SIGNIFICANCE",
+    "This film used documentary-style minimally directed footage filmed on RED cinema cameras and intercut with archival footage to show growth. It represents a merging of two of my storytelling frameworks: psychology and filmmaking. I pursued a degree in social psychology to understand the mechanics of the inner stories humans use to understand themselves and their world. Then I started Maku to tell stories that would help people rewrite those stories for the better.",
+    "This project was an experiment in applied social psychology – literally taking scientific literature and designing the storyboard around it, then using television to deliver a “growth mindset intervention” to millions of children.",
+    "One critical difference between this project and the randomized controlled trials of my undergraduate psychology research was that there was no control group when this film was televised. But being able to apply scientific methods to determine effectiveness of an intervention is vital, which is why I want to return to an academic environment to further my research in XR storytelling.",
+    "CREATIVE TEAM",
+    "Creative Directors Wyatt Roy, Kris Cheng, Garrett Gunther",
+    "Cinematographers Wyatt Roy, Kris Cheng, Garrett Gunther",
+    "Producer Briene Lermitte",
+    "Editor Kris Cheng",
+    "Colorist Ayumi Ashley",
+    "Sound Design Jeremiah Moore",
+    "Client Athletics Canada"
+  ],
+  "scraped_url": "https://www.wyattroy.com/video/athletics-canada"
+}

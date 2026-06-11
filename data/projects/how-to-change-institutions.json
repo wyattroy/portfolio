@@ -1,0 +1,30 @@
+{
+  "id": "how-to-change-institutions",
+  "title": "How to Change Institutions",
+  "year": 2024,
+  "month": 6,
+  "tagline": "A practical field guide for designers working inside large organizations",
+  "description": "A short illustrated guide to changing institutions through care, collaboration, and mindfulness — an alternative to adversarial activism.",
+  "what": "A 45-page illustrated guide for people who work inside institutions — schools, governments, hospitals — and want to create lasting change through collaboration rather than conflict. Covers how to notice what you want to change, how to work with institutional complexity, how to build coalitions through individual relationships, and how to sustain momentum. Illustrated by Julia Mattis. In homage to Thich Nhat Hanh.",
+  "why": "Most change-making assumes adversarial tactics. This book explores what becomes possible when you choose collaboration over antagonism — assuming people within institutions mutually care for each other, and inviting them to be their best selves together.",
+  "categories": [
+    "Writing",
+    "Research"
+  ],
+  "axes": {
+    "pragmatic": 0.8,
+    "institutional": 0.9
+  },
+  "thumbnail": "assets/projects/how-to-change-institutions/thumb.jpg",
+  "images": [
+    "assets/projects/how-to-change-institutions/img1.jpg",
+    "assets/projects/how-to-change-institutions/img2.jpg",
+    "assets/projects/how-to-change-institutions/img3.jpg",
+    "assets/projects/how-to-change-institutions/img4.jpg",
+    "assets/projects/how-to-change-institutions/img5.jpg"
+  ],
+  "videos": [],
+  "liveUrl": null,
+  "sourceUrl": null,
+  "awards": []
+}

@@ -1,0 +1,37 @@
+{
+  "id": "proseminar",
+  "title": "Mediums Proseminar",
+  "year": 2025,
+  "month": 9,
+  "tagline": "Media theory seminar for MDes students, co-led with Allen Sayegh at Harvard GSD",
+  "description": "A media theory seminar for incoming MDes students, co-led with domain head Allen Sayegh, pairing critical theory with hands-on experiential learning in different media.",
+  "what": "Co-led the Mediums domain seminar with Allen Sayegh for incoming MDes students. Paired critical design readings with experiential learning: students visited the Harvard glass flower collection comparing simulacra with originals; responded to Berger's Ways of Seeing by making short films in the Fogg Art Museum for an in-class festival; shared personal design practices for critique, leading to unexpected collaborations and the first sale of one student's work to another.",
+  "why": "If the medium is the message (McLuhan), the pedagogical challenge is how to render the medium visible and pliable. By teaching about each medium through a combination of mediums, students gained the agency to extend their practices by understanding each one's unique affordances.",
+  "categories": [
+    "Education",
+    "Research"
+  ],
+  "tags": [
+    "education",
+    "Harvard",
+    "curriculum",
+    "research methods",
+    "MDes"
+  ],
+  "axes": {
+    "pragmatic": 0.65,
+    "institutional": 0.85
+  },
+  "thumbnail": "assets/projects/proseminar/thumb.jpg",
+  "images": [
+    "assets/projects/proseminar/img1.jpg",
+    "assets/projects/proseminar/img2.jpg",
+    "assets/projects/proseminar/img3.jpg",
+    "assets/projects/proseminar/img4.jpg"
+  ],
+  "videos": [],
+  "liveUrl": null,
+  "sourceUrl": null,
+  "awards": [],
+  "medium": "Pedagogy"
+}

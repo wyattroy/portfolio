@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project — Wyatt Roy</title>
+  <meta name="description" content="Wyatt Roy — Project">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400;500&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav id="main-nav">
+    <a class="nav-logo" href="/">Wyatt Roy</a>
+    <div class="nav-links">
+      <a href="/#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="https://docs.google.com/document/d/1sh149l6gz9TEishSJejG29iJy5zrKsiMmEkNCRgEY_A/edit?usp=sharing"
+         target="_blank" rel="noopener">CV</a>
+      <button class="nav-email-btn" aria-label="Email Wyatt">✉</button>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+    <a href="/#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="https://docs.google.com/document/d/1sh149l6gz9TEishSJejG29iJy5zrKsiMmEkNCRgEY_A/edit?usp=sharing"
+       target="_blank" rel="noopener">CV</a>
+    <button class="nav-email-btn" aria-label="Email Wyatt">✉</button>
+  </div>
+
+  <!-- Project content rendered here -->
+  <main id="project-page-root">
+    <div class="project-not-found">
+      <p>Loading…</p>
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" tabindex="-1">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-prev" aria-label="Previous image">‹</button>
+    <button class="lightbox-next" aria-label="Next image">›</button>
+    <div class="lightbox-img-wrap">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="">
+    </div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
+  <script type="module">
+    // ── Utilities ──────────────────────────────────────────────────────────────
+    const esc = s => s ? String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;') : '';
+
+    function formatText(text) {
+      if (!text) return '';
+      text = text.replace(/\r\n/g, '\n');
+      // Tokenize inline marks first ([\s\S]+? lets them span single newlines),
+      // then derive paragraph structure from \n\n in plain-text segments only.
+      const re = /\*\*([\s\S]+?)\*\*|\*([\s\S]+?)\*|\[([^\]]+)\]\((https?:\/\/[^)]+)\)|(https?:\/\/\S+)/g;
+      const tokens = [];
+      let last = 0, m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) tokens.push({ type: 'plain', text: text.slice(last, m.index) });
+        if (m[1] !== undefined)      tokens.push({ type: 'strong', text: m[1] });
+        else if (m[2] !== undefined) tokens.push({ type: 'em',     text: m[2] });
+        else if (m[3] !== undefined) tokens.push({ type: 'link',   text: m[3], href: m[4] });
+        else                         tokens.push({ type: 'link',   text: m[5], href: m[5] });
+        last = m.index + m[0].length;
+      }
+      if (last < text.length) tokens.push({ type: 'plain', text: text.slice(last) });
+
+      const paras = [''];
+      for (const tok of tokens) {
+        if (tok.type === 'plain') {
+          const segs = tok.text.split(/\n\n+/);
+          paras[paras.length - 1] += esc(segs[0]);
+          for (let i = 1; i < segs.length; i++) paras.push(esc(segs[i]));
+        } else if (tok.type === 'strong') {
+          paras[paras.length - 1] += `<strong>${esc(tok.text.replace(/\n+/g, ' ').trim())}</strong>`;
+        } else if (tok.type === 'em') {
+          paras[paras.length - 1] += `<em>${esc(tok.text.replace(/\n+/g, ' ').trim())}</em>`;
+        } else {
+          paras[paras.length - 1] += `<a href="${esc(tok.href)}" target="_blank" rel="noopener noreferrer">${esc(tok.text)}</a>`;
+        }
+      }
+      return paras.map(p => p.trim()).filter(Boolean).map(p => `<p>${p}</p>`).join('');
+    }
+
+    function videoUrl(v) { return typeof v === 'string' ? v : (v?.url || ''); }
+
+    function videoEmbedUrl(url) {
+      // Normalize missing protocol so bare domain URLs still match
+      const u = /^https?:\/\//.test(url) ? url : 'https://' + url;
+      const vimeo = u.match(/vimeo\.com\/(\d+)/);
+      if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}?color=C4603A`;
+      const ytShorts = u.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]+)/);
+      if (ytShorts) return `https://www.youtube.com/embed/${ytShorts[1]}`;
+      const yt = u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]+)/);
+      if (yt) {
+        const t = u.match(/[?&]t=(\d+)s?/);
+        return `https://www.youtube.com/embed/${yt[1]}${t ? '?start=' + t[1] : ''}`;
+      }
+      const ytEmbed = u.match(/youtube\.com\/embed\/([A-Za-z0-9_-]+)/);
+      if (ytEmbed) return `https://www.youtube.com/embed/${ytEmbed[1]}`;
+      const twitch = u.match(/twitch\.tv\/videos\/(\d+)/);
+      if (twitch) {
+        const parent = window.location.hostname || 'wyattroy.com';
+        return `https://player.twitch.tv/?video=${twitch[1]}&parent=${parent}&autoplay=false`;
+      }
+      if (u.includes('player.vimeo.com') || u.includes('player.twitch.tv')) return u;
+      return null;
+    }
+
+    // ── Lightbox ───────────────────────────────────────────────────────────────
+    let lbImages = [], lbIdx = 0;
+
+    function openLightbox(images, idx) {
+      lbImages = images; lbIdx = idx;
+      updateLightbox();
+      const lb = document.getElementById('lightbox');
+      lb.classList.add('open');
+      lb.focus();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      const counter = document.getElementById('lightbox-counter');
+      img.src = lbImages[lbIdx].src;
+      img.alt = lbImages[lbIdx].alt || '';
+      counter.textContent = `${lbIdx + 1} / ${lbImages.length}`;
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-prev').addEventListener('click', () => {
+      lbIdx = (lbIdx - 1 + lbImages.length) % lbImages.length;
+      updateLightbox();
+    });
+    document.querySelector('.lightbox-next').addEventListener('click', () => {
+      lbIdx = (lbIdx + 1) % lbImages.length;
+      updateLightbox();
+    });
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+    document.addEventListener('keydown', e => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') { lbIdx = (lbIdx - 1 + lbImages.length) % lbImages.length; updateLightbox(); }
+      if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % lbImages.length; updateLightbox(); }
+    });
+
+    // ── Nav ────────────────────────────────────────────────────────────────────
+    const email = ['wyatty', 'gmail.com'].join('@');
+    document.querySelectorAll('.nav-email-btn').forEach(btn => {
+      btn.addEventListener('click', () => { window.location.href = 'mailto:' + email; });
+    });
+
+    const hamburger = document.querySelector('.nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+    hamburger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(open));
+      drawer.setAttribute('aria-hidden', String(!open));
+    });
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // ── Render ─────────────────────────────────────────────────────────────────
+    // Support hash-based routing (/project#unfolding) and legacy ?id= query param
+    function getProjectId() {
+      const hash = location.hash.slice(1);
+      if (hash) return decodeURIComponent(hash);
+      return new URLSearchParams(location.search).get('id') || '';
+    }
+    let projectId = getProjectId();
+    const root = document.getElementById('project-page-root');
+
+    async function loadProject(id) {
+      const [detail, list] = await Promise.all([
+        fetch(`data/projects/${id}.json`).then(r => r.ok ? r.json() : null).catch(() => null),
+        fetch('data/projects.json').then(r => r.ok ? r.json() : []).catch(() => [])
+      ]);
+
+      let project = detail;
+      const allProjects = list;
+
+      if (!project) {
+        project = allProjects.find(p => p.id === id) || null;
+      }
+
+      if (!project) {
+        root.innerHTML = `<div class="project-not-found">
+          <h2>Project not found</h2>
+          <p>The project "<em>${esc(id)}</em>" doesn't exist.</p>
+          <a href="/" class="cta-btn primary" style="margin-top:24px;display:inline-block;">← Back to portfolio</a>
+        </div>`;
+        return;
+      }
+
+      document.title = `${project.title} — Wyatt Roy`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = project.tagline || project.description || '';
+      renderProject(project);
+      renderProjectNav(id, allProjects);
+    }
+
+    // ── Labeled content section (WHAT / WHY / HOW) ────────────────────────────
+    function renderContentSection(content, label, title) {
+      if (!content) return '';
+      let blocks;
+      if (typeof content === 'string') {
+        blocks = [{ type: 'text', content }];
+      } else if (Array.isArray(content)) {
+        blocks = content;
+      } else {
+        return '';
+      }
+
+      const nonEmpty = blocks.some(b =>
+        (b.type === 'text' && b.content?.trim()) || b.type === 'image' || b.type === 'embed'
+      );
+      if (!nonEmpty) return '';
+
+      // Track active floats so consecutive same-direction images stack vertically
+      // and text that follows both an active left and right float clears below both.
+      let hasActiveLeft = false;
+      let hasActiveRight = false;
+      const parts = [];
+      for (const block of blocks) {
+        if (block.type === 'text') {
+          if (block.align === 'left' || block.align === 'right') {
+            // Floated text — pairs visually with an opposite-floated image.
+            // Auto-clear when both sides are already occupied (completing a prior pair).
+            const isLeft = block.align === 'left';
+            let clearVal = '';
+            if (hasActiveLeft && hasActiveRight) {
+              clearVal = 'clear:both';
+              hasActiveLeft = false;
+              hasActiveRight = false;
+            } else if (isLeft && hasActiveLeft) {
+              clearVal = 'clear:left';
+            } else if (!isLeft && hasActiveRight) {
+              clearVal = 'clear:right';
+            }
+            if (isLeft) hasActiveLeft = true;
+            else hasActiveRight = true;
+            const floatClass = isLeft ? ' text-float-left' : ' text-float-right';
+            const styleAttr = clearVal ? ` style="${clearVal}"` : '';
+            parts.push(`<div class="pp-text${floatClass}"${styleAttr}>${formatText(block.content || '')}</div>`);
+          } else {
+            const needClear = (hasActiveLeft && hasActiveRight) || block.align === 'none';
+            if (needClear) { hasActiveLeft = false; hasActiveRight = false; }
+            const clearAttr = needClear ? ' style="clear:both"' : '';
+            parts.push(`<div class="pp-text"${clearAttr}>${formatText(block.content || '')}</div>`);
+          }
+        } else if (block.type === 'embed') {
+          const embedSrc = videoEmbedUrl(block.src || '') || block.src || '';
+          const embedHeight = block.height || 480;
+          if (block.align === 'left' || block.align === 'right') {
+            const isLeft = block.align === 'left';
+            let clearVal = '';
+            if (hasActiveLeft && hasActiveRight) {
+              clearVal = 'clear:both';
+              hasActiveLeft = false;
+              hasActiveRight = false;
+            } else if (isLeft && hasActiveLeft) {
+              clearVal = 'clear:left';
+            } else if (!isLeft && hasActiveRight) {
+              clearVal = 'clear:right';
+            }
+            if (isLeft) hasActiveLeft = true; else hasActiveRight = true;
+            const alignClass = isLeft ? ' embed-left' : ' embed-right';
+            const styleAttr = clearVal ? ` style="${clearVal}"` : '';
+            parts.push(`<div class="pp-embed${alignClass}"${styleAttr}>
+              <iframe src="${esc(embedSrc)}" title="${esc(block.title || 'Embedded content')}"
+                style="height:${embedHeight}px" frameborder="0" allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+            </div>`);
+          } else {
+            hasActiveLeft = false;
+            hasActiveRight = false;
+            parts.push(`<div class="pp-embed">
+              <iframe src="${esc(embedSrc)}" title="${esc(block.title || 'Embedded content')}"
+                style="height:${embedHeight}px" frameborder="0" allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+            </div>`);
+          }
+        } else if (block.type === 'image') {
+          let clearStyle = '';
+          if (block.align === 'left') {
+            if (hasActiveLeft) { clearStyle = ' style="clear:left"'; hasActiveLeft = false; }
+            hasActiveLeft = true;
+          } else if (block.align === 'right') {
+            if (hasActiveRight) { clearStyle = ' style="clear:right"'; hasActiveRight = false; }
+            hasActiveRight = true;
+          } else {
+            hasActiveLeft = false;
+            hasActiveRight = false;
+          }
+          const alignClass = block.align === 'left' ? ' inline-left'
+                           : block.align === 'right' ? ' inline-right' : ' inline-none';
+          const cap = block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : '';
+          parts.push(`<figure class="pp-inline-img${alignClass}"${clearStyle} data-lightbox-inline>
+            <img src="${esc(block.src)}" alt="${esc(block.alt || title || '')}" loading="lazy"
+              onerror="this.closest('figure').style.display='none'">${cap}
+          </figure>`);
+        }
+      }
+      const inner = parts.join('\n');
+
+      return `<div class="pp-content-section">
+        <div class="pp-section-label">${label}</div>
+        <div class="pp-section-body">
+          ${inner}
+          <div style="clear:both"></div>
+        </div>
+      </div>`;
+    }
+
+    // ── Section renderers ──────────────────────────────────────────────────────
+    function renderSection(sec, title) {
+      switch (sec.type) {
+        case 'text':
+          return `<div class="pp-text">${formatText(sec.content || '')}</div>`;
+        case 'heading':
+          return `<div class="pp-heading"><h2>${esc(sec.content || '')}</h2></div>`;
+        case 'image': {
+          const cap = sec.caption ? `<figcaption>${esc(sec.caption)}</figcaption>` : '';
+          return `<figure class="pp-image">
+            <img src="${esc(sec.src)}" alt="${esc(sec.alt || title)}" loading="lazy"
+              onerror="this.closest('figure').style.display='none'">${cap}
+          </figure>`;
+        }
+        case 'images': {
+          const cols = Math.min(sec.images ? sec.images.length : 1, sec.cols || 2);
+          const colClass = `cols-${cols}`;
+          const imgs = (sec.images || []).map((src, i) =>
+            `<div class="pp-img-wrap" data-lightbox>
+               <img src="${esc(src)}" alt="${esc(title)} image ${i+1}" loading="lazy"
+                 onerror="this.parentElement.style.display='none'">
+             </div>`
+          ).join('');
+          return `<div class="pp-images ${colClass}">${imgs}</div>`;
+        }
+        case 'feature': {
+          const flipClass = sec.flip ? ' flip' : '';
+          const imgHtml = `<div class="pp-feature-image">
+            <img src="${esc(sec.src)}" alt="${esc(sec.alt || title)}" loading="lazy"
+              onerror="this.closest('.pp-feature-image').style.display='none'">
+          </div>`;
+          const headHtml = sec.heading ? `<div class="pp-feature-heading">${esc(sec.heading)}</div>` : '';
+          const bodyHtml = sec.content ? `<div class="pp-feature-body">${formatText(sec.content)}</div>` : '';
+          return `<div class="pp-feature${flipClass}">
+            ${imgHtml}
+            <div class="pp-feature-text">${headHtml}${bodyHtml}</div>
+          </div>`;
+        }
+        case 'video': {
+          const embed = videoEmbedUrl(sec.src || '');
+          if (!embed) return '';
+          return `<div class="pp-video">
+            <iframe src="${esc(embed)}" allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen title="${esc(sec.title || title)}"></iframe>
+          </div>`;
+        }
+        default:
+          return '';
+      }
+    }
+
+    // Split text into paragraph-group chunks (≤ maxParas paragraphs each)
+    function chunkParas(text, maxParas = 3) {
+      if (!text) return [];
+      const paras = text.split(/\n\n+/).map(s => s.trim()).filter(Boolean);
+      const chunks = [];
+      for (let i = 0; i < paras.length; i += maxParas) {
+        chunks.push(paras.slice(i, i + maxParas).join('\n\n'));
+      }
+      return chunks;
+    }
+
+    function buildBodyFromLegacy(p) {
+      const images = p.images || [];
+      const videos = p.videos || [];
+      const sections = [];
+
+      // Skip hero image (always images[0] when no video hero)
+      const hasVideoHero = !!videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false);
+      const bodyImages = hasVideoHero ? [...images] : images.slice(1);
+
+      // Collect all text chunks from what + why
+      const whatChunks = chunkParas(p.what || p.description || '', 3);
+      const whyChunks = chunkParas(p.why || '', 3);
+      const allTextChunks = [...whatChunks, ...whyChunks];
+
+      // Videos (skip first if it was the hero)
+      const bodyVideos = hasVideoHero ? videos.slice(1) : videos;
+
+      // Interleave: text chunk → image(s) → text chunk → image(s) → …
+      let imgIdx = 0;
+      let flipToggle = false;
+
+      // First text chunk always comes first (no image before it)
+      if (allTextChunks.length > 0) {
+        sections.push({ type: 'text', content: allTextChunks[0] });
+      }
+
+      // Then alternate: image(s) then text
+      for (let ti = 1; ti < allTextChunks.length || imgIdx < bodyImages.length; ti++) {
+        // Consume 1 or 2 images
+        const remaining = bodyImages.length - imgIdx;
+        if (remaining >= 2) {
+          // Two images side by side
+          sections.push({ type: 'images', images: bodyImages.slice(imgIdx, imgIdx + 2), cols: 2 });
+          imgIdx += 2;
+        } else if (remaining === 1) {
+          // Single image — use feature layout if there's text to pair with, else standalone
+          const nextText = allTextChunks[ti];
+          if (nextText) {
+            sections.push({ type: 'feature', src: bodyImages[imgIdx], content: nextText, flip: flipToggle });
+            flipToggle = !flipToggle;
+            imgIdx++;
+            ti++; // consumed this text chunk in the feature
+            continue;
+          } else {
+            sections.push({ type: 'image', src: bodyImages[imgIdx] });
+            imgIdx++;
+          }
+        }
+
+        // Add next text chunk (if any images were consumed above)
+        if (ti < allTextChunks.length) {
+          sections.push({ type: 'text', content: allTextChunks[ti] });
+        }
+      }
+
+      // Any leftover images after all text is exhausted
+      while (imgIdx < bodyImages.length) {
+        const remaining = bodyImages.length - imgIdx;
+        if (remaining >= 2) {
+          sections.push({ type: 'images', images: bodyImages.slice(imgIdx, imgIdx + 2), cols: 2 });
+          imgIdx += 2;
+        } else {
+          sections.push({ type: 'image', src: bodyImages[imgIdx] });
+          imgIdx++;
+        }
+      }
+
+      // Videos at the end
+      bodyVideos.forEach(v => { if (videoEmbedUrl(videoUrl(v))) sections.push({ type: 'video', src: videoUrl(v) }); });
+
+      return sections;
+    }
+
+    function renderProject(p) {
+      const images = (p.images || []);
+      const videos = (p.videos || []);
+      const awards = (p.awards || []);
+
+      // Hero: first video with heroOverride → first image → thumbnail fallback
+      let heroHtml = '';
+      const firstVideo = videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false);
+      if (firstVideo) {
+        const embedUrl = videoEmbedUrl(videoUrl(firstVideo));
+        heroHtml = `<div class="pp-hero pp-hero-video">
+          <iframe src="${esc(embedUrl)}" allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen title="${esc(p.title)} video"></iframe>
+        </div>`;
+      } else {
+        const heroSrc = p.hero || (images.length > 0 ? images[0] : null) || (p.thumbnail || null);
+        if (heroSrc) {
+          heroHtml = `<div class="pp-hero">
+            <img src="${esc(heroSrc)}" alt="${esc(p.title)}" onerror="this.closest('.pp-hero').style.display='none'">
+          </div>`;
+        }
+      }
+
+      // Header tags
+      const tagsHtml = (p.tags || []).map(t => `<span class="card-tag">${esc(t)}</span>`).join('');
+      const categoryHtml = (p.categories || []).map(c => `<span class="card-tag">${esc(c)}</span>`).join('');
+      const MEDIUM_COLORS = {
+        'VR':           '#6B3FA6',
+        'Film':         '#A03030',
+        'Pedagogy':     '#B07030',
+        'Web':          '#2B6BAE',
+        'Fabrication':  '#8C5523',
+        'Narrative':    '#2A7A8A',
+        'Research':     '#5A7080',
+        'App':          '#2A7A5A',
+        'Performance':  '#9A3070',
+        'Installation': '#7A6030',
+        'Design':       '#4A3A7A',
+      };
+      const mediumBadge = (p.medium && MEDIUM_COLORS[p.medium])
+        ? `<span class="medium-badge" style="background:${MEDIUM_COLORS[p.medium]};margin-right:8px;">${esc(p.medium)}</span>` : '';
+      // Body sections
+      let bodyHtml;
+      if (p.sections && p.sections.length) {
+        // Explicit custom sections
+        bodyHtml = p.sections.map(s => renderSection(s, p.title)).join('\n');
+      } else if (p.what || p.why || p.how) {
+        // Labeled WHAT / WHY / HOW sections
+        const parts = [];
+        if (p.what) parts.push(renderContentSection(p.what, 'WHAT', p.title));
+        if (p.why)  parts.push(renderContentSection(p.why,  'WHY',  p.title));
+        if (p.how)  parts.push(renderContentSection(p.how,  'HOW',  p.title));
+
+        // Collect image srcs already placed inline
+        const inlineSet = new Set();
+        [p.what, p.why, p.how].forEach(content => {
+          if (Array.isArray(content)) {
+            content.forEach(b => { if (b.type === 'image' && b.src) inlineSet.add(b.src); });
+          }
+        });
+
+        // Exclude hero and thumbnail from gallery (already shown above the fold)
+        const heroSrc = p.hero || ((p.images || []).length > 0 ? (p.images || [])[0] : null) || (p.thumbnail || null);
+        const excludeSet = new Set(inlineSet);
+        if (heroSrc) excludeSet.add(heroSrc);
+        if (p.thumbnail) excludeSet.add(p.thumbnail);
+
+        // Remaining images → gallery at end
+        const galleryImgs = (p.images || []).filter(src => !excludeSet.has(src));
+        const videos = p.videos || [];
+        const hasVideoHero = !!videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false);
+        const galleryParts = [];
+        const bodyImgs = galleryImgs;
+
+        if (bodyImgs.length >= 2) {
+          for (let i = 0; i < bodyImgs.length; i += 2) {
+            const pair = bodyImgs.slice(i, i + 2);
+            if (pair.length === 2) {
+              galleryParts.push(renderSection({ type: 'images', images: pair, cols: 2 }, p.title));
+            } else {
+              galleryParts.push(renderSection({ type: 'image', src: pair[0] }, p.title));
+            }
+          }
+        } else if (bodyImgs.length === 1) {
+          galleryParts.push(renderSection({ type: 'image', src: bodyImgs[0] }, p.title));
+        }
+        videos.forEach(v => { if (videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
+
+        bodyHtml = parts.join('\n') + (galleryParts.length ? `<div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div>${galleryParts.join('\n')}</div>` : '');
+      } else {
+        // Legacy fallback: interleaved text/images
+        bodyHtml = buildBodyFromLegacy(p).map(s => renderSection(s, p.title)).join('\n');
+      }
+
+      // Awards
+      const awardsHtml = awards.length > 0
+        ? `<hr class="pp-sep">
+           <p class="pp-awards-label">Awards</p>
+           <ul class="pp-awards">${awards.map(a => `<li>${esc(a)}</li>`).join('')}</ul>`
+        : '';
+
+      // CTAs
+      const ctas = [];
+      if (p.liveUrl) ctas.push(`<a href="${esc(p.liveUrl)}" target="_blank" rel="noopener" class="cta-btn primary">↗ Visit Project</a>`);
+      if (p.sourceUrl) ctas.push(`<a href="${esc(p.sourceUrl)}" target="_blank" rel="noopener" class="cta-btn secondary">↗ Source / More</a>`);
+      const ctasHtml = ctas.length > 0 ? `<div class="pp-ctas">${ctas.join('')}</div>` : '';
+
+      root.innerHTML = `
+        <a href="/" class="pp-back">← All Work</a>
+
+        ${heroHtml}
+
+        <div class="pp-header">
+          ${mediumBadge}
+          <div class="pp-header-top">
+            <h1 class="pp-title">${esc(p.title)}</h1>
+            <span class="pp-meta">${p.year || ''}</span>
+          </div>
+          ${p.tagline ? `<p class="pp-tagline">${esc(p.tagline)}</p>` : ''}
+          ${(p.tags || []).length
+            ? `<div class="pp-tags">${tagsHtml}</div>` : ''}
+          <hr class="pp-divider">
+        </div>
+
+        <div class="pp-body">
+          ${bodyHtml}
+          ${awardsHtml}
+          ${ctasHtml}
+        </div>`;
+
+      // Wire lightbox to all clickable images (gallery + inline)
+      const allImgEls = root.querySelectorAll('.pp-image img, .pp-img-wrap img, .pp-inline-img img');
+      const imageList = Array.from(allImgEls).map(img => ({ src: img.src, alt: img.alt }));
+      allImgEls.forEach((img, i) => {
+        const wrap = img.closest('.pp-image, .pp-img-wrap, .pp-inline-img');
+        if (wrap) {
+          wrap.style.cursor = 'pointer';
+          wrap.addEventListener('click', () => openLightbox(imageList, i));
+        }
+      });
+    }
+
+    // ── Project prev/next navigation ───────────────────────────────────────────
+    function sortProjectsForNav(projects) {
+      function hasContent(p) {
+        return !!(p.thumbnail || p.description || p.tagline || p.what);
+      }
+      return [...projects].sort((a, b) => {
+        const aHas = hasContent(a) ? 0 : 1;
+        const bHas = hasContent(b) ? 0 : 1;
+        if (aHas !== bHas) return aHas - bHas;
+        if (b.year !== a.year) return b.year - a.year;
+        return (b.month || 0) - (a.month || 0);
+      });
+    }
+
+    async function renderProjectNav(currentId, allProjects) {
+      if (!allProjects.length) return;
+      const sorted = sortProjectsForNav(allProjects);
+      const idx = sorted.findIndex(p => p.id === currentId);
+      if (idx === -1 || sorted.length <= 1) return;
+
+      const prev = idx > 0 ? sorted[idx - 1] : null;
+      const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
+      if (!prev && !next) return;
+
+      // Fetch individual project files for prev/next to pick up their thumbnails
+      const [prevDetail, nextDetail] = await Promise.all([
+        prev ? fetch(`data/projects/${prev.id}.json`).then(r => r.ok ? r.json() : null).catch(() => null) : Promise.resolve(null),
+        next ? fetch(`data/projects/${next.id}.json`).then(r => r.ok ? r.json() : null).catch(() => null) : Promise.resolve(null),
+      ]);
+      if (prev && prevDetail?.thumbnail) prev.thumbnail = prevDetail.thumbnail;
+      if (next && nextDetail?.thumbnail) next.thumbnail = nextDetail.thumbnail;
+
+      function miniCard(p, dir) {
+        const url = `project.html#${esc(p.id)}`;
+        const label = dir === 'prev' ? '← Previous' : 'Next →';
+        const alignClass = dir === 'next' ? ' pp-nav-card--next' : '';
+        const thumbHtml = `<div class="pp-nav-thumb-wrap">${
+          p.thumbnail
+            ? `<img src="${esc(p.thumbnail)}" alt="${esc(p.title)}" loading="lazy" onerror="this.style.display='none'">`
+            : ''
+        }</div>`;
+        return `<a href="${url}" class="pp-nav-card${alignClass}">
+          <span class="pp-nav-label">${label}</span>
+          ${thumbHtml}
+          <span class="pp-nav-title">${esc(p.title)}</span>
+        </a>`;
+      }
+
+      root.insertAdjacentHTML('beforeend', `<div class="pp-project-nav">
+        ${prev ? miniCard(prev, 'prev') : '<div></div>'}
+        ${next ? miniCard(next, 'next') : '<div></div>'}
+      </div>`);
+    }
+
+    function init() {
+      projectId = getProjectId();
+      if (projectId) {
+        loadProject(projectId);
+      } else {
+        root.innerHTML = `<div class="project-not-found">
+          <h2>No project specified</h2>
+          <a href="/" class="cta-btn primary" style="margin-top:24px;display:inline-block;">← Back to portfolio</a>
+        </div>`;
+      }
+    }
+
+    window.addEventListener('hashchange', init);
+    init();
+  </script>
+</body>
+</html>

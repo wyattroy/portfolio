@@ -1,0 +1,61 @@
+{
+  "id": "paper-lamps",
+  "title": "Paper Lamps",
+  "year": 2020,
+  "month": 6,
+  "tagline": "Handmade paper lamps using traditional Japanese techniques",
+  "description": "Digitally-aided analogue production",
+  "what": "Digitally-aided analogue production\n\nPaper lamps are created using digital tools to design and prototype, but fully offline tools to produce. As a technologist I am both empowered by and often tired of the software that is integral to my creative process. These lamps could have potentially been 3D printed, but that would have robbed them of their wooden warmth, their glue-filled imprecision, and the softeness that contrasts their geometric forms.\n\nLamp 1: Chicken\n\nInspired by Wendy, the Skybinder chicken.\n\nFirst we created a paper prototype out of cardboard, modelling the form on the lines of Skybinder's chicken.\n\nThen we glued square wooden dowel together, cutting vertices to intersect naturally. Hot glue allowed a degree of flex and tolerance of imprecision.\n\nFinally high-grain Nepali lokta paper was applied with white glue, which was chosen for its quick drying properties and its ability to dry without shrinking or wrinkling the paper.\n\nA variety of cones were placed over the LED source to diffuse, color, and soften the light.\n\nFinal Result\n\nLamp 2: Droplet\n\nIntended as a hanging lamp, this one needed to have a sense of gravity and roundness to balance its low-poly geometric form.",
+  "why": "We started by modelling a variety of droplet shapes in Blender, based off of different primitive spheres - a UV sphere and an icososphere.\n\nA similar process of hot glued wooden dowel covered in Lokta paper. This form had rotational symmetry, so we created a jig to ensure all the angles remained consistent.\n\nFinal Form: Droplet\n\nLamp 3: Dolphin\n\nThis lamp used an LED strip as the light source, which needed to diffuse enough to glow across the length of the form.\n\nWe modeled a dolphin in virtual reality using Tiltbrush. This was by far the most complex design, with the highest number of vertices and edges, so many prototypes were made in VR. Vertices can be connected in multiple ways, and each imbues a different sense of shape to the three dimensional form.\n\nThe remainder of the process was similar to the above: glue dowel, diffuse light, apply paper.\n\nOne challenge with this form was ensuring that the light was equally diffuse in the nose of the dolphin, despite the LEDs being much closer to the outer faces. Extra layers of Lokta had to be applied directly to the LED strip to decrease the light's intensity, given the distance was so much lower and light decreases as the inverse square of distance where Intensity = 1 / distance ^2.\n\nFinal Form\n\nCREATIVE TEAM\n\nWyatt Roy, Julia Mattis",
+  "categories": [
+    "Craft",
+    "Art"
+  ],
+  "axes": {
+    "pragmatic": 0.22,
+    "institutional": 0.08
+  },
+  "thumbnail": "assets/projects/paper-lamps/thumb.jpg",
+  "images": [
+    "assets/projects/paper-lamps/img1.jpg",
+    "assets/projects/paper-lamps/img2.jpg",
+    "assets/projects/paper-lamps/img3.jpg",
+    "assets/projects/paper-lamps/img4.jpg",
+    "assets/projects/paper-lamps/img5.jpg",
+    "assets/projects/paper-lamps/img6.jpg",
+    "assets/projects/paper-lamps/img7.jpg",
+    "assets/projects/paper-lamps/img18.jpg",
+    "assets/projects/paper-lamps/img20.jpg"
+  ],
+  "videos": [],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/design/paper-lamps",
+  "awards": [],
+  "scraped_raw_text": [
+    "Paper Lamps",
+    "Digitally-aided analogue production",
+    "Paper lamps are created using digital tools to design and prototype, but fully offline tools to produce. As a technologist I am both empowered by and often tired of the software that is integral to my creative process. These lamps could have potentially been 3D printed, but that would have robbed them of their wooden warmth, their glue-filled imprecision, and the softeness that contrasts their geometric forms.",
+    "Lamp 1: Chicken",
+    "Inspired by Wendy, the Skybinder chicken.",
+    "First we created a paper prototype out of cardboard, modelling the form on the lines of Skybinder's chicken.",
+    "Then we glued square wooden dowel together, cutting vertices to intersect naturally. Hot glue allowed a degree of flex and tolerance of imprecision.",
+    "Finally high-grain Nepali lokta paper was applied with white glue, which was chosen for its quick drying properties and its ability to dry without shrinking or wrinkling the paper.",
+    "A variety of cones were placed over the LED source to diffuse, color, and soften the light.",
+    "Final Result",
+    "Lamp 2: Droplet",
+    "Intended as a hanging lamp, this one needed to have a sense of gravity and roundness to balance its low-poly geometric form.",
+    "We started by modelling a variety of droplet shapes in Blender, based off of different primitive spheres - a UV sphere and an icososphere.",
+    "A similar process of hot glued wooden dowel covered in Lokta paper. This form had rotational symmetry, so we created a jig to ensure all the angles remained consistent.",
+    "Final Form: Droplet",
+    "Lamp 3: Dolphin",
+    "This lamp used an LED strip as the light source, which needed to diffuse enough to glow across the length of the form.",
+    "We modeled a dolphin in virtual reality using Tiltbrush. This was by far the most complex design, with the highest number of vertices and edges, so many prototypes were made in VR. Vertices can be connected in multiple ways, and each imbues a different sense of shape to the three dimensional form.",
+    "The remainder of the process was similar to the above: glue dowel, diffuse light, apply paper.",
+    "One challenge with this form was ensuring that the light was equally diffuse in the nose of the dolphin, despite the LEDs being much closer to the outer faces. Extra layers of Lokta had to be applied directly to the LED strip to decrease the light's intensity, given the distance was so much lower and light decreases as the inverse square of distance where Intensity = 1 / distance ^2.",
+    "Final Form",
+    "CREATIVE TEAM",
+    "Wyatt Roy, Julia Mattis"
+  ],
+  "scraped_url": "https://www.wyattroy.com/design/paper-lamps",
+  "medium": "Fabrication"
+}

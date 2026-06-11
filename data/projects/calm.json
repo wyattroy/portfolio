@@ -1,0 +1,43 @@
+{
+  "id": "calm",
+  "title": "Calm",
+  "year": 2015,
+  "month": 3,
+  "tagline": "Video ad for Calm where the commercial itself was a meditation",
+  "description": "The one app that wants you to pay less attention to it.",
+  "what": [
+    {
+      "type": "text",
+      "content": "The one app that wants you to pay less attention to it hired us to make their first big ad. \n\n"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/calm/thumb.jpg"
+    }
+  ],
+  "why": "There are a million meditation apps out there. What captured my spirits about Calm was its commitment to nature. You can do its guided meditations, or you can just sit there looking and listening to a mountain stream. Gradually the car horns and screaming sidewalk crazies around in real life just melt away.\n\nWe always spend a while getting to intimately know the companies and products we do work for. Naturally, our creative process for this video involved what amounted to days of meditation. And at the end of it, we thought: what if the commercial for Calm could be be a taste-test of the product itself? What if the video gave a glimpse of the benefits of chilling out? If only all ads helped you relax. Calm's brand is defined by nature and restraint. The insight was that a commercial for a relaxation app could itself be a small act of relaxation — making the form match the product. ",
+  "how": "We shot with a crew of twenty across multiple location in Northern California to create a piece that was viewed millions of times organically, as well as the focal point of a year-long paid campaign.\n\nCreative Directors: Wyatt Roy, Kris Cheng, Garrett Gunther\n\nTalent: Elliott Spelman\n\nDirector: Pete Lee\n\nProduction Company: We Are Scandinavia",
+  "medium": "Film",
+  "tags": [],
+  "axes": {
+    "pragmatic": 0.2,
+    "institutional": 0.3
+  },
+  "thumbnail": "assets/projects/calm/thumb.jpg",
+  "liveUrl": null,
+  "sourceUrl": "https://vimeo.com/123265642",
+  "images": [
+    "assets/projects/calm/thumb.jpg"
+  ],
+  "videos": [
+    "https://vimeo.com/123265642"
+  ],
+  "awards": [],
+  "scraped_raw_text": [
+    "Calm",
+    "The one app that wants you to pay less attention to it.",
+    "There are a million meditation apps out there. What captured my spirits about Calm was its commitment to nature. You can do its guided meditations, or you can just sit there looking and listening to a mountain stream. Gradually the car horns and screaming sidewalk crazies around in real life just melt away.",
+    "We always spend a while getting to intimately know the companies and products we do work for. Naturally, our creative process for this video involved what amounted to days of meditation. And at the end of it, we thought: what if the commercial for Calm could be be a taste-test of the product itself? What if the video gave a glimpse of the benefits of chilling out? If only all ads helped you relax."
+  ],
+  "scraped_url": "https://www.wyattroy.com/video/calm"
+}

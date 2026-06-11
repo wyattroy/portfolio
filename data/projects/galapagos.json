@@ -1,0 +1,27 @@
+{
+  "id": "galapagos",
+  "title": "Galapagos",
+  "year": 2015,
+  "month": 11,
+  "tagline": "Stanford documentary \u2014 chasing wonder at the edge of the Gal\u00e1pagos",
+  "description": "A short documentary about Stanford students and alumni learning together in the Gal\u00e1pagos Islands.",
+  "what": "Stanford education extends beyond the classroom, and beyond your twenties.\n\nOur panga bounced in the choppy water. We'd caught two flights, a bus, another flight, another bus, a ferry, another bus, and were finally at our destination \u2014 an abandoned archipelago in the middle of the Pacific. The isolation of the Gal\u00e1pagos is its source of power; but also renders it devastatingly fragile.\n\nTwelve Sophomore undergrads were there for a class called Darwin, Evolution, Gal\u00e1pagos. 30 alumni were there for a Continued Learning vacation. The professor was there to make sure everyone learned and stayed alive.",
+  "why": "Stanford asked me to capture its community's love of learning as seen through the frame of this magical wilderness.",
+  "categories": [
+    "Video"
+  ],
+  "axes": {
+    "pragmatic": 0.2,
+    "institutional": 0.7
+  },
+  "thumbnail": "assets/projects/galapagos/thumb.jpg",
+  "images": [],
+  "videos": [
+    "https://vimeo.com/144571847"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/video/galapagos",
+  "awards": [],
+  "scraped_url": null,
+  "medium": "Film"
+}

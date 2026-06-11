@@ -1,0 +1,75 @@
+{
+  "id": "cnc-cheeseboard",
+  "title": "CNC Cheeseboard",
+  "year": 2025,
+  "month": 4,
+  "tagline": "Topographic cheese board of the Ojai valley milled on a ShopBot CNC",
+  "description": "A topographic cheese board of the Ojai valley in California",
+  "what": [
+    {
+      "type": "text",
+      "content": "A walnut cheeseboard CNC-milled with the precise topography of the mountain range where my parents live — valleys, ridgelines, and all. The cheese goes in the valley.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cnc-cheeseboard/b1-3d-ojai.png"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "My parents' house feels perched on a mountaintop. What I didn't fully grasp until this project was that the range behind them dwarfs their mountain so completely that it barely registers as a bump above the valley floor. I wanted to make something that held that humbling context in your hands — a piece where scale speaks quietly, and where the act of sharing food becomes a small meditation on land, place, and how small we are in it.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cnc-cheeseboard/b1-old-map.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "I used TouchTerrain — a free web tool from Iowa State — to generate a 3D model from the GPS coordinates of their home. After decimating the mesh in Blender from 70MB to 2MB to keep my CNC software from crashing, I designed two toolpaths: a roughing pass (~5 hrs) to remove bulk material, and a finishing pass with a 1/100\" stepover distance to capture the fine ridgeline detail. The first iteration of this was done on a scaled-down cheaper piece of wood so that I could learn the tools and decrease the chances that my chunk of walnut would be ruined. When the first iteration came out well, I brought my walnut block the shop. \n\nWe devised a way to hold it in place using a L-shaped corner clamps and a lever-and-nail tensioning rig. Total machine time: ~12 hours. Final steps were hand-chiseling misaligned edges, fine-grit sanding to remove grain fuzz, and a butcher block conditioner that transformed the raw surface. Start to finish: about 24 hours. ",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/cnc-cheeseboard/cncrough.gif"
+    }
+  ],
+  "medium": "Fabrication",
+  "tags": [
+    "CNC",
+    "topography",
+    "TouchTerrain",
+    "fabrication",
+    "wood"
+  ],
+  "axes": {
+    "pragmatic": 0.05,
+    "institutional": 0.08
+  },
+  "thumbnail": "assets/projects/cnc-cheeseboard/IMG_3763.jpg",
+  "hero": "assets/projects/cnc-cheeseboard/IMG_3763.jpg",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "images": [
+    "assets/projects/cnc-cheeseboard/b6-ojai-hero.jpeg",
+    "assets/projects/cnc-cheeseboard/b1-old-map.jpg",
+    "assets/projects/cnc-cheeseboard/b1-3d-ojai.png",
+    "assets/projects/cnc-cheeseboard/b2-woodcnc.gif",
+    "assets/projects/cnc-cheeseboard/b7-cheeseboardwaxed.gif",
+    "assets/projects/cnc-cheeseboard/cncrough.gif",
+    "assets/projects/cnc-cheeseboard/IMG_3689.jpg",
+    "assets/projects/cnc-cheeseboard/IMG_3699.jpg",
+    "assets/projects/cnc-cheeseboard/IMG_3763.jpg"
+  ],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=WtUwB9IpijI",
+      "heroOverride": true
+    }
+  ],
+  "awards": []
+}

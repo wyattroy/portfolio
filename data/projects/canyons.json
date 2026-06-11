@@ -1,0 +1,280 @@
+{
+  "id": "canyons",
+  "title": "Canyons",
+  "year": 2024,
+  "month": 4,
+  "tagline": "A museum installation that accelerates human time",
+  "description": "A museum installation that accelerates human time",
+  "what": [
+    {
+      "type": "text",
+      "content": "A museum installation that accelerates human time. Water cuts a path through land over millions of years. What if humans could leave our path imprinted on our built environments, on our own time scale, just like a water droplet?",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img26.jpg"
+    },
+    {
+      "type": "text",
+      "content": "Here's how this experience could feel: You enter a gallery. You move around looking at artworks that interest you.\n\nWhen you enter the next room, you find yourself back where you started – but the path you took through the room has been carved into the floor.\n\nAs you continue to move through the gallery tracing your own footsteps again and again, you dig a canyon into the earth.\n\nIn mere minutes, you impact your environment the way water impacts the world over millennia.\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img1.jpg"
+    },
+    {
+      "type": "text",
+      "content": "Preliminary sketch",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img2.jpg",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img4.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "The floor next to the counter where decades of people stand to order lunch, Angelo’s Pizza, and our Rhino/Grasshopper layout of the gallery",
+      "align": "none"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "Junichiro Tanizaki first called my attention to patina – the marks we leave on our world over time. We wondered, how might we model and amplify patina parametrically?",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img44.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "This project was made primarily in Grasshopper. The first iteration created a grid of dots and sunk them to the depth of a curve that was drawn under them.\n\nBut in the real world, we create a canyon by moving along a surface, and depressing it – not drawing a squiggle through the ground and carving down to that.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img10.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Script 1 takes in a number of columns and rows, and a distance between each point, and creates a grid of points.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img14.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Script 2 takes those points and a Rhino-drawn curve, and sinks down the Z value any points width distance away, to depth. The final component turns these points into a lofted surface that is \"rows\" wide in the \"u\" direction.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img8.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "The final iteration of the definition is entirely parametric. Everything, including the curve’s path throw the space, is influenceable in Grasshopper.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img24.jpg"
+    },
+    {
+      "type": "text",
+      "content": "First we create a set of points for your walk through the gallery. You’ll enter the gallery through the same door each time so the final point must have the same x value as the first point to ensure the curves are contiguous. The y value of the final point is the length of the entire curve, which needs to be easily modifiable to fit the curve to our gallery model. Then we create a nurbs curve out of those points. We need to offset the first curve so that it only starts in the second “room” of the gallery. And we need to repeat this curve reps times as the participant walks through the gallery again and again. Then we create the canyon.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img12.jpg"
+    },
+    {
+      "type": "text",
+      "content": "We generate a grid of points that has cols columns and rows rows each of which are dist distance from each other. We feed this grid of points into the next component. We take in the points grid, as well as the curve we made, and we sink the points that are width x-y distance from the curve down to depth. We need to set the depth at 0, even if the curve is offset to only start in the second gallery, so we modify each Z value according to its Y position. We want to make the mesh sample the lofted curve more often so that it’s smoother. For every point in the source canyon, we’ll create 4 vertices in the mesh. Then create a mesh out of that surface. And immediately deconstruct it so that we can change the vertex colors.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img6.jpg"
+    },
+    {
+      "type": "text",
+      "content": "The final script looks at each vertex and exports its height into a list, so that we can color it based on its depth, achieving the same striations that you see in a real canyon. The gradient applies color based on a range between 0 depth and the maximum depth, computed in our initial canyon script.\n\nFinally, output the color list to recreate a mesh."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img22.jpg"
+    },
+    {
+      "type": "text",
+      "content": "INTERACTIVITY\n\nBack to the early question of: ‘What if humans could leave our path imprinted on our built environments, on our own time scale, just like a water droplet?’  When these imprints can be made in real-time- the perception in walking and interacting with the artwork could feel more immersive by feeling and seeing the indentations happen in real time.\n\nTo do this, we use fologram, a plug-in that can connect the virtual models we create with the motion experiences through a mobile device. \n"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img34.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "We begin with a script that can record and extract real-time motion planes, and extract real-time motion points as a curve."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img38.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Then we project the points from the line onto the same plane as the ground in order to create attractor points using simple grasshopper commands. Before making the initial motion data interact with the floor, we also need to divide the floor into a point grid that can change according to the previous attractor points. Then using attractor points we script in C# a script that inputs:\n\n- The attractor points (the way people move)\n\n- The surface grid points\n\n- Numeric Radial diameter of the attractor points that will be affecting the points on the surface grid.\n\n- Numeric Depth of the surface points that is affected by the attractor points",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img40.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Lastly, we wanted to experience it at a 1:1 scale. We could not actually build this space in real life. But we wanted to know what it would feel like to move through it. So we created a Unity-based VR app for it and ported it to Meta Quest. ",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img30.jpg",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/canyons/img42.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Canyons was a theoretical series of prototypes for expressing space deformation in super-speed.\n\nCreative Team: Wyatt Roy, Chiun Lee, Yongrui Jin"
+    }
+  ],
+  "medium": "VR",
+  "tags": [],
+  "axes": {
+    "pragmatic": 0.2,
+    "institutional": 0.7
+  },
+  "thumbnail": "assets/projects/canyons/thumb.jpg",
+  "hero": "assets/projects/canyons/img32.jpg",
+  "liveUrl": null,
+  "sourceUrl": "https://www.youtube.com/watch?v=iZl-u-dQznw",
+  "images": [
+    "assets/projects/canyons/img1.jpg",
+    "assets/projects/canyons/img2.jpg",
+    "assets/projects/canyons/img4.jpg",
+    "assets/projects/canyons/img6.jpg",
+    "assets/projects/canyons/img8.jpg",
+    "assets/projects/canyons/img10.jpg",
+    "assets/projects/canyons/img12.jpg",
+    "assets/projects/canyons/img14.jpg",
+    "assets/projects/canyons/img16.jpg",
+    "assets/projects/canyons/img20.jpg",
+    "assets/projects/canyons/img22.jpg",
+    "assets/projects/canyons/img24.jpg",
+    "assets/projects/canyons/img26.jpg",
+    "assets/projects/canyons/img28.jpg",
+    "assets/projects/canyons/img30.jpg",
+    "assets/projects/canyons/img32.jpg",
+    "assets/projects/canyons/img34.jpg",
+    "assets/projects/canyons/img36.jpg",
+    "assets/projects/canyons/img38.jpg",
+    "assets/projects/canyons/img40.jpg",
+    "assets/projects/canyons/img42.jpg",
+    "assets/projects/canyons/img44.jpg"
+  ],
+  "videos": [
+    "https://www.youtube.com/watch?v=iZl-u-dQznw"
+  ],
+  "awards": [],
+  "scraped_raw_text": [
+    "Canyons",
+    "A museum installation that accelerates human time",
+    "Water cuts a path through land over millions of years.",
+    "What if humans could leave our path imprinted on our built environments, on our own time scale, just like a water droplet?",
+    "USER JOURNEY",
+    "You enter a gallery.",
+    "You move around looking at artworks that interest you.",
+    "When you enter the next room, you find yourself back where you started – but the path you took through the room has been carved into the floor.",
+    "As you continue to move through the gallery tracing your own footsteps again and again, you dig a canyon into the earth.",
+    "In mere minutes, you impact your environment",
+    "the way water impacts the world over millennia.",
+    "The floor next to the counter where decades of people stand to order lunch, Angelo’s Pizza",
+    "REAL LIFE REFERENCE",
+    "Junichiro Tanizaki called it patina – the marks we leave on our world over time.",
+    "How might we model and amplify patina parametrically?",
+    "GRASSHOPPER",
+    "The first iteration created a grid of dots and sunk them to the depth of a curve that was drawn under them.",
+    "But in the real world, we create a canyon by moving along a surface, and depressing it – not drawing a squiggle through the ground and carving down to that.",
+    "Grasshopper definition",
+    "Script 1 takes in a number of columns and rows, and a distance between each point, and creates a grid of points.",
+    "Script 2 takes those points and a Rhino-drawn curve, and sinks down the Z value any points width distance away, to depth.",
+    "The final component turns these points into a lofted surface rows wide in the u direction.",
+    "Result",
+    "The final iteration of the definition is entirely parametric. Everything, including the curve’s path throw the space, is influenceable in Grasshopper.",
+    "First we create a set of points for your walk through the gallery.",
+    "You’ll enter the gallery through the same door each time so the final point must have the same x value as the first point to ensure the curves are contiguous.",
+    "The y value of the final point is the length of the entire curve, which needs to be easily modifiable to fit the curve to our gallery model.",
+    "Then we create a nurbs curve out of those points.",
+    "We need to offset the first curve so that it only starts in the second “room” of the gallery.",
+    "And we need to repeat this curve reps times as the participant walks through the gallery again and again.",
+    "Then we create the canyon.",
+    "We generate a grid of points that has cols columns and rows rows each of which are dist distance from each other.",
+    "We feed this grid of points into the next component.",
+    "We take in the points grid, as well as the curve we made, and we sink the points that are width x-y distance from the curve down to depth.",
+    "We need to set the depth at 0, even if the curve is offset to only start in the second gallery, so we modify each Z value according to its Y position.",
+    "We want to make the mesh sample the lofted curve more often so that it’s smoother. For every point in the source canyon, we’ll create 4 vertices in the mesh.",
+    "Then create a mesh out of that surface.",
+    "And immediately deconstruct it so that we can change the vertex colors.",
+    "The final script looks at each vertex and exports its height into a list, so that we can color it based on its depth, achieving the same striations that you see in a real canyon.",
+    "The gradient applies color based on a range between 0 depth and the maximum depth, computed in our initial canyon script.",
+    "Finally, output the color list to recreate a mesh.",
+    "RESULT",
+    "Rendered gif",
+    "Walking through the space",
+    "INTERACTIVITY",
+    "Back to the early question of:",
+    "‘What if humans could leave our path imprinted on our built environments, on our own time scale, just like a water droplet?’",
+    "When these imprints can be made in real-time- the perception in walking and interacting with the artwork could feel more immersive by feeling and seeing the indentations happen in real time.",
+    "To do this, we use fologram- which is a plug-in that we are more familiar with in the Rhino/Grasshopper environment, as it can connect the virtual models we create with the motion experience through a mobile device. We begin with the script given to us by our instructors that can record and extract real-time motion planes, and extract real-time motion points as a curve.",
+    "Project the points from the line onto the same plane as the ground in order to create attractor points using simple grasshopper commands.",
+    "Before making the initial motion data interact with the floor, we also need to divide the floor into a point grid that can change according to the previous attractor points",
+    "Then using attractor points we script in C# a script that inputs:",
+    "The attractor points (the way people move),",
+    "The surface grid points",
+    "Numeric Radial diameter of the attractor points that will be affecting the points on the surface grid.",
+    "Numeric Depth of the surface points that is affected by the attractor points",
+    "Top-down view of a real person moving through the digital space with their real phone, deforming the digital floor.",
+    "VIRTUAL REALITY",
+    "We cannot actually build this space in real life.",
+    "But we want to know what it would feel like to move through it.",
+    "So we put it in VR using Unity and Quest.",
+    "FINAL THOUGHTS",
+    "Canyons was a theoretical series of prototypes for expressing space deformation in super-speed.",
+    "Our next step is to find a gallery space willing to exhibit the real-world version of this concept.",
+    "CREATIVE TEAM",
+    "Wyatt Roy, Chiun Lee, Yongrui Jin"
+  ],
+  "scraped_url": "https://www.wyattroy.com/design/canyons"
+}

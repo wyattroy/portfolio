@@ -1,0 +1,41 @@
+{
+  "id": "fanlamp",
+  "title": "Fan Lamp",
+  "year": 2025,
+  "month": 3,
+  "tagline": "Kinetic oscillating lamp built from laser-cut wood, custom gears, and a motor",
+  "description": "A moving lamp made from laser-cut wood with a gear-driven mechanism that oscillates the fan blades, symbolizing the yin-yang ebb and flow of creating.",
+  "what": "A kinetic desk lamp made from laser-cut wood with custom-designed gears that convert the motor's rotational movement into a windshield-wiper oscillation for the fan blades. Designed in Fusion 360, prototyped in cardboard, then lasercut in wood and assembled with screws and a small motor. Battery-powered with a soldered switch and USB light.",
+  "why": "Fanlamp is a moving light that symbolizes the yin-yang ebb and flow process of life and creating \u2014 the orange side might mean stress, the white side peace; or the orange side motivated, the white fallow.",
+  "categories": [
+    "Fabrication"
+  ],
+  "tags": [
+    "laser cutting",
+    "gears",
+    "kinetic",
+    "Fusion 360",
+    "motor",
+    "PS70"
+  ],
+  "axes": {
+    "pragmatic": 0.28,
+    "institutional": 0.08
+  },
+  "thumbnail": "assets/projects/fanlamp/fanlampfinished.gif",
+  "images": [
+    "assets/projects/fanlamp/fanlampfinished.gif",
+    "assets/projects/fanlamp/fusionfanlamp.gif",
+    "assets/projects/fanlamp/lasercut.gif",
+    "assets/projects/fanlamp/motorgears.gif",
+    "assets/projects/fanlamp/prototypelever.jpeg",
+    "assets/projects/fanlamp/fanconstruction1.jpg",
+    "assets/projects/fanlamp/fanlampelectronics.jpg",
+    "assets/projects/fanlamp/fanlampfinished.jpg"
+  ],
+  "videos": [],
+  "liveUrl": null,
+  "sourceUrl": null,
+  "awards": [],
+  "medium": "Fabrication"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "rehoboth",
+  "title": "Rehoboth",
+  "year": 2021,
+  "month": 9,
+  "tagline": "LiDAR hologram VR experience \u2014 a walkable memory of a place and its people",
+  "description": "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die.",
+  "what": "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die.\n\nIn XR narratives, spaces become characters. Photogrammetry imbues those spaces with static detail, but LiDAR holograms bring them to life. The first time I combined 2.5-dimensional depth video with a photogrammetry model I was struck by how much it felt like I had stepped into a memory. Which made me ask, what do we most want to remember? One tragic, beautiful answer is: our loved ones after they die.\n\nThis project took Painting Life\u2019s explorations into XR narrative conventions a step further: when you move through the house, you can pick up a board game and the family appears playing it together at a table. If you walk outside through the garden, you hear the sounds of the geese in the lake. You may end up in the woodshed where the grandfather is turning wooden bowls with his grandchildren.\n\nThese holograms are videos that have been rendered into 3D meshes \u2013 they are glitchy and pixelated, imperfect like our own memories. In this liminal space, the photogrammetric walls melt into the floors and yet the sense of presence, of standing in a real space with real people, is undeniable.\n\nOne playtester also reported learning how to carve a wooden spoon after playing through this experience, hinting at the education potential of such virtual memories.\n\nThe tech stack and development process for this was similar to Painting Life with the added complexity of hologram 2.5D depth video.\n\nThese are captured by:\n\nAzure Kinect RGBD cameras streaming data to a gaming laptop\n\niPhone 12 running Record3D app to use the front-facing LiDAR sensor\n\nDepthkit Studio cleaning and cropping the depth data and exporting RGBD video\n\nCommand-line tools to remove the background from RGBD videos",
+  "why": "Adobe Premiere for clip trimming and sound mixing\n\nDepthkit integration with Unity via a custom plugin\n\nDepth LiDAR on left, RGB Color video on right\n\nIntegration of depth holograms into Unity\n\nCREATIVE TEAM\n\nCreative Director Wyatt Roy\n\nPhotogrammetry Wyatt Roy\n\nHologram capture Wyatt Roy\n\nSound Design Wyatt Roy\n\nUnity Scripting Luis Zanforlin\n\nBEHIND THE SCENES",
+  "categories": [
+    "XR",
+    "Art"
+  ],
+  "axes": {
+    "pragmatic": 0.05,
+    "institutional": 0.08
+  },
+  "thumbnail": "assets/projects/rehoboth/thumb.jpg",
+  "images": [
+    "assets/projects/rehoboth/img1.jpg",
+    "assets/projects/rehoboth/img2.jpg",
+    "assets/projects/rehoboth/img3.jpg",
+    "assets/projects/rehoboth/img4.jpg",
+    "assets/projects/rehoboth/img5.jpg",
+    "assets/projects/rehoboth/img6.jpg",
+    "assets/projects/rehoboth/img7.jpg",
+    "assets/projects/rehoboth/img8.jpg"
+  ],
+  "videos": [
+    "https://vimeo.com/888461019",
+    "https://www.youtube.com/watch?v=9AdIwIasOjE"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/xr/rehoboth",
+  "awards": [],
+  "scraped_raw_text": [
+    "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die.",
+    "In XR narratives, spaces become characters. Photogrammetry imbues those spaces with static detail, but LiDAR holograms bring them to life. The first time I combined 2.5-dimensional depth video with a photogrammetry model I was struck by how much it felt like I had stepped into a memory. Which made me ask, what do we most want to remember? One tragic, beautiful answer is: our loved ones after they die.",
+    "This project took Painting Life\u2019s explorations into XR narrative conventions a step further: when you move through the house, you can pick up a board game and the family appears playing it together at a table. If you walk outside through the garden, you hear the sounds of the geese in the lake. You may end up in the woodshed where the grandfather is turning wooden bowls with his grandchildren.",
+    "These holograms are videos that have been rendered into 3D meshes \u2013 they are glitchy and pixelated, imperfect like our own memories. In this liminal space, the photogrammetric walls melt into the floors and yet the sense of presence, of standing in a real space with real people, is undeniable.",
+    "One playtester also reported learning how to carve a wooden spoon after playing through this experience, hinting at the education potential of such virtual memories.",
+    "The tech stack and development process for this was similar to Painting Life with the added complexity of hologram 2.5D depth video.",
+    "These are captured by:",
+    "Azure Kinect RGBD cameras streaming data to a gaming laptop",
+    "iPhone 12 running Record3D app to use the front-facing LiDAR sensor",
+    "Depthkit Studio cleaning and cropping the depth data and exporting RGBD video",
+    "Command-line tools to remove the background from RGBD videos",
+    "Adobe Premiere for clip trimming and sound mixing",
+    "Depthkit integration with Unity via a custom plugin",
+    "Depth LiDAR on left, RGB Color video on right",
+    "Integration of depth holograms into Unity",
+    "CREATIVE TEAM",
+    "Creative Director Wyatt Roy",
+    "Photogrammetry Wyatt Roy",
+    "Hologram capture Wyatt Roy",
+    "Sound Design Wyatt Roy",
+    "Unity Scripting Luis Zanforlin",
+    "BEHIND THE SCENES"
+  ],
+  "scraped_url": "https://www.wyattroy.com/xr/rehoboth",
+  "medium": "VR"
+}

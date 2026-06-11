@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wyatt Roy — Designer, researcher, and educator. Harvard MDes. Work spanning XR, creative technology, institutional change, and making.">
+  <meta property="og:title" content="Wyatt Roy">
+  <meta property="og:description" content="Designer, researcher, and educator based at Harvard.">
+  <meta property="og:type" content="website">
+  <title>Wyatt Roy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400;500&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fixed Navigation -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <a class="nav-logo" href="/">Wyatt Roy</a>
+    <div class="nav-links" role="navigation">
+      <a href="#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="https://docs.google.com/document/d/1sh149l6gz9TEishSJejG29iJy5zrKsiMmEkNCRgEY_A/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+      <button class="nav-email-btn" id="nav-email-btn" aria-label="Email Wyatt Roy">✉</button>
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">☰</button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="navigation" aria-label="Mobile navigation">
+    <a href="#work" id="drawer-work">Work</a>
+    <a href="about.html">About</a>
+    <a href="https://docs.google.com/document/d/1sh149l6gz9TEishSJejG29iJy5zrKsiMmEkNCRgEY_A/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+    <button id="drawer-email-btn">✉ Email</button>
+  </div>
+
+  <!-- 3D Hero: fixed behind the page. JS locks scroll during zoom phase,
+       then releases once the user has scrolled enough. -->
+  <section id="hero" aria-label="Interactive project overview">
+    <canvas id="three-canvas" aria-hidden="true"></canvas>
+    <!-- Endpoint labels and year labels sit AFTER canvas so they paint in front -->
+    <div id="axis-labels" aria-hidden="true">
+      <span class="axis-label" id="label-poetic">Poetic</span>
+      <span class="axis-label" id="label-pragmatic">Pragmatic</span>
+      <span class="axis-label" id="label-individual">Individual</span>
+      <span class="axis-label" id="label-institutional">Institutional</span>
+      <span class="axis-label axis-helper" id="label-design-intent">design intent</span>
+      <span class="axis-label axis-helper" id="label-system-scale">system scale</span>
+      <span class="axis-label axis-helper" id="label-time">time</span>
+    </div>
+    <p class="visually-hidden">Interactive 3D chart of Wyatt's projects arranged by design intention (poetic to pragmatic) and system scale (individual to institutional). Click any prism to see project details below.</p>
+    <div id="project-hover-label" role="tooltip" style="display:none;"></div>
+    <div id="scatter-2d" style="display:none;" aria-label="2D scatter plot of projects by design intention and scale"></div>
+    <p class="hero-scroll-hint" aria-hidden="true">↓ Scroll to explore</p>
+  </section>
+
+  <!-- Work Section -->
+  <div id="work-bg">
+  <section id="work" aria-label="Project portfolio">
+    <div class="work-header">
+      <h2>Work</h2>
+      <label for="search-input" class="visually-hidden">Search projects</label>
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search projects…"
+        aria-label="Search projects"
+        autocomplete="off"
+        spellcheck="false"
+      >
+    </div>
+
+    <div id="tag-filters" role="group" aria-label="Filter by category">
+      <button class="tag-chip active" data-tag="all">All</button>
+    </div>
+
+    <div id="sort-controls">
+      <label for="sort-select">Sort:
+        <select id="sort-select" aria-label="Sort projects">
+          <option value="year-desc">Year (newest)</option>
+          <option value="year-asc">Year (oldest)</option>
+          <option value="alpha">Alphabetical</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="project-grid" role="list" aria-label="Projects"></div>
+  </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Wyatt Roy &middot; <span id="footer-email-hint" aria-label="Email contact"></span></p>
+  </footer>
+
+  <!-- Project preview modal (shown when clicking a card in the 2x2) -->
+  <div id="project-modal" role="dialog" aria-modal="true" aria-label="Project preview" aria-hidden="true">
+    <div id="project-modal-inner">
+      <button id="project-modal-close" aria-label="Close preview">×</button>
+      <div id="project-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <div class="lightbox-inner">
+      <img class="lightbox-img" src="" alt="" id="lightbox-img">
+    </div>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">×</button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next image">›</button>
+    <div class="lightbox-counter" id="lightbox-counter" aria-live="polite"></div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

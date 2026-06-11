@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Wyatt Roy — Designer, researcher, and educator at Harvard GSD.">
+  <title>About — Wyatt Roy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400;500&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="about-page">
+  <!-- Fixed Navigation -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <a class="nav-logo" href="/">Wyatt Roy</a>
+    <div class="nav-links" role="navigation">
+      <a href="/#work">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="https://docs.google.com/document/d/1sh149l6gz9TEishSJejG29iJy5zrKsiMmEkNCRgEY_A/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+      <button class="nav-email-btn" id="nav-email-btn" aria-label="Email Wyatt Roy">✉</button>
+    </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">☰</button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="navigation" aria-label="Mobile navigation">
+    <a href="/#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="https://docs.google.com/document/d/1sh149l6gz9TEishSJejG29iJy5zrKsiMmEkNCRgEY_A/edit?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+    <button id="drawer-email-btn">✉ Email</button>
+  </div>
+
+  <main>
+    <div class="about-hero">
+      <a href="/" class="about-back">← Portfolio</a>
+      <h1>Wyatt Roy</h1>
+      <p class="subtitle">Designer, researcher, and educator working at the intersection of technology, narrative, and institutional change.</p>
+    </div>
+
+    <div class="about-content">
+      <div class="about-bio">
+        <p>I'm a designer and researcher based at Harvard, where I work as a lecturer and researcher at the Graduate School of Design. My practice spans a wide range — from VR cinematic experiments and haptic wearables to curriculum design and institutional strategy — but most of it is in service of a consistent question: how do systems shape what's possible, and how can design change that?</p>
+        <p>Before Harvard, I worked in product design, documentary filmmaking, and community organizing. Those experiences convinced me that the most interesting design problems are at the edges between disciplines — where the tools of one field can open up something that felt stuck in another.</p>
+        <p>I'm particularly drawn to projects that have to account for their own institutionalization — tools that will be used in schools, platforms that will be deployed by governments, curricula that will outlast their authors. These constraints are usually treated as friction. I think they're the design problem.</p>
+        <p>My current research focuses on the narrative affordances of spatial media — what VR and AR can tell, and how, that flat media cannot. I'm also working on a book about how designers can create lasting change from inside large organizations.</p>
+      </div>
+
+      <div class="credentials-grid">
+        <div class="credential-col">
+          <h3>Education</h3>
+          <ul>
+            <li>
+              Master of Design Studies (MDes)
+              <span class="year">Harvard GSD, 2022</span>
+            </li>
+            <li>
+              Bachelor of Arts, Studio Art &amp; Computer Science
+              <span class="year">Middlebury College, 2018</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="credential-col">
+          <h3>Teaching</h3>
+          <ul>
+            <li>
+              Lecturer, Harvard GSD
+              <span class="year">2022 – present</span>
+            </li>
+            <li>
+              Teaching Fellow, Harvard GSD
+              <span class="year">2021 – 2022</span>
+            </li>
+            <li>
+              Instructor, PS70: Intro to Digital Fabrication
+              <span class="year">Harvard, 2023</span>
+            </li>
+            <li>
+              Workshop Leader, Designing for XR
+              <span class="year">Harvard, 2024</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="credential-col">
+          <h3>Awards &amp; Recognition</h3>
+          <ul>
+            <li>
+              Best VR — Barcelona Planet Film Festival
+              <span class="year">2025</span>
+            </li>
+            <li>
+              Official Selection — CineTejo
+              <span class="year">2025</span>
+            </li>
+            <li>
+              Official Selection — MIX Brasil
+              <span class="year">2025</span>
+            </li>
+            <li>
+              Official Selection — Miami Art Tech Summit
+              <span class="year">2025</span>
+            </li>
+            <li>
+              GSD Research Grant
+              <span class="year">2023, 2024</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="about-contact">
+        <h2>Get in touch</h2>
+        <p>I'm open to conversations about research collaborations, teaching opportunities, speaking engagements, and interesting projects. Response time is usually within a few days.</p>
+        <div style="display:flex; flex-wrap:wrap; gap: 12px; align-items:center; margin-top: 20px;">
+          <button class="about-email-btn" id="about-email-btn">✉ Send an email</button>
+          <a
+            href="https://docs.google.com/document/d/1sh149l6gz9TEishSJejG29iJy5zrKsiMmEkNCRgEY_A/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="about-cv-link"
+          >↗ View CV</a>
+        </div>
+        <p id="about-email-display" style="margin-top: 16px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-text-muted);"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Wyatt Roy &middot; <span id="footer-email-hint" aria-label="Email contact"></span></p>
+  </footer>
+
+  <script type="module">
+    // Construct email client-side — never in HTML
+    const parts = ['wyatty', 'gmail.com'];
+    const email = parts.join('@');
+
+    // Nav email button
+    document.getElementById('nav-email-btn').addEventListener('click', () => {
+      window.location.href = 'mailto:' + email;
+    });
+
+    // About page email button
+    document.getElementById('about-email-btn').addEventListener('click', () => {
+      window.location.href = 'mailto:' + email;
+      document.getElementById('about-email-display').textContent = email;
+    });
+
+    // Drawer email button
+    const drawerEmailBtn = document.getElementById('drawer-email-btn');
+    if (drawerEmailBtn) {
+      drawerEmailBtn.addEventListener('click', () => {
+        window.location.href = 'mailto:' + email;
+      });
+    }
+
+    // Footer
+    const footerHint = document.getElementById('footer-email-hint');
+    if (footerHint) {
+      footerHint.textContent = parts[0] + ' [at] ' + parts[1];
+    }
+
+    // Nav scroll behavior
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Hamburger / mobile drawer
+    const hamburger = document.getElementById('nav-hamburger');
+    const drawer = document.getElementById('nav-drawer');
+    hamburger.addEventListener('click', () => {
+      const isOpen = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      hamburger.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Close drawer when a link inside is clicked
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.textContent = '☰';
+      });
+    });
+
+    // Initial nav scroll check
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  </script>
+</body>
+</html>

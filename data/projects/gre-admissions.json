@@ -1,0 +1,45 @@
+{
+  "id": "gre-admissions",
+  "title": "GRE Admissions Study",
+  "year": 2024,
+  "month": 10,
+  "tagline": "Research on how GRE requirements shape graduate design school applicant pools",
+  "description": "Helping Harvard's Graduate School of Design intentionally design their culture",
+  "what": "Helping Harvard's Graduate School of Design intentionally design their culture\n\nIn 2024, Harvard's GSD changed their policy for incoming applicants to the Masters of Design program by requiring them to take the GRE. The GRE is a standardized test that has been shown to have few correlations with academic outcomes, and has little overlap with much of the material covered in the program. It was intended to be used by the admissions team as one additional data point for applicants, but my concern was that there may be unintended consequences on the student body.\n\nSo I created a simple two-question survey and sent it to everyone currently in the program.\n\nMethod:\n\nAsked all current MDes students: \u201cWould you have applied to MDes if the GRE was required?\u201d\n\nA second question asked about what skills and work they do.",
+  "why": "Results:\n\n49 Respondents.\n\n56% said No, they would not have applied.\n\nReal-world results\n\nI wrote a one-page whitepaper and brought it to the heads of the program who care deeply about fostering a diverse group of interdisciplinary designers who come from a broad range of backgrounds and have an equally broad range of proclivities. My study suggested that there may be unintended effects of re-introducing the GRE requirement, by effectively prohibiting important members of the community from applying.\n\nThe heads of the program discussed internally and reversed their decision two days later.",
+  "categories": [
+    "Research"
+  ],
+  "axes": {
+    "pragmatic": 0.82,
+    "institutional": 0.92
+  },
+  "thumbnail": "assets/projects/gre-admissions/thumb.jpg",
+  "images": [
+    "assets/projects/gre-admissions/img1.jpg",
+    "assets/projects/gre-admissions/img2.jpg",
+    "assets/projects/gre-admissions/img3.jpg",
+    "assets/projects/gre-admissions/img4.jpg"
+  ],
+  "videos": [],
+  "liveUrl": null,
+  "sourceUrl": null,
+  "awards": [],
+  "scraped_raw_text": [
+    "GRE Survey",
+    "Helping Harvard's Graduate School of Design intentionally design their culture",
+    "In 2024, Harvard's GSD changed their policy for incoming applicants to the Masters of Design program by requiring them to take the GRE. The GRE is a standardized test that has been shown to have few correlations with academic outcomes, and has little overlap with much of the material covered in the program. It was intended to be used by the admissions team as one additional data point for applicants, but my concern was that there may be unintended consequences on the student body.",
+    "So I created a simple two-question survey and sent it to everyone currently in the program.",
+    "Method:",
+    "Asked all current MDes students: \u201cWould you have applied to MDes if the GRE was required?\u201d",
+    "A second question asked about what skills and work they do.",
+    "Results:",
+    "49 Respondents.",
+    "56% said No, they would not have applied.",
+    "Real-world results",
+    "I wrote a one-page whitepaper and brought it to the heads of the program who care deeply about fostering a diverse group of interdisciplinary designers who come from a broad range of backgrounds and have an equally broad range of proclivities. My study suggested that there may be unintended effects of re-introducing the GRE requirement, by effectively prohibiting important members of the community from applying.",
+    "The heads of the program discussed internally and reversed their decision two days later."
+  ],
+  "scraped_url": "https://www.wyattroy.com/design/gre-survey",
+  "medium": "Pedagogy"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "polycam",
+  "title": "Polycam",
+  "year": 2026,
+  "tagline": "",
+  "what": "",
+  "why": "",
+  "axes": {
+    "pragmatic": 0.5,
+    "institutional": 0.5
+  },
+  "thumbnail": "assets/projects/polycam/thumb.jpg",
+  "images": [],
+  "videos": [],
+  "awards": []
+}

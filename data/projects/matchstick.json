@@ -1,0 +1,32 @@
+{
+  "id": "matchstick",
+  "title": "Matchstick",
+  "year": 2025,
+  "month": 5,
+  "tagline": "SDF 3D-printed flame sculpture",
+  "description": "A 3D-printed flame modeled as a signed distance function in Rhino, Grasshopper, and Blender.",
+  "what": "A 3D-printed flame built using a signed distance field (SDF) in Rhino/Grasshopper. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value \u2014 creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moir\u00e9 effect that makes the flame appear to flicker.",
+  "why": "The project is a meditation on translation: what gets preserved and what gets lost when an idea moves from mathematics to matter.",
+  "categories": [
+    "Fabrication",
+    "Art"
+  ],
+  "axes": {
+    "pragmatic": 0.08,
+    "institutional": 0.1
+  },
+  "thumbnail": "assets/projects/matchstick/thumb.jpg",
+  "images": [
+    "assets/projects/matchstick/img1.jpg",
+    "assets/projects/matchstick/img2.jpg",
+    "assets/projects/matchstick/img3.jpg",
+    "assets/projects/matchstick/img4.jpg",
+    "assets/projects/matchstick/img5.jpg",
+    "assets/projects/matchstick/img6.jpg"
+  ],
+  "videos": [],
+  "liveUrl": null,
+  "sourceUrl": "https://wyattroy.github.io/codeart/pages/matchstick/index.html",
+  "awards": [],
+  "medium": "Fabrication"
+}

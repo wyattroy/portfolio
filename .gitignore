@@ -1,0 +1,5 @@
+node_modules/
+.playwright-session/
+data/scraped_raw.json
+.DS_Store
+*.log

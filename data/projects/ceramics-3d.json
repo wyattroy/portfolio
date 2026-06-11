@@ -1,0 +1,81 @@
+{
+  "id": "ceramics-3d",
+  "title": "Ceramics 3D",
+  "year": 2024,
+  "month": 6,
+  "tagline": "Photogrammetric scans of ceramics",
+  "description": "Photogrammetric scans of ceramics",
+  "what": [
+    {
+      "type": "text",
+      "content": "I Photogrammetrically scanned 15 pieces by ceramicist Julia Mattis so they could be displayed online in an interactive, three-dimensional way.\n\n[View 3D Album on Polycam](https://poly.cam/album/81A58AD0-B215-41DE-8277-FA3A21A26AAD)"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/ceramics-3d/ceramics.png"
+    },
+    {
+      "type": "text",
+      "content": "Once scanned, ceramic pieces can be embedded directly into websites like these below, and people can click to rotate and see them from all angles. Click/scroll around this one, below:"
+    },
+    {
+      "type": "embed",
+      "src": "https://poly.cam/capture/5C9BDC5A-FDFB-4589-9DD1-D3E8694B9B7A/embed",
+      "title": "Polycam capture viewer",
+      "height": 600
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "Ceramacists work in three dimensions - but they display their work online in two. Whether selling their pieces or applying to residencies, the world of ceramics documentation is primarily flat. But these forms cannot often be expressed in 2D: the forms make sense only when you can see inside, around, and underneath them."
+    },
+    {
+      "type": "embed",
+      "src": "https://poly.cam/capture/8F9A1A03-47E1-4989-BEEE-1F81C3B50FBA/embed",
+      "title": "Polycam capture viewer",
+      "height": 600
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Place ceramic on turntable in room with consistent, soft lighting\n\nTake 100-200 photos while raising and lowering the phone, slowly spinning turntable\n\nProcess on Polycam, an iPhone app"
+    },
+    {
+      "type": "embed",
+      "src": "https://youtube.com/embed/pWQzYdRlmEs",
+      "title": "How to Scan"
+    }
+  ],
+  "medium": "Web",
+  "tags": [],
+  "axes": {
+    "pragmatic": 0.55,
+    "institutional": 0.19
+  },
+  "thumbnail": "assets/projects/ceramics-3d/bowl1.gif",
+  "hero": "assets/projects/ceramics-3d/bowl1.gif",
+  "liveUrl": null,
+  "sourceUrl": "https://youtube.com/shorts/pWQzYdRlmEs",
+  "images": [
+    "assets/projects/ceramics-3d/bowl1.gif",
+    "assets/projects/ceramics-3d/ceramics.png"
+  ],
+  "videos": [],
+  "awards": [],
+  "scraped_raw_text": [
+    "Ceramics 3D",
+    "Digital ceramics",
+    "Ceramacists work in three dimensions - but they communicate their work in two. Whether selling their pieces online or applying to residencies, the world of ceramics documentation is primarily flat. But these forms cannot often be expressed in 2D: the forms make sense only when you can see inside, around, and underneath them.",
+    "This project involved photogrammetry scanning 15 pieces by ceramicist Julia Mattis for use online.",
+    "View 3D Album on Polycam",
+    "Embedding Scans",
+    "Once scanned, ceramic pieces can be embedded directly into websites like the four below, and viewers can click to rotate and see them from all angles.",
+    "Process",
+    "Place ceramic on turntable in room with consistent, soft lighting",
+    "Take 100-200 photos while raising and lowering the phone, slowly spinning turntable",
+    "Process on Polycam, an iPhone app"
+  ],
+  "scraped_url": "https://www.wyattroy.com/interactive/ceramics-3d"
+}

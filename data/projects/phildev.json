@@ -1,0 +1,36 @@
+{
+  "id": "phildev",
+  "title": "PhilDev",
+  "year": 2022,
+  "month": 4,
+  "tagline": "Design strategy for a Philippine development nonprofit",
+  "description": "We were eating dinner with tech innovator Dado Banatao in Manila, Philippines.  We\u2019d flown in from San Francisco at 5am that morning in advance of a two week shoot for his foundation, PhilDev.",
+  "what": "We were eating dinner with tech innovator Dado Banatao in Manila, Philippines. We\u2019d flown in from San Francisco at 5am that morning in advance of a two week shoot for his foundation, PhilDev.\n\nPhilDev has a bold mission: to eliminate poverty in the Philippines. We asked Dado why he thought he could do that in the 13th most populous country in the world, where current per capita income was just $9400. What was the source of his boldness? His hope? He grew silent. Then he said, \u201cMy story. I did it once, for myself. Now we just need to teach others how.\u201d",
+  "why": "In Social Psychology, \"belonging theory\" states that when people don\u2019t feel like they belong somewhere, like an academic setting, they interpret normal negative events, like a bad grade, as evidence that they aren\u2019t supposed to be there. But people who feel like they do belong interpret those same events as evidence that they need to work harder.\n\nWe used Dado\u2019s story to deliver a belonging intervention to each viewer, to help our target audience of Filipino students reinterpret their struggles as a normal part of achieving success. The video was shared and seen over a million times across online platforms.",
+  "categories": [
+    "Design",
+    "Research"
+  ],
+  "axes": {
+    "pragmatic": 0.1,
+    "institutional": 0.7
+  },
+  "thumbnail": "assets/projects/phildev/thumb.jpg",
+  "images": [],
+  "videos": [
+    "https://www.youtube.com/watch?v=ila9CGEu7Ks"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/video/phildev",
+  "awards": [],
+  "scraped_raw_text": [
+    "PhilDev",
+    "How do you scale your mentor?",
+    "We were eating dinner with tech innovator Dado Banatao in Manila, Philippines. We\u2019d flown in from San Francisco at 5am that morning in advance of a two week shoot for his foundation, PhilDev.",
+    "PhilDev has a bold mission: to eliminate poverty in the Philippines. We asked Dado why he thought he could do that in the 13th most populous country in the world, where current per capita income was just $9400. What was the source of his boldness? His hope? He grew silent. Then he said, \u201cMy story. I did it once, for myself. Now we just need to teach others how.\u201d",
+    "In Social Psychology, \"belonging theory\" states that when people don\u2019t feel like they belong somewhere, like an academic setting, they interpret normal negative events, like a bad grade, as evidence that they aren\u2019t supposed to be there. But people who feel like they do belong interpret those same events as evidence that they need to work harder.",
+    "We used Dado\u2019s story to deliver a belonging intervention to each viewer, to help our target audience of Filipino students reinterpret their struggles as a normal part of achieving success. The video was shared and seen over a million times across online platforms."
+  ],
+  "scraped_url": "https://www.wyattroy.com/video/phildev",
+  "medium": "Film"
+}

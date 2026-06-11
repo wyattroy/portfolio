@@ -1,0 +1,45 @@
+{
+  "id": "pigeonbelt",
+  "title": "PigeonBelt",
+  "year": 2025,
+  "month": 5,
+  "tagline": "Compass belt that vibrates when you face north \u2014 wearable wayfinding",
+  "description": "A wearable belt module with an ESP32, BNO055 compass, and eccentric motor that vibrates subtly when the wearer faces north.",
+  "what": "An ESP32 Xiao-based wearable module containing a Bosch BNO055 9-axis IMU for compass heading, an eccentric motor for haptic feedback, a li-po battery with USB charging, an LED indicator, and a custom Fusion 360 housing with a pigeon-embossed snap-on front face designed by Julia. The BNO055 outputs a calibrated Euler-angle yaw referenced to north \u2014 the motor buzzes once when the wearer faces north.",
+  "why": "This has been an idea since I was ten years old \u2014 using felt sense rather than a screen for navigation, turning your understanding of urban space into something embodied. Twenty-six years later, here we are.",
+  "categories": [
+    "Wearables",
+    "HCI"
+  ],
+  "tags": [
+    "haptics",
+    "navigation",
+    "ESP32",
+    "compass",
+    "wearable",
+    "BNO055",
+    "PS70"
+  ],
+  "axes": {
+    "pragmatic": 0.72,
+    "institutional": 0.28
+  },
+  "thumbnail": "assets/projects/pigeonbelt/pigeonhero.jpg",
+  "images": [
+    "assets/projects/pigeonbelt/pigeonhero.jpg",
+    "assets/projects/pigeonbelt/pigeonbeltworn.gif",
+    "assets/projects/pigeonbelt/fusionbuckle.gif",
+    "assets/projects/pigeonbelt/pigeondrawing.jpg",
+    "assets/projects/pigeonbelt/pigeonblender.gif",
+    "assets/projects/pigeonbelt/frontface1.jpg",
+    "assets/projects/pigeonbelt/breadboardcomplete.jpg",
+    "assets/projects/pigeonbelt/pigeonbelt.png"
+  ],
+  "videos": [
+    "https://www.youtube.com/watch?v=xySM_qSlbhk&t=16s"
+  ],
+  "liveUrl": null,
+  "sourceUrl": null,
+  "awards": [],
+  "medium": "Fabrication"
+}

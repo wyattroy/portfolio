@@ -1,0 +1,41 @@
+{
+  "id": "food-chain",
+  "title": "Food Chain",
+  "year": 2025,
+  "month": 3,
+  "tagline": "3D-printed food chain pendant sketched in VR \u2014 organic forms from digital tools",
+  "description": "A 3D-printed food chain of interlocking animals, sketched in VR using Adobe Medium and printed in high resolution on a Prusa printer.",
+  "what": "Designed in VR using Adobe Medium \u2014 sketching interlocking animal and plant forms in 3D space \u2014 then exported as OBJ and prepared in Prusa slicer. After multiple failed prints at lower resolutions, succeeded at 0.05mm (9 hours overnight). Support removal required carefully heating a scalpel and using tiny pliers. Second iteration redrawn from scratch with 2D animal outlines extruded in 3D for less support material.",
+  "why": "Exploring what happens when digital tools are used to create objects that feel organic and hand-made. 3D printers excel at interlocking forms, so a food chain \u2014 where each link must pass through the next \u2014 became the design challenge.",
+  "categories": [
+    "Fabrication",
+    "Art"
+  ],
+  "tags": [
+    "3D printing",
+    "VR",
+    "Adobe Medium",
+    "fabrication",
+    "jewelry",
+    "PS70"
+  ],
+  "axes": {
+    "pragmatic": 0.0,
+    "institutional": 0.0
+  },
+  "thumbnail": "assets/projects/food-chain/foodchainfinal.jpeg",
+  "images": [
+    "assets/projects/food-chain/foodchainfinal.jpeg",
+    "assets/projects/food-chain/mediumvr1.gif",
+    "assets/projects/food-chain/3dprint2.gif",
+    "assets/projects/food-chain/hireslowres.jpeg",
+    "assets/projects/food-chain/foodchain1cleaned.gif",
+    "assets/projects/food-chain/prusachain2.gif",
+    "assets/projects/food-chain/timelapse.gif"
+  ],
+  "videos": [],
+  "liveUrl": null,
+  "sourceUrl": null,
+  "awards": [],
+  "medium": "Fabrication"
+}

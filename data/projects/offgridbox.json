@@ -1,0 +1,32 @@
+{
+  "id": "offgridbox",
+  "title": "OffGridBox",
+  "year": 2023,
+  "month": 10,
+  "tagline": "Design research for off-grid energy/water systems in rural communities",
+  "description": "A short film about the people and technology bringing off-grid energy to rural Rwanda.",
+  "what": "A short documentary film about OffGridBox, a company bringing containerized solar and water purification systems to off-grid communities in Rwanda. Made after visiting the country and seeing the impact firsthand.",
+  "categories": [
+    "Video"
+  ],
+  "axes": {
+    "pragmatic": 0.1,
+    "institutional": 0.7
+  },
+  "thumbnail": "assets/projects/offgridbox/thumb.jpg",
+  "images": [],
+  "videos": [
+    "https://vimeo.com/250939980"
+  ],
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/video/offgridbox",
+  "awards": [],
+  "scraped_raw_text": [
+    "OffGridBox",
+    "Something amazing is happening in Rwanda.",
+    "Actually, many amazing things are happening in Rwanda. I made this video about one of them."
+  ],
+  "scraped_url": "https://www.wyattroy.com/video/offgridbox",
+  "why": "Something amazing is happening in Rwanda \u2014 many amazing things. I made this film about one of them.",
+  "medium": "Film"
+}

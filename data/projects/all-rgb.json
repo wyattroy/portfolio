@@ -1,0 +1,59 @@
+{
+  "id": "all-rgb",
+  "title": "All RGB",
+  "year": 2025,
+  "month": 3,
+  "tagline": "Images containing every 24-bit RGB color exactly once",
+  "description": "4096×4096 pixel images containing all 16,777,216 possible 24-bit RGB colors exactly once.",
+  "what": [
+    {
+      "type": "text",
+      "content": "I wrote a p5.js script to iterate through the entire color spectrum exactly once and add a pixel of that color to an image. The challenge wasn't so much the engineering, as the design - by keeping some color values consistent while iterating more rapidly over others, the image seems to take on those colors more predominantly, even though technically, all of these images have the exact same colors in them. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/all-rgb/img2.jpg",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/all-rgb/img1.jpg",
+      "align": "right"
+    }
+  ],
+  "why": "Every pixel on a screen is actually 3 pixels -- each has a Red, Green, and Blue (RGB) part of it. These are like mini stop-lights that send color into our eyes, where we have cones that are responsive to red, green and blue. All the colors we see are just made from our brain responding to red, green, and blue out in the world, and mixing them up. \n\nThis project shone a light, proverbially and literally, on the way we perceive color. It is not \"true\" or unbiased -- no human would look at these images and say that they are the same color as each other. Yet if you were to count up the colors in them, they are all exactly the same. The only difference is in their arrangement. ",
+  "how": [
+    {
+      "type": "text",
+      "content": "Coded in p5.js, a graphics-based javascript library. Code snippet below. \n "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/all-rgb/allrgbcode.jpg"
+    }
+  ],
+  "medium": "Web",
+  "tags": [
+    "Creative coding",
+    "Art",
+    "p5.js"
+  ],
+  "axes": {
+    "pragmatic": 0.08,
+    "institutional": 0.08
+  },
+  "thumbnail": "assets/projects/all-rgb/thumb.jpg",
+  "hero": "assets/projects/all-rgb/thumb.jpg",
+  "liveUrl": null,
+  "sourceUrl": "https://wyattroy.github.io/codeart/pages/allrgb/index.html",
+  "images": [
+    "assets/projects/all-rgb/img1.jpg",
+    "assets/projects/all-rgb/img2.jpg",
+    "assets/projects/all-rgb/img3.jpg",
+    "assets/projects/all-rgb/img4.jpg",
+    "assets/projects/all-rgb/img5.jpg",
+    "assets/projects/all-rgb/allrgbcode.jpg"
+  ],
+  "videos": [],
+  "awards": []
+}

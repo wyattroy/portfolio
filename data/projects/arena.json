@@ -1,0 +1,81 @@
+{
+  "id": "arena",
+  "title": "Arena of Wants",
+  "year": 2025,
+  "month": 11,
+  "tagline": "Web app that helps you prioritize your conflicting wants",
+  "description": "A locally-cached web app for surfacing and ranking your wants.",
+  "what": [
+    {
+      "type": "text",
+      "content": "A locally-cached web app at [arenaofwants.com](https://arenaofwants.com). Users enter their wants and the app surfaces them in head-to-head comparisons, building a ranked list of what you want most."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/arena/ArenaStep.png"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "A core tenet in constructionism is learner agency. But people often feel constrained by others' expectations, unable to act in ways aligned with their core desires. Constructive-developmental theory (Kegan, 1980) suggests most adults operate at a \"socialized\" stage, subject to others' norms. Arena is a self-authoring intervention that reframes constraints as competing wants and helps users reprioritize to act most in line with their own goals."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/arena/Wants.png"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Lovable: I wrote a 17-page product requirement document (PRD) which I then fed to Lovable, an AI web app creator. For each round of feedback, I found that Lovable deducted one credit from my account for every detail that I wanted changed -- but if I compiled all of my feedback into one large text document and asked it to change everything at once, it also charged just one credit. I developed a feedback system that broke their intended user behavior (of frequent chatting with the AI client) in order to more efficiently design and iterate on the app. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/arena/lovable.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "User testing: The most challenging part of this project wasn't the (computer) engineering, thanks to AI-based tools and a clear design intent - it was the human engineering. Every user I interviewed wanted a way to understand their own wants more clearly; but everyone approached the problem in a different way. How could one digital tool accommodate them all? An early version of the Arena started with a simple breathing exercise, one that was well researched and well validated to calm the nervous system down. But one user almost hyperventilated while trying to follow the animations. I ultimately removed this step and made the entire flow more flexible according to the needs of each user, with forward and back buttons, and making every text entry editable at all times. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/arena/Conflicts.png",
+      "align": "right"
+    }
+  ],
+  "medium": "Web",
+  "tags": [
+    "web app",
+    "decision-making",
+    "locally-cached",
+    "reflection",
+    "tool",
+    "social emotional learning"
+  ],
+  "axes": {
+    "pragmatic": 0.65,
+    "institutional": 0.1
+  },
+  "thumbnail": "assets/projects/arena/Home.png",
+  "hero": "assets/projects/arena/Home.png",
+  "liveUrl": "https://arenaofwants.com",
+  "sourceUrl": null,
+  "images": [
+    "assets/projects/arena/Reasons.png",
+    "assets/projects/arena/Home.png",
+    "assets/projects/arena/Priorities.png",
+    "assets/projects/arena/Conflicts.png",
+    "assets/projects/arena/ArenaStep.png",
+    "assets/projects/arena/Finish.png",
+    "assets/projects/arena/Wants.png",
+    "assets/projects/arena/lovable.png"
+  ],
+  "videos": [
+    "arenaofwants.com"
+  ],
+  "awards": []
+}

@@ -1,0 +1,34 @@
+{
+  "id": "mdes-nps",
+  "title": "MDes NPS Study",
+  "year": 2023,
+  "month": 11,
+  "tagline": "NPS survey of Harvard MDes alumni \u2014 score of -16, driving program redesign",
+  "description": "A longitudinal study of alumni satisfaction across five cohorts of the Harvard MDes program, using NPS and qualitative interviews.",
+  "what": "NPS survey of 129 MDes students returned a score of -16 (22% Promoters, 38% Detractors), compared to Harvard Business School's +37. Of 108 students who left comments, the program's core strength \u2014 radical curricular flexibility and access to the Harvard/MIT ecosystem \u2014 is widely praised even by Detractors. But three structural complaints drag the score down: under-resourced relative to cost, no dedicated physical space and community in GSD, and lack of mentorship for students who need scaffolding.",
+  "why": "MDes is counter-cultural within Harvard, and improbable within the GSD. That's why I'm driven to help it thrive \u2014 I can imagine MDes being truly great, a profoundly effective teaching moment for generations of designers. And I want to live in the world that its students eventually design.",
+  "categories": [
+    "Research"
+  ],
+  "tags": [
+    "research",
+    "Harvard",
+    "survey",
+    "alumni",
+    "evaluation"
+  ],
+  "axes": {
+    "pragmatic": 0.82,
+    "institutional": 0.9
+  },
+  "thumbnail": "assets/projects/mdes-nps/thumb.jpg",
+  "images": [
+    "assets/projects/mdes-nps/img1.jpg",
+    "assets/projects/mdes-nps/img2.jpg"
+  ],
+  "videos": [],
+  "liveUrl": null,
+  "sourceUrl": null,
+  "awards": [],
+  "medium": "Pedagogy"
+}

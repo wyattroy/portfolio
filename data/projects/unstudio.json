@@ -1,0 +1,35 @@
+{
+  "id": "unstudio",
+  "title": "unStudio",
+  "year": 2026,
+  "month": 4,
+  "tagline": "Spatial intervention at Harvard GSD \u2014 a collision space for 350+ students without studio",
+  "description": "The unstudio is a pilot for a collaborative learning space that solves the Harvard Graduate School of Design\u2019s spatial constraints.",
+  "what": "A pilot collaborative space for the third of GSD students who have no home base in Gund Hall. Running April 11\u201320, 2026, the unstudio transformed an underutilized room into a drop-in collision space using furniture that already existed. 15 people at once at peak occupancy. 84 community members added their voices. 7 events hosted in 8 days.",
+  "categories": [
+    "Education",
+    "Design"
+  ],
+  "axes": {
+    "pragmatic": 0.5,
+    "institutional": 0.85
+  },
+  "thumbnail": "assets/projects/unstudio/unstudio-description.jpg",
+  "images": [
+    "assets/projects/unstudio/img1.jpg",
+    "assets/projects/unstudio/img2.jpg",
+    "assets/projects/unstudio/img3.jpg",
+    "assets/projects/unstudio/unstudio-description.jpg"
+  ],
+  "videos": [],
+  "liveUrl": "https://unstudiogsd.org",
+  "sourceUrl": "https://unstudiogsd.org",
+  "awards": [],
+  "scraped_raw_text": [
+    "The unstudio is a pilot for a collaborative learning space that solves the Harvard Graduate School of Design\u2019s spatial constraints.",
+    "Every semester, over a third of GSD students across all programs (350+) have no home base in Gund Hall, the main building. The unstudio is a collision space for those students - where they can spontaneously meet, share ideas, increase interdisciplinary connections, design collaboratively, and learn more effectively in a community of practice."
+  ],
+  "scraped_url": "https://www.wyattroy.com/design/unstudio",
+  "why": "Gund Hall was designed for 400 students and currently holds 994. Over 370 students have no desk in the school. 89% of existing desks sit empty at any given time. The cultural belief \u2014 that desks are only for studio \u2014 was excluding a third of students from their creative home base.",
+  "medium": "Pedagogy"
+}
