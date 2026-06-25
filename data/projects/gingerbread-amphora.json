@@ -1,0 +1,16 @@
+{
+  "id": "gingerbread-amphora",
+  "title": "GIngerbread Amphora",
+  "year": 2025,
+  "tagline": "",
+  "what": "",
+  "why": "",
+  "axes": {
+    "pragmatic": 0.5,
+    "institutional": 0.5
+  },
+  "thumbnail": "assets/projects/gingerbread-amphora/thumb.jpg",
+  "images": [],
+  "videos": [],
+  "awards": []
+}

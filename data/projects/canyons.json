@@ -167,7 +167,7 @@
     },
     {
       "type": "text",
-      "content": "Canyons was a theoretical series of prototypes for expressing space deformation in super-speed.\n\nCreative Team: Wyatt Roy, Chiun Lee, Yongrui Jin"
+      "content": "Canyons was a theoretical series of prototypes for expressing space deformation in super-speed."
     }
   ],
   "medium": "VR",
@@ -205,9 +205,29 @@
     "assets/projects/canyons/img44.jpg"
   ],
   "videos": [
-    "https://www.youtube.com/watch?v=iZl-u-dQznw"
+    {
+      "url": "https://www.youtube.com/watch?v=iZl-u-dQznw",
+      "heroOverride": true
+    }
   ],
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    },
+    {
+      "name": "Chiun Lee",
+      "url": "",
+      "role": "Designer"
+    },
+    {
+      "name": "Yongrui Jin",
+      "url": "",
+      "role": "Designer"
+    }
+  ],
   "scraped_raw_text": [
     "Canyons",
     "A museum installation that accelerates human time",

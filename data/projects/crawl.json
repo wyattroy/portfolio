@@ -76,10 +76,6 @@
     {
       "type": "image",
       "src": "assets/projects/crawl/img16.jpg"
-    },
-    {
-      "type": "text",
-      "content": "Performer, writer, artist: Wyatt Roy\n\nFilm credit and collaborators: Tania Bruguera, Danny Clarke, Kenneth Bailey, Brennis Carrillo, Julia Mattis, Lina, Hasna Sal, Julia Szejnblum, Gui Becker, Maggie Wong, Leigh, Alexander Augustus, Andre Zollinger, Ieva Lygnugaryte, Mark, Elija, Olivia, Paulo, Jesus Morales"
     }
   ],
   "medium": "Narrative",
@@ -119,6 +115,38 @@
     }
   ],
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Performer, writer, artist"
+    },
+    {
+      "name": "Tania Bruguera",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Brennis Carrillo",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Danny Clarke",
+      "url": "",
+      "role": "Videographer"
+    },
+    {
+      "name": "Kenneth Bailey",
+      "url": "",
+      "role": "Videographer"
+    },
+    {
+      "name": "Julia Mattis",
+      "url": "",
+      "role": "Videographer"
+    }
+  ],
   "scraped_raw_text": [
     "Harvard Crawl",
     "Performance art for the Harvard Community",

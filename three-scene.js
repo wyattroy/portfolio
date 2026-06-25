@@ -99,8 +99,6 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(canvas.offsetWidth, canvas.offsetHeight, false); // false = don't override CSS size
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   // Camera
   const camera = new THREE.PerspectiveCamera(
@@ -118,14 +116,6 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
   const dirLight = new THREE.DirectionalLight('#FFF8F0', 2.0);
   dirLight.position.set(8, 14, 10);
-  dirLight.castShadow = true;
-  dirLight.shadow.mapSize.set(1024, 1024);
-  dirLight.shadow.camera.near = 0.5;
-  dirLight.shadow.camera.far = 50;
-  dirLight.shadow.camera.left = -10;
-  dirLight.shadow.camera.right = 10;
-  dirLight.shadow.camera.top = 10;
-  dirLight.shadow.camera.bottom = -10;
   scene.add(dirLight);
 
   const fillLight = new THREE.DirectionalLight('#E0E8F0', 0.6);
@@ -139,6 +129,9 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   const prismMeshes = [];
   const meshToProject = new Map();
   const textureLoader = new THREE.TextureLoader();
+
+  // One shared material for all non-front faces across every prism
+  const sharedSideMat = new THREE.MeshLambertMaterial({ color: '#CEC6B4' });
 
   // Fade-in timing — skip on repeat visits
   const VISITED_KEY = 'wyattroy-visited';
@@ -184,20 +177,14 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     // Geometry
     const geo = new THREE.BoxGeometry(1.6, 1.0, 0.05);
 
-    // Per-mesh materials (not shared) so we can control opacity independently
-    const mkWarm  = () => new THREE.MeshLambertMaterial({ color: '#CEC6B4', transparent: true, opacity: 0 });
-    const accentMat = new THREE.MeshLambertMaterial({
-      color: p.featured ? '#5578A0' : '#B8AFA6', transparent: true, opacity: 0
-    });
+    // Only the front face (index 4) is per-mesh — it carries the thumbnail and fades in.
+    // All other faces share one material; back face is back-culled and never rendered.
     const frontMat = new THREE.MeshLambertMaterial({ color: '#EAE6DA', transparent: true, opacity: 0 });
-    const materials = [mkWarm(), mkWarm(), accentMat, mkWarm(), frontMat, mkWarm()];
+    const materials = [sharedSideMat, sharedSideMat, sharedSideMat, sharedSideMat, frontMat, sharedSideMat];
 
     const mesh = new THREE.Mesh(geo, materials);
     mesh.position.set(x, y, z);
     mesh.scale.setScalar(scale);
-    mesh.castShadow = true;
-    mesh.receiveShadow = true;
-
     // Store original scale for spring animation
     mesh.userData.baseScale = scale;
     mesh.userData.scaleSpring = makeSpring(scale);
@@ -601,8 +588,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       const op = entryOpacity(mesh.userData.revealMs);
       if (op !== mesh.userData.cardOpacity) {
         mesh.userData.cardOpacity = op;
-        const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
-        mats.forEach(m => { if (m) m.opacity = op; });
+        const frontMat = mesh.material[4];
+        if (frontMat) frontMat.opacity = op;
       }
     });
 
@@ -615,22 +602,23 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
   animate();
 
-  // ── Pause rendering when hero is fully scrolled out of view ──────────────────
+  // ── Pause rendering when work section scrolls over the hero ─────────────────
+  // #hero is position:fixed so IntersectionObserver always reports it as visible.
+  // #work-bg has margin-top:100vh, so when scrollY >= innerHeight it fully covers
+  // the hero and the 3D scene can stop drawing.
   let renderingPaused = false;
-  const heroEl = document.getElementById('hero');
-  if (heroEl && 'IntersectionObserver' in window) {
-    const obs = new IntersectionObserver(entries => {
-      const isVisible = entries[0].isIntersecting;
-      if (!isVisible && !renderingPaused) {
-        renderingPaused = true;
-        cancelAnimationFrame(animFrameId);
-      } else if (isVisible && renderingPaused) {
-        renderingPaused = false;
-        animate();
-      }
-    }, { threshold: 0 });
-    obs.observe(heroEl);
+  function updateRenderPause() {
+    const covered = window.scrollY >= window.innerHeight;
+    if (covered && !renderingPaused) {
+      renderingPaused = true;
+      cancelAnimationFrame(animFrameId);
+    } else if (!covered && renderingPaused) {
+      renderingPaused = false;
+      animate();
+    }
   }
+  window.addEventListener('scroll', updateRenderPause, { passive: true });
+  updateRenderPause();
 
   // ── Reset view button ────────────────────────────────────────────────────────
   const resetBtn = document.createElement('button');

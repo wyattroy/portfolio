@@ -55,5 +55,12 @@
     "assets/projects/all-rgb/allrgbcode.jpg"
   ],
   "videos": [],
-  "awards": []
+  "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    }
+  ]
 }

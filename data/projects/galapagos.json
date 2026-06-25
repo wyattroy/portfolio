@@ -3,25 +3,76 @@
   "title": "Galapagos",
   "year": 2015,
   "month": 11,
-  "tagline": "Stanford documentary \u2014 chasing wonder at the edge of the Gal\u00e1pagos",
-  "description": "A short documentary about Stanford students and alumni learning together in the Gal\u00e1pagos Islands.",
-  "what": "Stanford education extends beyond the classroom, and beyond your twenties.\n\nOur panga bounced in the choppy water. We'd caught two flights, a bus, another flight, another bus, a ferry, another bus, and were finally at our destination \u2014 an abandoned archipelago in the middle of the Pacific. The isolation of the Gal\u00e1pagos is its source of power; but also renders it devastatingly fragile.\n\nTwelve Sophomore undergrads were there for a class called Darwin, Evolution, Gal\u00e1pagos. 30 alumni were there for a Continued Learning vacation. The professor was there to make sure everyone learned and stayed alive.",
-  "why": "Stanford asked me to capture its community's love of learning as seen through the frame of this magical wilderness.",
-  "categories": [
-    "Video"
+  "tagline": "Stanford documentary — chasing wonder at the edge of the Galápagos",
+  "description": "A short documentary about Stanford students and alumni learning together in the Galápagos Islands.",
+  "what": [
+    {
+      "type": "text",
+      "content": "Stanford hired me to make a mini documentary that showed how education extends beyond the classroom, and beyond your twenties. In particular, they wanted to capture its community's love of learning as seen through the frame of the Galapagos's magical wilderness.\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/galapagos/iguana-eye.jpg"
+    }
   ],
+  "why": [
+    {
+      "type": "text",
+      "content": "I had been selected to partitipate on this trip as an undergrad. It was lifechanging, for an unexpected reason: the professor loved photography, and had arranged for professional-grade DSLR cameras to be lent out to each student. With a proper camera in my hands, my childhood love of photography bloomed. I took thousands of photos, learned everything about how cameras capture light, and started a photography business when I got home. Years later, when that photography business had grown into a film and photo boutique agency operating out of San Francisco, Stanford called me to see if I wanted to capture their trip. They handn't known how meaningful the full-circle return to the birthplace of my creative identity would be, they just needed a video. But this piece felt like a chance for me to reflect on everything I had learned in the intervening years, and use it to celebrate a journey that would be a turning point for many others in their lives.\n\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/galapagos/panga.JPG"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Our panga bounced in the choppy water. We'd caught two flights, a bus, another flight, another bus, a ferry, another bus, and were finally at our destination — a remote archipelago in the middle of the Pacific. The isolation of the Galápagos is its source of power; but also renders it devastatingly fragile. Twelve Sophomore undergrads were there for a class called Darwin, Evolution, Galápagos. 30 alumni were there for a Continued Learning vacation. The professor was there to make sure everyone learned (and stayed alive).\n\nEvery day I captured hours of footage on underwater cameras and DSLRs, and every night I edited it together to try to create the story. Ultimately I realized that a spoken narration track would distract from the wilderness and center the humans more than felt authentic to the trip itself. So I interviewed them all and used their most precient quotes to create a light narrative backbone for the film that would let the piece breathe. I referenced the work of [Brandon Li](https://vimeo.com/129171397), a filmmaking friend when putting the edit together. ",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/galapagos/sleeping.jpg"
+    }
+  ],
+  "medium": "Film",
+  "tags": [],
   "axes": {
-    "pragmatic": 0.2,
+    "pragmatic": 0.13,
     "institutional": 0.7
   },
   "thumbnail": "assets/projects/galapagos/thumb.jpg",
-  "images": [],
-  "videos": [
-    "https://vimeo.com/144571847"
-  ],
+  "hero": "assets/projects/galapagos/thumb-sm.jpg",
   "liveUrl": null,
   "sourceUrl": "https://www.wyattroy.com/video/galapagos",
+  "images": [
+    "assets/projects/galapagos/thumb-sm.jpg",
+    "assets/projects/galapagos/iguana-eye.jpg",
+    "assets/projects/galapagos/sealion.jpg",
+    "assets/projects/galapagos/DSC_0436.JPG",
+    "assets/projects/galapagos/squawkin.JPG",
+    "assets/projects/galapagos/panga.JPG",
+    "assets/projects/galapagos/sleeping.jpg",
+    "assets/projects/galapagos/iguana.jpg",
+    "assets/projects/galapagos/crab.JPG",
+    "assets/projects/galapagos/chiller.JPG"
+  ],
+  "videos": [
+    {
+      "url": "https://vimeo.com/144571847",
+      "heroOverride": true
+    }
+  ],
   "awards": [],
-  "scraped_url": null,
-  "medium": "Film"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Director, Cinematographer, Editor"
+    }
+  ],
+  "scraped_url": null
 }

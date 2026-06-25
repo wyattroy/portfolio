@@ -1,33 +1,35 @@
 {
   "id": "streetlogic",
   "title": "StreetLogic",
-  "year": 2023,
-  "month": 1,
-  "tagline": "Launch video for StreetLogic \u2014 an AI-powered smart dashcam for cyclists",
+  "year": 2017,
+  "month": 4,
+  "tagline": "Launch video for StreetLogic — an AI-powered smart dashcam for cyclists",
   "description": "Your extra set of eyes on the road",
   "what": "Your extra set of eyes on the road\n\nStreetlogic is a smart dashcam for bikes. It does more than just record 360 footage of everything around you -- it uses AI to warn you if cars are coming too close.\n\nI love biking, and I love living in cities. But mixing the two can be dangerous. I made this video for Streetlogic's launch to help them spread the dream of safe urban cycling.",
-  "categories": [
-    "Video"
-  ],
+  "why": "I love cycling in cities and the danger is real. StreetLogic needed to sell a dream as much as a product — safety on streets that are already hostile to cyclists.",
+  "medium": "Film",
+  "tags": [],
   "axes": {
     "pragmatic": 0.65,
     "institutional": 0.28
   },
   "thumbnail": "assets/projects/streetlogic/thumb.jpg",
-  "images": [],
-  "videos": [
-    "https://vimeo.com/644187149"
-  ],
   "liveUrl": null,
   "sourceUrl": "https://www.wyattroy.com/video/streetlogic",
+  "images": [],
+  "videos": [
+    {
+      "url": "https://vimeo.com/644187149",
+      "heroOverride": true
+    }
+  ],
   "awards": [],
+  "who": [],
   "scraped_raw_text": [
     "Streetlogic",
     "Your extra set of eyes on the road",
     "Streetlogic is a smart dashcam for bikes. It does more than just record 360 footage of everything around you -- it uses AI to warn you if cars are coming too close.",
     "I love biking, and I love living in cities. But mixing the two can be dangerous. I made this video for Streetlogic's launch to help them spread the dream of safe urban cycling."
   ],
-  "scraped_url": "https://www.wyattroy.com/video/streetlogic",
-  "why": "I love cycling in cities and the danger is real. StreetLogic needed to sell a dream as much as a product \u2014 safety on streets that are already hostile to cyclists.",
-  "medium": "Film"
+  "scraped_url": "https://www.wyattroy.com/video/streetlogic"
 }

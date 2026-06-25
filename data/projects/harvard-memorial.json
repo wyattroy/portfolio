@@ -1,21 +1,116 @@
 {
   "id": "harvard-memorial",
   "title": "Harvard Memorial",
-  "year": 2023,
-  "month": 5,
+  "year": 2024,
+  "month": 9,
   "tagline": "Proposal for a student-led memorial to Harvard's enslaved laborers",
-  "description": "What would the Berlin Holocaust memorial look like a little closer to home?",
-  "what": "What would the Berlin Holocaust memorial look like a little closer to home?\n\nHarvard presidents, overseers, and faculty and staff members enslaved at least 70 people (Harvard Magazine).\n\nThis project imagines how we might honor them and their legacy by adapting Berlin's iconic Holocaust memorial and placing it in the middle of Harvard Yard.\n\nDesigning the memorial parametrically\n\nGrasshopper and Rhino allowed me to set parameters for the number of columns and rows, as well as loft a curve to define their heights and the landscape beneath each block.\n\nGrasshopper Definition\n\nTwo parametric design methods\n\nFinal form\n\nPhotogrammetry Process\n\nNext I created the photogrammetry landscape scans to add the block-based memorial design into.\n\nMethod 1: Lidar scan Harvard Yard with Polycam",
-  "why": "Issues: too large an area; 15 minute scan capture only 1/8th; accelerometer drift caused uneven terrain\n\nLink\n\nMethod 2: Photogrammetry scan Harvard Yard\n\nIssues: photogrammetry of large area provided too little overlap in image dataset; model incomplete\n\nMethod 3: Google Earth \u2192 Photogrammetry via screen recording\n\nIssues: degradation from making a model out of photos of a model; overhead satellite view doesn\u2019t capture between trees\n\nRhino + Grasshopper Model Integration\n\nAdd the photogrammetric model into Rhino, remesh it down to 15k triangles, and modify the parameters in Grasshopper to align the Berlin Memorial blocks with Harvard Yard.\n\nFinal Form\n\nDistribution\n\nRe-upload to Polycam for easy viewing.",
-  "categories": [
-    "Design",
-    "Research"
+  "description": "What would the Berlin Holocaust memorial look like at Harvard?",
+  "what": [
+    {
+      "type": "text",
+      "content": "A proposal for a computationally-designed installation inspired by the Berlin Holocaust Memorial, featuring concrete blocks taking over Harvard Yard -- one for every slave who helped build the school. ",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/harvard-memorial/img3.jpg"
+    }
   ],
+  "why": [
+    {
+      "type": "text",
+      "content": "What would the Berlin Holocaust memorial look like a little closer to home? Harvard presidents, overseers, and faculty and staff members enslaved at least 70 people (Harvard Magazine).\n\nThis project imagines how we might honor them and their legacy by adapting Berlin's iconic Holocaust memorial and placing it in the middle of Harvard Yard."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/harvard-memorial/img16.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Grasshopper and Rhino allowed me to set parameters for the number of columns and rows, as well as loft a curve to define their heights and the landscape beneath each block.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/harvard-memorial/img1.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Two parametric design methods ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/harvard-memorial/img2.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Next I created the photogrammetry landscape scans to add the block-based memorial design into.\n\n**Method 1:** Lidar scan Harvard Yard with Polycam\nIssues: too large an area; 15 minute scan capture only 1/8th; accelerometer drift caused uneven terrain",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/harvard-memorial/img4.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Method 2:** Photogrammetry scan Harvard Yard\nIssues: photogrammetry of large area provided too little overlap in image dataset; model incomplete",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/harvard-memorial/img5.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Method 3:** Google Earth → Photogrammetry via screen recording\nIssues: degradation from making a model out of photos of a model; overhead satellite view doesn’t capture between trees",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/harvard-memorial/EarthScan.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "I added the photogrammetric model into Rhino, remesh it down to 15k triangles, and modify the parameters in Grasshopper to align the Berlin Memorial blocks with Harvard Yard. Then I re-uploaded the model to Polycam for easy viewing.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/harvard-memorial/img22.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Click around this embedded 3D model:"
+    },
+    {
+      "type": "embed",
+      "src": "https://poly.cam/capture/c36de384-b4f9-4955-83eb-6a92b79e53d1",
+      "title": "3D Model of the Memorial"
+    },
+    {
+      "type": "text",
+      "content": "Or view it in a new tab [here](https://poly.cam/capture/c36de384-b4f9-4955-83eb-6a92b79e53d1)"
+    }
+  ],
+  "medium": "Narrative",
+  "tags": [],
   "axes": {
     "pragmatic": 0.38,
     "institutional": 0.9
   },
-  "thumbnail": "assets/projects/harvard-memorial/thumb.jpg",
+  "thumbnail": "assets/projects/harvard-memorial/img3.jpg",
+  "hero": "assets/projects/harvard-memorial/img3.jpg",
+  "liveUrl": null,
+  "sourceUrl": null,
   "images": [
     "assets/projects/harvard-memorial/img1.jpg",
     "assets/projects/harvard-memorial/img2.jpg",
@@ -29,12 +124,18 @@
     "assets/projects/harvard-memorial/img20.jpg",
     "assets/projects/harvard-memorial/img22.jpg",
     "assets/projects/harvard-memorial/img24.jpg",
-    "assets/projects/harvard-memorial/img26.jpg"
+    "assets/projects/harvard-memorial/img26.jpg",
+    "assets/projects/harvard-memorial/EarthScan.gif"
   ],
   "videos": [],
-  "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/design/harvard-memorial",
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    }
+  ],
   "scraped_raw_text": [
     "Harvard Memorial",
     "What would the Berlin Holocaust memorial look like a little closer to home?",
@@ -52,14 +153,13 @@
     "Link",
     "Method 2: Photogrammetry scan Harvard Yard",
     "Issues: photogrammetry of large area provided too little overlap in image dataset; model incomplete",
-    "Method 3: Google Earth \u2192 Photogrammetry via screen recording",
-    "Issues: degradation from making a model out of photos of a model; overhead satellite view doesn\u2019t capture between trees",
+    "Method 3: Google Earth → Photogrammetry via screen recording",
+    "Issues: degradation from making a model out of photos of a model; overhead satellite view doesn’t capture between trees",
     "Rhino + Grasshopper Model Integration",
     "Add the photogrammetric model into Rhino, remesh it down to 15k triangles, and modify the parameters in Grasshopper to align the Berlin Memorial blocks with Harvard Yard.",
     "Final Form",
     "Distribution",
     "Re-upload to Polycam for easy viewing."
   ],
-  "scraped_url": "https://www.wyattroy.com/design/harvard-memorial",
-  "medium": "Narrative"
+  "scraped_url": "https://www.wyattroy.com/design/harvard-memorial"
 }

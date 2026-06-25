@@ -1,30 +1,147 @@
 {
   "id": "how-to-change-institutions",
   "title": "How to Change Institutions",
-  "year": 2024,
+  "year": 2026,
   "month": 6,
-  "tagline": "A practical field guide for designers working inside large organizations",
+  "tagline": "A simple field guide for working inside large organizations",
   "description": "A short illustrated guide to changing institutions through care, collaboration, and mindfulness — an alternative to adversarial activism.",
-  "what": "A 45-page illustrated guide for people who work inside institutions — schools, governments, hospitals — and want to create lasting change through collaboration rather than conflict. Covers how to notice what you want to change, how to work with institutional complexity, how to build coalitions through individual relationships, and how to sustain momentum. Illustrated by Julia Mattis. In homage to Thich Nhat Hanh.",
-  "why": "Most change-making assumes adversarial tactics. This book explores what becomes possible when you choose collaboration over antagonism — assuming people within institutions mutually care for each other, and inviting them to be their best selves together.",
-  "categories": [
-    "Writing",
-    "Research"
+  "what": [
+    {
+      "type": "text",
+      "content": "A palm-sized book for people who work inside institutions -- schools, governments, hospitals -- and want to create lasting change through collaboration rather than conflict. Covers how to notice what you want to change, how to work with institutional complexity, how to build coalitions through individual relationships, and how to sustain momentum. Illustrated by Julia Mattis. In homage to Thich Nhat Hanh.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/how-to-change-institutions/How to Change Institutions cover.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Sample pages from the book**"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/how-to-change-institutions/How to Change Institutions page 2.jpg"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/how-to-change-institutions/How to Change Institutions page 3.jpg"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/how-to-change-institutions/How to Change Institutions page 4.jpg"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "Most change-making assumes adversarial tactics. This book explores what becomes possible when you choose collaboration over antagonism — assuming people within institutions mutually care for each other, and inviting them to be their best selves together."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/how-to-change-institutions/IMG_1613.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "This book was my masters thesis. It wrapped together insights from dozens of different institutional interventions that I had done over my time at Harvard, including [the unstudio](https://unstudiogsd.org), [GRE Admissions](wyattroy.com), [Net Promoter Score Research](wyattroy.com). After designing projects in different media from digital fabrication and creative code to pedagogy, my final medium became the institution itself.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/how-to-change-institutions/IMG_1637.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "While trying to change Harvard GSD to serve its students better, I found myself at a fork in the road: I could either fight against the administration, or work with them. Though parts of my being truly love to rabble rouse, the better angels of my nature prefer to find understanding with others, process my own emotional experience, and build mutually caring relationships. I used my changemaking practice as an excuse to start conversations, then collaborations, and ultimately friendships with faculty and staff across the Academy. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/how-to-change-institutions/img5.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Then I collected my thoughts and wrote them in the simplest, clearest language I could muster, inspired by the Buddhist monk Thich Nhat Hanh, who wrote little books like this on a variety of subjects, like How To Walk and How To Love. I wrote an acknowledgements section that takes up a third of the book, linking the ideas to the web of people who inspired them. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/how-to-change-institutions/How to Change Institutions acknowledge.jpg",
+      "align": "right"
+    }
+  ],
+  "medium": "Pedagogy",
+  "tags": [
+    "Book",
+    "mindfulness",
+    "meditation",
+    "social emotional",
+    "design",
+    "conflict",
+    "forgiveness",
+    "collaboration",
+    "teamwork",
+    "politics",
+    "human dynamics",
+    "organizational change",
+    "change management"
   ],
   "axes": {
-    "pragmatic": 0.8,
-    "institutional": 0.9
+    "pragmatic": 0.5,
+    "institutional": 0.5
   },
-  "thumbnail": "assets/projects/how-to-change-institutions/thumb.jpg",
-  "images": [
-    "assets/projects/how-to-change-institutions/img1.jpg",
-    "assets/projects/how-to-change-institutions/img2.jpg",
-    "assets/projects/how-to-change-institutions/img3.jpg",
-    "assets/projects/how-to-change-institutions/img4.jpg",
-    "assets/projects/how-to-change-institutions/img5.jpg"
-  ],
-  "videos": [],
+  "thumbnail": "assets/projects/how-to-change-institutions/end dove.png",
+  "hero": "assets/projects/how-to-change-institutions/end dove.png",
   "liveUrl": null,
   "sourceUrl": null,
-  "awards": []
+  "images": [
+    "assets/projects/how-to-change-institutions/img5.jpg",
+    "assets/projects/how-to-change-institutions/How to Change Institutions page 4.jpg",
+    "assets/projects/how-to-change-institutions/How to Change Institutions page 3.jpg",
+    "assets/projects/how-to-change-institutions/How to Change Institutions page 2.jpg",
+    "assets/projects/how-to-change-institutions/octopus.png",
+    "assets/projects/how-to-change-institutions/road.png",
+    "assets/projects/how-to-change-institutions/IMG_1637.jpg",
+    "assets/projects/how-to-change-institutions/How to Change Institutions acknowledge.jpg",
+    "assets/projects/how-to-change-institutions/end dove.png",
+    "assets/projects/how-to-change-institutions/Ice cube.png",
+    "assets/projects/how-to-change-institutions/matches.png",
+    "assets/projects/how-to-change-institutions/tree.png",
+    "assets/projects/how-to-change-institutions/flower.png",
+    "assets/projects/how-to-change-institutions/sweater.png",
+    "assets/projects/how-to-change-institutions/baby.png",
+    "assets/projects/how-to-change-institutions/How to Change Institutions cover.jpg",
+    "assets/projects/how-to-change-institutions/binoculars.png",
+    "assets/projects/how-to-change-institutions/ants.png",
+    "assets/projects/how-to-change-institutions/sprout.png",
+    "assets/projects/how-to-change-institutions/institution.png",
+    "assets/projects/how-to-change-institutions/hammer.png",
+    "assets/projects/how-to-change-institutions/shovel.png",
+    "assets/projects/how-to-change-institutions/tea.png",
+    "assets/projects/how-to-change-institutions/IMG_1613.jpg"
+  ],
+  "videos": [],
+  "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Writer"
+    },
+    {
+      "name": "Julia Mattis",
+      "url": "",
+      "role": "Illustrator"
+    },
+    {
+      "name": "Everyone in the acknowledgements",
+      "url": "",
+      "role": "Guidance"
+    }
+  ]
 }

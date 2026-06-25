@@ -52,6 +52,7 @@
     <div class="lightbox-counter" id="lightbox-counter"></div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script type="module">
     // ── Utilities ──────────────────────────────────────────────────────────────
     const esc = s => s ? String(s)
@@ -181,6 +182,216 @@
       document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 80);
     });
 
+    // ── Comments ───────────────────────────────────────────────────────────────
+    // After setting up Supabase (see supabase-setup.sql), replace these two values.
+    const SUPABASE_URL      = 'YOUR_SUPABASE_URL';
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+    function getDb() {
+      if (!window.supabase || SUPABASE_URL.startsWith('YOUR_')) return null;
+      if (getDb._client) return getDb._client;
+      return (getDb._client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY));
+    }
+
+    function getMyTokens() {
+      try { return JSON.parse(localStorage.getItem('commentTokens') || '{}'); }
+      catch { return {}; }
+    }
+
+    function saveMyToken(commentId, token) {
+      const tokens = getMyTokens();
+      tokens[commentId] = token;
+      localStorage.setItem('commentTokens', JSON.stringify(tokens));
+    }
+
+    function makeToken() {
+      if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID();
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+        const r = Math.random() * 16 | 0;
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
+    }
+
+    function cleanLinkLabel(url) {
+      try {
+        const u = new URL(url);
+        const path = u.pathname === '/' ? '' : u.pathname;
+        return u.hostname.replace(/^www\./, '') + path;
+      } catch { return url; }
+    }
+
+    function buildCommentItemHTML(c, canEdit) {
+      const linkHtml = c.link
+        ? `<a class="pp-comment-link" href="${esc(c.link)}" target="_blank" rel="noopener noreferrer">↗ ${esc(cleanLinkLabel(c.link))}</a>`
+        : '';
+      const editBtn = canEdit
+        ? `<div class="pp-comment-actions"><button class="pp-comment-edit-btn" type="button">Edit</button></div>`
+        : '';
+      return `
+        <div class="pp-comment-header">
+          <strong class="pp-comment-name">${esc(c.name)}</strong>
+          ${linkHtml}
+        </div>
+        <p class="pp-comment-text">${esc(c.comment)}</p>
+        ${editBtn}
+      `;
+    }
+
+    function wireEditButton(el, comment, tokens, db) {
+      const btn = el.querySelector('.pp-comment-edit-btn');
+      if (!btn) return;
+      btn.addEventListener('click', () => startInlineEdit(el, comment, tokens[comment.id], db));
+    }
+
+    function startInlineEdit(el, comment, token, db) {
+      el.innerHTML = `
+        <form class="pp-comment-edit-form">
+          <input type="text" name="name" value="${esc(comment.name)}" placeholder="Your name" required maxlength="100">
+          <input type="url" name="link" value="${esc(comment.link || '')}" placeholder="Link to your work (optional)">
+          <textarea name="comment" required maxlength="2000">${esc(comment.comment)}</textarea>
+          <div class="pp-comment-edit-actions">
+            <button type="submit" class="pp-comment-form-submit" style="padding:8px 18px;font-size:0.84rem;">Save</button>
+            <button type="button" class="pp-comment-cancel-btn">Cancel</button>
+          </div>
+          <p class="pp-comment-status" id="edit-status-${esc(comment.id)}"></p>
+        </form>
+      `;
+
+      el.querySelector('.pp-comment-cancel-btn').addEventListener('click', () => {
+        el.innerHTML = buildCommentItemHTML(comment, true);
+        wireEditButton(el, comment, { [comment.id]: token }, db);
+      });
+
+      el.querySelector('.pp-comment-edit-form').addEventListener('submit', async e => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const btn  = form.querySelector('[type="submit"]');
+        const statusEl = document.getElementById(`edit-status-${comment.id}`);
+        btn.disabled = true; btn.textContent = 'Saving…';
+
+        const p_name    = form.name.value.trim();
+        const p_comment = form.comment.value.trim();
+        const p_link    = form.link.value.trim();
+
+        const { data: ok } = await db.rpc('edit_comment_by_token', {
+          p_id: comment.id, p_token: token, p_name, p_comment, p_link,
+        });
+
+        if (ok) {
+          comment.name    = p_name;
+          comment.comment = p_comment;
+          comment.link    = p_link;
+          el.innerHTML = buildCommentItemHTML(comment, true);
+          wireEditButton(el, comment, { [comment.id]: token }, db);
+        } else {
+          btn.disabled = false; btn.textContent = 'Save';
+          if (statusEl) { statusEl.textContent = 'Could not save — try again.'; statusEl.className = 'pp-comment-status error'; }
+        }
+      });
+
+      el.querySelector('textarea').focus();
+    }
+
+    async function renderCommentSection(projectId) {
+      const section = document.getElementById('pp-comment-section');
+      if (!section) return;
+      const db = getDb();
+      if (!db) return;
+
+      section.className = 'pp-comment-section';
+      section.innerHTML = `
+        <hr class="pp-sep">
+        <div class="pp-section-label">CONVERSATION</div>
+        <div id="pp-comment-list"><p class="pp-comment-loading">Loading…</p></div>
+        <div class="pp-section-label" style="margin-top:3em">ADD TO THE CONVERSATION</div>
+        <form class="pp-comment-form" id="new-comment-form" novalidate>
+          <div class="pp-comment-form-row">
+            <input type="text" name="name" placeholder="Your name" required maxlength="100" autocomplete="name">
+            <input type="email" name="email" placeholder="Email (kept private)" required maxlength="200" autocomplete="email">
+          </div>
+          <input type="url" name="link" placeholder="A link to your work (optional)" maxlength="500">
+          <textarea name="comment" placeholder="Share a reference, reflection, or connection to this work…" required maxlength="2000" rows="4"></textarea>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+          <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+            <button type="submit" class="pp-comment-form-submit">Add to the conversation</button>
+            <p class="pp-comment-status" id="new-comment-status"></p>
+          </div>
+        </form>
+      `;
+
+      const { data: comments } = await db
+        .from('comments')
+        .select('id, name, link, comment, created_at')
+        .eq('project_id', projectId)
+        .order('created_at', { ascending: true });
+
+      const listEl = document.getElementById('pp-comment-list');
+      if (!listEl) return;
+
+      const myTokens = getMyTokens();
+      if (!comments || comments.length === 0) {
+        listEl.innerHTML = '<p class="pp-comments-empty">No references yet — be the first to add one.</p>';
+      } else {
+        listEl.innerHTML = '';
+        for (const c of comments) {
+          const canEdit = !!myTokens[c.id];
+          const el = document.createElement('div');
+          el.className = 'pp-comment';
+          el.id = `comment-${c.id}`;
+          el.innerHTML = buildCommentItemHTML(c, canEdit);
+          if (canEdit) wireEditButton(el, c, myTokens, db);
+          listEl.appendChild(el);
+        }
+      }
+
+      const form = document.getElementById('new-comment-form');
+      if (!form) return;
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        if (form.website.value) return; // honeypot
+
+        const btn      = form.querySelector('[type="submit"]');
+        const statusEl = document.getElementById('new-comment-status');
+        const name     = form.name.value.trim();
+        const email    = form.email.value.trim();
+        const link     = form.link.value.trim();
+        const comment  = form.comment.value.trim();
+
+        if (!name || !email || !comment) {
+          statusEl.textContent = 'Please fill in your name, email, and comment.';
+          statusEl.className = 'pp-comment-status error';
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          statusEl.textContent = 'Please enter a valid email address.';
+          statusEl.className = 'pp-comment-status error';
+          return;
+        }
+
+        btn.disabled = true; btn.textContent = 'Sending…';
+        statusEl.textContent = ''; statusEl.className = 'pp-comment-status';
+
+        const token = makeToken();
+        const { data, error } = await db.from('comments').insert({
+          project_id: projectId, name, email, link: link || '', comment, browser_token: token,
+        }).select('id').single();
+
+        if (error || !data) {
+          btn.disabled = false; btn.textContent = 'Add to the conversation';
+          statusEl.textContent = 'Something went wrong — please try again.';
+          statusEl.className = 'pp-comment-status error';
+          return;
+        }
+
+        saveMyToken(data.id, token);
+        form.reset();
+        btn.disabled = false; btn.textContent = 'Add to the conversation';
+        statusEl.textContent = '✓ Your comment is pending review — thank you.';
+        statusEl.className = 'pp-comment-status';
+      });
+    }
+
     // ── Render ─────────────────────────────────────────────────────────────────
     // Support hash-based routing (/project#unfolding) and legacy ?id= query param
     function getProjectId() {
@@ -217,7 +428,29 @@
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.content = project.tagline || project.description || '';
       renderProject(project);
+      root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
+      renderCommentSection(project.id);
       renderProjectNav(id, allProjects);
+    }
+
+    // ── WHO section ────────────────────────────────────────────────────────────
+    function renderWhoSection(who) {
+      if (!who || !who.length) return '';
+      const rows = who.map(person => {
+        const nameHtml = person.url
+          ? `<a href="${esc(person.url)}" target="_blank" rel="noopener noreferrer">${esc(person.name || '')}</a>`
+          : esc(person.name || '');
+        return `<tr>
+          <td class="pp-who-name">${nameHtml}</td>
+          <td class="pp-who-role">${esc(person.role || '')}</td>
+        </tr>`;
+      }).join('');
+      return `<div class="pp-content-section">
+        <div class="pp-section-label">WHO</div>
+        <div class="pp-section-body">
+          <table class="pp-who-table"><tbody>${rows}</tbody></table>
+        </div>
+      </div>`;
     }
 
     // ── Labeled content section (WHAT / WHY / HOW) ────────────────────────────
@@ -520,6 +753,7 @@
         if (p.what) parts.push(renderContentSection(p.what, 'WHAT', p.title));
         if (p.why)  parts.push(renderContentSection(p.why,  'WHY',  p.title));
         if (p.how)  parts.push(renderContentSection(p.how,  'HOW',  p.title));
+        if (p.who && p.who.length) parts.push(renderWhoSection(p.who));
 
         // Collect image srcs already placed inline
         const inlineSet = new Set();

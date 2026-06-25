@@ -112,9 +112,7 @@
       "align": "right"
     }
   ],
-  "categories": [
-    "Fabrication"
-  ],
+  "medium": "Fabrication",
   "tags": [
     "3D Printing",
     "Photogrammetry"
@@ -145,6 +143,13 @@
   ],
   "videos": [],
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    }
+  ],
   "scraped_raw_text": [
     "Extruding Memories",
     "3D-Printed Photogrammetry of Lost Moments",
@@ -175,6 +180,5 @@
     "Anuj, Sydney, Australia",
     "Spontaneous Tactile Moments"
   ],
-  "scraped_url": "https://www.wyattroy.com/design/3d-printing",
-  "medium": "Fabrication"
+  "scraped_url": "https://www.wyattroy.com/design/3d-printing"
 }

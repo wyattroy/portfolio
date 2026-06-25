@@ -81,5 +81,12 @@
       "heroOverride": true
     }
   ],
-  "awards": []
+  "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    }
+  ]
 }

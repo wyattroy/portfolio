@@ -1,72 +1,128 @@
 {
   "id": "mu-mirror",
   "title": "Mu Mirror",
-  "year": 2025,
-  "month": 5,
-  "tagline": "p5.js webcam dot-grid \u2014 a Zen koan about the boundary of self",
-  "description": "Mu Mirror is a modern form of an ancient technology.  For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way.  usually, you have to meditate on a koan for a while \u2013 and eventually, something just clicks, and you see life differe",
-  "what": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. usually, you have to meditate on a koan for a while \u2013 and eventually, something just clicks, and you see life differently.\n\nBut most people don\u2019t have the time or patience to sit on a cushion long enough or to silently chant mu in their minds for months \u2013 so I wanted to try and make a piece of digital art that might give them a shortcut.\n\nBackground Intention\n\nWhere does your body end? Is your hair you? What about when you cut a strand of it off? Let\u2019s say your body is your contiguous body, right now, not including clothes. What if we try to draw a 3D boundary around that body, with a large plastic bag \u2013 we wrap you up in it and seal it shut. You\u2019d suffocate, die, and cease being \u201cyou\u201d in a few minutes. So \u201cyou\u201d must include some air, then. And water. And food. And a circulation system.\n\nAs we expand the plastic bag\u2019s boundary outwards more and more to try and encapsulate all the things that make you you, we realize that any line we draw between you and not you is arbitrary. It\u2019s an illusion to believe we are in any way separable from all of existence. A more accurate description might be that you are whatever the stuff is, right where you are, right now. You\u2019re an address, in time. We\u2019re calling that address you. Because it\u2019s handy to label things as discreet, even though in reality, they\u2019re not.\n\nEastern mystics call this non-duality. There is no \u201cself\u201d and \u201cother\u201d if we think about it hard enough. And modern particle physics agrees. The challenge is that it\u2019s very difficult to shatter the illusion that we don\u2019t have a discreet self. People meditate for hours, days, decades to exist in the state of mind where the true nature of reality is not just logically known, but embodied and felt. I\u2019ve experienced it a handful of times. It\u2019s a rush. And it\u2019s incredibly fragile \u2013 the moment you see reality this way, it collapses. Because our bodies evolved to believe themselves discreet \u2013 it\u2019s evolutionarily advantageous to try to sustain your corner of reality.\n\nBut what if there were an art installation that could trigger this insight in viewers? How much sweeter would the world be if we realized we weren\u2019t in it, we were it?\n\nIterations\n\nIteration 1: 2D Prototype\n\nCreated in Processing. Tried to see what it might feel like to move through a grid of dots and have them be attracted to you.\n\nInsight: this effect will only work if the mouse isn\u2019t visible?\n\nIteration 2: Attractor Dots 3D\n\nCreated a 3D grid of dots that attract to your hands.\n\nTo test the effect, your right hand remains visible \u2013 and the illusion that you\u2019re made of these dots completely fails. Interestingly, when your hand is invisible, the illusion that you\u2019re made of dots works.\n\nDecided to keep the dots misaligned after attraction, as if you\u2019ve left a mark on the world.",
-  "why": "Issues: This works on PC-VR, but is extremely laggy on Quest standalone headset because there\u2019s so much computation (even just with 6x6x6 grid of cubes). Unclear if this is communicating the core message.\n\nIteration 3: Dense Dots\n\nCreated a UX interactor, a \u201cshake button\u201d to start. 3D grid of dots appears around you. Dots can be moved by picking them up.\n\nIssues: Fun to play with, but too chaotic to truly sense the idea that reality is made up of cube-like \"dots\" like this.\n\nIteration 4: Building Blocks\n\nDots spaced further apart makes them feel more playful and inviting to move around a space. Something compelling here \u2013 everyone \u201cgets it\u201d and wants to pick up the dots.\n\nIssues: the message, or takeaway of the experience, has nothing to do with my intent.\n\nIteration 5: Voxel Dots\n\nBuilt a prototype in Premiere Pro envisioning a world where these \"dots\" only appear when an object is moved, or interacted with. Could pixellation be both beautiful and help the user un-label the forms around them, by revealing that it's all made up of the same \"stuff\"?\n\nIteration 6: Blur Mirror\n\nRestart the project in p5.js to try this pixellation idea in 2D.\n\nRead in data from webcam, draw a circle with size based off its brightness and color.\n\nIteration 7: Mu Mirror\n\nBuilt in p5. Receive webcam data. Take two photos. Compare the pixels between them based on color. Find the closest pixel of the most similar color. Move the current pixel over to the target pixel\u2019s location. Lerp both location and color over time. Set dot dimensions parametrically, based on user input.\n\nLook at yourself in the Mu Mirror",
-  "categories": [
-    "Art",
-    "Creative Technology",
-    "Web"
+  "year": 2024,
+  "month": 11,
+  "tagline": "p5.js webcam dot-grid — a Zen koan about the boundary of self",
+  "description": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. But most people don't have the time or patience to sit on a cushion long enough — so I wanted to try and make a piece of digital art that might give them a shortcut.",
+  "what": "A p5.js webcam installation that renders the viewer as a shifting field of colored dots. The sketch takes two webcam frames, compares pixels by color similarity, and lerps each dot toward the closest matching pixel — dissolving the boundary between self and background until the viewer becomes indistinguishable from the world around them.",
+  "why": [
+    {
+      "type": "text",
+      "content": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. Usually, you have to meditate on a koan for a while – and eventually, something just clicks, and you see life differently.\n\nBut most people don't have the time or patience to sit on a cushion long enough or to silently chant mu in their minds for months – so I wanted to try and make a piece of digital art that might give them a shortcut."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/mu-mirror/img2.jpg"
+    },
+    {
+      "type": "text",
+      "content": "Where does your body end? Is your hair you? What about when you cut a strand of it off? Let's say your body is your contiguous body, right now, not including clothes. What if we try to draw a 3D boundary around that body, with a large plastic bag – we wrap you up in it and seal it shut. You'd suffocate, die, and cease being \"you\" in a few minutes. So \"you\" must include some air, then. And water. And food. And a circulation system.\n\nAs we expand the plastic bag's boundary outwards more and more to try and encapsulate all the things that make you you, we realize that any line we draw between you and not you is arbitrary. It's an illusion to believe we are in any way separable from all of existence. A more accurate description might be that you are whatever the stuff is, right where you are, right now. You're an address, in time. We're calling that address you. Because it's handy to label things as discreet, even though in reality, they're not."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/mu-mirror/img6.jpg"
+    },
+    {
+      "type": "text",
+      "content": "Eastern mystics call this non-duality. There is no \"self\" and \"other\" if we think about it hard enough. And modern particle physics agrees. The challenge is that it's very difficult to shatter the illusion that we don't have a discreet self. People meditate for hours, days, decades to exist in the state of mind where the true nature of reality is not just logically known, but embodied and felt. I've experienced it a handful of times. It's a rush. And it's incredibly fragile – the moment you see reality this way, it collapses. Because our bodies evolved to believe themselves discreet – it's evolutionarily advantageous to try to sustain your corner of reality.\n\nBut what if there were an art installation that could trigger this insight in viewers? How much sweeter would the world be if we realized we weren't in it, we were it?"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/mu-mirror/img4.jpg"
+    }
   ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Iteration 1: 2D Prototype**\n\nCreated in Processing. Tried to see what it might feel like to move through a grid of dots and have them be attracted to you.\n\nInsight: this effect will only work if the mouse isn't visible?",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/mu-mirror/img8.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Iteration 2: Attractor Dots 3D**\n\nCreated a 3D grid of dots that attract to your hands.\n\nTo test the effect, your right hand remains visible – and the illusion that you're made of these dots completely fails. Interestingly, when your hand is invisible, the illusion that you're made of dots works.\n\nDecided to keep the dots misaligned after attraction, as if you've left a mark on the world.\n\nIssues: This works on PC-VR, but is extremely laggy on Quest standalone headset because there's so much computation (even just with 6x6x6 grid of cubes). Unclear if this is communicating the core message.",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "content": "**Iteration 3: Dense Dots**\n\nCreated a UX interactor, a \"shake button\" to start. 3D grid of dots appears around you. Dots can be moved by picking them up.\n\nIssues: Fun to play with, but too chaotic to truly sense the idea that reality is made up of cube-like \"dots\" like this.",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "content": "**Iteration 4: Building Blocks**\n\nDots spaced further apart makes them feel more playful and inviting to move around a space. Something compelling here – everyone \"gets it\" and wants to pick up the dots.\n\nIssues: the message, or takeaway of the experience, has nothing to do with my intent.",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "content": "**Iteration 5: Voxel Dots**\n\nBuilt a prototype in Premiere Pro envisioning a world where these \"dots\" only appear when an object is moved, or interacted with. Could pixellation be both beautiful and help the user un-label the forms around them, by revealing that it's all made up of the same \"stuff\"?",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "content": "**Iteration 6: Blur Mirror**\n\nRestart the project in p5.js to try this pixellation idea in 2D.\n\nRead in data from webcam, draw a circle with size based off its brightness and color.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/mu-mirror/mousedots.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Iteration 7: Mu Mirror**\n\nBuilt in p5. Receive webcam data. Take two photos. Compare the pixels between them based on color. Find the closest pixel of the most similar color. Move the current pixel over to the target pixel's location. Lerp both location and color over time. Set dot dimensions parametrically, based on user input.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/mu-mirror/img1.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Look at yourself in the Mu Mirror"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/mu-mirror/img1.jpg"
+    }
+  ],
+  "medium": "Web",
+  "tags": [],
   "axes": {
     "pragmatic": 0.05,
     "institutional": 0.1
   },
   "thumbnail": "assets/projects/mu-mirror/thumb.jpg",
+  "hero": "assets/projects/mu-mirror/mousedots.gif",
+  "liveUrl": "http://mumirror.wyattroy.com",
+  "sourceUrl": "https://www.wyattroy.com/interactive/mu-mirror",
   "images": [
+    "assets/projects/mu-mirror/mousedots.gif",
     "assets/projects/mu-mirror/img1.jpg",
     "assets/projects/mu-mirror/img2.jpg",
-    "assets/projects/mu-mirror/img3.jpg",
     "assets/projects/mu-mirror/img4.jpg",
     "assets/projects/mu-mirror/img6.jpg",
     "assets/projects/mu-mirror/img8.jpg",
-    "assets/projects/mu-mirror/img20.jpg"
+    "assets/projects/mu-mirror/thumb.jpg"
   ],
   "videos": [
-    "https://www.youtube.com/watch?v=2BCMZMRFljI"
+    {
+      "url": "https://www.youtube.com/watch?v=2BCMZMRFljI",
+      "heroOverride": true
+    }
   ],
-  "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/interactive/mu-mirror",
   "awards": [],
-  "scraped_raw_text": [
-    "Mu Mirror",
-    "A Zen Koan in p5.js",
-    "Try Mu Mirror",
-    "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. usually, you have to meditate on a koan for a while \u2013 and eventually, something just clicks, and you see life differently.",
-    "But most people don\u2019t have the time or patience to sit on a cushion long enough or to silently chant mu in their minds for months \u2013 so I wanted to try and make a piece of digital art that might give them a shortcut.",
-    "Background Intention",
-    "Where does your body end? Is your hair you? What about when you cut a strand of it off? Let\u2019s say your body is your contiguous body, right now, not including clothes. What if we try to draw a 3D boundary around that body, with a large plastic bag \u2013 we wrap you up in it and seal it shut. You\u2019d suffocate, die, and cease being \u201cyou\u201d in a few minutes. So \u201cyou\u201d must include some air, then. And water. And food. And a circulation system.",
-    "As we expand the plastic bag\u2019s boundary outwards more and more to try and encapsulate all the things that make you you, we realize that any line we draw between you and not you is arbitrary. It\u2019s an illusion to believe we are in any way separable from all of existence. A more accurate description might be that you are whatever the stuff is, right where you are, right now. You\u2019re an address, in time. We\u2019re calling that address you. Because it\u2019s handy to label things as discreet, even though in reality, they\u2019re not.",
-    "Eastern mystics call this non-duality. There is no \u201cself\u201d and \u201cother\u201d if we think about it hard enough. And modern particle physics agrees. The challenge is that it\u2019s very difficult to shatter the illusion that we don\u2019t have a discreet self. People meditate for hours, days, decades to exist in the state of mind where the true nature of reality is not just logically known, but embodied and felt. I\u2019ve experienced it a handful of times. It\u2019s a rush. And it\u2019s incredibly fragile \u2013 the moment you see reality this way, it collapses. Because our bodies evolved to believe themselves discreet \u2013 it\u2019s evolutionarily advantageous to try to sustain your corner of reality.",
-    "But what if there were an art installation that could trigger this insight in viewers? How much sweeter would the world be if we realized we weren\u2019t in it, we were it?",
-    "Iterations",
-    "Iteration 1: 2D Prototype",
-    "Created in Processing. Tried to see what it might feel like to move through a grid of dots and have them be attracted to you.",
-    "Insight: this effect will only work if the mouse isn\u2019t visible?",
-    "Iteration 2: Attractor Dots 3D",
-    "Created a 3D grid of dots that attract to your hands.",
-    "To test the effect, your right hand remains visible \u2013 and the illusion that you\u2019re made of these dots completely fails. Interestingly, when your hand is invisible, the illusion that you\u2019re made of dots works.",
-    "Decided to keep the dots misaligned after attraction, as if you\u2019ve left a mark on the world.",
-    "Issues: This works on PC-VR, but is extremely laggy on Quest standalone headset because there\u2019s so much computation (even just with 6x6x6 grid of cubes). Unclear if this is communicating the core message.",
-    "Iteration 3: Dense Dots",
-    "Created a UX interactor, a \u201cshake button\u201d to start. 3D grid of dots appears around you. Dots can be moved by picking them up.",
-    "Issues: Fun to play with, but too chaotic to truly sense the idea that reality is made up of cube-like \"dots\" like this.",
-    "Iteration 4: Building Blocks",
-    "Dots spaced further apart makes them feel more playful and inviting to move around a space. Something compelling here \u2013 everyone \u201cgets it\u201d and wants to pick up the dots.",
-    "Issues: the message, or takeaway of the experience, has nothing to do with my intent.",
-    "Iteration 5: Voxel Dots",
-    "Built a prototype in Premiere Pro envisioning a world where these \"dots\" only appear when an object is moved, or interacted with. Could pixellation be both beautiful and help the user un-label the forms around them, by revealing that it's all made up of the same \"stuff\"?",
-    "Iteration 6: Blur Mirror",
-    "Restart the project in p5.js to try this pixellation idea in 2D.",
-    "Read in data from webcam, draw a circle with size based off its brightness and color.",
-    "Iteration 7: Mu Mirror",
-    "Built in p5. Receive webcam data. Take two photos. Compare the pixels between them based on color. Find the closest pixel of the most similar color. Move the current pixel over to the target pixel\u2019s location. Lerp both location and color over time. Set dot dimensions parametrically, based on user input.",
-    "Look at yourself in the Mu Mirror"
-  ],
-  "scraped_url": "https://www.wyattroy.com/interactive/mu-mirror",
-  "medium": "Web"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Engineer"
+    }
+  ]
 }

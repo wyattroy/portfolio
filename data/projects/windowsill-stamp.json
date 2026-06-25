@@ -5,12 +5,78 @@
   "month": 4,
   "tagline": "CNC-milled wax mold for casting a silicone stamp of the Windowsill Bakery logo",
   "description": "A CNC-milled wax mold used to cast a silicone stamp of a partner's bakery logo, made as a gift for her small business.",
-  "what": "Converted the Windowsill Bakery hand-drawn logo into Blender paths, applied as a displacement map to a wax mold surface. CNC-milled using two bit sizes \u2014 1/8\" for bulk material removal, 1/16\" for fine letterwork. Cast with equal-part A/B silicone, left to cure 16 hours, then trimmed and tested as a cake-box stamp.",
-  "why": "My partner runs Windowsill Bakery and stamps all her custom cake boxes by hand. I'd wanted to make her a proper stamp for months but couldn't figure out the right workflow \u2014 CNC-milling wax for silicone casting turned out to be the answer.",
-  "categories": [
-    "Fabrication",
-    "Craft"
+  "what": "Converted the Windowsill Bakery hand-drawn logo into Blender paths, applied as a displacement map to a wax mold surface. CNC-milled using two bit sizes — 1/8\" for bulk material removal, 1/16\" for fine letterwork. Cast with equal-part A/B silicone, left to cure 16 hours, then trimmed and tested as a cake-box stamp.",
+  "why": [
+    {
+      "type": "text",
+      "content": "My partner runs Windowsill Bakery and stamps all her custom cake boxes by hand. I'd wanted to make her a proper stamp for months but couldn't figure out the right workflow — CNC-milling wax for silicone casting turned out to be the answer."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/windowsill-stamp/1-windowsillcakes.png"
+    }
   ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Logo to paths**\n\nI started with a photo of my partner's hand-drawn bakery logo and converted the lines into vector paths in Photoshop, tracing each element to create clean, cuttable outlines.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/windowsill-stamp/2-windowsill-logo.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Blender displacement**\n\nI imported the paths into Blender and used them as a displacement map — the logo's brightness values raised and lowered a flat plane's surface to create the 3D relief. I also modeled a rectangular frame around the design to contain the silicone when poured.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/windowsill-stamp/4-windowsill-blender.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**CNC milling**\n\nThe wax block was milled on a ShopBot using two bits: a 1/8\" end mill for bulk material removal and a 1/16\" bit for the fine lettering. Some especially thin areas needed finishing by hand with a scalpel after the machine pass.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/windowsill-stamp/5-blowdust.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Silicone casting**\n\nI mixed equal parts silicone A and B, poured them into the wax mold, and tapped the container to work out any air bubbles. After 16 hours of curing, the silicone released cleanly from the wax with perfect detail transfer.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/windowsill-stamp/8-set-mold.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Testing**\n\nThe stamp worked. Under close inspection, tiny circular artifacts from the 1/16\" bit's stepover marks are just barely visible in the rubber — but nearly invisible to the naked eye and don't show up in the stamp impression itself.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/windowsill-stamp/10-stamp-result.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "A project I'd wanted to build for months — finally delivered."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/windowsill-stamp/12-stamp-hero.jpeg"
+    }
+  ],
+  "medium": "Fabrication",
   "tags": [
     "CNC",
     "silicone casting",
@@ -24,20 +90,31 @@
     "institutional": 0.05
   },
   "thumbnail": "assets/projects/windowsill-stamp/12-stamp-hero.jpeg",
+  "hero": "assets/projects/windowsill-stamp/5-blowdust.gif",
+  "liveUrl": null,
+  "sourceUrl": null,
   "images": [
     "assets/projects/windowsill-stamp/12-stamp-hero.jpeg",
     "assets/projects/windowsill-stamp/1-windowsillcakes.png",
     "assets/projects/windowsill-stamp/2-windowsill-logo.jpg",
+    "assets/projects/windowsill-stamp/3-windowsill-logo-paths.png",
     "assets/projects/windowsill-stamp/4-windowsill-blender.png",
     "assets/projects/windowsill-stamp/5-blowdust.gif",
     "assets/projects/windowsill-stamp/6-wax-mold.jpeg",
     "assets/projects/windowsill-stamp/7-silicone.jpeg",
+    "assets/projects/windowsill-stamp/8-set-mold.jpeg",
     "assets/projects/windowsill-stamp/9-stamp-rubber.jpeg",
-    "assets/projects/windowsill-stamp/10-stamp-used.jpeg"
+    "assets/projects/windowsill-stamp/10-stamp-used.jpeg",
+    "assets/projects/windowsill-stamp/10-stamp-result.jpeg",
+    "assets/projects/windowsill-stamp/11-cnc-artifacts.jpeg"
   ],
   "videos": [],
-  "liveUrl": null,
-  "sourceUrl": null,
   "awards": [],
-  "medium": "Fabrication"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Fabricator"
+    }
+  ]
 }

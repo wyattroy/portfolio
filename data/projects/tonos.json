@@ -3,48 +3,90 @@
   "title": "Tonos",
   "year": 2022,
   "month": 1,
-  "tagline": "Music-based meditation app \u2014 find the sound of your feelings",
-  "description": "Tonos is a music-based meditation app that helps you find the sound of your feelings and process them more effectively.  Tonos guides you through multiple steps to identify your emotional states, think through them, and translate them into music.",
-  "what": "Tonos is a music-based meditation app that helps you find the sound of your feelings and process them more effectively. Tonos guides you through multiple steps to identify your emotional states, think through them, and translate them into music.\n\nTonos is designed for accessibility and can be used without looking at your screen. Close your eyes, open your ears, and dive in.\n\nWHAT\n\nTonos is a music-based meditation app that helps you find the sound of your feelings in order to process them more effectively. A voice guides you through multiple steps to identify your emotional states, think through them, and translate them into music.\n\nResearch on the psychology of mood repair shows that music is a powerful tool for emotion regulation (Moltrasio et al., 2021), and it works best when the subject listens to music that matches their emotional state. Tonos lets you compose your own music that perfectly resonates with your feelings, manipulating one musical property at a time \u2014 such as rhythm, harmony, instrumentation \u2014 while being voice-guided to understand where the emotion resides in your body, and what triggered it. In the end, the song you create is unique \u2014 there are over a thousand possible combinations of sound to match every possible cocktail of feelings. Then you can save and catalog your feelings to listen to later, as well as share them with your loved ones.\n\nCREATIVE TEAM",
-  "why": "Creative Directors\n\nWyatt Roy and Luis Zanforlin\n\nWriter, Voice Talent\n\nLead Developer\n\nLuis Zanforlin\n\nSound Design",
-  "categories": [
+  "tagline": "Music-based meditation app — find the sound of your feelings",
+  "description": "Tonos is a music-based meditation app that helps you find the sound of your feelings and process them more effectively. Tonos guides you through multiple steps to identify your emotional states, think through them, and translate them into music.",
+  "what": "A voice-guided meditation app that lets you compose music matching your emotional state — manipulating rhythm, harmony, and instrumentation one property at a time to create a unique sonic portrait of your feelings. Over a thousand possible combinations. Designed for eyes-closed use. Available on iOS and Android.",
+  "why": [
+    {
+      "type": "text",
+      "content": "**Hear your emotions.**\n\nTonos is a music-based meditation app that helps you find the sound of your feelings and process them more effectively. Tonos guides you through multiple steps to identify your emotional states, think through them, and translate them into music.\n\nTonos is designed for accessibility and can be used without looking at your screen. Close your eyes, open your ears, and dive in."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/tonos/img1.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Research on the psychology of mood repair shows that music is a powerful tool for emotion regulation (Moltrasio et al., 2021), and it works best when the subject listens to music that matches their emotional state. Tonos lets you compose your own music that perfectly resonates with your feelings, manipulating one musical property at a time — such as rhythm, harmony, instrumentation — while being voice-guided to understand where the emotion resides in your body, and what triggered it.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/tonos/img3.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "In the end, the song you create is unique — there are over a thousand possible combinations of sound to match every possible cocktail of feelings. Then you can save and catalog your feelings to listen to later, as well as share them with your loved ones.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/tonos/img2.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Creative Team**\n\nCreative Directors: Wyatt Roy and Luis Zanforlin\nWriter, Voice Talent: Wyatt Roy\nLead Developer: Luis Zanforlin\nSound Design: Luis Zanforlin"
+    }
+  ],
+  "medium": "App",
+  "tags": [
+    "Music",
+    "Meditation",
     "Sound",
-    "Creative Technology",
-    "Web"
+    "App",
+    "iOS",
+    "Android",
+    "Voice UI",
+    "Emotion"
   ],
   "axes": {
     "pragmatic": 0.45,
     "institutional": 0.15
   },
   "thumbnail": "assets/projects/tonos/thumb.jpg",
+  "hero": "assets/projects/tonos/img1.jpg",
+  "liveUrl": "https://apps.apple.com/us/app/tonos-music/id1547695827",
+  "sourceUrl": null,
   "images": [
     "assets/projects/tonos/img1.jpg",
     "assets/projects/tonos/img2.jpg",
-    "assets/projects/tonos/img3.jpg"
+    "assets/projects/tonos/thumb.jpg"
   ],
   "videos": [
-    "https://vimeo.com/500317458",
-    "https://www.youtube.com/watch?v=kpfdV5_rWqc"
+    {
+      "url": "https://vimeo.com/500317458",
+      "heroOverride": true
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kpfdV5_rWqc",
+      "heroOverride": true
+    }
   ],
-  "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/interactive/tonos",
   "awards": [],
-  "scraped_raw_text": [
-    "Tonos",
-    "Hear your emotions",
-    "Tonos is a music-based meditation app that helps you find the sound of your feelings and process them more effectively. Tonos guides you through multiple steps to identify your emotional states, think through them, and translate them into music.",
-    "Tonos is designed for accessibility and can be used without looking at your screen. Close your eyes, open your ears, and dive in.",
-    "WHAT",
-    "Tonos is a music-based meditation app that helps you find the sound of your feelings in order to process them more effectively. A voice guides you through multiple steps to identify your emotional states, think through them, and translate them into music.",
-    "Research on the psychology of mood repair shows that music is a powerful tool for emotion regulation (Moltrasio et al., 2021), and it works best when the subject listens to music that matches their emotional state. Tonos lets you compose your own music that perfectly resonates with your feelings, manipulating one musical property at a time \u2014 such as rhythm, harmony, instrumentation \u2014 while being voice-guided to understand where the emotion resides in your body, and what triggered it. In the end, the song you create is unique \u2014 there are over a thousand possible combinations of sound to match every possible cocktail of feelings. Then you can save and catalog your feelings to listen to later, as well as share them with your loved ones.",
-    "CREATIVE TEAM",
-    "Creative Directors",
-    "Wyatt Roy and Luis Zanforlin",
-    "Writer, Voice Talent",
-    "Lead Developer",
-    "Luis Zanforlin",
-    "Sound Design"
-  ],
-  "scraped_url": "https://www.wyattroy.com/interactive/tonos",
-  "medium": "Web"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Creative Director, Writer, Voice Talent"
+    },
+    {
+      "name": "Luis Zanforlin",
+      "url": "",
+      "role": "Creative Director, Lead Developer, Sound Design"
+    }
+  ]
 }

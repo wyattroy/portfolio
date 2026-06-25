@@ -3,20 +3,78 @@
   "title": "SplatCubes",
   "year": 2025,
   "month": 5,
-  "tagline": "Gaussian splat \u2192 3D printed physical sculpture via Grasshopper and C#",
-  "description": "A workflow for converting 3D Gaussian Splat captures into physical 3D-printed sculptures.",
-  "what": "A novel computational design pipeline for converting 3D Gaussian Splat captures of reality into printable forms, fabricated on multi-material resin printers. Uses custom Grasshopper scripts in C# to translate the digital representation of a Gaussian Splat into a physical artifact that can be held, viewed from any angle, and appreciated as a form of tangible volumetric memory.",
-  "why": "Gaussian Splatting captures scenes as probabilistic, spatially distributed semi-opaque volumes \u2014 more accurate approximations of physical reality than mesh topology. But splats remain inherently digital. This pipeline physically manifests splats via 3D printing, emphasizing the blurriness and continuity of real-world boundaries that hard mesh edges erase.",
+  "tagline": "Hold 3D photos in your hand.",
+  "description": "A complete workflow for physicalizing 3D Gaussian Splat captures as tangible resin-printed artifacts — bridging volumetric rendering and fabrication.",
+  "what": "A novel computational pipeline converting 3D Gaussian Splat captures of reality into multi-material resin sculptures. Custom Grasshopper/C# scripts translate the probabilistic digital representation of a Gaussian Splat — position, anisotropic scale, quaternion rotation, and opacity — into a printable dual-mesh STL, fabricated on an Objet260 Connex3 resin printer. The result is a clear cube with semi-opaque splat geometry suspended inside, viewable from any angle as a tangible volumetric photograph.",
+  "why": [
+    {
+      "type": "text",
+      "content": "Digital photography has compressed physical reality into two dimensions. Volumetric capture techniques like Neural Radiance Fields and Gaussian Splatting encode scenes as probabilistic, spatially distributed semi-opaque volumes — providing more accurate approximations that emphasize blurriness and continuity over hard mesh edges.\n\nSplats remain inherently digital and screen-bound. This project develops a technique for physically manifesting splats via 3D printing, translating digital Gaussian fields into tangible artifacts viewable from any angle. Inspired by cubist multiview depictions, it asks: what does a photograph feel like to hold?"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/splatcubes/aaronmia.gif"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Capture & Preprocessing**\n\nMobile photogrammetry platforms (Polycam, Luma, Scaniverse) generate Gaussian splat datasets exported in `.ply` format. Each splat is defined by 3D position, anisotropic exponential scale, quaternion rotation, RGB color, and opacity. Polycam outputs binary-encoded data, so a Python script converts binary `.ply` files to human-readable ASCII, enabling direct parsing in Rhino/Grasshopper.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/splatcubes/dadhead.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Grasshopper Pipeline**\n\nEach splat is proxied as a low-poly 14-face icosphere, balancing computational performance with visual fidelity. Blobs are instantiated at 3D positions and transformed by scale and rotation — quaternion-to-Euler conversion and transformation matrices compute within Grasshopper/C# components. The centroid of all splats is offset to origin; global scale factors fit printable volumes.\n\nStatistical filtering removes large background splats and undersized noise via percentile-based thresholds. Splat opacity maps to physical material density — thin splats thicken proportionally to opacity, preserving relative transparency cues while ensuring printability.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/splatcubes/jujurhino.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Fabrication**\n\nSplat proxies shrinkwrap to remove overlaps, decimate, then subtract from a bounding cube defining clear and opaque regions. Opacity maps to material density via black/white resin pairs — opaque shapes embedded within clear resin containers. Artifacts print on DLP at 50 µm resolution on an Objet260 Connex3 multi-material resin printer. Post-processing includes sanding, polishing, and resin reflow for clarity.\n\n**4D Extension**\n\nA novel experiment explored long-exposure splats encoding motion over time. A 9-camera linear array captured 30-second exposures of moving subjects under dynamic lighting, producing spatially extended splats resembling volumetric motion trails — hinting at temporally layered splatcubes that physicalize time itself.\n\nFifteen 10cm³ test cubes succeeded at replicating splats in single color with sub-millimeter fidelity. The project received coverage on Hackaday and 10,000 YouTube views."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/splatcubes/splatcube.JPG"
+    }
+  ],
+  "medium": "Fabrication",
   "categories": [
     "Fabrication",
     "Creative Technology"
+  ],
+  "tags": [
+    "Gaussian splatting",
+    "Grasshopper",
+    "Rhino",
+    "3D printing",
+    "resin",
+    "C#",
+    "photogrammetry",
+    "Polycam",
+    "volumetric"
   ],
   "axes": {
     "pragmatic": 0.55,
     "institutional": 0.12
   },
   "thumbnail": "assets/projects/splatcubes/thumb.jpg",
+  "hero": "assets/projects/splatcubes/aaronmia.gif",
+  "liveUrl": null,
+  "sourceUrl": "https://wyattroy.github.io/codeart/",
   "images": [
+    "assets/projects/splatcubes/aaronmia.gif",
+    "assets/projects/splatcubes/dadhead.png",
+    "assets/projects/splatcubes/jujurhino.png",
+    "assets/projects/splatcubes/splatcube.JPG",
     "assets/projects/splatcubes/img1.jpg",
     "assets/projects/splatcubes/img2.jpg",
     "assets/projects/splatcubes/img3.jpg",
@@ -27,8 +85,12 @@
   "videos": [
     "https://www.youtube.com/watch?v=uxgzOpmmEbI"
   ],
-  "liveUrl": null,
-  "sourceUrl": "https://wyattroy.github.io/codeart/",
   "awards": [],
-  "medium": "Fabrication"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Engineer"
+    }
+  ]
 }

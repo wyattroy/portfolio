@@ -1,33 +1,35 @@
 {
   "id": "peloton",
   "title": "Peloton",
-  "year": 2022,
+  "year": 2014,
   "month": 3,
-  "tagline": "Video for a trucking safety company \u2014 helped land Bloomberg coverage and raise a funding round",
+  "tagline": "Video for a trucking safety company — helped land Bloomberg coverage and raise a funding round",
   "description": "Long before the bike in your bedroom, Peloton was a truck on a highway",
   "what": "Long before the bike in your bedroom, Peloton was a truck on a highway\n\nThis trucking technology company needed to emphasize safety to future customers and investors.\n\nThis video helped the company get onto Bloomberg News and raise their next round of funding. And sell the dream for safer freight to a generation of truckers.",
-  "categories": [
-    "Video"
-  ],
+  "why": "Trucking technology is life-and-death but its audiences — fleet managers, investors, regulators — are not easily moved by specs. Video that makes the human and safety stakes vivid is more persuasive than any data sheet.",
+  "medium": "Film",
+  "tags": [],
   "axes": {
     "pragmatic": 0.3,
     "institutional": 0.4
   },
   "thumbnail": "assets/projects/peloton/thumb.jpg",
-  "images": [],
-  "videos": [
-    "https://vimeo.com/94686000"
-  ],
   "liveUrl": null,
   "sourceUrl": "https://www.wyattroy.com/video/peloton",
+  "images": [],
+  "videos": [
+    {
+      "url": "https://vimeo.com/94686000",
+      "heroOverride": true
+    }
+  ],
   "awards": [],
+  "who": [],
   "scraped_raw_text": [
     "Peloton",
     "Long before the bike in your bedroom, Peloton was a truck on a highway",
     "This trucking technology company needed to emphasize safety to future customers and investors.",
     "This video helped the company get onto Bloomberg News and raise their next round of funding. And sell the dream for safer freight to a generation of truckers."
   ],
-  "scraped_url": "https://www.wyattroy.com/video/peloton",
-  "why": "Trucking technology is life-and-death but its audiences \u2014 fleet managers, investors, regulators \u2014 are not easily moved by specs. Video that makes the human and safety stakes vivid is more persuasive than any data sheet.",
-  "medium": "Film"
+  "scraped_url": "https://www.wyattroy.com/video/peloton"
 }

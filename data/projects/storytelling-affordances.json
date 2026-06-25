@@ -5,104 +5,106 @@
   "month": 10,
   "tagline": "Research on what spatial media affords that flat media cannot",
   "description": "A theoretical framework for creating spatial stories",
-  "what": "A theoretical framework for creating spatial stories\n\nAbstract\n\nThe term \u201cspatial storytelling\u201d describes any narrative that uses audio and visual information to place the audience inside the scene.\n\nEach spatial storytelling medium can be charted along an axis depending on the audience\u2019s agency, between active participant and passive observer. Each medium along this spectrum has its unique set of affordances. The most compelling mediums for storytelling (spatial or otherwise) seem to be those that allow narrative transportation in which the audience loses their sense of self and immerses in the story. Finding a sweet spot of affordances is vital to create an experience that is truly immersive.\n\nThis paper charts spatial storytelling mediums according to the affordances each gives to its audience. Then it discusses several examples of spatial stories and the success or failure of each affordance. Next it describes the process of shooting and creating a spatial story in 3-Degrees of Freedom (DoF) 180 Virtual Reality (VR), along with its unique challenges. Ultimately it outlines a narrative \u201cgrammar,\u201d or set of guidelines for effective spatial storytelling.\n\nRead the full paper\n\nReview of Affordances in Apple Vision Pro's Submerged\n\nSpatial Medium Affordance Spectrum\n\nDifferent mediums grant the creator one set of affordances and the audience another. For example, in 2-Dimensional cinema, the camera lens affords the director the ability to focus the entire frame on one subject and hide, blur, or frame out everything else. But this causes an inverse lack of affordances for the audience, who may now only look exactly where the director forced them to. The chart below is concerned exclusively with the affordances granted to the audience, as these are ultimately the causes of narrative transportation.\n\nA correlation is obvious in the chart: narrative transportation decreases as audience affordances increase. Stories are drowning in affordances.\n\nPrototype Spatial Story: Launder\n\nTo apply the learnings from analyzing the above affordances, we created a 180-degree 3D VR short film called Launder.\n\nPremise\n\nOne roommate is cajoled by the other to get their laundry from the creepy basement. They become convinced that they\u2019re being followed and barely make it back to the apartment in one piece.\n\nSuccessful Affordances\n\nLaunder built upon the successful affordances of Faceless Lady and Submerged like cuts, framing the action in the stereo 3d sweet spot, empathetic camera angles that showered the audience only views that the characters could themselves see, and following genre conventions.\n\nDoor cuts. In addition, Launder addressed specific affordance failures in Submerged, like bringing the audience through doors before they were closed to create a congruent sense of space.\n\nLeading shots. To solve Submerged\u2019s shot-reverse shot issues the audience was only placed in a scary environment when intentionally necessary to increase their narrative immersion, right as the characters themselves entered the environment.\n\nUnsuccessful affordances\n\nStatic camera. Gear limitations required the camera to be on a tripod instead of moving, which led to a less dynamic sense of 3D space and creates a sense of \u201cstuckness\u201d in the audience where they are less included in the scenes than if the camera were free to intentionally, slowly, move.\n\nNon-spatial audio. Many spatial cues come from audio, but spatial audio was beyond the scope of this test, leading to a disconnect between the rich 3D 180-degree world seen visually, and the \u201cflat\u201d stereo sound which does not place the character\u2019s voices on their bodies, ruining the sense of reality and narrative transportation.\n\nVertical displacement. Filming 180-degree stereo is fraught with difficulties. Two cameras with two separate lenses and often two separate sensors must record wide-angle high resolution photographs 30 - 60 times per second, and must do so at the exact same instant or else the audience\u2019s right eye and left eye will see slightly temporally offset vision, which is problematic when the subject is moving. The cameras also must be aiming directly ahead in an orthographic plane (Vienne et. al, 2016) Bourke, tk https://paulbourke.net/stereographics/stereorender/) or else the two planes perceived by the left and right eye will misalign along the vertical axis. Correcting this in post-production is time consuming and tedious, despite numerous tools like Mistaka VR being available.\n\nSpatial Storytelling Affordances for Creators\n\nBelow is a list of spatial storytelling affordances that creators can use to increase narrative transportation in their viewers. This is non-exhaustive, and will be added to as the mediums evolve.\n\nSuccessful affordances\n\nCuts\n\nEdit between different shots as frequently as every 4 seconds, or as long as minutes\n\nLonger cuts afford the audience more time for narrative transportation into the scene\n\nShorter cuts afford the audience more intuitive understanding of the space\n\nAvoid shot-reverse-shot cutting between characters in dialogue\n\nResolution\n\nShoot in 8K 180-degree stereo at 60 frames per second, or as close as the gear allows\n\nNarrative transportation increases with the fidelity of the world portrayed\n\nLevel camera angle\n\nOrient camera directly level at the horizon\n\nStereo Sweet Spot",
-  "why": "Frame all action in the central 45\u00b0 of camera\u2019s forward direction\n\nStereo effect is most comfortable in this range, creating a \u201cframeless frame\u201d\n\nCamera movement\n\nMove the camera laterally at a constant velocity\n\nA rule of thumb is the Train Platform Effect: if you were in a vehicle that started moving at this speed, would the passenger know without looking out the window?\n\nDo not rotate the camera on any axis.\n\nBackaway reveal\n\nWithhold information about what exists behind the camera intentionally\n\nEither direct all action in front of the audience, or gradually reveal what was beyond the frame to increase tension\n\nEmpathetic perspective\n\nShow the audience only what the character themselves can see\n\nDramatic Irony perspective\n\nShow the audience what the characters cannot see\n\n6 DoF Movement\n\nProvide six degrees of freedom to allow the audience to gain more depth cues from the scene than mere stereo imaging\n\nAI depth maps or game-engine generated images can provide 6 DoF\n\nActing/Dialogue\n\nEnsure all dialogue sounds natural to real people spoken in real time.\n\nDirect acting to be natural, which falls somewhere between cinematic (facial subtleties) and theatrical (bodily exaggerations)\n\nEpisodes\n\nBreak all stories into chunks of twenty minute or less for eye and neck strain\n\nGenre\n\nFollow genre conventions to allow audience to focus on storyline and character\n\nAffordances to avoid:\n\nInteraction\n\nPicking up items, completing tasks, choosing dialogue, and moving through space all increase world immersion at the expense of narrative transportation\n\nLeading shots\n\nMoving the audience backwards must be done carefully to avoid placing them in a setting that is different emotionally than the character\u2019s\n\nUncomfortable stereo imaging\n\nMinimize vertical and horizontal displacement\n\nClose-ups\n\nHonor conventions around personal space, and keep characters as far from the camera as they would comfortably be to a stranger in the real world\n\nNon-level camera angles\n\nAiming the camera anywhere but forward makes the world feel tipped, rather than making the audience feel like they are looking down.\n\nPanning\n\nRotating the camera at all along the vertical axis induces dizziness immediately.",
-  "categories": [
-    "Research",
-    "XR"
+  "what": "A research paper and prototype 180\u00b0 3D VR short film that develops a theoretical framework for spatial storytelling \u2014 charting how different mediums grant affordances to their audiences, analyzing case studies, and deriving a narrative grammar of guidelines for creating immersive spatial stories.",
+  "why": [
+    {
+      "type": "text",
+      "content": "The term \"spatial storytelling\" describes any narrative that uses audio and visual information to place the audience inside the scene.\n\nEach spatial storytelling medium can be charted along an axis depending on the audience's agency, between active participant and passive observer. The most compelling mediums for storytelling seem to be those that allow narrative transportation \u2014 in which the audience loses their sense of self and immerses in the story. Finding a sweet spot of affordances is vital to create an experience that is truly immersive.\n\nThis paper charts spatial storytelling mediums by the affordances each gives to its audience, discusses several examples of spatial stories and the success or failure of each affordance, describes the process of shooting a 180 VR film, and ultimately outlines a narrative \"grammar\" for effective spatial storytelling."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storytelling-affordances/thumb.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Spatial Medium Affordance Spectrum**\n\nDifferent mediums grant the creator one set of affordances and the audience another. In 2-Dimensional cinema, the camera lens affords the director the ability to focus the entire frame on one subject and hide, blur, or frame out everything else \u2014 but this causes an inverse lack of affordances for the audience, who may now only look exactly where the director forces them.\n\nA correlation is obvious in the chart: narrative transportation decreases as audience affordances increase. Stories are drowning in affordances.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storytelling-affordances/img3.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Prototype Spatial Story: Launder**\n\nTo apply the learnings from analyzing the above affordances, we created a 180-degree 3D VR short film called Launder.\n\n*Premise:* One roommate is cajoled by the other to get their laundry from the creepy basement. They become convinced that they're being followed and barely make it back to the apartment in one piece.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storytelling-affordances/img4.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Successful Affordances**\n\nLaunder built upon the successful affordances of Faceless Lady and Submerged: cuts, framing the action in the stereo 3D sweet spot, empathetic camera angles that showed the audience only what the characters themselves could see, and following genre conventions.\n\n**Door cuts.** Launder addressed specific affordance failures in Submerged, like bringing the audience through doors before they were closed to create a congruent sense of space.\n\n**Leading shots.** The audience was only placed in a scary environment when intentionally necessary, right as the characters themselves entered it.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storytelling-affordances/img2.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Unsuccessful Affordances**\n\n**Static camera.** Gear limitations required the camera to be on a tripod instead of moving, leading to a less dynamic sense of 3D space and a sense of \"stuckness\" in the audience.\n\n**Non-spatial audio.** Many spatial cues come from audio, but spatial audio was beyond the scope of this test, leading to a disconnect between the rich 3D world seen visually and the \"flat\" stereo sound.\n\n**Vertical displacement.** Two cameras must record at the exact same instant or the audience's eyes will see temporally offset vision. The cameras must also aim in an orthographic plane or the images perceived by each eye will misalign along the vertical axis.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storytelling-affordances/img1.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Spatial Storytelling Affordances for Creators**\n\nBelow is a list of spatial storytelling affordances that creators can use to increase narrative transportation. This is non-exhaustive, and will be added to as the mediums evolve.\n\n**Cuts** \u2014 Edit between shots as frequently as every 4 seconds or as long as minutes. Avoid shot-reverse-shot cutting between characters in dialogue.\n\n**Resolution** \u2014 Shoot in 8K 180\u00b0 stereo at 60fps. Narrative transportation increases with the fidelity of the world portrayed.\n\n**Level camera angle** \u2014 Orient camera directly level at the horizon.\n\n**Stereo Sweet Spot** \u2014 Frame all action in the central 45\u00b0 of the camera's forward direction.\n\n**Camera movement** \u2014 Move the camera laterally at a constant velocity. Do not rotate the camera on any axis.\n\n**Backaway reveal** \u2014 Withhold information about what exists behind the camera. Gradually reveal what was beyond the frame to increase tension.\n\n**Empathetic perspective** \u2014 Show the audience only what the character themselves can see.\n\n**Dramatic Irony perspective** \u2014 Show the audience what the characters cannot see.\n\n**6 DoF Movement** \u2014 Provide six degrees of freedom to allow the audience to gain more depth cues than mere stereo imaging.\n\n**Acting/Dialogue** \u2014 Ensure all dialogue sounds natural. Direct acting to fall somewhere between cinematic (facial subtleties) and theatrical (bodily exaggerations).\n\n**Episodes** \u2014 Break all stories into chunks of twenty minutes or less for eye and neck strain.\n\n**Genre** \u2014 Follow genre conventions to allow the audience to focus on storyline and character."
+    },
+    {
+      "type": "text",
+      "content": "**Affordances to avoid:**\n\n**Interaction** \u2014 Picking up items, completing tasks, choosing dialogue, and moving through space all increase world immersion at the expense of narrative transportation.\n\n**Leading shots** \u2014 Moving the audience backwards must be done carefully to avoid placing them in a setting that is emotionally different from the character's.\n\n**Uncomfortable stereo imaging** \u2014 Minimize vertical and horizontal displacement.\n\n**Close-ups** \u2014 Honor conventions around personal space, and keep characters as far from the camera as they would comfortably be to a stranger in the real world.\n\n**Non-level camera angles** \u2014 Aiming the camera anywhere but forward makes the world feel tipped, rather than making the audience feel like they are looking down.\n\n**Panning** \u2014 Rotating the camera at all along the vertical axis induces dizziness immediately."
+    }
+  ],
+  "medium": "Narrative",
+  "tags": [
+    "XR",
+    "virtual reality",
+    "research",
+    "storytelling",
+    "180 VR",
+    "affordances",
+    "film"
   ],
   "axes": {
     "pragmatic": 0.52,
     "institutional": 0.68
   },
   "thumbnail": "assets/projects/storytelling-affordances/thumb.jpg",
-  "images": [
-    "assets/projects/storytelling-affordances/img1.jpg",
-    "assets/projects/storytelling-affordances/img2.jpg",
-    "assets/projects/storytelling-affordances/img3.jpg"
-  ],
-  "videos": [
-    "https://www.youtube.com/watch?v=fDiT2uUqwX0",
-    "https://www.youtube.com/watch?v=Hcq8DdXiVLY"
-  ],
+  "hero": "assets/projects/storytelling-affordances/thumb.jpg",
   "liveUrl": null,
   "sourceUrl": "https://www.wyattroy.com/xr/storytelling-affordances",
-  "awards": [],
-  "scraped_raw_text": [
-    "Storytelling Affordances",
-    "A theoretical framework for creating spatial stories",
-    "Abstract",
-    "The term \u201cspatial storytelling\u201d describes any narrative that uses audio and visual information to place the audience inside the scene.",
-    "Each spatial storytelling medium can be charted along an axis depending on the audience\u2019s agency, between active participant and passive observer. Each medium along this spectrum has its unique set of affordances. The most compelling mediums for storytelling (spatial or otherwise) seem to be those that allow narrative transportation in which the audience loses their sense of self and immerses in the story. Finding a sweet spot of affordances is vital to create an experience that is truly immersive.",
-    "This paper charts spatial storytelling mediums according to the affordances each gives to its audience. Then it discusses several examples of spatial stories and the success or failure of each affordance. Next it describes the process of shooting and creating a spatial story in 3-Degrees of Freedom (DoF) 180 Virtual Reality (VR), along with its unique challenges. Ultimately it outlines a narrative \u201cgrammar,\u201d or set of guidelines for effective spatial storytelling.",
-    "Read the full paper",
-    "Review of Affordances in Apple Vision Pro's Submerged",
-    "Spatial Medium Affordance Spectrum",
-    "Different mediums grant the creator one set of affordances and the audience another. For example, in 2-Dimensional cinema, the camera lens affords the director the ability to focus the entire frame on one subject and hide, blur, or frame out everything else. But this causes an inverse lack of affordances for the audience, who may now only look exactly where the director forced them to. The chart below is concerned exclusively with the affordances granted to the audience, as these are ultimately the causes of narrative transportation.",
-    "A correlation is obvious in the chart: narrative transportation decreases as audience affordances increase. Stories are drowning in affordances.",
-    "Prototype Spatial Story: Launder",
-    "To apply the learnings from analyzing the above affordances, we created a 180-degree 3D VR short film called Launder.",
-    "Premise",
-    "One roommate is cajoled by the other to get their laundry from the creepy basement. They become convinced that they\u2019re being followed and barely make it back to the apartment in one piece.",
-    "Successful Affordances",
-    "Launder built upon the successful affordances of Faceless Lady and Submerged like cuts, framing the action in the stereo 3d sweet spot, empathetic camera angles that showered the audience only views that the characters could themselves see, and following genre conventions.",
-    "Door cuts. In addition, Launder addressed specific affordance failures in Submerged, like bringing the audience through doors before they were closed to create a congruent sense of space.",
-    "Leading shots. To solve Submerged\u2019s shot-reverse shot issues the audience was only placed in a scary environment when intentionally necessary to increase their narrative immersion, right as the characters themselves entered the environment.",
-    "Unsuccessful affordances",
-    "Static camera. Gear limitations required the camera to be on a tripod instead of moving, which led to a less dynamic sense of 3D space and creates a sense of \u201cstuckness\u201d in the audience where they are less included in the scenes than if the camera were free to intentionally, slowly, move.",
-    "Non-spatial audio. Many spatial cues come from audio, but spatial audio was beyond the scope of this test, leading to a disconnect between the rich 3D 180-degree world seen visually, and the \u201cflat\u201d stereo sound which does not place the character\u2019s voices on their bodies, ruining the sense of reality and narrative transportation.",
-    "Vertical displacement. Filming 180-degree stereo is fraught with difficulties. Two cameras with two separate lenses and often two separate sensors must record wide-angle high resolution photographs 30 - 60 times per second, and must do so at the exact same instant or else the audience\u2019s right eye and left eye will see slightly temporally offset vision, which is problematic when the subject is moving. The cameras also must be aiming directly ahead in an orthographic plane (Vienne et. al, 2016) Bourke, tk https://paulbourke.net/stereographics/stereorender/) or else the two planes perceived by the left and right eye will misalign along the vertical axis. Correcting this in post-production is time consuming and tedious, despite numerous tools like Mistaka VR being available.",
-    "Spatial Storytelling Affordances for Creators",
-    "Below is a list of spatial storytelling affordances that creators can use to increase narrative transportation in their viewers. This is non-exhaustive, and will be added to as the mediums evolve.",
-    "Successful affordances",
-    "Cuts",
-    "Edit between different shots as frequently as every 4 seconds, or as long as minutes",
-    "Longer cuts afford the audience more time for narrative transportation into the scene",
-    "Shorter cuts afford the audience more intuitive understanding of the space",
-    "Avoid shot-reverse-shot cutting between characters in dialogue",
-    "Resolution",
-    "Shoot in 8K 180-degree stereo at 60 frames per second, or as close as the gear allows",
-    "Narrative transportation increases with the fidelity of the world portrayed",
-    "Level camera angle",
-    "Orient camera directly level at the horizon",
-    "Stereo Sweet Spot",
-    "Frame all action in the central 45\u00b0 of camera\u2019s forward direction",
-    "Stereo effect is most comfortable in this range, creating a \u201cframeless frame\u201d",
-    "Camera movement",
-    "Move the camera laterally at a constant velocity",
-    "A rule of thumb is the Train Platform Effect: if you were in a vehicle that started moving at this speed, would the passenger know without looking out the window?",
-    "Do not rotate the camera on any axis.",
-    "Backaway reveal",
-    "Withhold information about what exists behind the camera intentionally",
-    "Either direct all action in front of the audience, or gradually reveal what was beyond the frame to increase tension",
-    "Empathetic perspective",
-    "Show the audience only what the character themselves can see",
-    "Dramatic Irony perspective",
-    "Show the audience what the characters cannot see",
-    "6 DoF Movement",
-    "Provide six degrees of freedom to allow the audience to gain more depth cues from the scene than mere stereo imaging",
-    "AI depth maps or game-engine generated images can provide 6 DoF",
-    "Acting/Dialogue",
-    "Ensure all dialogue sounds natural to real people spoken in real time.",
-    "Direct acting to be natural, which falls somewhere between cinematic (facial subtleties) and theatrical (bodily exaggerations)",
-    "Episodes",
-    "Break all stories into chunks of twenty minute or less for eye and neck strain",
-    "Genre",
-    "Follow genre conventions to allow audience to focus on storyline and character",
-    "Affordances to avoid:",
-    "Interaction",
-    "Picking up items, completing tasks, choosing dialogue, and moving through space all increase world immersion at the expense of narrative transportation",
-    "Leading shots",
-    "Moving the audience backwards must be done carefully to avoid placing them in a setting that is different emotionally than the character\u2019s",
-    "Uncomfortable stereo imaging",
-    "Minimize vertical and horizontal displacement",
-    "Close-ups",
-    "Honor conventions around personal space, and keep characters as far from the camera as they would comfortably be to a stranger in the real world",
-    "Non-level camera angles",
-    "Aiming the camera anywhere but forward makes the world feel tipped, rather than making the audience feel like they are looking down.",
-    "Panning",
-    "Rotating the camera at all along the vertical axis induces dizziness immediately."
+  "images": [
+    "assets/projects/storytelling-affordances/thumb.jpg",
+    "assets/projects/storytelling-affordances/img1.jpg",
+    "assets/projects/storytelling-affordances/img2.jpg",
+    "assets/projects/storytelling-affordances/img3.jpg",
+    "assets/projects/storytelling-affordances/img4.jpg"
   ],
-  "scraped_url": "https://www.wyattroy.com/xr/storytelling-affordances",
-  "medium": "Narrative"
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=fDiT2uUqwX0"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Hcq8DdXiVLY"
+    }
+  ],
+  "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Researcher, Director"
+    }
+  ]
 }

@@ -1,24 +1,144 @@
 {
   "id": "falling-fall",
   "title": "Falling Fall",
-  "year": 2020,
+  "year": 2024,
   "month": 10,
-  "tagline": "Slow video meditation on autumn leaves and gravity",
+  "tagline": "Light sculpture on autumn leaves and gravity",
   "description": "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change.",
-  "what": "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change.\n\nIt\u2019s fall. Leaves are falling. The path those leaves take is sometimes chaotic, sometimes calm. Always beautiful.\n\nHow might we celebrate this transition from summer to winter by turning the motion of falling leaves into a solid form?\n\nINTENSION\n\nBring warm light to colder months\n\nHonor trees when they stand denuded\n\nSculpture has a \u201csetup\u201d \u2013 its form is vaguely reminiscent of something from a distance\n\nSculpture has a \u201cpunchline\u201d \u2013 provides the user with an \u2018aha\u2019 moment when they recognize what they\u2019re looking at\n\nRECORDING DATA\n\nA phone can capture accelerometer data while falling. But you can\u2019t just strap a phone to a leaf, it\u2019ll fall too fast.\n\nSolution: make a huge \u201cleaf\u201d that spreads the phone\u2019s mass across greater surface area. Then drop it off a balcony thirty times.\n\nITERATIONS\n\nThe original \u201cleaf\u201d fell two stories in about a second. When recording accelerometer data at 25hz, that meant our data was too sparse. To slow down the leaf, we quadrupled its size to increase surface area and air resistance.\n\nFologram, the app we used to record position data, lost wifi signal during falls because the phone was travelling so far. So we went off wifi and moved to new locations.\n\nWithout wind, the leaf doesn\u2019t spin: and a huge leaf needs a ton of wind.\n\nOur data models leaves falling on a calm day, without flipping.\n\nDATA PROCESSING\n\nWe recorded 30 \u201cLeaf Falls\u201d\n\nFologram captures at roughly 25 frames per second\n\nWe used the same name convention for all takes so that we could iterate through them programmatically\n\nGRASSHOPPER DEFINITION\n\nWe moved the data input scripts offscreen and created a set of \u201cpanels\u201d that would allow us to interact with the data naturally.\n\nWe created a formula that takes an integer slider as input and spits out the full filename of the relevant \u201cleaf drop\u201d take.\n\nThis allowed us to iterate through all our takes effortlessly without the need for multiple versions.\n\nNext we needed to clean up the data. We started our recordings while still holding the Big Leaf, and ended each recording a few seconds after it hit the ground, so we needed to remove these non-moving frames from each individual take. We made a helper function that let us figure out where each \u201cdrop\u201d actually started and ended.\n\nThen we fed these values into a switch statement that displayed only the planes that we actually cared about, depending on which Leaf Drop we were looking at.\n\n// Choose the lower of the two, either the default or a shorter max\n\nint rangeMax = max - cutoff;\n\nList<Plane> filteredList = new List<Plane>();\n\nfor (int i = min; i < rangeMax; i++)\n\nPlane p = new Plane(x[i]);\n\np = FlipAxes(p);\n\np = OffsetPlane(p, offset);",
-  "why": "filteredList.Add(p);\n\nf = filteredList;\n\nData-cleaning scripts flipped the plane axis because Fologram records planes perpendicularly to the phone screen, and offset the (X, Y, Z) values of the Leaf Drop so we could center them around the origin \u2013 because recording in the real world is messy, and each leaf drop was recorded meters away from every other one.\n\nOnly once all the drops were centered around (0,0,0) and displaying the relevant frames could we behind to truly play around with the form and shape of the leaves falling!\n\nADDING FUNCTIONALITY\n\nOne of the joys of writing your own creative tools is that when you need a feature, you just go build it. After the data was cleaned up, we realized that the leaf drops looked best if we stopped them before they hit the ground \u2013 so we wrote a helper function to cut off the bottom of the Leaf Drop wherever we dynamically thought it looked best.\n\nDISPLAYING MESHES\n\nOur first idea was to render a 3D scan of a leaf, and map one to each plane recorded from the leaf drop..\n\nBut when we fed this mesh onto the planes we\u2019d captured (plus interpolated planes between them), it looked like a dinosaur spine, not a leaf falling.\n\nDISPLAYING LINES\n\nOur next idea was to display a loft between the outlines of the leaf.\n\nWe modulated the size of the leaf based on its speed, so that the leaf got bigger as it slowed down, so that it would look take more \u201cvisual space\u201d when it took more \u201ctemporal space.\u201d\n\nThis looked intriguing, but again we\u2019d lost the leafyness. Instead of dinosaur bones, we has somehow made dinosaur muscles.\n\nFINAL FORM\n\nUltimately we realized that a leaf\u2019s path needs to visually show the beginning differently than the end. So we changed the script that modulated the size based on the leaf\u2019s speed, and instead based size on the leaf\u2019s position in the whole drop.\n\nThis created the visual \u201cswoosh\u201d effect we were looking for.\n\nEVERY LEAF DROP\n\nFINAL IDEA\n\nWe want this sculpture to be a series of 1.5m-tall hanging lamps that can hang from tree branches throughout winter and bring warmth and light to the colder month.\n\nThat\u2019s beyond the scope of what we can produce in a 2-week assignment.\n\nWe scaled back our idea to create two prototypes using slightly different materials and processes.\n\nWe chose a maple leaf because it is recognizable, has a complex edge, and actually loses its leaves in Fall!\n\nThe leaves are connected with a \u201cwhoosh\u201d prism based on the actual fall speed data\n\nMANUFACTURING\n\nWe laser-cut leaves in increasing size, and 3D printed struts taken from the raw fall data of our favorite Leaf Drop.\n\nNEXT STEPS\n\nWe\u2019d like to take this project beyond its prototype stage.\n\nExplore ways to rig lighting inside it\n\nCreate a full-sized version\n\nHang it on an actual tree\n\nReplicate with other Leaf Drops\n\nCREATIVE TEAM\n\nWyatt Roy, Chiun Lee, Yongrui Jin",
-  "categories": [
-    "Art",
-    "Video"
+  "what": [
+    {
+      "type": "text",
+      "content": "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change. It was inspire by the desire to celebrate this transition from summer to winter by turning the motion of falling leaves into a solid form.\n\n\n"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/fallingleaf2.gif"
+    }
   ],
+  "why": [
+    {
+      "type": "text",
+      "content": "The primary design question guiding this project was *how can digital tools record and translate fleeting moments into solid objects?*\n\nA secondary question was *how are our designs shaped by our agency to build the tools that create them?*"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img38.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Recording Data**\n\nA phone can capture accelerometer data while falling. But you can’t just strap a phone to a leaf, it’ll fall too fast.\n\nSolution: make a huge “leaf” that spreads the phone’s mass across greater surface area. Then drop it off a balcony thirty times.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img8.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Iterations**\n\nThe original “leaf” fell two stories in about a second. When recording accelerometer data at 25hz, that meant our data was too sparse. To slow down the leaf, we quadrupled its size to increase surface area and air resistance.\n\nFologram, the app we used to record position data, lost wifi signal during falls because the phone was travelling so far. So we went off wifi and moved to new locations.\n\nWithout wind, the leaf doesn’t spin: and a huge leaf needs a ton of wind.\n\nOur data models leaves falling on a calm day, without flipping.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img6.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Data Processing**\n\nWe recorded 30 “Leaf Falls”. Fologram captures at roughly 25 frames per second. We used the same name convention for all takes so that we could iterate through them programmatically",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img10.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Grasshopper Definition**\n\nWe moved the data input scripts offscreen and created a set of “panels” that would allow us to interact with the data naturally. We created a formula that takes an integer slider as input and spits out the full filename of the relevant “leaf drop” take. This allowed us to iterate through all our takes effortlessly without the need for multiple versions.\n\nNext we needed to clean up the data. We started our recordings while still holding the Big Leaf, and ended each recording a few seconds after it hit the ground, so we needed to remove these non-moving frames from each individual take. We made a helper function that let us figure out where each “drop” actually started and ended.\n\nThen we fed these values into a switch statement that displayed only the planes that we actually cared about, depending on which Leaf Drop we were looking at.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img12.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Data Cleanup**\n\nData-cleaning scripts flipped the plane axis because Fologram records planes perpendicularly to the phone screen, and offset the (X, Y, Z) values of the Leaf Drop so we could center them around the origin – because recording in the real world is messy, and each leaf drop was recorded meters away from every other one.\n\nOnly once all the drops were centered around (0,0,0) and displaying the relevant frames could we behind to truly play around with the form and shape of the leaves falling!\n\nOne of the joys of writing your own creative tools is that when you need a feature, you just go build it. After the data was cleaned up, we realized that the leaf drops looked best if we stopped them before they hit the ground – so we wrote a helper function to cut off the bottom of the Leaf Drop wherever we dynamically thought it looked best.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img14.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Displaying Meshes**\n\nOur first idea was to render a 3D scan of a leaf, and map one to each plane recorded from the leaf drop.\n\nBut when we fed this mesh onto the planes we’d captured (plus interpolated planes between them), it looked like a dinosaur spine, not a leaf falling.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img20.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Displaying Lines**\n\nOur next idea was to display a loft between the outlines of the leaf.\n\nWe modulated the size of the leaf based on its speed, so that the leaf got bigger as it slowed down, so that it would look take more “visual space” when it took more “temporal space.”\n\nThis looked intriguing, but again we’d lost the leafyness. Instead of dinosaur bones, we has somehow made dinosaur muscles.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img16.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Final Form**\n\nUltimately we realized that a leaf’s path needs to visually show the beginning differently than the end. So we changed the script that modulated the size based on the leaf’s speed, and instead based size on the leaf’s position in the whole drop.\n\nThis created the visual “swoosh” effect we were looking for.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img26.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "We want this sculpture to be a series of 1.5m-tall hanging lamps that can hang from tree branches throughout winter and bring warmth and light to the colder month. That’s beyond the scope of what we could produce in a 2-week assignment. We scaled back our idea to create two prototypes using slightly different materials and processes. We chose a maple leaf because it is recognizable, has a complex edge, and actually loses its leaves in Fall! The leaves are connected with a “whoosh” prism based on the actual fall speed data",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img44.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Manufacturing**\n\nWe laser-cut leaves in increasing size, and 3D printed struts taken from the raw fall data of our favorite Leaf Drop.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/falling-fall/img30.jpg",
+      "align": "right"
+    }
+  ],
+  "medium": "Fabrication",
+  "tags": [],
   "axes": {
     "pragmatic": 0.05,
     "institutional": 0.1
   },
   "thumbnail": "assets/projects/falling-fall/thumb.jpg",
+  "hero": "assets/projects/falling-fall/throw.png",
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/design/falling-fall",
   "images": [
     "assets/projects/falling-fall/img1.jpg",
-    "assets/projects/falling-fall/img2.jpg",
     "assets/projects/falling-fall/img4.jpg",
     "assets/projects/falling-fall/img6.jpg",
     "assets/projects/falling-fall/img8.jpg",
@@ -26,7 +146,6 @@
     "assets/projects/falling-fall/img12.jpg",
     "assets/projects/falling-fall/img14.jpg",
     "assets/projects/falling-fall/img16.jpg",
-    "assets/projects/falling-fall/img18.jpg",
     "assets/projects/falling-fall/img20.jpg",
     "assets/projects/falling-fall/img22.jpg",
     "assets/projects/falling-fall/img24.jpg",
@@ -39,42 +158,62 @@
     "assets/projects/falling-fall/img38.jpg",
     "assets/projects/falling-fall/img40.jpg",
     "assets/projects/falling-fall/img42.jpg",
-    "assets/projects/falling-fall/img44.jpg"
+    "assets/projects/falling-fall/img44.jpg",
+    "assets/projects/falling-fall/throw.png",
+    "assets/projects/falling-fall/fallingleaf2.gif"
   ],
   "videos": [
-    "https://www.youtube.com/watch?v=MpoUYhZj7go"
+    {
+      "url": "https://www.youtube.com/watch?v=MpoUYhZj7go",
+      "heroOverride": true
+    }
   ],
-  "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/design/falling-fall",
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    },
+    {
+      "name": "Chiun Lee Kim",
+      "url": "https://www.chiunleekim.com/",
+      "role": "Designer"
+    },
+    {
+      "name": "Yongrui Jin",
+      "url": "",
+      "role": ""
+    }
+  ],
   "scraped_raw_text": [
     "Falling Fall",
     "A Leaf-Based Light Sculpture",
     "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change.",
-    "It\u2019s fall. Leaves are falling. The path those leaves take is sometimes chaotic, sometimes calm. Always beautiful.",
+    "It’s fall. Leaves are falling. The path those leaves take is sometimes chaotic, sometimes calm. Always beautiful.",
     "How might we celebrate this transition from summer to winter by turning the motion of falling leaves into a solid form?",
     "INTENSION",
     "Bring warm light to colder months",
     "Honor trees when they stand denuded",
-    "Sculpture has a \u201csetup\u201d \u2013 its form is vaguely reminiscent of something from a distance",
-    "Sculpture has a \u201cpunchline\u201d \u2013 provides the user with an \u2018aha\u2019 moment when they recognize what they\u2019re looking at",
+    "Sculpture has a “setup” – its form is vaguely reminiscent of something from a distance",
+    "Sculpture has a “punchline” – provides the user with an ‘aha’ moment when they recognize what they’re looking at",
     "RECORDING DATA",
-    "A phone can capture accelerometer data while falling. But you can\u2019t just strap a phone to a leaf, it\u2019ll fall too fast.",
-    "Solution: make a huge \u201cleaf\u201d that spreads the phone\u2019s mass across greater surface area. Then drop it off a balcony thirty times.",
+    "A phone can capture accelerometer data while falling. But you can’t just strap a phone to a leaf, it’ll fall too fast.",
+    "Solution: make a huge “leaf” that spreads the phone’s mass across greater surface area. Then drop it off a balcony thirty times.",
     "ITERATIONS",
-    "The original \u201cleaf\u201d fell two stories in about a second. When recording accelerometer data at 25hz, that meant our data was too sparse. To slow down the leaf, we quadrupled its size to increase surface area and air resistance.",
+    "The original “leaf” fell two stories in about a second. When recording accelerometer data at 25hz, that meant our data was too sparse. To slow down the leaf, we quadrupled its size to increase surface area and air resistance.",
     "Fologram, the app we used to record position data, lost wifi signal during falls because the phone was travelling so far. So we went off wifi and moved to new locations.",
-    "Without wind, the leaf doesn\u2019t spin: and a huge leaf needs a ton of wind.",
+    "Without wind, the leaf doesn’t spin: and a huge leaf needs a ton of wind.",
     "Our data models leaves falling on a calm day, without flipping.",
     "DATA PROCESSING",
-    "We recorded 30 \u201cLeaf Falls\u201d",
+    "We recorded 30 “Leaf Falls”",
     "Fologram captures at roughly 25 frames per second",
     "We used the same name convention for all takes so that we could iterate through them programmatically",
     "GRASSHOPPER DEFINITION",
-    "We moved the data input scripts offscreen and created a set of \u201cpanels\u201d that would allow us to interact with the data naturally.",
-    "We created a formula that takes an integer slider as input and spits out the full filename of the relevant \u201cleaf drop\u201d take.",
+    "We moved the data input scripts offscreen and created a set of “panels” that would allow us to interact with the data naturally.",
+    "We created a formula that takes an integer slider as input and spits out the full filename of the relevant “leaf drop” take.",
     "This allowed us to iterate through all our takes effortlessly without the need for multiple versions.",
-    "Next we needed to clean up the data. We started our recordings while still holding the Big Leaf, and ended each recording a few seconds after it hit the ground, so we needed to remove these non-moving frames from each individual take. We made a helper function that let us figure out where each \u201cdrop\u201d actually started and ended.",
+    "Next we needed to clean up the data. We started our recordings while still holding the Big Leaf, and ended each recording a few seconds after it hit the ground, so we needed to remove these non-moving frames from each individual take. We made a helper function that let us figure out where each “drop” actually started and ended.",
     "Then we fed these values into a switch statement that displayed only the planes that we actually cared about, depending on which Leaf Drop we were looking at.",
     "// Choose the lower of the two, either the default or a shorter max",
     "int rangeMax = max - cutoff;",
@@ -85,31 +224,31 @@
     "p = OffsetPlane(p, offset);",
     "filteredList.Add(p);",
     "f = filteredList;",
-    "Data-cleaning scripts flipped the plane axis because Fologram records planes perpendicularly to the phone screen, and offset the (X, Y, Z) values of the Leaf Drop so we could center them around the origin \u2013 because recording in the real world is messy, and each leaf drop was recorded meters away from every other one.",
+    "Data-cleaning scripts flipped the plane axis because Fologram records planes perpendicularly to the phone screen, and offset the (X, Y, Z) values of the Leaf Drop so we could center them around the origin – because recording in the real world is messy, and each leaf drop was recorded meters away from every other one.",
     "Only once all the drops were centered around (0,0,0) and displaying the relevant frames could we behind to truly play around with the form and shape of the leaves falling!",
     "ADDING FUNCTIONALITY",
-    "One of the joys of writing your own creative tools is that when you need a feature, you just go build it. After the data was cleaned up, we realized that the leaf drops looked best if we stopped them before they hit the ground \u2013 so we wrote a helper function to cut off the bottom of the Leaf Drop wherever we dynamically thought it looked best.",
+    "One of the joys of writing your own creative tools is that when you need a feature, you just go build it. After the data was cleaned up, we realized that the leaf drops looked best if we stopped them before they hit the ground – so we wrote a helper function to cut off the bottom of the Leaf Drop wherever we dynamically thought it looked best.",
     "DISPLAYING MESHES",
     "Our first idea was to render a 3D scan of a leaf, and map one to each plane recorded from the leaf drop..",
-    "But when we fed this mesh onto the planes we\u2019d captured (plus interpolated planes between them), it looked like a dinosaur spine, not a leaf falling.",
+    "But when we fed this mesh onto the planes we’d captured (plus interpolated planes between them), it looked like a dinosaur spine, not a leaf falling.",
     "DISPLAYING LINES",
     "Our next idea was to display a loft between the outlines of the leaf.",
-    "We modulated the size of the leaf based on its speed, so that the leaf got bigger as it slowed down, so that it would look take more \u201cvisual space\u201d when it took more \u201ctemporal space.\u201d",
-    "This looked intriguing, but again we\u2019d lost the leafyness. Instead of dinosaur bones, we has somehow made dinosaur muscles.",
+    "We modulated the size of the leaf based on its speed, so that the leaf got bigger as it slowed down, so that it would look take more “visual space” when it took more “temporal space.”",
+    "This looked intriguing, but again we’d lost the leafyness. Instead of dinosaur bones, we has somehow made dinosaur muscles.",
     "FINAL FORM",
-    "Ultimately we realized that a leaf\u2019s path needs to visually show the beginning differently than the end. So we changed the script that modulated the size based on the leaf\u2019s speed, and instead based size on the leaf\u2019s position in the whole drop.",
-    "This created the visual \u201cswoosh\u201d effect we were looking for.",
+    "Ultimately we realized that a leaf’s path needs to visually show the beginning differently than the end. So we changed the script that modulated the size based on the leaf’s speed, and instead based size on the leaf’s position in the whole drop.",
+    "This created the visual “swoosh” effect we were looking for.",
     "EVERY LEAF DROP",
     "FINAL IDEA",
     "We want this sculpture to be a series of 1.5m-tall hanging lamps that can hang from tree branches throughout winter and bring warmth and light to the colder month.",
-    "That\u2019s beyond the scope of what we can produce in a 2-week assignment.",
+    "That’s beyond the scope of what we can produce in a 2-week assignment.",
     "We scaled back our idea to create two prototypes using slightly different materials and processes.",
     "We chose a maple leaf because it is recognizable, has a complex edge, and actually loses its leaves in Fall!",
-    "The leaves are connected with a \u201cwhoosh\u201d prism based on the actual fall speed data",
+    "The leaves are connected with a “whoosh” prism based on the actual fall speed data",
     "MANUFACTURING",
     "We laser-cut leaves in increasing size, and 3D printed struts taken from the raw fall data of our favorite Leaf Drop.",
     "NEXT STEPS",
-    "We\u2019d like to take this project beyond its prototype stage.",
+    "We’d like to take this project beyond its prototype stage.",
     "Explore ways to rig lighting inside it",
     "Create a full-sized version",
     "Hang it on an actual tree",
@@ -117,6 +256,5 @@
     "CREATIVE TEAM",
     "Wyatt Roy, Chiun Lee, Yongrui Jin"
   ],
-  "scraped_url": "https://www.wyattroy.com/design/falling-fall",
-  "medium": "Fabrication"
+  "scraped_url": "https://www.wyattroy.com/design/falling-fall"
 }

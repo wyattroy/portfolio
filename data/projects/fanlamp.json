@@ -3,13 +3,160 @@
   "title": "Fan Lamp",
   "year": 2025,
   "month": 3,
-  "tagline": "Kinetic oscillating lamp built from laser-cut wood, custom gears, and a motor",
+  "tagline": "Kinetic oscillating lamp built primarily from plants",
   "description": "A moving lamp made from laser-cut wood with a gear-driven mechanism that oscillates the fan blades, symbolizing the yin-yang ebb and flow of creating.",
-  "what": "A kinetic desk lamp made from laser-cut wood with custom-designed gears that convert the motor's rotational movement into a windshield-wiper oscillation for the fan blades. Designed in Fusion 360, prototyped in cardboard, then lasercut in wood and assembled with screws and a small motor. Battery-powered with a soldered switch and USB light.",
-  "why": "Fanlamp is a moving light that symbolizes the yin-yang ebb and flow process of life and creating \u2014 the orange side might mean stress, the white side peace; or the orange side motivated, the white fallow.",
-  "categories": [
-    "Fabrication"
+  "what": "A kinetic desk lamp made from laser-cut wood with custom-designed gears that convert the motor's rotational movement into a windshield-wiper oscillation for the fan blades. Designed in Fusion 360, prototyped in cardboard, then lasercut in wood, powered by a geared motor. Battery-powered with a soldered switch and USB light.",
+  "why": [
+    {
+      "type": "text",
+      "content": "Fanlamp is a moving light that symbolizes the yin-yan ebb and flow process of life and creating. The orange side might mean stress, and the white side might mean peace; or the orange side might mean \"motivated\" and the white side means \"fallow\". You get to decide -- we all experience tides in our lives. \n\n\n\n"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/fanlampfinished.jpg"
+    }
   ],
+  "how": [
+    {
+      "type": "text",
+      "content": "The process was significantly more involved than I'd anticipated - simply making a hole in the right part of a different Fusion sketch took hours. But a week ago, this lamp existed only in my mind. And now it's moving and producing light. Here's how it was made.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/prorotypecardboard.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Levers and cams**\n\nTurning rotational movement into windshield-wiper movement was utterly unintuitive, and it's a game of millimeters. What I realized through experimentation with the peg board was that the most important variables were the distance between the center of the motor-wheel's axle and the lever-arm's axle -- and the lever-arm had to be at least 2x the diameter of the motor wheel. The Fan arm's axle position determines what angle swing the arm swings at.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/motionexperiment.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Analogue prototype**\n\nWithout touching Fusion, I tried to replicate the pegboard apparatus with cardboard.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/prototypelever.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Fusion**\n\nI designed the whole assembly in fusion. This is a screenshot of the final assembly -- at first I didn't have gears though, just a finger-spinnable wheel.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/fusionfanlamp.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Cardboard Prototype**\n\nI lasercut the design in cardboard and assembled it. One challenge was that the screws bumped into other parts of the assembly during spinning - necessitating adding padding.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/prototypemoving.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Valentines Day Card** \n\nI drew two (hard to see) smiley and sad faces on the fan to turn it into a valentines day card. This was initial purpose of my project, but the mechanicsm was more challenging than I'd anticipated.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/vdaycard.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Wooden Version**\n\nIn order to drive the fan with a motor, it needed gears - both to decrease the motor's speed, and to increase torque so that it could pull the fans. I designed gears in Fusion then realized that cardboard would crumble under the strain, so lasercut the entire assembly in wood. This also was an aesthetic improvement. Some of the joints are press-fit because the levers require millimeter precision and I needed to be able to nudge them.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/lasercut.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Assembling gears**\n\nThe gears worked! After manually drilling notches in every single pin hole to sink the screws in so they wouldn't run into other components.\n\nThe only struggle was that at certain extensions of the arms, the fan arm would flip down and jam. I devised a metal wire to hold it back from inflecting and ensure stability of the fan arm.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/motorgears.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Building the fan**\n\nFans are complicated. The fan on the prototype valentines day card had too much resistance and too little splay for this design, so I needed to come up with a composite design using ultrathin balsa wood hand drilled and hand cut.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/fanconstruction1.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Electronics**\n\nRigging the battery power without a holder was fun -- turned out one single 1.5V AA battery is sufficient to run the fan apparatus. I soldered a switch on and just taped the wires to the battery while waiting for my battery holder to arrive. I also secured the motor permanently in such a way that it could be disengaged for more testing if need be. The \"lamp\" part of the lamp is a usb light but ideally will be an LED array powered off the main battery.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/fanlampelectronics.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Upgrades**\n\nI upgraded all of the components -- custom soldered LEDs to replace the flashlight, and a backboard to diffuse the light more softly. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/lightboard.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "I also swapped in an updated motor, to run more quietly.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/newengine.GIF",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Then I also added two switches -- one to control the motor, and one to control the lights independently. Because frankly the unexpected audio experience of running this otherwise cute little lamp dampens the vibe. The motor and gears sound like the Little Engine That Could barely making it up a mountain. The next iteration of this would somehow address that issue -- with different materials, or perhaps an acrylic enclosure that fully encased the engine compartment to mute the sound. Design is all about trade-offs, and here I went for an organic wood-and-paper aesthetic at the expense of durability, reliability, and quietness.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/upgradeback.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "The finished lamp -- a project that took exactly twice as long as expected (two weeks) but was only one week late for Valentine's Day."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/fanlamp/fanlampfinished.gif"
+    }
+  ],
+  "medium": "Fabrication",
   "tags": [
     "laser cutting",
     "gears",
@@ -19,10 +166,13 @@
     "PS70"
   ],
   "axes": {
-    "pragmatic": 0.28,
+    "pragmatic": 0.2,
     "institutional": 0.08
   },
   "thumbnail": "assets/projects/fanlamp/fanlampfinished.gif",
+  "hero": "assets/projects/fanlamp/fanlampfinished.gif",
+  "liveUrl": null,
+  "sourceUrl": null,
   "images": [
     "assets/projects/fanlamp/fanlampfinished.gif",
     "assets/projects/fanlamp/fusionfanlamp.gif",
@@ -31,11 +181,22 @@
     "assets/projects/fanlamp/prototypelever.jpeg",
     "assets/projects/fanlamp/fanconstruction1.jpg",
     "assets/projects/fanlamp/fanlampelectronics.jpg",
-    "assets/projects/fanlamp/fanlampfinished.jpg"
+    "assets/projects/fanlamp/fanlampfinished.jpg",
+    "assets/projects/fanlamp/motionexperiment.gif",
+    "assets/projects/fanlamp/vdaycard.jpeg",
+    "assets/projects/fanlamp/prorotypecardboard.gif",
+    "assets/projects/fanlamp/prototypemoving.gif",
+    "assets/projects/fanlamp/newengine.GIF",
+    "assets/projects/fanlamp/upgradeback.jpg",
+    "assets/projects/fanlamp/lightboard.jpg"
   ],
   "videos": [],
-  "liveUrl": null,
-  "sourceUrl": null,
   "awards": [],
-  "medium": "Fabrication"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Engineer"
+    }
+  ]
 }

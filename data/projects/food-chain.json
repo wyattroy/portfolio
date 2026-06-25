@@ -3,14 +3,170 @@
   "title": "Food Chain",
   "year": 2025,
   "month": 3,
-  "tagline": "3D-printed food chain pendant sketched in VR \u2014 organic forms from digital tools",
+  "tagline": "3D-printed food chain pendant sketched in VR — organic forms from digital tools",
   "description": "A 3D-printed food chain of interlocking animals, sketched in VR using Adobe Medium and printed in high resolution on a Prusa printer.",
-  "what": "Designed in VR using Adobe Medium \u2014 sketching interlocking animal and plant forms in 3D space \u2014 then exported as OBJ and prepared in Prusa slicer. After multiple failed prints at lower resolutions, succeeded at 0.05mm (9 hours overnight). Support removal required carefully heating a scalpel and using tiny pliers. Second iteration redrawn from scratch with 2D animal outlines extruded in 3D for less support material.",
-  "why": "Exploring what happens when digital tools are used to create objects that feel organic and hand-made. 3D printers excel at interlocking forms, so a food chain \u2014 where each link must pass through the next \u2014 became the design challenge.",
-  "categories": [
-    "Fabrication",
-    "Art"
+  "what": "Designed in VR using Adobe Medium — sketching interlocking animal and plant forms in 3D space — then exported as OBJ and prepared in Prusa slicer. After multiple failed prints at lower resolutions, succeeded at 0.05mm (9 hours overnight). Support removal required carefully heating a scalpel and using tiny pliers. Second iteration redrawn from scratch with 2D animal outlines extruded in 3D for less support material.",
+  "why": [
+    {
+      "type": "text",
+      "content": "One of the joys of digital fabrication is precision -- you can make exact right angles with ease and cut effortless perfect circles. But it's much harder to make forms that feel warm, human, and organic.\n\nThe design challenge I set for myself was to use digital tools to create a non-digital-seeming object. And because 3D printers are so good at making interlocking forms, I decided to make a chain -- a food chain."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/foodchainfinal.jpeg"
+    }
   ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Here's how the chain was made -- two full iterations, a lot of failed prints, and more time removing support material than printing.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/sketch.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Modelling in VR**\n\nI hopped into VR and used Adobe Medium to create a 3D sketch of the chain. My friends came by so I taught them all how to draw in VR too!",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/teachingvr.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "My first iteration was drawing 3D objects out of lines, and the challenge was to interlock all of the elements in the chain while keeping the lines a consistent thickness. Then I exported the model as an OBJ and brought it into Prusa.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/mediumvr1.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Designing the supports**\n\nThis piece was supposed to be a small metal chain where each animal/plant is about 5mm long -- but the limitations of our Prusa machines required me to scale it up, or else certain layers (in orange) wouldn't get printed. I set the support material to 'organic' (in green) which in theory would allow me to easily remove it after printing.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/prusachain1.png",
+      "align": "right"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/prusachain2.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Printing**\n\nThe print took about 3 hours, and failed multiple times. I printed it at two different resolutions -- the one that worked best was the highest resolution (0.05mm) setting, which took 9 hours -- so I made sure to print it overnight on Saturday while there were 5 other printers free!",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/3dprint1.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "The high res print next to the lower res (0.15mm) print:",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/hireslowres.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Removing Supports**\n\nThis ended up being the most tedious part of the project -- for over an hour I used a candle to heat up a scalpel, as well as tiny pliers, to pry off most of the support material. Some parts of the structure broke, and many support bits remained inaccessibly locked inside the chain.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/timelapse.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "In the end, I realized that most of the plastic I'd printed had been support material, not the chain itself. The first chain ended up so pockmarked by support connections that its animals weren't easily recognizable.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/supportmaterial.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/foodchain1cleaned.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Second Iteration**\n\nI went back into VR and redrew a new chain from scratch -- this time, with 3D lines of 2D animal/plant drawings. This was faster the second time, but still came with challenges -- like how to deform each object to interlock with the next, along the Z-plane.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/mediumvr2.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "When brought into Prusa, this sat flat with much less support material needed. Phew!",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/prusachain2.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Failures**\n\nThe first 3D print failed because parts of the chain didn't adhere to the print bed.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/3dprintfail.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Prusa Round 2**\n\nI had to manually paint on support material to make sure it would stick. With the new supports, scaled up in size, the chain printed successfully.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/prusachain4.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Apparently you can use a heat gun to remove the support material! I didn't know this at the time. And it seems risky with such delicate forms as I was working with. So once again, I spent an hour removing the supports.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/3dprint2.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Final product**\n\nThe chain is still a bit rough, but I'm happy with the result. I think it's a good example of how digital tools can be used to create something that feels organic and hand-made.\n\nFor the next iteration, I want to make more organisms so that they stretch around a whole neck, print it in metal, much smaller. Can you tell what each of the organisms are?"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/food-chain/foodchainfinal.jpeg"
+    }
+  ],
+  "medium": "Fabrication",
   "tags": [
     "3D printing",
     "VR",
@@ -20,22 +176,38 @@
     "PS70"
   ],
   "axes": {
-    "pragmatic": 0.0,
-    "institutional": 0.0
+    "pragmatic": 0,
+    "institutional": 0
   },
   "thumbnail": "assets/projects/food-chain/foodchainfinal.jpeg",
-  "images": [
-    "assets/projects/food-chain/foodchainfinal.jpeg",
-    "assets/projects/food-chain/mediumvr1.gif",
-    "assets/projects/food-chain/3dprint2.gif",
-    "assets/projects/food-chain/hireslowres.jpeg",
-    "assets/projects/food-chain/foodchain1cleaned.gif",
-    "assets/projects/food-chain/prusachain2.gif",
-    "assets/projects/food-chain/timelapse.gif"
-  ],
-  "videos": [],
+  "hero": "assets/projects/food-chain/3dprint2.gif",
   "liveUrl": null,
   "sourceUrl": null,
+  "images": [
+    "assets/projects/food-chain/foodchainfinal.jpeg",
+    "assets/projects/food-chain/3dprint2.gif",
+    "assets/projects/food-chain/sketch.jpeg",
+    "assets/projects/food-chain/teachingvr.jpg",
+    "assets/projects/food-chain/mediumvr1.gif",
+    "assets/projects/food-chain/mediumvr2.gif",
+    "assets/projects/food-chain/prusachain1.png",
+    "assets/projects/food-chain/prusachain2.png",
+    "assets/projects/food-chain/3dprint1.gif",
+    "assets/projects/food-chain/hireslowres.jpeg",
+    "assets/projects/food-chain/timelapse.gif",
+    "assets/projects/food-chain/supportmaterial.jpeg",
+    "assets/projects/food-chain/foodchain1cleaned.gif",
+    "assets/projects/food-chain/prusachain2.gif",
+    "assets/projects/food-chain/3dprintfail.jpeg",
+    "assets/projects/food-chain/prusachain4.png"
+  ],
+  "videos": [],
   "awards": [],
-  "medium": "Fabrication"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Engineer"
+    }
+  ]
 }

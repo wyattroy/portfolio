@@ -1,0 +1,20 @@
+{
+  "id": "squidgeridoo",
+  "title": "Squidgeridoo",
+  "year": 2025,
+  "month": 6,
+  "tagline": "",
+  "description": "",
+  "tags": [],
+  "axes": {
+    "pragmatic": 0.5,
+    "institutional": 0.5
+  },
+  "thumbnail": "assets/projects/squidgeridoo/thumb.jpg",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "images": [],
+  "videos": [],
+  "awards": [],
+  "who": []
+}

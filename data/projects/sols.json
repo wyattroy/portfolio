@@ -1,60 +1,120 @@
 {
   "id": "sols",
   "title": "SOLS",
-  "year": 2023,
+  "year": 2015,
   "month": 8,
-  "tagline": "Custom orthotics using 3D scanning and parametric design",
-  "description": "A whole life story as experienced by feet",
-  "what": "A whole life story as experienced by feet\n\nWHAT\n\nA startup called Sols sold 3D-printed shoe insoles. Their product was good, but their brand aesthetic was futuristic and cold in a way that failed to communicate the human lives impacted by their gear. And technology without humans is just matter.\n\nI wrote and creative directed a 100-second spot that shifted the focus from the product to the purpose, shot from the perspective of one woman\u2019s feet over her life: childhood in San Francisco, losing her father as a teenager, and ultimately rediscovering her passion for drumming.\n\nI used the tight frame on feet to apply Transportation Theory (Green, M. C., & Brock, T. C., 2000), a psychological process where the viewer experiences mental and emotional immersion in a narrative. They temporarily lose awareness of their immediate surroundings and become psychologically transported into the story world, increasing persuasion and behavior change, and reducing skepticism.\n\nARTISTIC SIGNIFICANCE\n\nThis film pushed the boundaries of the cinematic frame by focusing myopically on feet while exploring a narrative arc. We used an Arri Alexa cinema camera on steadicam rig with a 21-person production crew, shot across twelve locations over three days. To evoke emotion without seeing faces and with minimal dialogue, we used sound design, music, and pacing to communicate story beats; like when the protagonist hustles out of her waitressing job and runs through the hallways of the hospital to see her dying father.\n\nStories allow us to project our own perspective into a hypothetical reality to model emotions and behavior (Murray, J. 1997). But this perspective switching only works if the story feels real. The majority of my films use a documentary-based approach when capturing and constructing the narrative because the subject\u2019s natural authenticity allows viewers to immerse into the story and fuze with their perspective more easily. My \u201cdocu-narrative\u201d process is consistent across mediums, forming the backbone of my XR pieces too.\n\nCREATIVE TEAM\n\nCreative Directors\n\nWyatt Roy, Kris Cheng, Garrett Gunther\n\nProducer",
-  "why": "Briene Lermitte\n\nDirector\n\nPete Lee\n\nProduction Company\n\nScandinavia\n\nEditors\n\nWyatt Roy, Garrett Gunther, Kris Cheng, Pete Lee\n\nSound Design\n\nJeremiah Moore\n\nColorist\n\nAyumi Ashley",
-  "categories": [
-    "Fabrication",
-    "HCI",
-    "Tools"
+  "tagline": "A whole life story as experienced by feet",
+  "description": "A 100-second branded film for Sols insoles, told entirely from the perspective of feet — capturing one woman's life from childhood through loss to rediscovery.",
+  "what": "A branded short film written and creative-directed for Sols, a startup selling 3D-printed shoe insoles. Shot from the perspective of one woman's feet across her entire life: childhood in San Francisco, losing her father as a teenager, and ultimately rediscovering her passion for drumming.",
+  "why": [
+    {
+      "type": "text",
+      "content": "Sols made good insoles, but their brand aesthetic was futuristic and cold — it failed to communicate the human lives shaped by their product. And technology without humans is just matter.\n\nI wrote and creative directed a 100-second spot that shifted the focus from the product to the purpose."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sols/img1.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Transportation Theory**\n\nI used the tight frame on feet to apply Transportation Theory (Green, M. C., & Brock, T. C., 2000) — a psychological process where the viewer experiences mental and emotional immersion in a narrative. They temporarily lose awareness of their immediate surroundings and become psychologically transported into the story world, increasing persuasion and behavior change, and reducing skepticism.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sols/img2.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Cinematic Craft**\n\nThis film pushed the boundaries of the cinematic frame by focusing myopically on feet while exploring a full narrative arc. We used an Arri Alexa cinema camera on a steadicam rig with a 21-person production crew, shot across twelve locations over three days.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sols/img3.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Emotion Without Faces**\n\nTo evoke emotion without seeing faces and with minimal dialogue, we used sound design, music, and pacing to communicate story beats — like when the protagonist hustles out of her waitressing job and runs through hospital hallways to see her dying father.\n\nStories allow us to project our own perspective into a hypothetical reality to model emotions and behavior (Murray, J. 1997). But this perspective-switching only works if the story feels real. The majority of my films use a documentary-based approach — the subject's natural authenticity allows viewers to immerse and fuse with their perspective more easily. My \"docu-narrative\" process is consistent across mediums, forming the backbone of my XR pieces too.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sols/img4.jpg",
+      "align": "right"
+    }
+  ],
+  "medium": "Film",
+  "tags": [
+    "film",
+    "branded content",
+    "storytelling",
+    "documentary",
+    "direction",
+    "Transportation Theory",
+    "commercial"
   ],
   "axes": {
     "pragmatic": 0.2,
     "institutional": 0.2
   },
   "thumbnail": "assets/projects/sols/thumb.jpg",
+  "hero": "assets/projects/sols/thumb.jpg",
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/video/sols",
   "images": [
     "assets/projects/sols/img1.jpg",
     "assets/projects/sols/img2.jpg",
     "assets/projects/sols/img3.jpg",
-    "assets/projects/sols/img4.jpg"
+    "assets/projects/sols/img4.jpg",
+    "assets/projects/sols/thumb.jpg"
   ],
   "videos": [
-    "https://www.youtube.com/watch?v=KQzzJgIMDMo"
+    {
+      "url": "https://www.youtube.com/watch?v=KQzzJgIMDMo",
+      "heroOverride": true
+    }
   ],
-  "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/video/sols",
   "awards": [],
-  "scraped_raw_text": [
-    "Sols",
-    "A whole life story as experienced by feet",
-    "WHAT",
-    "A startup called Sols sold 3D-printed shoe insoles. Their product was good, but their brand aesthetic was futuristic and cold in a way that failed to communicate the human lives impacted by their gear. And technology without humans is just matter.",
-    "I wrote and creative directed a 100-second spot that shifted the focus from the product to the purpose, shot from the perspective of one woman\u2019s feet over her life: childhood in San Francisco, losing her father as a teenager, and ultimately rediscovering her passion for drumming.",
-    "I used the tight frame on feet to apply Transportation Theory (Green, M. C., & Brock, T. C., 2000), a psychological process where the viewer experiences mental and emotional immersion in a narrative. They temporarily lose awareness of their immediate surroundings and become psychologically transported into the story world, increasing persuasion and behavior change, and reducing skepticism.",
-    "ARTISTIC SIGNIFICANCE",
-    "This film pushed the boundaries of the cinematic frame by focusing myopically on feet while exploring a narrative arc. We used an Arri Alexa cinema camera on steadicam rig with a 21-person production crew, shot across twelve locations over three days. To evoke emotion without seeing faces and with minimal dialogue, we used sound design, music, and pacing to communicate story beats; like when the protagonist hustles out of her waitressing job and runs through the hallways of the hospital to see her dying father.",
-    "Stories allow us to project our own perspective into a hypothetical reality to model emotions and behavior (Murray, J. 1997). But this perspective switching only works if the story feels real. The majority of my films use a documentary-based approach when capturing and constructing the narrative because the subject\u2019s natural authenticity allows viewers to immerse into the story and fuze with their perspective more easily. My \u201cdocu-narrative\u201d process is consistent across mediums, forming the backbone of my XR pieces too.",
-    "CREATIVE TEAM",
-    "Creative Directors",
-    "Wyatt Roy, Kris Cheng, Garrett Gunther",
-    "Producer",
-    "Briene Lermitte",
-    "Director",
-    "Pete Lee",
-    "Production Company",
-    "Scandinavia",
-    "Editors",
-    "Wyatt Roy, Garrett Gunther, Kris Cheng, Pete Lee",
-    "Sound Design",
-    "Jeremiah Moore",
-    "Colorist",
-    "Ayumi Ashley"
-  ],
-  "scraped_url": "https://www.wyattroy.com/video/sols",
-  "medium": "Film"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Creative Director, Editor"
+    },
+    {
+      "name": "Kris Cheng",
+      "url": "https://www.krischeng.com/",
+      "role": "Creative Director, Editor"
+    },
+    {
+      "name": "Garrett Gunther",
+      "url": "https://garrettgunther.com/",
+      "role": "Creative Director, Editor"
+    },
+    {
+      "name": "Pete Lee",
+      "url": "https://www.peteshotthat.com/",
+      "role": "Director, Editor"
+    },
+    {
+      "name": "Briene Lermitte",
+      "url": "https://www.instagram.com/brienelermitte/",
+      "role": "Producer"
+    },
+    {
+      "name": "Jeremiah Moore",
+      "url": "https://jeremiahmooresound.com/",
+      "role": "Sound Design"
+    },
+    {
+      "name": "Ayumi Ashley",
+      "url": "https://ayumiashley.com/",
+      "role": "Colorist"
+    }
+  ]
 }

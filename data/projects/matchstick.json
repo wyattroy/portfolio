@@ -5,28 +5,114 @@
   "month": 5,
   "tagline": "SDF 3D-printed flame sculpture",
   "description": "A 3D-printed flame modeled as a signed distance function in Rhino, Grasshopper, and Blender.",
-  "what": "A 3D-printed flame built using a signed distance field (SDF) in Rhino/Grasshopper. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value \u2014 creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moir\u00e9 effect that makes the flame appear to flicker.",
-  "why": "The project is a meditation on translation: what gets preserved and what gets lost when an idea moves from mathematics to matter.",
-  "categories": [
-    "Fabrication",
-    "Art"
+  "what": "A 3D-printed flame built using a signed distance field (SDF) in Rhino/Grasshopper. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value — creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moiré effect that makes the flame appear to flicker.",
+  "why": [
+    {
+      "type": "text",
+      "content": "Capture something ineffable and organic in a physical medium. Use code to do it. Create a recognizable object. Leave an imprint of the process on the final result."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/matchstick/matchstick.gif"
+    }
   ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Voxel grid**\n\nFirst, create a 3D grid of voxels, or volumetric pixels, in Grasshopper.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/matchstick/1voxelgrid.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Flame shapes**\n\nThen create some 3D objects based on a real match flame — a sphere around the match head, and a conical piped curve for the flame tip.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/matchstick/2shapes.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Signed distance field**\n\nCreate a signed distance field that measures the distance of every voxel in our grid to the nearest point on the surface of our two shapes. Find the smooth union between the two shapes to blend them. Then create a cube for every voxel in the grid that has a _negative_ sign, because that means it is inside the flameshape.\n\nModulate the size of each cube based on its distance to the surface of the flame. This creates a smooth transition between the flame and the air around it, like a real flame.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/matchstick/3sdf.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Into Blender**\n\nAfter baking out the mesh, I exported the flame and brought it into Blender because goodness gracious I had no idea how to use Rhino to do these next steps. I'm 100% certain it's doable, but you have to choose the tools that cause the least friction for your creativity.\n\nFirst I massively simplified the mesh of cubes using a remesh modifier so it wouldn't put Blender in a blender. Then I modelled a matchstick and subtracted it from the flame's cubes using a boolean modifier. You can see the little hole.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/matchstick/blender2.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Boolean magic**\n\nThen I made a clear bounding box and subtracted both the matchstick and the flame from it using another boolean modifier. It's not the cleanest way to do any of this, and it left some artifacts that would be noticeable at a larger scale, but it worked great for this project and only crashed Blender seven times.\n\nFinally I exported each layer — the matchstick, the flame, and the clear bounding box — as their own STL and sent it to the resin printer for fabrication.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/matchstick/blender1.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Grasshopper definition**\n\nMost of these components are credit to Jose Luis, but the one on the far right is my C# script that generates the flame cubes._",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/matchstick/matchstickghdef.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Kidding, the resin printer was not the final step. The final step was sanding it for two hours. I left one surface unsanded because I liked the way the resin's natural striations amplify the moiré and cause the flame to almost flicker.\n\nSo many parts of this project blew my mind — how strangely intuitive signed distance fields are, how comfortable Grasshopper feels when you jump back into it after 5 months away, how important it is to do test prints beforehand to understand the way light moves through different materials. It's also just magic that we can turn silly ideas into physical objects with math and code and effort."
+    }
+  ],
+  "medium": "Fabrication",
+  "tags": [],
   "axes": {
     "pragmatic": 0.08,
     "institutional": 0.1
   },
-  "thumbnail": "assets/projects/matchstick/thumb.jpg",
-  "images": [
-    "assets/projects/matchstick/img1.jpg",
-    "assets/projects/matchstick/img2.jpg",
-    "assets/projects/matchstick/img3.jpg",
-    "assets/projects/matchstick/img4.jpg",
-    "assets/projects/matchstick/img5.jpg",
-    "assets/projects/matchstick/img6.jpg"
-  ],
-  "videos": [],
+  "thumbnail": "assets/projects/matchstick/3sdf.png",
+  "hero": "assets/projects/matchstick/3sdf.png",
   "liveUrl": null,
   "sourceUrl": "https://wyattroy.github.io/codeart/pages/matchstick/index.html",
+  "images": [
+    "assets/projects/matchstick/matchstick.gif",
+    "assets/projects/matchstick/1voxelgrid.png",
+    "assets/projects/matchstick/2shapes.png",
+    "assets/projects/matchstick/3sdf.png",
+    "assets/projects/matchstick/blender2.png",
+    "assets/projects/matchstick/blender1.png",
+    "assets/projects/matchstick/matchstickghdef.png"
+  ],
+  "videos": [],
   "awards": [],
-  "medium": "Fabrication"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Engineer"
+    },
+    {
+      "name": "Jose Luis Garcia Del Castillo y Lopez",
+      "url": "youtube.com/@ParametricCamp",
+      "role": "Grasshopper Definitions"
+    }
+  ]
 }

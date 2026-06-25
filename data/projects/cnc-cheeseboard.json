@@ -2,7 +2,7 @@
   "id": "cnc-cheeseboard",
   "title": "CNC Cheeseboard",
   "year": 2025,
-  "month": 4,
+  "month": 5,
   "tagline": "Topographic cheese board of the Ojai valley milled on a ShopBot CNC",
   "description": "A topographic cheese board of the Ojai valley in California",
   "what": [
@@ -71,5 +71,17 @@
       "heroOverride": true
     }
   ],
-  "awards": []
+  "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    },
+    {
+      "name": "Bobby McCarthy",
+      "url": "https://www.instagram.com/bobmccarthyjr/",
+      "role": "CNC Assistance"
+    }
+  ]
 }

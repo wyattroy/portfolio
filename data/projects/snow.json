@@ -1,24 +1,22 @@
 {
   "id": "snow",
   "title": "Snow",
-  "year": 2020,
-  "month": 1,
+  "year": 2025,
+  "month": 2,
   "tagline": "Single-channel video of a Boston snowstorm at 1fps",
   "description": "A 12-hour time-lapse video of a Boston snowstorm compressed to 8 minutes by shooting at 1fps and playing back at 24fps.",
   "what": "Fixed camera, south-facing window, January 2020. Shot on a DSLR at 1fps for 12 hours during a major storm. Presented as a single-channel loop with no sound.",
-  "why": "Snowstorms are events. Time-lapse makes them processes. Slowing the time further makes them almost geological \u2014 the city disappearing and reappearing under accumulation.",
-  "categories": [
-    "Art",
-    "Video"
-  ],
+  "why": "Snowstorms are events. Time-lapse makes them processes. Slowing the time further makes them almost geological — the city disappearing and reappearing under accumulation.",
+  "tags": [],
   "axes": {
     "pragmatic": 0.05,
     "institutional": 0.08
   },
   "thumbnail": "assets/projects/snow/thumb.jpg",
-  "images": [],
-  "videos": [],
   "liveUrl": null,
   "sourceUrl": "https://wyattroy.github.io/codeart/pages/snow/index.html",
-  "awards": []
+  "images": [],
+  "videos": [],
+  "awards": [],
+  "who": []
 }

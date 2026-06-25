@@ -126,9 +126,54 @@
     "assets/projects/bufferzone/thumb-sm.jpg"
   ],
   "videos": [
-    "https://vimeo.com/205989860"
+    {
+      "url": "https://vimeo.com/205989860",
+      "heroOverride": true
+    }
   ],
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Director, Editor, Cinematographer"
+    },
+    {
+      "name": "Alyssa Newman",
+      "url": "",
+      "role": "Producer"
+    },
+    {
+      "name": "Arthur Scott",
+      "url": "",
+      "role": "Pre-production"
+    },
+    {
+      "name": "Ashley Gremmel",
+      "url": "",
+      "role": "Pre-production"
+    },
+    {
+      "name": "Jake Wachtel",
+      "url": "",
+      "role": "Cinematographer"
+    },
+    {
+      "name": "Briene Lermitte",
+      "url": "",
+      "role": "Cinematopgrapher"
+    },
+    {
+      "name": "Justin Cox",
+      "url": "",
+      "role": "Aerial"
+    },
+    {
+      "name": "Trishagni Sakya",
+      "url": "",
+      "role": "Line Producer"
+    }
+  ],
   "scraped_raw_text": [
     "Bufferzone",
     "Documentary",

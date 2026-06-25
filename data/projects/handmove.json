@@ -3,32 +3,76 @@
   "title": "HandMove",
   "year": 2025,
   "month": 5,
-  "tagline": "Unity package for Meta Quest: finger-pinch gesture teleportation without controllers",
+  "tagline": "Unity package for XR: finger-pinch gesture teleportation without controllers",
   "description": "Handmove is a Unity package that lets you teleport around a virtual reality scene without controllers, using a novel UX locomotion mechanic.  It contains a script, prefabs, and a sample scene.  It extends Meta All-In-One SDK and runs on Unity 2202.",
-  "what": "A Unity package for the Meta Quest enabling controller-free VR locomotion through a finger-pinch gesture mechanic. Extends Meta's All-In-One SDK with a custom C# script, prefabs, and a sample scene. Uses hand-tracking data to detect finger proximity, computes a parabolic arc toward the target surface, and smoothly transitions the camera rig. Special attention paid to reducing motion sickness: the arc preview provides spatial context before teleporting, and the transition is deliberately instantaneous rather than animated.",
-  "why": "Most VR teleportation schemes are clunky, controller-dependent, and cognitively heavy \u2014 they force the user to think about navigation rather than inhabiting the virtual space. Handmove reduces this to a minimum: pinch your fingers together and a teleport arc appears; release to move. Publicly available as a Unity package designed for minimal integration.",
-  "categories": [
-    "XR",
-    "HCI"
+  "what": [
+    {
+      "type": "text",
+      "content": "A single-script pinch-to-teleport mechanic for Meta Quest VR, built in Unity. Users pinch to place a \"ground reticle\", or a circle on the ground, then they look around -- wherever they look, the circle moves along the ground. They pinch again to teleport to the spot where the reticle is — with real-time color feedback for invalid targets and a custom demo scene for testing across varied terrain."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/handmove/img3.jpg"
+    }
   ],
+  "why": [
+    {
+      "type": "text",
+      "content": "Most VR teleportation schemes are clunky, controller-dependent, and cognitively heavy — they force the user to think about navigation rather than inhabiting the virtual space. Handmove reduces this to a minimum: pinch your fingers together and a teleport arc appears; release to move. Publicly available as a Unity package designed for minimal integration.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/handmove/img5.jpg"
+    },
+    {
+      "type": "text",
+      "content": "*David Malan from Harvard CS Department trying the mechanic*"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Extends Meta's All-In-One SDK with a custom C# script, prefabs, and a sample scene. Uses hand-tracking data to detect finger proximity, computes a parabolic arc toward the target surface, and smoothly transitions the camera rig. Special attention paid to reducing motion sickness: the arc preview provides spatial context before teleporting, and the transition is deliberately instantaneous rather than animated.\n\nHand tracking input is captured via Meta's SDK and a raycast projects from the headset to the ground each frame. A boolean validates the target surface; a Renderer modifier flips the reticle red for invalid positions. The reticle snaps instantly to wherever the user looks (replacing an earlier lerp that felt laggy) and a framerate regression — caused by esoteric Unity rendering settings — was resolved after a full rewrite to maintain the 72fps floor VR requires. A demo scene with mountains, ridges, planks, and valleys stress-tests edge cases.\n\nMeta's VR SDK is powerful but nearly undocumented, and Unity's component architecture makes sharing reusable tools painful. The goal was to solve this once, cleanly — packaging the entire mechanic into one drag-and-drop script that any developer could attach to Meta's standard OVR Camera prefab and use immediately.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/handmove/img1.jpg"
+    },
+    {
+      "type": "text",
+      "content": "*Unity demo scene*"
+    }
+  ],
+  "medium": "VR",
+  "tags": [],
   "axes": {
     "pragmatic": 0.9,
     "institutional": 0.6
   },
   "thumbnail": "assets/projects/handmove/thumb.jpg",
+  "liveUrl": null,
+  "sourceUrl": "https://www.wyattroy.com/xr/handmove",
   "images": [
     "assets/projects/handmove/img1.jpg",
-    "assets/projects/handmove/img2.jpg",
     "assets/projects/handmove/img3.jpg",
-    "assets/projects/handmove/img4.jpg",
     "assets/projects/handmove/img5.jpg"
   ],
   "videos": [
-    "https://www.youtube.com/watch?v=UeqSCYz189w"
+    {
+      "url": "https://www.youtube.com/watch?v=UeqSCYz189w",
+      "heroOverride": true
+    }
   ],
-  "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/xr/handmove",
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Engineer"
+    }
+  ],
   "scraped_raw_text": [
     "Handmove",
     "A new way to move in VR",
@@ -58,6 +102,5 @@
     "The mechanics of Handmove are programmed in PinchToTeleport.cs, a C# Script included in the package. Feel free to extend it or change it.",
     "CS50's David Malan demoing Handmove"
   ],
-  "scraped_url": "https://www.wyattroy.com/xr/handmove-xr",
-  "medium": "VR"
+  "scraped_url": "https://www.wyattroy.com/xr/handmove-xr"
 }

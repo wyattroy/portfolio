@@ -3,10 +3,119 @@
   "title": "PigeonBelt",
   "year": 2025,
   "month": 5,
-  "tagline": "Compass belt that vibrates when you face north \u2014 wearable wayfinding",
+  "tagline": "Compass belt that vibrates when you face north — wearable wayfinding",
   "description": "A wearable belt module with an ESP32, BNO055 compass, and eccentric motor that vibrates subtly when the wearer faces north.",
-  "what": "An ESP32 Xiao-based wearable module containing a Bosch BNO055 9-axis IMU for compass heading, an eccentric motor for haptic feedback, a li-po battery with USB charging, an LED indicator, and a custom Fusion 360 housing with a pigeon-embossed snap-on front face designed by Julia. The BNO055 outputs a calibrated Euler-angle yaw referenced to north \u2014 the motor buzzes once when the wearer faces north.",
-  "why": "This has been an idea since I was ten years old \u2014 using felt sense rather than a screen for navigation, turning your understanding of urban space into something embodied. Twenty-six years later, here we are.",
+  "what": "An ESP32 Xiao-based wearable module containing a Bosch BNO055 9-axis IMU for compass heading, an eccentric motor for haptic feedback, a li-po battery with USB charging, an LED indicator, and a custom Fusion 360 housing with a pigeon-embossed snap-on front face designed by Julia. The BNO055 outputs a calibrated Euler-angle yaw referenced to north — the motor buzzes once when the wearer faces north.",
+  "why": [
+    {
+      "type": "text",
+      "content": "This project has been an idea since I was ten years old — using felt sense rather than a screen for navigation, turning your understanding of urban space into something embodied. Twenty-six years later, here we are.\n\nHere it is, folks: the pigeonbelt in its final form. It's small, sleek, integrated, and is so much fun to wear."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/pigeonbeltworn.gif"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Staggeringly good fortune, excellent guidance, and a lot of work. Here's how it came together.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/breadboard.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Bosch BNO055**\n\nThe Bosch BNO055 is a 9-axis IMU with a built-in Kalman filter and compass. It completely made this project work. The original sensor was a nightmare to calibrate, but the Bosch spits out a reliable Euler-angle Yaw reading automatically referenced to north at 0 degrees. Stunning.\n\nIts quirks: it needs a moment to calibrate on startup with very little movement, and its vertical orientation required offsetting the north reading by 90 degrees — otherwise the X/Y/Z axes point west. But once accounted for, it simply worked.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/bosch1.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**LED monitor**\n\nOnce the Bosch was working, I wired in an LED on Xiao pin D7 that stays on constantly except when pointing north — this way I wouldn't have to rely on the serial monitor. By default it shows the device is on and functioning; the blink communicates that the sensor is working. To my surprise, this worked flawlessly and was intuitive to interpret.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/prototypebreadboard.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Eccentric motor**\n\nI couldn't find any button-sized eccentric motors in the lab, which was fortunate because Nathan found a slightly larger one that created a stronger buzz. I tested it on a benchtop power supply and realized it could be powered directly by the Xiao — a huge boost for miniaturization. I added code to activate the motor when the LED turned off, i.e. when pointing north.\n\nTo my surprise, once again, this simply worked. Was I learning? Or lucky? Definitely both.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/breadboardcomplete.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Li-Po battery and switch**\n\nThe 3.7V battery fits directly behind the prototyping board. I soldered it to the Xiao's +/- terminals via an outlet cord so it can be replaced without resoldering. After getting everything working, I did something risky — added a switch. This required snipping one of the battery's wires and soldering it to the switch terminals. My technique was solid by this point, and when I flipped the switch, the LED lit up.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/batterysolder.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Soldering the prototype board**\n\nSafe, working, undo-able breadboard on one side. Scary, blank, no-turning-back prototype board on the other. Permanently soldering everything required breaking apart my fully working circuit and wire-by-wire transferring each component to both the front and back of the board.\n\nThe cable management was treacherous — parallax in photos meant certain wires appeared to enter one hole but actually went into the adjacent one. I solved it with Gaussian splats via Polycam: 100 photos taken from all angles generated a stunning 3D splat in minutes. The mesh model was too blurry, but the splat was exactly what I needed. Gaussian splats have completely changed the game of reality capture.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/breadboardprototypedone.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Housing**\n\nI designed a new housing in Fusion 360 — comfortable enough to wear all day with filleted corners, and fully serviceable without glue. The front face snaps on with snug tabs; the board screws in with 4 mounting holes. The whole assembly prints in 5 hours.\n\nMy first version missed the USB, LED, and switch holes. The second mostly got it right. The PS70 Prusa printers produced dramatically better results than the GSD's Dremel machines — the Dremel print was rough, support material was a nightmare, and the heat gun I needed to clear it warped the screw holes. Prusa is my default going forward.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/fusionbuckle.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Front face**\n\nJulia drew a very proud pigeon for the belt buckle. I brought it into Photoshop to shade it — brighter parts forward, darker parts back — so it would work as a displacement mask in Blender.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/pigeondrawing.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "After an hour toggling between Photoshop and Blender, we got the pigeon looking the way we liked — hat and tie sticking out, wing slightly curved, the background fading in a gradient that when printed looks like a radar signal radiating from the pigeon. I used Extrude in Blender to give the displaced surface some volume, then a boolean difference for a flat base and corner-cutting cubes to match the buckle lid's filleting. I superglued the faceplate to the lid, sanded the edges, and painted everything with Rough n' Buff metallic paint for an old western cowboy burnished feel.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/pigeonblender.gif",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Final assembly**\n\nI used Julia's grandfather's old leather belt, drilled new holes to fit the buckle's peg diameter, and took it for a spin.\n\nIt worked. I mean, it really worked. The vibrating isn't annoying — unless you're standing facing due north. It's noticeable but subtle. It has already started changing the way I understand space as I walk between buildings at Harvard and my home. I'm just stunned. And so proud of myself. And so unbelievably grateful to Nathan, Bobby, and Kassia for everything they did to teach me how to build the nonsensical things in my head. This project has been an idea since I was ten. Twenty-six years later, here we are. What a world."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pigeonbelt/frontface1.jpg"
+    }
+  ],
   "categories": [
     "Wearables",
     "HCI"
@@ -24,15 +133,23 @@
     "pragmatic": 0.72,
     "institutional": 0.28
   },
+  "hero": "assets/projects/pigeonbelt/pigeonbeltworn.gif",
   "thumbnail": "assets/projects/pigeonbelt/pigeonhero.jpg",
   "images": [
-    "assets/projects/pigeonbelt/pigeonhero.jpg",
     "assets/projects/pigeonbelt/pigeonbeltworn.gif",
     "assets/projects/pigeonbelt/fusionbuckle.gif",
-    "assets/projects/pigeonbelt/pigeondrawing.jpg",
     "assets/projects/pigeonbelt/pigeonblender.gif",
-    "assets/projects/pigeonbelt/frontface1.jpg",
+    "assets/projects/pigeonbelt/pigeonhero.jpg",
+    "assets/projects/pigeonbelt/bosch1.JPG",
+    "assets/projects/pigeonbelt/breadboard.JPG",
     "assets/projects/pigeonbelt/breadboardcomplete.jpg",
+    "assets/projects/pigeonbelt/batterysolder.JPG",
+    "assets/projects/pigeonbelt/prototypebreadboard.JPG",
+    "assets/projects/pigeonbelt/breadboardprototypedone.JPG",
+    "assets/projects/pigeonbelt/pigeondrawing.jpg",
+    "assets/projects/pigeonbelt/pigeonphotoshop.jpg",
+    "assets/projects/pigeonbelt/frontface1.jpg",
+    "assets/projects/pigeonbelt/frontface2.JPG",
     "assets/projects/pigeonbelt/pigeonbelt.png"
   ],
   "videos": [
@@ -41,5 +158,17 @@
   "liveUrl": null,
   "sourceUrl": null,
   "awards": [],
-  "medium": "Fabrication"
+  "medium": "Fabrication",
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Engineer"
+    },
+    {
+      "name": "Julia",
+      "url": "",
+      "role": "Front face illustration"
+    }
+  ]
 }

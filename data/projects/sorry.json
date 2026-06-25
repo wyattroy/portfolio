@@ -4,40 +4,68 @@
   "year": 2020,
   "month": 6,
   "tagline": "Interactive web app that teaches you how to give a healing apology",
-  "description": "Website that teaches you how to give better apologies",
-  "what": "Website that teaches you how to give better apologies\n\nAn interactive, completely private, locally-cached web app that teaches you the rules for writing a healing apology - while helping you craft one.\n\nIt\u2019s hard to say sorry, and even harder to do it right. An apology can be a gift for the person you've hurt, yet often we invalidate our own efforts to apologize by burdening the receiver with our emotions (\u201cI feel terrible\u201d), asking for anything in return (\u201cPlease forgive me\u201d), or explaining our actions (\u201cI didn\u2019t know\u201d) .\n\nI was inspired by Bren\u00e9 Brown and Harriet Lerner\u2019s research (Brown, 2020) into the effects of apologizing, which showed that skillful apologies can be a valuable tool for building and repairing relationships. I found their insights helpful, but hard to remember. As a narrative technologist, I thought that an interactive digital tool would be a better platform than a linear medium, like Brene\u2019s podcast, for delivering the training.\n\nWe distilled the core components of a psychologically healing apology into a step-by-step process, then built a mobile and desktop web app in ReactJS that is free to use and easy to start.\n\nGo to IWantToSaySorry.com",
-  "why": "CREATIVE TEAM\n\nCreative Directors\n\nWyatt Roy and Luis Zanforlin\n\nLead Developer\n\nGordon Lanza",
-  "categories": [
-    "Web",
-    "Creative Technology"
+  "description": "An interactive, completely private, locally-cached web app that teaches you the rules for writing a healing apology — while helping you craft one.",
+  "what": "An interactive, completely private, locally-cached web app that teaches you the rules for writing a healing apology — while helping you craft one. Built in ReactJS, free to use, mobile and desktop.",
+  "why": [
+    {
+      "type": "text",
+      "content": "It's hard to say sorry, and even harder to do it right. An apology can be a gift for the person you've hurt, yet often we invalidate our own efforts to apologize by burdening the receiver with our emotions (\"I feel terrible\"), asking for anything in return (\"Please forgive me\"), or explaining our actions (\"I didn't know\").\n\nI was inspired by Brené Brown and Harriet Lerner's research (Brown, 2020) into the effects of apologizing, which showed that skillful apologies can be a valuable tool for building and repairing relationships. I found their insights helpful, but hard to remember. As a narrative technologist, I thought that an interactive digital tool would be a better platform than a linear medium, like Brene's podcast, for delivering the training."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sorry/img1.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "We distilled the core components of a psychologically healing apology into a step-by-step process, then built a mobile and desktop web app in ReactJS that is free to use and easy to start.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sorry/img2.jpg",
+      "align": "right"
+    }
+  ],
+  "medium": "Web",
+  "tags": [
+    "web",
+    "ReactJS",
+    "interactive",
+    "psychology",
+    "creative technology"
   ],
   "axes": {
     "pragmatic": 0.5,
     "institutional": 0.1
   },
   "thumbnail": "assets/projects/sorry/thumb.jpg",
+  "hero": "assets/projects/sorry/thumb.jpg",
+  "liveUrl": "https://www.iwanttosaysorry.com",
+  "sourceUrl": null,
   "images": [
+    "assets/projects/sorry/thumb.jpg",
     "assets/projects/sorry/img1.jpg",
     "assets/projects/sorry/img2.jpg"
   ],
   "videos": [],
-  "liveUrl": "https://www.iwanttosaysorry.com",
-  "sourceUrl": "https://www.wyattroy.com/interactive/sorry",
   "awards": [],
-  "scraped_raw_text": [
-    "Sorry",
-    "Website that teaches you how to give better apologies",
-    "An interactive, completely private, locally-cached web app that teaches you the rules for writing a healing apology - while helping you craft one.",
-    "It\u2019s hard to say sorry, and even harder to do it right. An apology can be a gift for the person you've hurt, yet often we invalidate our own efforts to apologize by burdening the receiver with our emotions (\u201cI feel terrible\u201d), asking for anything in return (\u201cPlease forgive me\u201d), or explaining our actions (\u201cI didn\u2019t know\u201d) .",
-    "I was inspired by Bren\u00e9 Brown and Harriet Lerner\u2019s research (Brown, 2020) into the effects of apologizing, which showed that skillful apologies can be a valuable tool for building and repairing relationships. I found their insights helpful, but hard to remember. As a narrative technologist, I thought that an interactive digital tool would be a better platform than a linear medium, like Brene\u2019s podcast, for delivering the training.",
-    "We distilled the core components of a psychologically healing apology into a step-by-step process, then built a mobile and desktop web app in ReactJS that is free to use and easy to start.",
-    "Go to IWantToSaySorry.com",
-    "CREATIVE TEAM",
-    "Creative Directors",
-    "Wyatt Roy and Luis Zanforlin",
-    "Lead Developer",
-    "Gordon Lanza"
-  ],
-  "scraped_url": "https://www.wyattroy.com/interactive/sorry",
-  "medium": "Web"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Creative Director"
+    },
+    {
+      "name": "Luis Zanforlin",
+      "url": "",
+      "role": "Creative Director"
+    },
+    {
+      "name": "Gordon Lanza",
+      "url": "",
+      "role": "Lead Developer"
+    }
+  ]
 }

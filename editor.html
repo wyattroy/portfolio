@@ -109,9 +109,20 @@
     }
     .project-item:hover { background: #DEDAD4; }
     .project-item.active { background: #C4603A; color: #fff; }
-    .project-item .item-title { font-weight: 500; font-size: 13px; }
+    .project-item .item-title { font-weight: 500; font-size: 13px; display: flex; align-items: center; }
     .project-item .item-year { font-size: 11px; opacity: 0.6; margin-top: 1px; }
     .project-item.active .item-year { opacity: 0.75; }
+    .status-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-right: 5px;
+    }
+    .status-dot.green  { background: #4CAF50; }
+    .status-dot.yellow { background: #E6B800; }
+    .status-dot.red    { background: #D93025; }
     .project-item.unsaved .item-title::after {
       content: ' •';
       color: #C4603A;
@@ -463,6 +474,45 @@
       cursor: pointer;
       accent-color: #C4603A;
     }
+
+    /* WHO rows */
+    .who-row {
+      display: grid;
+      grid-template-columns: 16px 1fr 1fr 1fr auto;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 6px;
+      border-radius: 4px;
+      transition: background 0.1s;
+    }
+    .who-row.drag-over-top    { box-shadow: 0 -2px 0 0 #C4603A; }
+    .who-row.drag-over-bottom { box-shadow: 0  2px 0 0 #C4603A; }
+    .who-row.dragging         { opacity: 0.4; }
+    .who-row-handle {
+      color: #C4BEB8;
+      cursor: grab;
+      font-size: 14px;
+      user-select: none;
+      text-align: center;
+      padding: 2px 0;
+    }
+    .who-row-handle:active { cursor: grabbing; }
+    .who-row input {
+      padding: 6px 10px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      font-size: 12px;
+      background: #fff;
+    }
+    .who-row button {
+      padding: 5px 8px;
+      border: 1px solid #C4BEB8;
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+      color: #8A8078;
+    }
+    .who-row button:hover { color: #C4603A; border-color: #C4603A; }
 
     /* Awards */
     .award-row {
@@ -931,6 +981,34 @@ let selectedAssets = new Set();
 let allAssetPaths = [];       // for asset browser
 let assetHandleMap = new Map(); // path → FileSystemFileHandle (for blob URL preview)
 
+// ── Status dot ────────────────────────────────────────────────────────────────
+function computeStatus(data) {
+  const hasTitle     = !!(data.title && data.title.trim());
+  const hasTagline   = !!(data.tagline && data.tagline.trim());
+  const hasThumbnail = !!(data.thumbnail && data.thumbnail.trim());
+  const hasImages    = Array.isArray(data.images) && data.images.length > 0;
+
+  function fieldHasContent(val) {
+    if (!val) return false;
+    if (typeof val === 'string') return val.trim().length > 0;
+    if (Array.isArray(val)) return val.some(b => b.type !== 'text' || (b.content && b.content.trim()));
+    return false;
+  }
+
+  const hasWhat        = fieldHasContent(data.what);
+  const hasWhy         = fieldHasContent(data.why);
+  const hasHow         = fieldHasContent(data.how);
+  const hasWho         = Array.isArray(data.who) && data.who.length > 0;
+  const hasDescription = !!(data.description && data.description.trim());
+
+  // Red: essentially a stub with no real content
+  if (!hasTitle || (!hasWhat && !hasWhy && !hasDescription && !hasTagline)) return 'red';
+  // Green: fully fleshed out
+  if (hasTitle && hasTagline && hasThumbnail && hasImages && hasWhat && hasWhy && hasHow && hasWho) return 'green';
+  // Yellow: has some content but missing key fields
+  return 'yellow';
+}
+
 // ── Open folder ───────────────────────────────────────────────────────────────
 document.getElementById('open-btn').addEventListener('click', async () => {
   try {
@@ -960,13 +1038,24 @@ document.getElementById('open-btn').addEventListener('click', async () => {
 });
 
 async function loadProjectList() {
-  projectFiles = [];
+  const entries = [];
   for await (const [name, handle] of dirHandle.entries()) {
     if (name.endsWith('.json') && handle.kind === 'file') {
-      projectFiles.push({ name, handle });
+      entries.push({ name, handle });
     }
   }
-  projectFiles.sort((a, b) => a.name.localeCompare(b.name));
+  entries.sort((a, b) => a.name.localeCompare(b.name));
+
+  projectFiles = await Promise.all(entries.map(async f => {
+    try {
+      const text = await (await f.handle.getFile()).text();
+      const data = JSON.parse(text);
+      return { ...f, status: computeStatus(data) };
+    } catch(e) {
+      return { ...f, status: 'red' };
+    }
+  }));
+
   renderSidebar(projectFiles);
 }
 
@@ -979,7 +1068,8 @@ function renderSidebar(files) {
     const item = document.createElement('div');
     item.className = 'project-item' + (unsavedIds.has(id) ? ' unsaved' : '');
     item.dataset.id = id;
-    item.innerHTML = `<div class="item-title">${id}</div>`;
+    const dot = f.status ? `<span class="status-dot ${f.status}"></span>` : '';
+    item.innerHTML = `<div class="item-title">${dot}${id}</div>`;
     item.addEventListener('click', () => loadProject(f));
     if (currentFile && currentFile.name === f.name) item.classList.add('active');
     list.appendChild(item);
@@ -1510,6 +1600,17 @@ function renderEditor(p) {
     <div id="awards-wrap"></div>
     <button class="add-row-btn" onclick="addAwardRow('')">+ Add award</button>
 
+    <p class="section-heading">Who</p>
+    <div style="max-width:900px;display:grid;grid-template-columns:16px 1fr 1fr 1fr auto;gap:0 8px;margin-bottom:4px;">
+      <span></span>
+      <span style="font-size:10px;color:#8A8078;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Name</span>
+      <span style="font-size:10px;color:#8A8078;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Website URL (optional)</span>
+      <span style="font-size:10px;color:#8A8078;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Role</span>
+      <span></span>
+    </div>
+    <div id="who-wrap"></div>
+    <button class="add-row-btn" onclick="addWhoRow({})">+ Add person</button>
+
     <div style="height:48px;"></div>
   `;
 
@@ -1522,6 +1623,7 @@ function renderEditor(p) {
 
   buildVideoRows(p.videos || []);
   buildAwardRows(p.awards || []);
+  buildWhoRows(p.who || []);
 
   // Build block editors
   buildBlockEditor('what');
@@ -1572,11 +1674,13 @@ function buildTagsInput(wrapperId, initialTags) {
         e.preventDefault();
         tags.push(input.value.trim());
         render();
+        wrap.querySelector('input').focus();
         markUnsaved();
       }
       if (e.key === 'Backspace' && !input.value && tags.length) {
         tags.pop();
         render();
+        wrap.querySelector('input').focus();
         markUnsaved();
       }
     });
@@ -1786,6 +1890,101 @@ function getVideos() {
     }).filter(Boolean);
 }
 
+// ── Who rows ──────────────────────────────────────────────────────────────────
+function buildWhoRows(who) {
+  const wrap = document.getElementById('who-wrap');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  (who || []).forEach(p => addWhoRow(p));
+}
+
+let draggedWhoRow = null;
+
+window.addWhoRow = function(val) {
+  const person = (typeof val === 'object' && val !== null) ? val : {};
+  const wrap = document.getElementById('who-wrap');
+  const row = document.createElement('div');
+  row.className = 'who-row';
+  row.style.maxWidth = '900px';
+
+  const handle = document.createElement('div');
+  handle.className = 'who-row-handle';
+  handle.textContent = '⠿';
+  handle.addEventListener('mousedown', () => {
+    row.draggable = true;
+    const reset = () => { row.draggable = false; };
+    row.addEventListener('dragend', reset, { once: true });
+    document.addEventListener('mouseup', reset, { once: true });
+  });
+
+  const nameInput = document.createElement('input');
+  nameInput.type = 'text';
+  nameInput.className = 'who-name';
+  nameInput.value = person.name || '';
+  nameInput.placeholder = 'Jane Smith';
+
+  const urlInput = document.createElement('input');
+  urlInput.type = 'url';
+  urlInput.className = 'who-url';
+  urlInput.value = person.url || '';
+  urlInput.placeholder = 'https://…';
+
+  const roleInput = document.createElement('input');
+  roleInput.type = 'text';
+  roleInput.className = 'who-role';
+  roleInput.value = person.role || '';
+  roleInput.placeholder = 'Director, Designer…';
+
+  const removeBtn = document.createElement('button');
+  removeBtn.type = 'button';
+  removeBtn.textContent = '×';
+  removeBtn.addEventListener('click', () => { row.remove(); markUnsaved(); });
+
+  row.append(handle, nameInput, urlInput, roleInput, removeBtn);
+  [nameInput, urlInput, roleInput].forEach(el => el.addEventListener('input', markUnsaved));
+
+  row.addEventListener('dragstart', e => {
+    draggedWhoRow = row;
+    e.dataTransfer.effectAllowed = 'move';
+    setTimeout(() => row.classList.add('dragging'), 0);
+  });
+  row.addEventListener('dragend', () => {
+    draggedWhoRow = null;
+    row.classList.remove('dragging');
+    wrap.querySelectorAll('.who-row').forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+  });
+  row.addEventListener('dragover', e => {
+    if (!draggedWhoRow || draggedWhoRow === row) return;
+    e.preventDefault();
+    const mid = row.getBoundingClientRect().top + row.getBoundingClientRect().height / 2;
+    wrap.querySelectorAll('.who-row').forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+    row.classList.add(e.clientY < mid ? 'drag-over-top' : 'drag-over-bottom');
+  });
+  row.addEventListener('dragleave', () => {
+    row.classList.remove('drag-over-top', 'drag-over-bottom');
+  });
+  row.addEventListener('drop', e => {
+    e.preventDefault();
+    if (!draggedWhoRow || draggedWhoRow === row) return;
+    const mid = row.getBoundingClientRect().top + row.getBoundingClientRect().height / 2;
+    wrap.insertBefore(draggedWhoRow, e.clientY < mid ? row : row.nextSibling);
+    row.classList.remove('drag-over-top', 'drag-over-bottom');
+    markUnsaved();
+  });
+
+  wrap.appendChild(row);
+};
+
+function getWho() {
+  return Array.from(document.querySelectorAll('#who-wrap .who-row'))
+    .map(row => ({
+      name: row.querySelector('.who-name')?.value.trim() || '',
+      url:  row.querySelector('.who-url')?.value.trim()  || '',
+      role: row.querySelector('.who-role')?.value.trim() || '',
+    }))
+    .filter(p => p.name || p.role);
+}
+
 // ── Award rows ────────────────────────────────────────────────────────────────
 function buildAwardRows(awards) {
   const wrap = document.getElementById('awards-wrap');
@@ -1846,12 +2045,13 @@ function collectFormData() {
     images:     getImages(),
     videos:     getVideos(),
     awards:     getAwards(),
+    who:        getWho(),
     // Preserve extra fields, excluding removed ones
     ...Object.fromEntries(
       Object.entries(currentData).filter(([k]) =>
         !['id','title','year','month','tagline','description','what','why','how',
           'medium','categories','tags','axes','thumbnail','hero','liveUrl','sourceUrl',
-          'status','featured','images','videos','awards'].includes(k)
+          'status','featured','images','videos','awards','who'].includes(k)
       )
     ),
   };
@@ -1873,7 +2073,38 @@ async function saveProject() {
     currentData = data;
     const id = currentFile.name.replace('.json', '');
     unsavedIds.delete(id);
-    document.querySelectorAll(`.project-item[data-id="${id}"]`).forEach(el => el.classList.remove('unsaved'));
+    const newStatus = computeStatus(data);
+    const pf = projectFiles.find(f => f.name === currentFile.name);
+    if (pf) pf.status = newStatus;
+    document.querySelectorAll(`.project-item[data-id="${id}"]`).forEach(el => {
+      el.classList.remove('unsaved');
+      const dot = el.querySelector('.status-dot');
+      if (dot) dot.className = 'status-dot ' + newStatus;
+    });
+
+    // Sync card-display fields back to data/projects.json
+    if (dataRootHandle) {
+      try {
+        const listFH = await dataRootHandle.getFileHandle('projects.json');
+        const txt = await (await listFH.getFile()).text();
+        const list = JSON.parse(txt);
+        const entryIdx = list.findIndex(p => p.id === id);
+        if (entryIdx !== -1) {
+          const cardFields = ['title','year','month','tagline','description','medium',
+                              'tags','axes','thumbnail','hero','liveUrl','sourceUrl',
+                              'images','videos','awards','who','featured'];
+          cardFields.forEach(k => {
+            if (data[k] !== undefined) list[entryIdx][k] = data[k];
+            else delete list[entryIdx][k];
+          });
+          const lw = await listFH.createWritable();
+          await lw.write(JSON.stringify(list, null, 2) + '\n');
+          await lw.close();
+        }
+      } catch(e) {
+        console.warn('Could not sync to projects.json:', e);
+      }
+    }
 
     const ind = document.getElementById('save-indicator');
     ind.textContent = '✓ Saved';

@@ -49,7 +49,7 @@
   "how": [
     {
       "type": "text",
-      "content": "I designed the gantry through five major iterations, moving from cardstock mockups to laser-cut wood to a final acrylic platform stabilized by roller bearings I sourced and bracketed myself. The platform meshes with a stepper motor via a 21-to-119 tooth gear ratio, giving smooth rotational control. \n\nTeam: Ian Palk, Marcus, and Calvin.",
+      "content": "I designed the gantry through five major iterations, moving from cardstock mockups to laser-cut wood to a final acrylic platform stabilized by roller bearings I sourced and bracketed myself. The platform meshes with a stepper motor via a 21-to-119 tooth gear ratio, giving smooth rotational control. \n\n",
       "align": "left"
     },
     {
@@ -129,5 +129,27 @@
   ],
   "awards": [
     "Digital Fabrication Award - Best End Effector 2025"
+  ],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Design Engineer"
+    },
+    {
+      "name": "Calvin Beighle",
+      "url": "https://www.angusdesign.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
+      "role": "Design Engineer"
+    },
+    {
+      "name": "Marcus Alexander",
+      "url": "https://marcusalex20.github.io/Marcus-Alexander-PS70-Website/",
+      "role": "Design Engineer"
+    },
+    {
+      "name": "Ian Palk",
+      "url": "https://ianp7.github.io/PS70_Spring2025/index.html",
+      "role": "Design Engineer"
+    }
   ]
 }

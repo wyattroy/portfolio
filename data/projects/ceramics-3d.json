@@ -64,6 +64,18 @@
   ],
   "videos": [],
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    },
+    {
+      "name": "Julia Mattis",
+      "url": "https://www.instagram.com/windowsill.bakery/",
+      "role": "Ceramicist"
+    }
+  ],
   "scraped_raw_text": [
     "Ceramics 3D",
     "Digital ceramics",

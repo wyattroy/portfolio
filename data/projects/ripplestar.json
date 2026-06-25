@@ -1,27 +1,25 @@
 {
   "id": "ripplestar",
   "title": "RippleStar",
-  "year": 2023,
-  "month": 6,
+  "year": 2025,
+  "month": 2,
   "tagline": "Music visualizer that looks like raindrops falling upward onto the night sky",
   "description": "Ripplestar is a music visualizer that looks like raindrops falling upwards onto the night sky.",
-  "what": "Ripplestar is a full-screen, audio-reactive generative artwork built with p5.js and GLSL shaders, running entirely in the browser with no backend.\n\nThe project has three files doing distinct jobs: sketch.js orchestrates the logic in JavaScript, ripple.vert positions geometry, and ripple.frag does all the actual visual rendering on the GPU.\n\nThe fragment shader divides the screen into a grid of tiny cells, each with a randomly placed star via a hash function. Stars have randomized radius, brightness, and a subtle warm/cool color bias. They twinkle via a sine wave with per-star phase offsets. Up to 10 ripples can exist simultaneously \u2014 each ripple warps the UV coordinates used for star lookup, distorting the starfield itself rather than drawing on top of it. The result is the starfield appearing to ripple outward like a wave on water.\n\nAudio reactivity is driven by p5's FFT object computing RMS volume from the raw waveform. The sketch maintains a rolling 2-second history of volume readings and spawns a new ripple at a random screen position whenever the current frame is a local maximum \u2014 tying ripple creation to musical peaks without hardcoding any BPM or threshold.",
-  "why": "Most music visualizers map frequency directly to visual parameters. Ripplestar uses audio as a trigger for a simulation with its own dynamics \u2014 so the visuals feel physical rather than mechanical.",
-  "categories": [
-    "Creative Technology",
-    "Web"
-  ],
+  "what": "Ripplestar is a full-screen, audio-reactive generative artwork built with p5.js and GLSL shaders, running entirely in the browser with no backend.\n\nThe project has three files doing distinct jobs: sketch.js orchestrates the logic in JavaScript, ripple.vert positions geometry, and ripple.frag does all the actual visual rendering on the GPU.\n\nThe fragment shader divides the screen into a grid of tiny cells, each with a randomly placed star via a hash function. Stars have randomized radius, brightness, and a subtle warm/cool color bias. They twinkle via a sine wave with per-star phase offsets. Up to 10 ripples can exist simultaneously — each ripple warps the UV coordinates used for star lookup, distorting the starfield itself rather than drawing on top of it. The result is the starfield appearing to ripple outward like a wave on water.\n\nAudio reactivity is driven by p5's FFT object computing RMS volume from the raw waveform. The sketch maintains a rolling 2-second history of volume readings and spawns a new ripple at a random screen position whenever the current frame is a local maximum — tying ripple creation to musical peaks without hardcoding any BPM or threshold.",
+  "why": "Most music visualizers map frequency directly to visual parameters. Ripplestar uses audio as a trigger for a simulation with its own dynamics — so the visuals feel physical rather than mechanical.",
+  "medium": "Web",
+  "tags": [],
   "axes": {
     "pragmatic": 0.06,
     "institutional": 0.1
   },
   "thumbnail": "assets/projects/ripplestar/ripplestarstart.png",
+  "liveUrl": "https://wyattroy.github.io/codeart/pages/ripplestar/index.html",
+  "sourceUrl": "https://wyattroy.github.io/codeart/",
   "images": [
     "assets/projects/ripplestar/ripplestarhero.gif"
   ],
   "videos": [],
-  "liveUrl": "https://wyattroy.github.io/codeart/pages/ripplestar/index.html",
-  "sourceUrl": "https://wyattroy.github.io/codeart/",
   "awards": [],
-  "medium": "Web"
+  "who": []
 }

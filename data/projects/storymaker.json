@@ -1,25 +1,23 @@
 {
   "id": "storymaker",
   "title": "StoryMaker",
-  "year": 2024,
-  "month": 11,
+  "year": 2025,
+  "month": 2,
   "tagline": "Hero's Journey bedtime story companion with random character prompts",
   "description": "A web tool that helps you ad-lib a complete Hero's Journey bedtime story with randomly generated character prompts for names, fears, objects, and settings.",
-  "what": "A step-by-step web tool that walks you through the stages of the Hero's Journey to help you improvise a complete bedtime story. Each stage gives you random prompts \u2014 character names starting with certain letters, their biggest fears, favorite objects, homelands \u2014 to spark your imagination. You type or say the story aloud as you click through each stage. The site generates the structure and prompts; the narrative drama is up to you.",
-  "why": "It's hard to ad-lib a proper bedtime story with a complete hero's journey arc. I made this simple tool to help you come up with one on the spot. All the narrative drama is still up to you \u2014 but these are the bones. It'll even give you some help with names and relationships to get your ideas flowing.",
-  "categories": [
-    "Web",
-    "Tools"
-  ],
+  "what": "A step-by-step web tool that walks you through the stages of the Hero's Journey to help you improvise a complete bedtime story. Each stage gives you random prompts — character names starting with certain letters, their biggest fears, favorite objects, homelands — to spark your imagination. You type or say the story aloud as you click through each stage. The site generates the structure and prompts; the narrative drama is up to you.",
+  "why": "It's hard to ad-lib a proper bedtime story with a complete hero's journey arc. I made this simple tool to help you come up with one on the spot. All the narrative drama is still up to you — but these are the bones. It'll even give you some help with names and relationships to get your ideas flowing.",
+  "medium": "Web",
+  "tags": [],
   "axes": {
     "pragmatic": 0.68,
     "institutional": 0.32
   },
   "thumbnail": "assets/projects/storymaker/thumb.jpg",
-  "images": [],
-  "videos": [],
   "liveUrl": "https://wyattroy.github.io/codeart/pages/storymaker/index.html",
   "sourceUrl": "https://wyattroy.github.io/codeart/pages/storymaker/index.html",
+  "images": [],
+  "videos": [],
   "awards": [],
-  "medium": "Web"
+  "who": []
 }

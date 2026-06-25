@@ -1,32 +1,128 @@
 {
   "id": "offgridbox",
   "title": "OffGridBox",
-  "year": 2023,
-  "month": 10,
-  "tagline": "Design research for off-grid energy/water systems in rural communities",
+  "year": 2018,
+  "month": 12,
+  "tagline": "A short film about the people and technology bringing off-grid energy to rural Rwanda.",
   "description": "A short film about the people and technology bringing off-grid energy to rural Rwanda.",
-  "what": "A short documentary film about OffGridBox, a company bringing containerized solar and water purification systems to off-grid communities in Rwanda. Made after visiting the country and seeing the impact firsthand.",
-  "categories": [
-    "Video"
+  "what": [
+    {
+      "type": "text",
+      "content": "A short documentary film about OffGridBox, a company bringing containerized solar and water purification systems to off-grid communities in Rwanda. Made by visiting the country, meeting the communities, and recording the impact firsthand."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/offgridbox/DSC00178.ARW.jpg"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "My client was the founder of OffGridBox. He needed to raise another round of funding to cover the next hundred \"boxes\" -- shipping containers filled with power and water that could be dropped anywhere. The boxes were about as ingenious and affordable as anything I'd seen, and each one impacted hundreds of families, and *each one paid for itself*. But that takes time, when tens of thousands of dollars of equipment and labor costs get recouped in 10-cent solar battery rentals and water jerrycan refills. He needed a way to tell a story about sub-Saharan Africa that honored the resilience, grit, and hope of the communities who were using and running the boxes. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/offgridbox/DSC00132.ARW.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "I lived with the community for a week in a satellite village outside of Kigali, Rwanda, where one of the boxes was deployed. I met Joyce, the woman who operated it, and spoke my broken French with her mother, who grew up in the village and survived the genocide.\n\n",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/offgridbox/IMG_1143.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": " I ate more bananas than I've ever eaten, played my ukulele with everyone, made many friends, and recorded everything on my Sony A7R4 and gimbal. I was overwhelmed: by inspiration, by gratitude, by wonder, by surprise. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/offgridbox/DSC00195.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "When I returned home, I had to figure out how to compress my experience around the Box into a few minutes, to give future investors a way into the hearts of the people their funds would be supporting. Among many storytelling choices, the most important was using onscreen text instead of a voice over because voiceover felt overwrought, and this story, to me, felt optimistic. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/offgridbox/DSC00227.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "I left my ukulele with Joyce, who is still running the Box today. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/offgridbox/C0423.gif",
+      "align": "right"
+    }
+  ],
+  "medium": "Film",
+  "tags": [
+    "energy",
+    "Rwanda",
+    "documentary",
+    "engineering"
   ],
   "axes": {
     "pragmatic": 0.1,
     "institutional": 0.7
   },
   "thumbnail": "assets/projects/offgridbox/thumb.jpg",
-  "images": [],
-  "videos": [
-    "https://vimeo.com/250939980"
-  ],
+  "hero": "assets/projects/offgridbox/thumb.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/video/offgridbox",
+  "sourceUrl": null,
+  "images": [
+    "assets/projects/offgridbox/IMG_1126.JPG",
+    "assets/projects/offgridbox/IMG_1132.JPG",
+    "assets/projects/offgridbox/DSC00132.ARW.jpg",
+    "assets/projects/offgridbox/IMG_1143.JPG",
+    "assets/projects/offgridbox/DSC00178.ARW.jpg",
+    "assets/projects/offgridbox/thumb.jpg",
+    "assets/projects/offgridbox/IMG_1289.JPG",
+    "assets/projects/offgridbox/C0423.gif",
+    "assets/projects/offgridbox/DSC00195.JPG",
+    "assets/projects/offgridbox/DSC00227.JPG",
+    "assets/projects/offgridbox/IMG_1257.JPG"
+  ],
+  "videos": [
+    {
+      "url": "https://vimeo.com/250939980",
+      "heroOverride": true
+    }
+  ],
   "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Director, Cinematographer, Editor"
+    },
+    {
+      "name": "Joyce",
+      "url": "",
+      "role": "Offgrid Box Manager"
+    },
+    {
+      "name": "Emiliano Ceccini",
+      "url": "https://www.offgridbox.com/",
+      "role": "Founder"
+    }
+  ],
   "scraped_raw_text": [
     "OffGridBox",
     "Something amazing is happening in Rwanda.",
     "Actually, many amazing things are happening in Rwanda. I made this video about one of them."
   ],
-  "scraped_url": "https://www.wyattroy.com/video/offgridbox",
-  "why": "Something amazing is happening in Rwanda \u2014 many amazing things. I made this film about one of them.",
-  "medium": "Film"
+  "scraped_url": "https://www.wyattroy.com/video/offgridbox"
 }
