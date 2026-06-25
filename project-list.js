@@ -329,7 +329,16 @@ export function buildDetailContent(project, { showHeader = false } = {}) {
   const videos = project.videos || [];
 
   // Build 100-word preview text from what → description → tagline
-  const fullText = project.what || project.description || project.tagline || '';
+  // `what` may be an array of rich content blocks — extract text items
+  let fullText;
+  if (Array.isArray(project.what)) {
+    fullText = project.what
+      .filter(item => item.type === 'text')
+      .map(item => item.content || '')
+      .join(' ');
+  } else {
+    fullText = project.what || project.description || project.tagline || '';
+  }
   const words = fullText.trim().split(/\s+/);
   const preview = words.slice(0, 100).join(' ') + (words.length > 100 ? '…' : '');
 
