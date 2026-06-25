@@ -50,8 +50,10 @@ async function boot() {
 
   _allProjects = projects;
 
+  const visibleProjects = projects.filter(p => p.label === 'green');
+
   // Initialize project list
-  initProjectList(projects, { onExpand: handleProjectExpand });
+  initProjectList(visibleProjects, { onExpand: handleProjectExpand });
 
   // Restore scroll position if returning from a project page
   maybeRestoreScroll();
@@ -60,7 +62,7 @@ async function boot() {
   initLightbox();
 
   // Initialize 3D/2D visualization
-  initVisualization(projects);
+  initVisualization(visibleProjects);
 }
 
 // ─── Hero visualization ───────────────────────────────────────────────────────

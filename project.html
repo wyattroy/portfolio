@@ -860,7 +860,7 @@
 
     async function renderProjectNav(currentId, allProjects) {
       if (!allProjects.length) return;
-      const sorted = sortProjectsForNav(allProjects);
+      const sorted = sortProjectsForNav(allProjects.filter(p => p.label === 'green'));
       const idx = sorted.findIndex(p => p.id === currentId);
       if (idx === -1 || sorted.length <= 1) return;
 
