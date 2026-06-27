@@ -85,7 +85,7 @@ async function initVisualization(projects) {
   const isDesktop = window.innerWidth >= 768;
   const hasPower = navigator.hardwareConcurrency > 2;
 
-  if (hasWebGL && isDesktop && hasPower) {
+  if (hasWebGL) {
     try {
       const { initThreeScene } = await import('./three-scene.js');
       initThreeScene(projects, { onProjectClick: handleProjectClick });
