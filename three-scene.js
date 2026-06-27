@@ -9,7 +9,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const YEAR_MIN = 2015;
-const YEAR_MAX = 2026;
+const YEAR_MAX = 2027;
 const AXIS_RANGE = 5; // ±5 units
 
 // Z depth range: oldest at z=0 (target), newest closer to camera — all positive Z
@@ -363,9 +363,9 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     const dy = e.touches[0].clientY - lastPointer.y;
     lastPointer = { x: e.touches[0].clientX, y: e.touches[0].clientY };
 
-    // Vertical drag drives zoom (mirroring the wheel mechanic)
-    const newVirtual = virtualScrollY + dy * 1.5;
-    if (scrollFracSpring.current < SCROLL_UNLOCK_FRAC || dy < 0) {
+    // Vertical drag drives zoom: swipe down = zoom out (higher frac), swipe up = zoom in
+    const newVirtual = virtualScrollY - dy * 1.5;
+    if (scrollFracSpring.current < SCROLL_UNLOCK_FRAC || dy > 0) {
       e.preventDefault();
       virtualScrollY = Math.max(0, Math.min(SCROLL_DRIVE_PX, newVirtual));
     }

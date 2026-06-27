@@ -3,12 +3,12 @@
   "title": "Mu Mirror",
   "year": 2024,
   "month": 11,
-  "tagline": "p5.js webcam dot-grid — a Zen koan about the boundary of self",
-  "what": "A p5.js webcam installation that renders the viewer as a shifting field of colored dots. The sketch takes two webcam frames, compares pixels by color similarity, and lerps each dot toward the closest matching pixel — dissolving the boundary between self and background until the viewer becomes indistinguishable from the world around them.",
+  "tagline": "p5.js webcam dot-grid \u2014 a Zen koan about the boundary of self",
+  "what": "A p5.js webcam installation that renders the viewer as a shifting field of colored dots. The sketch takes two webcam frames, compares pixels by color similarity, and lerps each dot toward the closest matching pixel \u2014 dissolving the boundary between self and background until the viewer becomes indistinguishable from the world around them.",
   "why": [
     {
       "type": "text",
-      "content": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. Usually, you have to meditate on a koan for a while – and eventually, something just clicks, and you see life differently.\n\nBut most people don't have the time or patience to sit on a cushion long enough or to silently chant mu in their minds for months – so I wanted to try and make a piece of digital art that might give them a shortcut."
+      "content": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. Usually, you have to meditate on a koan for a while \u2013 and eventually, something just clicks, and you see life differently.\n\nBut most people don't have the time or patience to sit on a cushion long enough or to silently chant mu in their minds for months \u2013 so I wanted to try and make a piece of digital art that might give them a shortcut."
     },
     {
       "type": "image",
@@ -16,7 +16,7 @@
     },
     {
       "type": "text",
-      "content": "Where does your body end? Is your hair you? What about when you cut a strand of it off? Let's say your body is your contiguous body, right now, not including clothes. What if we try to draw a 3D boundary around that body, with a large plastic bag – we wrap you up in it and seal it shut. You'd suffocate, die, and cease being \"you\" in a few minutes. So \"you\" must include some air, then. And water. And food. And a circulation system.\n\nAs we expand the plastic bag's boundary outwards more and more to try and encapsulate all the things that make you you, we realize that any line we draw between you and not you is arbitrary. It's an illusion to believe we are in any way separable from all of existence. A more accurate description might be that you are whatever the stuff is, right where you are, right now. You're an address, in time. We're calling that address you. Because it's handy to label things as discreet, even though in reality, they're not."
+      "content": "Where does your body end? Is your hair you? What about when you cut a strand of it off? Let's say your body is your contiguous body, right now, not including clothes. What if we try to draw a 3D boundary around that body, with a large plastic bag \u2013 we wrap you up in it and seal it shut. You'd suffocate, die, and cease being \"you\" in a few minutes. So \"you\" must include some air, then. And water. And food. And a circulation system.\n\nAs we expand the plastic bag's boundary outwards more and more to try and encapsulate all the things that make you you, we realize that any line we draw between you and not you is arbitrary. It's an illusion to believe we are in any way separable from all of existence. A more accurate description might be that you are whatever the stuff is, right where you are, right now. You're an address, in time. We're calling that address you. Because it's handy to label things as discreet, even though in reality, they're not."
     },
     {
       "type": "image",
@@ -24,7 +24,7 @@
     },
     {
       "type": "text",
-      "content": "Eastern mystics call this non-duality. There is no \"self\" and \"other\" if we think about it hard enough. And modern particle physics agrees. The challenge is that it's very difficult to shatter the illusion that we don't have a discreet self. People meditate for hours, days, decades to exist in the state of mind where the true nature of reality is not just logically known, but embodied and felt. I've experienced it a handful of times. It's a rush. And it's incredibly fragile – the moment you see reality this way, it collapses. Because our bodies evolved to believe themselves discreet – it's evolutionarily advantageous to try to sustain your corner of reality.\n\nBut what if there were an art installation that could trigger this insight in viewers? How much sweeter would the world be if we realized we weren't in it, we were it?"
+      "content": "Eastern mystics call this non-duality. There is no \"self\" and \"other\" if we think about it hard enough. And modern particle physics agrees. The challenge is that it's very difficult to shatter the illusion that we don't have a discreet self. People meditate for hours, days, decades to exist in the state of mind where the true nature of reality is not just logically known, but embodied and felt. I've experienced it a handful of times. It's a rush. And it's incredibly fragile \u2013 the moment you see reality this way, it collapses. Because our bodies evolved to believe themselves discreet \u2013 it's evolutionarily advantageous to try to sustain your corner of reality.\n\nBut what if there were an art installation that could trigger this insight in viewers? How much sweeter would the world be if we realized we weren't in it, we were it?"
     },
     {
       "type": "image",
@@ -44,7 +44,7 @@
     },
     {
       "type": "text",
-      "content": "**Iteration 2: Attractor Dots 3D**\n\nCreated a 3D grid of dots that attract to your hands.\n\nTo test the effect, your right hand remains visible – and the illusion that you're made of these dots completely fails. Interestingly, when your hand is invisible, the illusion that you're made of dots works.\n\nDecided to keep the dots misaligned after attraction, as if you've left a mark on the world.\n\nIssues: This works on PC-VR, but is extremely laggy on Quest standalone headset because there's so much computation (even just with 6x6x6 grid of cubes). Unclear if this is communicating the core message.",
+      "content": "**Iteration 2: Attractor Dots 3D**\n\nCreated a 3D grid of dots that attract to your hands.\n\nTo test the effect, your right hand remains visible \u2013 and the illusion that you're made of these dots completely fails. Interestingly, when your hand is invisible, the illusion that you're made of dots works.\n\nDecided to keep the dots misaligned after attraction, as if you've left a mark on the world.\n\nIssues: This works on PC-VR, but is extremely laggy on Quest standalone headset because there's so much computation (even just with 6x6x6 grid of cubes). Unclear if this is communicating the core message.",
       "align": "left"
     },
     {
@@ -54,7 +54,7 @@
     },
     {
       "type": "text",
-      "content": "**Iteration 4: Building Blocks**\n\nDots spaced further apart makes them feel more playful and inviting to move around a space. Something compelling here – everyone \"gets it\" and wants to pick up the dots.\n\nIssues: the message, or takeaway of the experience, has nothing to do with my intent.",
+      "content": "**Iteration 4: Building Blocks**\n\nDots spaced further apart makes them feel more playful and inviting to move around a space. Something compelling here \u2013 everyone \"gets it\" and wants to pick up the dots.\n\nIssues: the message, or takeaway of the experience, has nothing to do with my intent.",
       "align": "left"
     },
     {
@@ -94,8 +94,8 @@
   "medium": "Web",
   "tags": [],
   "axes": {
-    "pragmatic": 0.15,
-    "institutional": 0.23
+    "pragmatic": 0.26,
+    "institutional": 0.38
   },
   "thumbnail": "assets/projects/mu-mirror/thumb.jpg",
   "hero": "assets/projects/mu-mirror/mousedots.gif",
@@ -124,5 +124,5 @@
       "role": "Designer, Engineer"
     }
   ],
-  "description": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. But most people don't have the time or patience to sit on a cushion long enough — so I wanted to try and make a piece of digital art that might give them a shortcut."
+  "description": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. But most people don't have the time or patience to sit on a cushion long enough \u2014 so I wanted to try and make a piece of digital art that might give them a shortcut."
 }

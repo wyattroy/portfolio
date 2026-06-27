@@ -76,7 +76,7 @@
     },
     {
       "type": "text",
-      "content": "We started by modelling a variety of droplet shapes in Blender, based off of different primitive spheres — a UV sphere and an icososphere.",
+      "content": "We started by modelling a variety of droplet shapes in Blender, based off of different primitive spheres \u2014 a UV sphere and an icososphere.",
       "align": "left"
     },
     {
@@ -136,7 +136,7 @@
   "medium": "Fabrication",
   "tags": [],
   "axes": {
-    "pragmatic": 0.28,
+    "pragmatic": 0.42,
     "institutional": 0.16
   },
   "thumbnail": "assets/projects/paper-lamps/thumb.jpg",
@@ -171,5 +171,5 @@
       "role": "Designer, Fabricator"
     }
   ],
-  "description": "Three handmade paper lamps — Chicken, Droplet, and Dolphin — designed with digital tools and constructed by hand from wooden dowel and Nepali lokta paper."
+  "description": "Three handmade paper lamps \u2014 Chicken, Droplet, and Dolphin \u2014 designed with digital tools and constructed by hand from wooden dowel and Nepali lokta paper."
 }
