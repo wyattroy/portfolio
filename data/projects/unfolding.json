@@ -4,7 +4,6 @@
   "year": 2025,
   "month": 5,
   "tagline": "VR cinematic experiment to develop narrative conventions",
-  "description": "A short film in 180-3D virtual reality.",
   "what": "A short film in 180-3D virtual reality capturing the final moments of an intimate relationship unraveling. Set inside a meticulously scanned apartment, viewers put on a headset and sit alongside the characters — not watching, but present.",
   "why": [
     {
@@ -57,11 +56,9 @@
     }
   ],
   "medium": "VR",
-  "categories": [
-    "XR"
-  ],
+  "tags": [],
   "axes": {
-    "pragmatic": 0.15,
+    "pragmatic": 0.06,
     "institutional": 0.35
   },
   "thumbnail": "assets/projects/unfolding/thumb.jpg",
@@ -78,7 +75,10 @@
     "assets/projects/unfolding/img10.jpg"
   ],
   "videos": [
-    "https://www.youtube.com/watch?v=wtlhi_1HNiQ"
+    {
+      "url": "https://www.youtube.com/watch?v=wtlhi_1HNiQ",
+      "heroOverride": true
+    }
   ],
   "awards": [
     "CineTejo Official Selection 2025",
@@ -102,5 +102,6 @@
       "url": "",
       "role": "Actor"
     }
-  ]
+  ],
+  "description": "A short film in 180-3D virtual reality."
 }

@@ -980,6 +980,7 @@ let unsavedIds = new Set();
 let selectedAssets = new Set();
 let allAssetPaths = [];       // for asset browser
 let assetHandleMap = new Map(); // path → FileSystemFileHandle (for blob URL preview)
+let nameUrlIndex = new Map();   // normalized name → url, built across all loaded projects
 
 // ── Status dot ────────────────────────────────────────────────────────────────
 function computeStatus(data) {
@@ -999,10 +1000,8 @@ function computeStatus(data) {
   const hasWhy         = fieldHasContent(data.why);
   const hasHow         = fieldHasContent(data.how);
   const hasWho         = Array.isArray(data.who) && data.who.length > 0;
-  const hasDescription = !!(data.description && data.description.trim());
-
   // Red: essentially a stub with no real content
-  if (!hasTitle || (!hasWhat && !hasWhy && !hasDescription && !hasTagline)) return 'red';
+  if (!hasTitle || (!hasWhat && !hasWhy && !hasTagline)) return 'red';
   // Green: fully fleshed out
   if (hasTitle && hasTagline && hasThumbnail && hasImages && hasWhat && hasWhy && hasHow && hasWho) return 'green';
   // Yellow: has some content but missing key fields
@@ -1046,16 +1045,30 @@ async function loadProjectList() {
   }
   entries.sort((a, b) => a.name.localeCompare(b.name));
 
-  projectFiles = await Promise.all(entries.map(async f => {
+  const parsed = await Promise.all(entries.map(async f => {
     try {
       const text = await (await f.handle.getFile()).text();
       const data = JSON.parse(text);
-      return { ...f, status: computeStatus(data) };
+      return { ...f, status: computeStatus(data), parsedData: data };
     } catch(e) {
-      return { ...f, status: 'red' };
+      return { ...f, status: 'red', parsedData: null };
     }
   }));
 
+  // Build name→URL index from all projects
+  nameUrlIndex = new Map();
+  for (const f of parsed) {
+    if (f.parsedData?.who) {
+      for (const person of f.parsedData.who) {
+        const key = person.name?.trim().toLowerCase();
+        if (key && person.url && !nameUrlIndex.has(key)) {
+          nameUrlIndex.set(key, person.url);
+        }
+      }
+    }
+  }
+
+  projectFiles = parsed.map(({ parsedData, ...rest }) => rest);
   renderSidebar(projectFiles);
 }
 
@@ -1194,6 +1207,11 @@ function buildBlockEditor(sectionKey) {
       ta.value = block.content || '';
       ta.rows = 4;
       ta.addEventListener('input', () => {
+        const pos = ta.selectionStart;
+        if (ta.value.slice(pos - 2, pos) === '--') {
+          ta.value = ta.value.slice(0, pos - 2) + '–' + ta.value.slice(pos);
+          ta.setSelectionRange(pos - 1, pos - 1);
+        }
         sectionBlocks[sectionKey][idx].content = ta.value;
         markUnsaved();
         // Auto-resize
@@ -1507,10 +1525,6 @@ function renderEditor(p) {
       <div class="form-group full">
         <label>Tagline</label>
         <input id="f-tagline" value="${esc(p.tagline || '')}" placeholder="Short description shown in card">
-      </div>
-      <div class="form-group full">
-        <label>Description (fallback)</label>
-        <textarea id="f-description">${esc(p.description || '')}</textarea>
       </div>
     </div>
 
@@ -2028,7 +2042,6 @@ function collectFormData() {
     year:        parseInt(get('f-year')) || undefined,
     month:       parseInt(get('f-month')) || undefined,
     tagline:     get('f-tagline'),
-    description: get('f-description'),
     ...(whatVal !== undefined && { what: whatVal }),
     ...(whyVal  !== undefined && { why:  whyVal  }),
     ...(howVal  !== undefined && { how:  howVal  }),
@@ -2049,7 +2062,7 @@ function collectFormData() {
     // Preserve extra fields, excluding removed ones
     ...Object.fromEntries(
       Object.entries(currentData).filter(([k]) =>
-        !['id','title','year','month','tagline','description','what','why','how',
+        !['id','title','year','month','tagline','what','why','how',
           'medium','categories','tags','axes','thumbnail','hero','liveUrl','sourceUrl',
           'status','featured','images','videos','awards','who'].includes(k)
       )
@@ -2063,6 +2076,27 @@ document.getElementById('save-btn').addEventListener('click', saveProject);
 async function saveProject() {
   if (!currentFile || !dirHandle) return;
   const data = collectFormData();
+
+  // Auto-fill WHO urls from matching names in other projects
+  let urlsFilled = 0;
+  const whoRows = Array.from(document.querySelectorAll('#who-wrap .who-row'));
+  data.who.forEach((person, i) => {
+    if (!person.url) {
+      const found = nameUrlIndex.get(person.name.trim().toLowerCase());
+      if (found) {
+        person.url = found;
+        urlsFilled++;
+        const urlInput = whoRows[i]?.querySelector('.who-url');
+        if (urlInput) urlInput.value = found;
+      }
+    }
+  });
+  // Update index with any URLs now in this project (for subsequent saves in this session)
+  data.who.forEach(person => {
+    const key = person.name?.trim().toLowerCase();
+    if (key && person.url && !nameUrlIndex.has(key)) nameUrlIndex.set(key, person.url);
+  });
+
   const json = JSON.stringify(data, null, 2) + '\n';
 
   try {
@@ -2090,13 +2124,14 @@ async function saveProject() {
         const list = JSON.parse(txt);
         const entryIdx = list.findIndex(p => p.id === id);
         if (entryIdx !== -1) {
-          const cardFields = ['title','year','month','tagline','description','medium',
+          const cardFields = ['title','year','month','tagline','medium',
                               'tags','axes','thumbnail','hero','liveUrl','sourceUrl',
                               'images','videos','awards','who','featured'];
           cardFields.forEach(k => {
             if (data[k] !== undefined) list[entryIdx][k] = data[k];
             else delete list[entryIdx][k];
           });
+          list[entryIdx].label = newStatus;
           const lw = await listFH.createWritable();
           await lw.write(JSON.stringify(list, null, 2) + '\n');
           await lw.close();
@@ -2107,7 +2142,7 @@ async function saveProject() {
     }
 
     const ind = document.getElementById('save-indicator');
-    ind.textContent = '✓ Saved';
+    ind.textContent = urlsFilled ? `✓ Saved · ${urlsFilled} URL${urlsFilled > 1 ? 's' : ''} filled` : '✓ Saved';
     ind.classList.add('visible');
     setTimeout(() => ind.classList.remove('visible'), 2000);
   } catch(e) {

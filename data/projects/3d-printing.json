@@ -4,7 +4,6 @@
   "year": 2022,
   "month": 9,
   "tagline": "3D-Printed Photogrammetry of Lost Moments",
-  "description": "3D-Printed Photogrammetry of Lost Moments",
   "what": [
     {
       "type": "text",
@@ -119,7 +118,7 @@
   ],
   "axes": {
     "pragmatic": 0.2,
-    "institutional": 0.2
+    "institutional": 0.3
   },
   "thumbnail": "assets/projects/3d-printing/thumb.jpg",
   "hero": "assets/projects/3d-printing/img16.jpg",
@@ -150,6 +149,7 @@
       "role": "Designer"
     }
   ],
+  "description": "3D-Printed Photogrammetry of Lost Moments",
   "scraped_raw_text": [
     "Extruding Memories",
     "3D-Printed Photogrammetry of Lost Moments",

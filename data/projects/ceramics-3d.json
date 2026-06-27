@@ -4,7 +4,6 @@
   "year": 2024,
   "month": 6,
   "tagline": "Photogrammetric scans of ceramics",
-  "description": "Photogrammetric scans of ceramics",
   "what": [
     {
       "type": "text",
@@ -51,7 +50,7 @@
   "medium": "Web",
   "tags": [],
   "axes": {
-    "pragmatic": 0.55,
+    "pragmatic": 0.66,
     "institutional": 0.19
   },
   "thumbnail": "assets/projects/ceramics-3d/bowl1.gif",
@@ -76,6 +75,7 @@
       "role": "Ceramicist"
     }
   ],
+  "description": "Photogrammetric scans of ceramics",
   "scraped_raw_text": [
     "Ceramics 3D",
     "Digital ceramics",

@@ -4,7 +4,6 @@
   "year": 2015,
   "month": 3,
   "tagline": "Video ad for Calm where the commercial itself was a meditation",
-  "description": "The one app that wants you to pay less attention to it.",
   "what": [
     {
       "type": "text",
@@ -20,8 +19,8 @@
   "medium": "Film",
   "tags": [],
   "axes": {
-    "pragmatic": 0.2,
-    "institutional": 0.3
+    "pragmatic": 0.47,
+    "institutional": 0.45
   },
   "thumbnail": "assets/projects/calm/thumb.jpg",
   "liveUrl": null,
@@ -73,6 +72,7 @@
       "role": "Producer"
     }
   ],
+  "description": "The one app that wants you to pay less attention to it.",
   "scraped_raw_text": [
     "Calm",
     "The one app that wants you to pay less attention to it.",

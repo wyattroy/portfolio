@@ -4,29 +4,223 @@
   "year": 2026,
   "month": 4,
   "tagline": "Spatial intervention at Harvard GSD — a collision space for 350+ students without studio",
-  "description": "The unstudio is a pilot for a collaborative learning space that solves the Harvard Graduate School of Design’s spatial constraints.",
-  "what": "A pilot collaborative space for the third of GSD students who have no home base in Gund Hall. Running April 11–20, 2026, the unstudio transformed an underutilized room into a drop-in collision space using furniture that already existed. 15 people at once at peak occupancy. 84 community members added their voices. 7 events hosted in 8 days.",
-  "why": "Gund Hall was designed for 400 students and currently holds 994. Over 370 students have no desk in the school. 89% of existing desks sit empty at any given time. The cultural belief — that desks are only for studio — was excluding a third of students from their creative home base.",
+  "what": [
+    {
+      "type": "text",
+      "content": "A pilot collaborative space for the third of Harvard GSD students who have no home base in Gund Hall. The [unstudio](unstudiogsd.org) transformed an underutilized room into a drop-in collision space using furniture that already existed — where students can spontaneously meet, share ideas, increase interdisciplinary connections, and design collaboratively regardless of program.\n\nThe Unstudio ran for 10 days (April 11–20, 2026), hosted 7 events, and drew 163 total observed visits — peaking at 15 people at once, doing computer work, drawing, modeling, and conversation simultaneously. \n\nIt costs nothing. It uses furniture that already exists. It turns underutilized collaborative space into a resource for everyone."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/a IMG_0735.jpeg"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "Gund Hall was designed for 400 students yet in Spring 2026 held 994 — 2.5× over capacity. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/overcapacity.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Over 370 students have no desk in the school every semester. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/other-third.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Yet 89% of existing desks sit empty at any given time, and 624 private desks occupy the public space.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/empty-desks.jpeg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "The cultural belief that desks are only for studio students was excluding a third of the school from their creative home base. The unstudio tested a different idea: what if shared space could belong to everyone?"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/desked-undesked.jpeg",
+      "align": "right"
+    }
+  ],
+  "how": "Led with data: walked the space and sampled usage every 4 hours for a week before making any ask. Pitched the proposal to decision-makers framed as a low-risk, temporary pilot — doing all the homework so they only had to say yes.\n\nRearranged existing furniture into a flexible, drop-in layout. Posted three shared norms on the wall: Bring anything. Share everything. / Give up space. Don't hoard space. / Work with, not against.\n\nActivation posters gave users an immediate, low-stakes way to participate — a message board, a cat mood chart, a birthday calendar, a shared space survey. Measured everything: visitor counts, activities, time of day, and a community reaction wall. The toolkit is free to download and remix for any institution.",
   "medium": "Pedagogy",
-  "tags": [],
+  "tags": [
+    "spatial design",
+    "pedagogy",
+    "institutional",
+    "community"
+  ],
   "axes": {
-    "pragmatic": 0.5,
-    "institutional": 0.85
+    "pragmatic": 0.83,
+    "institutional": 0.87
   },
   "thumbnail": "assets/projects/unstudio/unstudio-description.jpg",
+  "hero": "assets/projects/unstudio/hero.jpg",
   "liveUrl": "https://unstudiogsd.org",
   "sourceUrl": "https://unstudiogsd.org",
   "images": [
-    "assets/projects/unstudio/img1.jpg",
-    "assets/projects/unstudio/img2.jpg",
+    "assets/projects/unstudio/hero.jpg",
+    "assets/projects/unstudio/snapshot.jpg",
+    "assets/projects/unstudio/unstudio-description.jpg",
+    "assets/projects/unstudio/norms.jpg",
+    "assets/projects/unstudio/poster.jpg",
+    "assets/projects/unstudio/space-survey.jpg",
+    "assets/projects/unstudio/Unstudio cat.jpg",
+    "assets/projects/unstudio/IMG_0384.jpeg",
+    "assets/projects/unstudio/IMG_0530.jpeg",
+    "assets/projects/unstudio/IMG_0746.jpeg",
+    "assets/projects/unstudio/overcapacity.jpeg",
+    "assets/projects/unstudio/IMG_0649.jpeg",
+    "assets/projects/unstudio/Unstudio square.jpg",
+    "assets/projects/unstudio/a IMG_0645.jpeg",
+    "assets/projects/unstudio/a IMG_0735.jpeg",
     "assets/projects/unstudio/img3.jpg",
-    "assets/projects/unstudio/unstudio-description.jpg"
+    "assets/projects/unstudio/desked-undesked.jpeg",
+    "assets/projects/unstudio/empty-desks.jpeg",
+    "assets/projects/unstudio/IMG_0395.jpeg",
+    "assets/projects/unstudio/img2.jpg",
+    "assets/projects/unstudio/img1.jpg",
+    "assets/projects/unstudio/thumb.jpg",
+    "assets/projects/unstudio/other-third.jpeg",
+    "assets/projects/unstudio/IMG_0734.JPG",
+    "assets/projects/unstudio/Unstudio message.jpg",
+    "assets/projects/unstudio/IMG_0522.jpeg"
   ],
-  "videos": [],
+  "videos": [
+    {
+      "url": "https://vimeo.com/1184243515",
+      "heroOverride": false
+    }
+  ],
   "awards": [],
-  "who": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Organizer"
+    },
+    {
+      "name": "Julia Mattis",
+      "url": "https://www.instagram.com/windowsill.bakery/",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Ami Mehta",
+      "url": "",
+      "role": "Activation Poster Design"
+    },
+    {
+      "name": "Karen Brennan",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Kalana White",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Xavaar Quaranto",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Joshito",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Malvika",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Yanchen",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Julio",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Trevor",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Dean Sarah Whiting",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Associate Dean Janice Gilkes",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Associate Dean Ashley Lang",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Academic Dean Martin Bechthold",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Zach",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Kathleen",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Sonja",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Claire",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Jisu",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Nick Lesko",
+      "url": "",
+      "role": "Collaborator"
+    },
+    {
+      "name": "Karen",
+      "url": "",
+      "role": "Collaborator"
+    }
+  ],
+  "description": "The unstudio is a pilot for a collaborative learning space that solves the Harvard Graduate School of Design's spatial constraints.",
   "scraped_raw_text": [
-    "The unstudio is a pilot for a collaborative learning space that solves the Harvard Graduate School of Design’s spatial constraints.",
+    "The unstudio is a pilot for a collaborative learning space that solves the Harvard Graduate School of Design's spatial constraints.",
     "Every semester, over a third of GSD students across all programs (350+) have no home base in Gund Hall, the main building. The unstudio is a collision space for those students - where they can spontaneously meet, share ideas, increase interdisciplinary connections, design collaboratively, and learn more effectively in a community of practice."
   ],
   "scraped_url": "https://www.wyattroy.com/design/unstudio"

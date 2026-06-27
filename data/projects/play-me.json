@@ -4,7 +4,6 @@
   "year": 2019,
   "month": 3,
   "tagline": "Live performance art on Twitch — the audience controlled my every action for 30 minutes",
-  "description": "An experimental interactive story where I live streamed my first-person point of view to an internet audience who voted to decide my every action — combining improvisational theatre, performance art, and computer gaming.",
   "what": "An experimental interactive story where I live streamed my point of view to an internet audience who decided my every action. The format combined improvisational theatre, performance art, and computer gaming. Audience members typed suggestions into Twitch chat, a custom chatbot organized three options for a vote, and a moderator relayed the winning action to me via earpiece every 60 seconds.",
   "why": [
     {
@@ -51,8 +50,8 @@
     "interactive"
   ],
   "axes": {
-    "pragmatic": 0.2,
-    "institutional": 0.22
+    "pragmatic": 0.16,
+    "institutional": 0.38
   },
   "thumbnail": "assets/projects/play-me/thumb.jpg",
   "hero": "assets/projects/play-me/thumb.jpg",
@@ -80,5 +79,6 @@
       "url": "",
       "role": "Lead Developer, Moderator"
     }
-  ]
+  ],
+  "description": "An experimental interactive story where I live streamed my first-person point of view to an internet audience who voted to decide my every action — combining improvisational theatre, performance art, and computer gaming."
 }

@@ -4,7 +4,6 @@
   "year": 2025,
   "month": 4,
   "tagline": "CNC-milled wax mold for casting a silicone stamp of the Windowsill Bakery logo",
-  "description": "A CNC-milled wax mold used to cast a silicone stamp of a partner's bakery logo, made as a gift for her small business.",
   "what": "Converted the Windowsill Bakery hand-drawn logo into Blender paths, applied as a displacement map to a wax mold surface. CNC-milled using two bit sizes — 1/8\" for bulk material removal, 1/16\" for fine letterwork. Cast with equal-part A/B silicone, left to cure 16 hours, then trimmed and tested as a cake-box stamp.",
   "why": [
     {
@@ -86,7 +85,7 @@
     "PS70"
   ],
   "axes": {
-    "pragmatic": 0.08,
+    "pragmatic": 0.47,
     "institutional": 0.05
   },
   "thumbnail": "assets/projects/windowsill-stamp/12-stamp-hero.jpeg",
@@ -116,5 +115,6 @@
       "url": "",
       "role": "Designer, Fabricator"
     }
-  ]
+  ],
+  "description": "A CNC-milled wax mold used to cast a silicone stamp of a partner's bakery logo, made as a gift for her small business."
 }

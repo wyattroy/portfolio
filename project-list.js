@@ -183,7 +183,7 @@ function renderGrid() {
 function shortestCol() {
   // Pick the column with the smallest rendered height
   return _columns.reduce(
-    (min, col) => col.offsetHeight <= min.offsetHeight ? col : min,
+    (min, col) => col.offsetHeight < min.offsetHeight ? col : min,
     _columns[0]
   );
 }
@@ -332,10 +332,8 @@ export function buildDetailContent(project, { showHeader = false } = {}) {
   // `what` may be an array of rich content blocks — extract text items
   let fullText;
   if (Array.isArray(project.what)) {
-    fullText = project.what
-      .filter(item => item.type === 'text')
-      .map(item => item.content || '')
-      .join(' ');
+    const firstText = project.what.find(item => item.type === 'text');
+    fullText = firstText ? (firstText.content || '') : '';
   } else {
     fullText = project.what || project.description || project.tagline || '';
   }

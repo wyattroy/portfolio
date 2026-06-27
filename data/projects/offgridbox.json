@@ -4,7 +4,6 @@
   "year": 2018,
   "month": 12,
   "tagline": "A short film about the people and technology bringing off-grid energy to rural Rwanda.",
-  "description": "A short film about the people and technology bringing off-grid energy to rural Rwanda.",
   "what": [
     {
       "type": "text",
@@ -75,8 +74,8 @@
     "engineering"
   ],
   "axes": {
-    "pragmatic": 0.1,
-    "institutional": 0.7
+    "pragmatic": 0.34,
+    "institutional": 0.63
   },
   "thumbnail": "assets/projects/offgridbox/thumb.jpg",
   "hero": "assets/projects/offgridbox/thumb.jpg",
@@ -119,6 +118,7 @@
       "role": "Founder"
     }
   ],
+  "description": "A short film about the people and technology bringing off-grid energy to rural Rwanda.",
   "scraped_raw_text": [
     "OffGridBox",
     "Something amazing is happening in Rwanda.",

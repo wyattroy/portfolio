@@ -4,7 +4,6 @@
   "year": 2025,
   "month": 3,
   "tagline": "Images containing every 24-bit RGB color exactly once",
-  "description": "4096×4096 pixel images containing all 16,777,216 possible 24-bit RGB colors exactly once.",
   "what": [
     {
       "type": "text",
@@ -40,7 +39,7 @@
   ],
   "axes": {
     "pragmatic": 0.08,
-    "institutional": 0.08
+    "institutional": 0.48
   },
   "thumbnail": "assets/projects/all-rgb/thumb.jpg",
   "hero": "assets/projects/all-rgb/thumb.jpg",
@@ -62,5 +61,6 @@
       "url": "",
       "role": "Designer"
     }
-  ]
+  ],
+  "description": "4096×4096 pixel images containing all 16,777,216 possible 24-bit RGB colors exactly once."
 }

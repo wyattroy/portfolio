@@ -4,7 +4,6 @@
   "year": 2015,
   "month": 11,
   "tagline": "Stanford documentary — chasing wonder at the edge of the Galápagos",
-  "description": "A short documentary about Stanford students and alumni learning together in the Galápagos Islands.",
   "what": [
     {
       "type": "text",
@@ -41,8 +40,8 @@
   "medium": "Film",
   "tags": [],
   "axes": {
-    "pragmatic": 0.13,
-    "institutional": 0.7
+    "pragmatic": 0.08,
+    "institutional": 0.82
   },
   "thumbnail": "assets/projects/galapagos/thumb.jpg",
   "hero": "assets/projects/galapagos/thumb-sm.jpg",
@@ -74,5 +73,6 @@
       "role": "Director, Cinematographer, Editor"
     }
   ],
+  "description": "A short documentary about Stanford students and alumni learning together in the Galápagos Islands.",
   "scraped_url": null
 }

@@ -4,7 +4,6 @@
   "year": 2024,
   "month": 10,
   "tagline": "Light sculpture on autumn leaves and gravity",
-  "description": "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change.",
   "what": [
     {
       "type": "text",
@@ -131,7 +130,7 @@
   "tags": [],
   "axes": {
     "pragmatic": 0.05,
-    "institutional": 0.1
+    "institutional": 0.06
   },
   "thumbnail": "assets/projects/falling-fall/thumb.jpg",
   "hero": "assets/projects/falling-fall/throw.png",
@@ -186,6 +185,7 @@
       "role": ""
     }
   ],
+  "description": "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change.",
   "scraped_raw_text": [
     "Falling Fall",
     "A Leaf-Based Light Sculpture",

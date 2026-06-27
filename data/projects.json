@@ -1,5 +1,18 @@
 [
   {
+    "id": "chillbrow",
+    "title": "Chillbrow",
+    "year": 2026,
+    "tagline": "",
+    "axes": {
+      "pragmatic": 0.5,
+      "institutional": 0.5
+    },
+    "thumbnail": "assets/projects/chillbrow/thumb.jpg",
+    "tags": [],
+    "featured": false
+  },
+  {
     "id": "squishy-hearts-club",
     "title": "Squishy Hearts Club",
     "year": 2023,
@@ -67,7 +80,6 @@
     "thumbnail": "assets/projects/squidgeridoo/thumb.jpg",
     "tags": [],
     "month": 6,
-    "description": "",
     "liveUrl": null,
     "sourceUrl": null,
     "images": [],
@@ -82,73 +94,236 @@
     "year": 2025,
     "month": 5,
     "tagline": "VR cinematic experiment to develop narrative conventions",
-    "description": "A short film in 180-3D virtual reality.",
-    "what": "A 180\u00b0 3D stereoscopic VR short film shot and edited in Unity, exploring what narrative conventions emerge when the viewer is placed inside the story space. The piece unfolds in a single domestic interior, using spatial audio and eye-level framing to create presence without interactivity.",
-    "why": "Most VR narrative work either borrows from film or from games. This project asked what a third thing might look like \u2014 conventions native to the medium, emerging from constraints rather than borrowed from adjacent forms.",
+    "what": "A 180° 3D stereoscopic VR short film shot and edited in Unity, exploring what narrative conventions emerge when the viewer is placed inside the story space. The piece unfolds in a single domestic interior, using spatial audio and eye-level framing to create presence without interactivity.",
+    "why": "Most VR narrative work either borrows from film or from games. This project asked what a third thing might look like — conventions native to the medium, emerging from constraints rather than borrowed from adjacent forms.",
     "categories": [
       "XR"
     ],
     "axes": {
-      "pragmatic": 0.15,
+      "pragmatic": 0.06,
       "institutional": 0.35
     },
     "thumbnail": "assets/projects/unfolding/thumb.jpg",
     "images": [
+      "assets/projects/unfolding/img13.jpg",
       "assets/projects/unfolding/img1.jpg",
+      "assets/projects/unfolding/img5.jpg",
+      "assets/projects/unfolding/img4.jpg",
       "assets/projects/unfolding/img2.jpg",
       "assets/projects/unfolding/img3.jpg",
-      "assets/projects/unfolding/img4.jpg",
-      "assets/projects/unfolding/img5.jpg",
-      "assets/projects/unfolding/img6.jpg",
-      "assets/projects/unfolding/img8.jpg",
       "assets/projects/unfolding/img10.jpg"
     ],
     "videos": [
-      "https://www.youtube.com/watch?v=wtlhi_1HNiQ"
+      {
+        "url": "https://www.youtube.com/watch?v=wtlhi_1HNiQ",
+        "heroOverride": true
+      }
     ],
     "liveUrl": null,
     "sourceUrl": "https://www.wyattroy.com/xr/unfolding",
     "awards": [
       "CineTejo Official Selection 2025",
       "MIX Brasil 2025",
-      "Barcelona Planet Film Festival \u2014 Best VR 2025",
+      "Barcelona Planet Film Festival — Best VR 2025",
       "Miami Art Tech Summit Official Selection 2025"
     ],
     "medium": "VR",
-    "label": "green"
+    "label": "green",
+    "tags": [],
+    "hero": "assets/projects/unfolding/img13.jpg",
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Writer, Director, Producer, DP, Editor"
+      },
+      {
+        "name": "Nia Weeks",
+        "url": "",
+        "role": "Actor"
+      },
+      {
+        "name": "Claire Liu",
+        "url": "",
+        "role": "Actor"
+      }
+    ]
   },
   {
     "id": "unstudio",
     "title": "unstudio",
     "year": 2026,
     "month": 4,
-    "tagline": "Spatial intervention at Harvard GSD \u2014 a collision space for 350+ students without studio",
-    "description": "The unstudio is a pilot for a collaborative learning space that solves the Harvard Graduate School of Design\u2019s spatial constraints.",
-    "what": "A pilot collaborative space for the third of GSD students who have no home base in Gund Hall. Running April 11\u201320, 2026, the unstudio transformed an underutilized room into a drop-in collision space using furniture that already existed. 15 people at once at peak occupancy. 84 community members added their voices. 7 events hosted in 8 days.",
-    "why": "Gund Hall was designed for 400 students and currently holds 994. Over 370 students have no desk in the school. 89% of existing desks sit empty at any given time. The cultural belief \u2014 that desks are only for studio \u2014 was excluding a third of students from their creative home base.",
+    "tagline": "Spatial intervention at Harvard GSD — a collision space for 350+ students without studio",
+    "what": "A pilot collaborative space for the third of GSD students who have no home base in Gund Hall. Running April 11–20, 2026, the unstudio transformed an underutilized room into a drop-in collision space using furniture that already existed. 15 people at once at peak occupancy. 84 community members added their voices. 7 events hosted in 8 days.",
+    "why": "Gund Hall was designed for 400 students and currently holds 994. Over 370 students have no desk in the school. 89% of existing desks sit empty at any given time. The cultural belief — that desks are only for studio — was excluding a third of students from their creative home base.",
     "categories": [
       "Education",
       "Design"
     ],
     "axes": {
-      "pragmatic": 0.5,
-      "institutional": 0.85
+      "pragmatic": 0.83,
+      "institutional": 0.87
     },
     "thumbnail": "assets/projects/unstudio/unstudio-description.jpg",
     "images": [
-      "assets/projects/unstudio/img1.jpg",
-      "assets/projects/unstudio/img2.jpg",
+      "assets/projects/unstudio/hero.jpg",
+      "assets/projects/unstudio/snapshot.jpg",
+      "assets/projects/unstudio/unstudio-description.jpg",
+      "assets/projects/unstudio/norms.jpg",
+      "assets/projects/unstudio/poster.jpg",
+      "assets/projects/unstudio/space-survey.jpg",
+      "assets/projects/unstudio/Unstudio cat.jpg",
+      "assets/projects/unstudio/IMG_0384.jpeg",
+      "assets/projects/unstudio/IMG_0530.jpeg",
+      "assets/projects/unstudio/IMG_0746.jpeg",
+      "assets/projects/unstudio/overcapacity.jpeg",
+      "assets/projects/unstudio/IMG_0649.jpeg",
+      "assets/projects/unstudio/Unstudio square.jpg",
+      "assets/projects/unstudio/a IMG_0645.jpeg",
+      "assets/projects/unstudio/a IMG_0735.jpeg",
       "assets/projects/unstudio/img3.jpg",
-      "assets/projects/unstudio/unstudio-description.jpg"
+      "assets/projects/unstudio/desked-undesked.jpeg",
+      "assets/projects/unstudio/empty-desks.jpeg",
+      "assets/projects/unstudio/IMG_0395.jpeg",
+      "assets/projects/unstudio/img2.jpg",
+      "assets/projects/unstudio/img1.jpg",
+      "assets/projects/unstudio/thumb.jpg",
+      "assets/projects/unstudio/other-third.jpeg",
+      "assets/projects/unstudio/IMG_0734.JPG",
+      "assets/projects/unstudio/Unstudio message.jpg",
+      "assets/projects/unstudio/IMG_0522.jpeg"
     ],
-    "videos": [],
+    "videos": [
+      {
+        "url": "https://vimeo.com/1184243515",
+        "heroOverride": false
+      }
+    ],
     "liveUrl": "https://unstudiogsd.org",
     "sourceUrl": "https://unstudiogsd.org",
     "awards": [],
     "medium": "Pedagogy",
-    "tags": [],
-    "who": [],
-    "label": "yellow"
+    "tags": [
+      "spatial design",
+      "pedagogy",
+      "institutional",
+      "community"
+    ],
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Organizer"
+      },
+      {
+        "name": "Julia Mattis",
+        "url": "https://www.instagram.com/windowsill.bakery/",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Ami Mehta",
+        "url": "",
+        "role": "Activation Poster Design"
+      },
+      {
+        "name": "Karen Brennan",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Kalana White",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Xavaar Quaranto",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Joshito",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Malvika",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Yanchen",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Julio",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Trevor",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Dean Sarah Whiting",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Associate Dean Janice Gilkes",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Associate Dean Ashley Lang",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Academic Dean Martin Bechthold",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Zach",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Kathleen",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Sonja",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Claire",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Jisu",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Nick Lesko",
+        "url": "",
+        "role": "Collaborator"
+      },
+      {
+        "name": "Karen",
+        "url": "",
+        "role": "Collaborator"
+      }
+    ],
+    "label": "green",
+    "hero": "assets/projects/unstudio/hero.jpg"
   },
   {
     "id": "gre-admissions",
@@ -156,7 +331,6 @@
     "year": 2024,
     "month": 10,
     "tagline": "Research on how GRE requirements shape graduate design school applicant pools",
-    "description": "Helping Harvard's Graduate School of Design intentionally design their culture",
     "what": "Survey, interview, and admissions data analysis across 12 graduate design programs, examining how standardized testing requirements correlate with applicant diversity along axes of race, income, and first-generation status.",
     "why": "Admissions criteria are often treated as neutral but shape who enters a field. This study aimed to give programs evidence to inform policy changes.",
     "categories": [
@@ -195,7 +369,6 @@
     "year": 2025,
     "month": 9,
     "tagline": "Media theory seminar for MDes students, co-led with Allen Sayegh at Harvard GSD",
-    "description": "A media theory seminar for incoming MDes students, co-led with domain head Allen Sayegh, pairing critical theory with hands-on experiential learning in different media.",
     "what": "Co-led the Mediums domain seminar with Allen Sayegh for incoming MDes students. Paired critical design readings with experiential learning: students visited the Harvard glass flower collection comparing simulacra with originals; responded to Berger's Ways of Seeing by making short films in the Fogg Art Museum for an in-class festival; shared personal design practices for critique, leading to unexpected collaborations and the first sale of one student's work to another.",
     "why": "If the medium is the message (McLuhan), the pedagogical challenge is how to render the medium visible and pliable. By teaching about each medium through a combination of mediums, students gained the agency to extend their practices by understanding each one's unique affordances.",
     "categories": [
@@ -232,10 +405,9 @@
     "title": "MDes NPS Study",
     "year": 2026,
     "month": 3,
-    "tagline": "Net Promoter Score survey of Harvard MDes \u2014 score of -16, driving program reform",
-    "description": "A Net Promoter Score survey of 129 MDes students identifying what the program does well, what's dragging it down, and three structural interventions to fix it.",
-    "what": "NPS survey of 129 MDes students returned a score of -16 (22% Promoters, 38% Detractors), compared to Harvard Business School's +37. Of 108 students who left comments, the program's core strength \u2014 radical curricular flexibility and access to the Harvard/MIT ecosystem \u2014 is widely praised even by Detractors. But three structural complaints drag the score down: under-resourced relative to cost, no dedicated physical space and community in GSD, and lack of mentorship for students who need scaffolding.",
-    "why": "MDes is counter-cultural within Harvard, and improbable within the GSD. That's why I'm driven to help it thrive \u2014 I can imagine MDes being truly great, a profoundly effective teaching moment for generations of designers. And I want to live in the world that its students eventually design.",
+    "tagline": "Net Promoter Score survey of Harvard MDes — score of -16, driving program reform",
+    "what": "NPS survey of 129 MDes students returned a score of -16 (22% Promoters, 38% Detractors), compared to Harvard Business School's +37. Of 108 students who left comments, the program's core strength — radical curricular flexibility and access to the Harvard/MIT ecosystem — is widely praised even by Detractors. But three structural complaints drag the score down: under-resourced relative to cost, no dedicated physical space and community in GSD, and lack of mentorship for students who need scaffolding.",
+    "why": "MDes is counter-cultural within Harvard, and improbable within the GSD. That's why I'm driven to help it thrive — I can imagine MDes being truly great, a profoundly effective teaching moment for generations of designers. And I want to live in the world that its students eventually design.",
     "categories": [
       "Research"
     ],
@@ -278,9 +450,8 @@
     "year": 2026,
     "month": 6,
     "tagline": "A simple field guide for working inside large organizations",
-    "description": "A short illustrated guide to changing institutions through care, collaboration, and mindfulness \u2014 an alternative to adversarial activism.",
-    "what": "A 45-page illustrated guide for people who work inside institutions \u2014 schools, governments, hospitals \u2014 and want to create lasting change through collaboration rather than conflict. Covers how to notice what you want to change, how to work with institutional complexity, how to build coalitions through individual relationships, and how to sustain momentum. Illustrated by Julia Mattis. In homage to Thich Nhat Hanh.",
-    "why": "Most change-making assumes adversarial tactics. This book explores what becomes possible when you choose collaboration over antagonism \u2014 assuming people within institutions mutually care for each other, and inviting them to be their best selves together.",
+    "what": "A 45-page illustrated guide for people who work inside institutions — schools, governments, hospitals — and want to create lasting change through collaboration rather than conflict. Covers how to notice what you want to change, how to work with institutional complexity, how to build coalitions through individual relationships, and how to sustain momentum. Illustrated by Julia Mattis. In homage to Thich Nhat Hanh.",
+    "why": "Most change-making assumes adversarial tactics. This book explores what becomes possible when you choose collaboration over antagonism — assuming people within institutions mutually care for each other, and inviting them to be their best selves together.",
     "categories": [
       "Writing",
       "Research"
@@ -289,7 +460,7 @@
       "pragmatic": 0.5,
       "institutional": 0.5
     },
-    "thumbnail": "assets/projects/how-to-change-institutions/end dove.png",
+    "thumbnail": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
     "images": [
       "assets/projects/how-to-change-institutions/img5.jpg",
       "assets/projects/how-to-change-institutions/How to Change Institutions page 4.jpg",
@@ -314,7 +485,8 @@
       "assets/projects/how-to-change-institutions/hammer.png",
       "assets/projects/how-to-change-institutions/shovel.png",
       "assets/projects/how-to-change-institutions/tea.png",
-      "assets/projects/how-to-change-institutions/IMG_1613.jpg"
+      "assets/projects/how-to-change-institutions/IMG_1613.jpg",
+      "assets/projects/how-to-change-institutions/bookinhand.jpeg"
     ],
     "videos": [],
     "liveUrl": null,
@@ -345,7 +517,7 @@
       },
       {
         "name": "Julia Mattis",
-        "url": "",
+        "url": "https://www.instagram.com/windowsill.bakery/",
         "role": "Illustrator"
       },
       {
@@ -354,7 +526,7 @@
         "role": "Guidance"
       }
     ],
-    "hero": "assets/projects/how-to-change-institutions/end dove.png",
+    "hero": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
     "label": "green"
   },
   {
@@ -362,10 +534,9 @@
     "title": "SplatCubes",
     "year": 2025,
     "month": 5,
-    "tagline": "Gaussian splat \u2192 3D printed physical sculpture via Grasshopper and C#",
-    "description": "A workflow for converting 3D Gaussian Splat captures into physical 3D-printed sculptures.",
+    "tagline": "Gaussian splat → 3D printed physical sculpture via Grasshopper and C#",
     "what": "A novel computational design pipeline for converting 3D Gaussian Splat captures of reality into printable forms, fabricated on multi-material resin printers. Uses custom Grasshopper scripts in C# to translate the digital representation of a Gaussian Splat into a physical artifact that can be held, viewed from any angle, and appreciated as a form of tangible volumetric memory.",
-    "why": "Gaussian Splatting captures scenes as probabilistic, spatially distributed semi-opaque volumes \u2014 more accurate approximations of physical reality than mesh topology. But splats remain inherently digital. This pipeline physically manifests splats via 3D printing, emphasizing the blurriness and continuity of real-world boundaries that hard mesh edges erase.",
+    "why": "Gaussian Splatting captures scenes as probabilistic, spatially distributed semi-opaque volumes — more accurate approximations of physical reality than mesh topology. But splats remain inherently digital. This pipeline physically manifests splats via 3D printing, emphasizing the blurriness and continuity of real-world boundaries that hard mesh edges erase.",
     "categories": [
       "Fabrication",
       "Creative Technology"
@@ -398,9 +569,8 @@
     "year": 2025,
     "month": 5,
     "tagline": "Unity package for XR: finger-pinch gesture teleportation without controllers",
-    "description": "Handmove is a Unity package that lets you teleport around a virtual reality scene without controllers, using a novel UX locomotion mechanic.  It contains a script, prefabs, and a sample scene.  It extends Meta All-In-One SDK and runs on Unity 2202.",
     "what": "A Unity package for the Meta Quest enabling controller-free VR locomotion through a finger-pinch gesture mechanic. Extends Meta's All-In-One SDK with a custom C# script, prefabs, and a sample scene. Uses hand-tracking data to detect finger proximity, computes a parabolic arc toward the target surface, and smoothly transitions the camera rig. Special attention paid to reducing motion sickness: the arc preview provides spatial context before teleporting, and the transition is deliberately instantaneous rather than animated.",
-    "why": "Most VR teleportation schemes are clunky, controller-dependent, and cognitively heavy \u2014 they force the user to think about navigation rather than inhabiting the virtual space. Handmove reduces this to a minimum: pinch your fingers together and a teleport arc appears; release to move. Publicly available as a Unity package designed for minimal integration.",
+    "why": "Most VR teleportation schemes are clunky, controller-dependent, and cognitively heavy — they force the user to think about navigation rather than inhabiting the virtual space. Handmove reduces this to a minimum: pinch your fingers together and a teleport arc appears; release to move. Publicly available as a Unity package designed for minimal integration.",
     "categories": [
       "XR",
       "HCI"
@@ -441,8 +611,7 @@
     "year": 2020,
     "month": 6,
     "tagline": "Interactive web app that teaches you how to give a healing apology",
-    "description": "Website that teaches you how to give better apologies",
-    "what": "Built in ReactJS. Step-by-step process distilled from Bren\u00e9 Brown and Harriet Lerner's research on what makes an apology effective. Private, locally-cached, free to use.",
+    "what": "Built in ReactJS. Step-by-step process distilled from Brené Brown and Harriet Lerner's research on what makes an apology effective. Private, locally-cached, free to use.",
     "why": "Skillful apologies can build and repair relationships, but the research is hard to remember in the moment. An interactive digital tool is a better platform than a podcast for delivering the training.",
     "categories": [
       "Web",
@@ -469,9 +638,8 @@
     "title": "Tonos",
     "year": 2022,
     "month": 1,
-    "tagline": "Music-based meditation app \u2014 find the sound of your feelings",
-    "description": "Tonos is a music-based meditation app that helps you find the sound of your feelings and process them more effectively. Tonos guides you through multiple steps to identify your emotional states, think through them, and translate them into music.",
-    "what": "Voice-guided app that walks you through identifying your emotional states and translates them into music \u2014 over a thousand possible combinations. Built with Luis Zanforlin.",
+    "tagline": "Music-based meditation app — find the sound of your feelings",
+    "what": "Voice-guided app that walks you through identifying your emotional states and translates them into music — over a thousand possible combinations. Built with Luis Zanforlin.",
     "why": "Music is a powerful tool for emotion regulation. This app lets you compose music that matches your emotional state, making the science of mood repair interactive.",
     "categories": [
       "Sound",
@@ -533,7 +701,6 @@
     "year": 2025,
     "month": 11,
     "tagline": "Web app that helps you prioritize your conflicting wants",
-    "description": "A locally-cached web app for surfacing and ranking your wants.",
     "what": "A locally-cached web app at arenaofwants.com. Users enter their wants and the app surfaces them in head-to-head comparisons, building a ranked list of what you want most.",
     "why": "A core tenet in constructionism is learner agency. But people often feel constrained by others' expectations, unable to act in ways aligned with their core desires. Constructive-developmental theory (Kegan, 1980) suggests most adults operate at a \"socialized\" stage, subject to others' norms. Arena is a self-authoring intervention that reframes constraints as competing wants and helps users reprioritize to act most in line with their own goals.",
     "categories": [
@@ -549,7 +716,7 @@
       "social emotional learning"
     ],
     "axes": {
-      "pragmatic": 0.65,
+      "pragmatic": 0.78,
       "institutional": 0.1
     },
     "thumbnail": "assets/projects/arena/Home.png",
@@ -590,9 +757,8 @@
     "year": 2016,
     "month": 9,
     "tagline": "Growth mindset film for para-athletes, televised to 7.2 million people",
-    "description": "Psychology-informed short film empowering paralympic youth",
     "what": "Athletics Canada commissioned this short film, televised to 7.2 million people during the 2016 Paralympics, to inspire and recruit the next generation of Canadian para-athletes. Shot on RED cinema cameras with documentary-style direction and intercut with archival footage. Produced at Maku Creative.",
-    "why": "People with growth mindsets interpret failure as proof they need to work harder. Research shows mindsets can shift through targeted messaging. This was an experiment in applied social psychology \u2014 designing a storyboard around scientific literature and using television to deliver a growth mindset intervention to millions of children.",
+    "why": "People with growth mindsets interpret failure as proof they need to work harder. Research shows mindsets can shift through targeted messaging. This was an experiment in applied social psychology — designing a storyboard around scientific literature and using television to deliver a growth mindset intervention to millions of children.",
     "categories": [
       "Video",
       "Creative Technology"
@@ -663,9 +829,8 @@
     "year": 2024,
     "month": 11,
     "tagline": "Crawl through Harvard Yard for free speech in a 20-foot shirt",
-    "description": "Performance art for the Harvard Community",
     "what": "Harvard ranked last out of 258 universities in the 2024 free speech rankings. Roy handwrote the entire 2,121-word Harvard Campus Use Rules on a 20-foot shirt and crawled through Harvard Yard and up the Widener Library steps. Inspired by the work of Pope.L.",
-    "why": "Disseminating the university's own words to its own community \u2014 a mirror held up to the Rules and the fear they encode, on both sides.",
+    "why": "Disseminating the university's own words to its own community — a mirror held up to the Rules and the fear they encode, on both sides.",
     "categories": [
       "Art",
       "Installation"
@@ -747,7 +912,6 @@
     "year": 2021,
     "month": 2,
     "tagline": "A classification system for design research methods",
-    "description": "Classify narratives based on perspective",
     "what": "A two-axis classification system for narrative mediums based on the perspective the story gives the viewer. The key test: would the viewer say 'they went home' (3rd person), 'you fight the zombies' (2nd), 'I built a city' (1st), or 'Go here' (0th person)?",
     "why": "Different levels of visual fidelity and viewer agency correspond to different narrative forms. This system is a design tool for selecting the qualities that will make a story most effective.",
     "categories": [
@@ -777,18 +941,17 @@
     "title": "Mu Mirror",
     "year": 2024,
     "month": 11,
-    "tagline": "p5.js webcam dot-grid \u2014 a Zen koan about the boundary of self",
-    "description": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. But most people don't have the time or patience to sit on a cushion long enough \u2014 so I wanted to try and make a piece of digital art that might give them a shortcut.",
-    "what": "Built in p5.js. Reads webcam data, compares pixels between frames by color similarity, and moves each pixel-dot toward its closest match \u2014 lerping both location and color over time. The result: your reflection dissolves and re-forms as a living dot-field.",
-    "why": "Zen koans use riddles to trigger insight. This piece tries to make non-duality felt in the body rather than understood intellectually \u2014 if your reflection is made of the same dots as everything around you, where do you end?",
+    "tagline": "p5.js webcam dot-grid — a Zen koan about the boundary of self",
+    "what": "Built in p5.js. Reads webcam data, compares pixels between frames by color similarity, and moves each pixel-dot toward its closest match — lerping both location and color over time. The result: your reflection dissolves and re-forms as a living dot-field.",
+    "why": "Zen koans use riddles to trigger insight. This piece tries to make non-duality felt in the body rather than understood intellectually — if your reflection is made of the same dots as everything around you, where do you end?",
     "categories": [
       "Art",
       "Creative Technology",
       "Web"
     ],
     "axes": {
-      "pragmatic": 0.05,
-      "institutional": 0.1
+      "pragmatic": 0.15,
+      "institutional": 0.23
     },
     "thumbnail": "assets/projects/mu-mirror/thumb.jpg",
     "images": [
@@ -826,10 +989,9 @@
     "title": "Digital Typewriter",
     "year": 2024,
     "month": 11,
-    "tagline": "No-backspace writing tool \u2014 commit to every word",
-    "description": "Write for keeps.  No backspace.  No undo.",
+    "tagline": "No-backspace writing tool — commit to every word",
     "what": "Browser app in vanilla JS. No delete, no backspace, no undo. Characters are permanent. A tool for writing with commitment rather than endless revision.",
-    "why": "Digital Typewriter is one of several projects exploring constraints as creative catalysts \u2014 the proposal that limitation is not always the enemy of expression, and that sometimes the best way to unlock creativity is to remove the ability to second-guess it. An attempt to bring David Pye's 'workmanship of risk' back to digital media, and a solution to Walter Benjamin's struggles with art in the age of mechanical reproduction.",
+    "why": "Digital Typewriter is one of several projects exploring constraints as creative catalysts — the proposal that limitation is not always the enemy of expression, and that sometimes the best way to unlock creativity is to remove the ability to second-guess it. An attempt to bring David Pye's 'workmanship of risk' back to digital media, and a solution to Walter Benjamin's struggles with art in the age of mechanical reproduction.",
     "categories": [
       "Tools",
       "Web"
@@ -858,16 +1020,15 @@
     "year": 2025,
     "month": 5,
     "tagline": "SDF 3D-printed flame sculpture",
-    "description": "A 3D-printed flame modeled as a signed distance function in Rhino, Grasshopper, and Blender.",
-    "what": "A 3D-printed flame built using a signed distance field (SDF) in Rhino/Grasshopper. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value \u2014 creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moir\u00e9 effect that makes the flame appear to flicker.",
+    "what": "A 3D-printed flame built using a signed distance field (SDF) in Rhino/Grasshopper. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value — creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moiré effect that makes the flame appear to flicker.",
     "why": "The project is a meditation on translation: what gets preserved and what gets lost when an idea moves from mathematics to matter.",
     "categories": [
       "Fabrication",
       "Art"
     ],
     "axes": {
-      "pragmatic": 0.08,
-      "institutional": 0.1
+      "pragmatic": 0.38,
+      "institutional": 0.37
     },
     "thumbnail": "assets/projects/matchstick/3sdf.png",
     "images": [
@@ -903,12 +1064,11 @@
   {
     "id": "rehoboth",
     "title": "Rehoboth",
-    "year": 2018,
+    "year": 2017,
     "month": 9,
-    "tagline": "LiDAR hologram VR experience \u2014 a walkable memory of a place and its people",
-    "description": "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die.",
+    "tagline": "LiDAR hologram VR experience — a walkable memory of a place and its people",
     "what": "VR experience combining LiDAR hologram depth video with photogrammetry to create a walkable memory of a family home. Captured with Azure Kinect and iPhone 12 LiDAR via Depthkit, integrated in Unity.",
-    "why": "LiDAR holograms are glitchy and pixelated \u2014 imperfect like our own memories. This project used that imperfection as an emotional quality, not a technical limitation.",
+    "why": "LiDAR holograms are glitchy and pixelated — imperfect like our own memories. This project used that imperfection as an emotional quality, not a technical limitation.",
     "categories": [
       "XR",
       "Art"
@@ -951,7 +1111,7 @@
       },
       {
         "name": "Luis Zanforlin",
-        "url": "",
+        "url": "https://www.luiszanforlin.com/",
         "role": "Unity Scripting"
       }
     ],
@@ -963,16 +1123,15 @@
     "year": 2024,
     "month": 12,
     "tagline": "A digital sculpture about holding on and letting go",
-    "description": "A digital sculpture about holding on and letting go",
-    "what": "Two people photographed hugging, photogrammetry-scanned into 3D meshes, decimated, and reconstructed in Rhino/Grasshopper with a custom script that tiles ginkgo leaves across every face of the mesh \u2014 each leaf oriented to the face normal and scripted to blow away in simulated wind. Multi-material resin print. Three earlier iterations were abandoned (subtracting one body to reveal an invisible hugger; stretching the legs to suggest precariousness; 3D printing the mesh wireframe) before the leaf system emerged as the form that could actually carry the emotion.",
-    "why": "A hug is one of the most human things there is, and also one of the most impossible to hold onto. The ginkgo leaf \u2014 which drops all at once, suddenly, after holding on all season \u2014 became the formal language for this paradox: we try to keep what we love, but the trying is both foolish and impossible. Seeing beauty in temporariness is a clearer, kinder path.",
+    "what": "Two people photographed hugging, photogrammetry-scanned into 3D meshes, decimated, and reconstructed in Rhino/Grasshopper with a custom script that tiles ginkgo leaves across every face of the mesh — each leaf oriented to the face normal and scripted to blow away in simulated wind. Multi-material resin print. Three earlier iterations were abandoned (subtracting one body to reveal an invisible hugger; stretching the legs to suggest precariousness; 3D printing the mesh wireframe) before the leaf system emerged as the form that could actually carry the emotion.",
+    "why": "A hug is one of the most human things there is, and also one of the most impossible to hold onto. The ginkgo leaf — which drops all at once, suddenly, after holding on all season — became the formal language for this paradox: we try to keep what we love, but the trying is both foolish and impossible. Seeing beauty in temporariness is a clearer, kinder path.",
     "categories": [
       "Art",
       "Fabrication"
     ],
     "axes": {
-      "pragmatic": 0.05,
-      "institutional": 0.08
+      "pragmatic": 0.02,
+      "institutional": 0.19
     },
     "thumbnail": "assets/projects/hug/thumb.jpg",
     "images": [
@@ -1038,9 +1197,8 @@
     "year": 2025,
     "month": 2,
     "tagline": "Music visualizer that looks like raindrops falling upward onto the night sky",
-    "description": "Ripplestar is a music visualizer that looks like raindrops falling upwards onto the night sky.",
     "what": "WebGL + Web Audio API. Audio input (mic or file) drives an FFT analysis that seeds particle emitters. Particles follow a custom gravitational simulation with spring forces. Fully configurable color and physics parameters.",
-    "why": "Most music visualizers map frequency directly to visual parameters. This project used audio as a trigger for a simulation with its own dynamics \u2014 so the visuals have memory.",
+    "why": "Most music visualizers map frequency directly to visual parameters. This project used audio as a trigger for a simulation with its own dynamics — so the visuals have memory.",
     "categories": [
       "Creative Technology",
       "Web"
@@ -1068,9 +1226,8 @@
     "year": 2025,
     "month": 4,
     "tagline": "Robot that draws cinnamon patterns on cakes",
-    "description": "A drawing robot with a polar gantry system that uses a vibrating end effector to deposit cinnamon in precise circles on cakes and coffee.",
-    "what": "A polar-coordinate drawing robot: a rotating platform on roller bearings controlled by a 12V stepper motor, with a linear screw motor moving a vibrating cinnamon-dispensing end effector along the radius. The cinnamon only deposits when the eccentric motor vibrates \u2014 the platform rotates a full circle while the radial position is fixed, drawing precise cinnamon rings. Built over a 4am all-night sprint in the PS70 lab. Group project with Ian Palk, Marcus, and Calvin.",
-    "why": "My partner is a pastry chef \u2014 we wanted to make a machine that could draw with cinnamon on her cakes and coffee. Everyone was immediately on board with this completely unhinged idea.",
+    "what": "A polar-coordinate drawing robot: a rotating platform on roller bearings controlled by a 12V stepper motor, with a linear screw motor moving a vibrating cinnamon-dispensing end effector along the radius. The cinnamon only deposits when the eccentric motor vibrates — the platform rotates a full circle while the radial position is fixed, drawing precise cinnamon rings. Built over a 4am all-night sprint in the PS70 lab. Group project with Ian Palk, Marcus, and Calvin.",
+    "why": "My partner is a pastry chef — we wanted to make a machine that could draw with cinnamon on her cakes and coffee. Everyone was immediately on board with this completely unhinged idea.",
     "categories": [
       "Fabrication",
       "Creative Technology"
@@ -1087,7 +1244,7 @@
     ],
     "axes": {
       "pragmatic": 0.62,
-      "institutional": 0.12
+      "institutional": 0.34
     },
     "thumbnail": "assets/projects/cinnabot/gantryfinalishinf.gif",
     "images": [
@@ -1147,10 +1304,9 @@
     "title": "PigeonBelt",
     "year": 2025,
     "month": 5,
-    "tagline": "Compass belt that vibrates when you face north \u2014 wearable wayfinding",
-    "description": "A wearable belt module with an ESP32, BNO055 compass, and eccentric motor that vibrates subtly when the wearer faces north.",
-    "what": "An ESP32 Xiao-based wearable module containing a Bosch BNO055 9-axis IMU for compass heading, an eccentric motor for haptic feedback, a li-po battery with USB charging, an LED indicator, and a custom Fusion 360 housing with a pigeon-embossed snap-on front face designed by Julia. The BNO055 outputs a calibrated Euler-angle yaw referenced to north \u2014 the motor buzzes once when the wearer faces north.",
-    "why": "This has been an idea since I was ten years old \u2014 using felt sense rather than a screen for navigation, turning your understanding of urban space into something embodied. Twenty-six years later, here we are.",
+    "tagline": "Compass belt that vibrates when you face north — wearable wayfinding",
+    "what": "An ESP32 Xiao-based wearable module containing a Bosch BNO055 9-axis IMU for compass heading, an eccentric motor for haptic feedback, a li-po battery with USB charging, an LED indicator, and a custom Fusion 360 housing with a pigeon-embossed snap-on front face designed by Julia. The BNO055 outputs a calibrated Euler-angle yaw referenced to north — the motor buzzes once when the wearer faces north.",
+    "why": "This has been an idea since I was ten years old — using felt sense rather than a screen for navigation, turning your understanding of urban space into something embodied. Twenty-six years later, here we are.",
     "categories": [
       "Wearables",
       "HCI"
@@ -1165,28 +1321,51 @@
       "PS70"
     ],
     "axes": {
-      "pragmatic": 0.72,
+      "pragmatic": 0.91,
       "institutional": 0.28
     },
     "thumbnail": "assets/projects/pigeonbelt/pigeonhero.jpg",
     "images": [
-      "assets/projects/pigeonbelt/pigeonhero.jpg",
       "assets/projects/pigeonbelt/pigeonbeltworn.gif",
       "assets/projects/pigeonbelt/fusionbuckle.gif",
-      "assets/projects/pigeonbelt/pigeondrawing.jpg",
       "assets/projects/pigeonbelt/pigeonblender.gif",
-      "assets/projects/pigeonbelt/frontface1.jpg",
+      "assets/projects/pigeonbelt/pigeonhero.jpg",
+      "assets/projects/pigeonbelt/bosch1.JPG",
+      "assets/projects/pigeonbelt/breadboard.JPG",
       "assets/projects/pigeonbelt/breadboardcomplete.jpg",
+      "assets/projects/pigeonbelt/batterysolder.JPG",
+      "assets/projects/pigeonbelt/prototypebreadboard.JPG",
+      "assets/projects/pigeonbelt/breadboardprototypedone.JPG",
+      "assets/projects/pigeonbelt/pigeondrawing.jpg",
+      "assets/projects/pigeonbelt/pigeonphotoshop.jpg",
+      "assets/projects/pigeonbelt/frontface1.jpg",
+      "assets/projects/pigeonbelt/frontface2.JPG",
       "assets/projects/pigeonbelt/pigeonbelt.png"
     ],
     "videos": [
-      "https://www.youtube.com/watch?v=xySM_qSlbhk&t=16s"
+      {
+        "url": "https://www.youtube.com/watch?v=xySM_qSlbhk&t=16s",
+        "heroOverride": true
+      }
     ],
     "liveUrl": null,
     "sourceUrl": null,
     "awards": [],
     "medium": "Fabrication",
-    "label": "green"
+    "label": "green",
+    "hero": "assets/projects/pigeonbelt/pigeonbeltworn.gif",
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer, Engineer"
+      },
+      {
+        "name": "Julia",
+        "url": "",
+        "role": "Front face illustration"
+      }
+    ]
   },
   {
     "id": "cnc-cheeseboard",
@@ -1194,9 +1373,8 @@
     "year": 2025,
     "month": 5,
     "tagline": "Topographic cheese board of the Ojai valley milled on a ShopBot CNC",
-    "description": "A topographic cheese board of the Ojai valley in California",
     "what": "Used TouchTerrain to generate an STL of the Ojai valley terrain, then milled it from an oak block on the ShopBot CNC. The mountain relief creates natural plateaus for cheese and charcuterie. Finished with butcher block conditioner. A prototype for a larger version using two-pass CNC with finer bit sizes for smoother mountain detail.",
-    "why": "My parents live on the edge of a mountain in Ojai, California, and the shape of their valley seemed perfect for a cheese board \u2014 you could rest a little block of brie right in the valley floor.",
+    "why": "My parents live on the edge of a mountain in Ojai, California, and the shape of their valley seemed perfect for a cheese board — you could rest a little block of brie right in the valley floor.",
     "categories": [
       "Fabrication",
       "Craft"
@@ -1209,7 +1387,7 @@
       "wood"
     ],
     "axes": {
-      "pragmatic": 0.05,
+      "pragmatic": 0.24,
       "institutional": 0.08
     },
     "thumbnail": "assets/projects/cnc-cheeseboard/IMG_3763.jpg",
@@ -1255,9 +1433,8 @@
     "year": 2025,
     "month": 3,
     "tagline": "Kinetic oscillating lamp built primarily from plants",
-    "description": "A moving lamp made from laser-cut wood with a gear-driven mechanism that oscillates the fan blades, symbolizing the yin-yang ebb and flow of creating.",
     "what": "A kinetic desk lamp made from laser-cut wood with custom-designed gears that convert the motor's rotational movement into a windshield-wiper oscillation for the fan blades. Designed in Fusion 360, prototyped in cardboard, then lasercut in wood and assembled with screws and a small motor. Battery-powered with a soldered switch and USB light.",
-    "why": "Fanlamp is a moving light that symbolizes the yin-yang ebb and flow process of life and creating \u2014 the orange side might mean stress, the white side peace; or the orange side motivated, the white fallow.",
+    "why": "Fanlamp is a moving light that symbolizes the yin-yang ebb and flow process of life and creating — the orange side might mean stress, the white side peace; or the orange side motivated, the white fallow.",
     "categories": [
       "Fabrication"
     ],
@@ -1270,7 +1447,7 @@
       "PS70"
     ],
     "axes": {
-      "pragmatic": 0.2,
+      "pragmatic": 0.03,
       "institutional": 0.08
     },
     "thumbnail": "assets/projects/fanlamp/fanlampfinished.gif",
@@ -1310,11 +1487,10 @@
     "id": "food-chain",
     "title": "Food Chain",
     "year": 2025,
-    "month": 3,
-    "tagline": "3D-printed food chain pendant sketched in VR \u2014 organic forms from digital tools",
-    "description": "A 3D-printed food chain of interlocking animals, sketched in VR using Adobe Medium and printed in high resolution on a Prusa printer.",
-    "what": "Designed in VR using Adobe Medium \u2014 sketching interlocking animal and plant forms in 3D space \u2014 then exported as OBJ and prepared in Prusa slicer. After multiple failed prints at lower resolutions, succeeded at 0.05mm (9 hours overnight). Support removal required carefully heating a scalpel and using tiny pliers. Second iteration redrawn from scratch with 2D animal outlines extruded in 3D for less support material.",
-    "why": "Exploring what happens when digital tools are used to create objects that feel organic and hand-made. 3D printers excel at interlocking forms, so a food chain \u2014 where each link must pass through the next \u2014 became the design challenge.",
+    "month": 1,
+    "tagline": "3D-printed food chain pendant sketched in VR — organic forms from digital tools",
+    "what": "Designed in VR using Adobe Medium — sketching interlocking animal and plant forms in 3D space — then exported as OBJ and prepared in Prusa slicer. After multiple failed prints at lower resolutions, succeeded at 0.05mm (9 hours overnight). Support removal required carefully heating a scalpel and using tiny pliers. Second iteration redrawn from scratch with 2D animal outlines extruded in 3D for less support material.",
+    "why": "Exploring what happens when digital tools are used to create objects that feel organic and hand-made. 3D printers excel at interlocking forms, so a food chain — where each link must pass through the next — became the design challenge.",
     "categories": [
       "Fabrication",
       "Art"
@@ -1334,20 +1510,36 @@
     "thumbnail": "assets/projects/food-chain/foodchainfinal.jpeg",
     "images": [
       "assets/projects/food-chain/foodchainfinal.jpeg",
-      "assets/projects/food-chain/mediumvr1.gif",
       "assets/projects/food-chain/3dprint2.gif",
+      "assets/projects/food-chain/sketch.jpeg",
+      "assets/projects/food-chain/teachingvr.jpg",
+      "assets/projects/food-chain/mediumvr1.gif",
+      "assets/projects/food-chain/mediumvr2.gif",
+      "assets/projects/food-chain/prusachain1.png",
+      "assets/projects/food-chain/prusachain2.png",
+      "assets/projects/food-chain/3dprint1.gif",
       "assets/projects/food-chain/hireslowres.jpeg",
+      "assets/projects/food-chain/timelapse.gif",
+      "assets/projects/food-chain/supportmaterial.jpeg",
       "assets/projects/food-chain/foodchain1cleaned.gif",
       "assets/projects/food-chain/prusachain2.gif",
-      "assets/projects/food-chain/timelapse.gif"
+      "assets/projects/food-chain/3dprintfail.jpeg",
+      "assets/projects/food-chain/prusachain4.png"
     ],
     "videos": [],
     "liveUrl": null,
     "sourceUrl": null,
     "awards": [],
     "medium": "Fabrication",
-    "who": [],
-    "label": "green"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer, Engineer"
+      }
+    ],
+    "label": "green",
+    "hero": "assets/projects/food-chain/3dprint2.gif"
   },
   {
     "id": "windowsill-stamp",
@@ -1355,9 +1547,8 @@
     "year": 2025,
     "month": 4,
     "tagline": "CNC-milled wax mold for casting a silicone stamp of the Windowsill Bakery logo",
-    "description": "A CNC-milled wax mold used to cast a silicone stamp of a partner's bakery logo, made as a gift for her small business.",
-    "what": "Converted the Windowsill Bakery hand-drawn logo into Blender paths, applied as a displacement map to a wax mold surface. CNC-milled using two bit sizes \u2014 1/8\" for bulk material removal, 1/16\" for fine letterwork. Cast with equal-part A/B silicone, left to cure 16 hours, then trimmed and tested as a cake-box stamp.",
-    "why": "My partner runs Windowsill Bakery and stamps all her custom cake boxes by hand. I'd wanted to make her a proper stamp for months but couldn't figure out the right workflow \u2014 CNC-milling wax for silicone casting turned out to be the answer.",
+    "what": "Converted the Windowsill Bakery hand-drawn logo into Blender paths, applied as a displacement map to a wax mold surface. CNC-milled using two bit sizes — 1/8\" for bulk material removal, 1/16\" for fine letterwork. Cast with equal-part A/B silicone, left to cure 16 hours, then trimmed and tested as a cake-box stamp.",
+    "why": "My partner runs Windowsill Bakery and stamps all her custom cake boxes by hand. I'd wanted to make her a proper stamp for months but couldn't figure out the right workflow — CNC-milling wax for silicone casting turned out to be the answer.",
     "categories": [
       "Fabrication",
       "Craft"
@@ -1371,7 +1562,7 @@
       "PS70"
     ],
     "axes": {
-      "pragmatic": 0.08,
+      "pragmatic": 0.47,
       "institutional": 0.05
     },
     "thumbnail": "assets/projects/windowsill-stamp/12-stamp-hero.jpeg",
@@ -1411,7 +1602,6 @@
     "year": 2024,
     "month": 10,
     "tagline": "Research on what spatial media affords that flat media cannot",
-    "description": "A theoretical framework for creating spatial stories",
     "what": "Literature review + 4 prototype studies. Each prototype isolates one affordance (presence, parallax, scale, persistence) and tests how it can carry narrative weight. Paper submitted to CHI 2025.",
     "why": "Spatial media is often described as 'more immersive' but that's not an affordance, it's a feeling. This research tried to be more precise.",
     "categories": [
@@ -1443,10 +1633,9 @@
     "title": "Skybinder",
     "year": 2021,
     "month": 5,
-    "tagline": "Meditative VR puzzle game \u2014 connect dots into origami animals",
-    "description": "A meditative VR puzzle game where players connect numbered dots into triangles to reveal origami animals, co-created at Maku XR.",
-    "what": "A VR puzzle game built in Unity. Players connect numbered dots into triangles, filling in the faces of origami animals piece by piece \u2014 each dot tells you how many connections it needs, but not which. Developed and published by Maku XR. Reviewed by VRScout, 6DOF, UploadVR, and VR Focus.",
-    "why": "Most VR games in 2021 relied on stress and violence. This project asked what the opposite would feel like \u2014 a game designed around calm and thoughtfulness, built from VR's fundamental building blocks: vertices, lines, and faces.",
+    "tagline": "Meditative VR puzzle game — connect dots into origami animals",
+    "what": "A VR puzzle game built in Unity. Players connect numbered dots into triangles, filling in the faces of origami animals piece by piece — each dot tells you how many connections it needs, but not which. Developed and published by Maku XR. Reviewed by VRScout, 6DOF, UploadVR, and VR Focus.",
+    "why": "Most VR games in 2021 relied on stress and violence. This project asked what the opposite would feel like — a game designed around calm and thoughtfulness, built from VR's fundamental building blocks: vertices, lines, and faces.",
     "categories": [
       "XR",
       "Art"
@@ -1508,10 +1697,9 @@
     "title": "Painting Life",
     "year": 2021,
     "month": 3,
-    "tagline": "VR experience \u2014 step inside a painter's home and studio to understand her art",
-    "description": "A VR story where you jump inside an artist\u2019s painting to explore beyond the gallery walls and understand both a new dimension of art, and the human behind it.",
+    "tagline": "VR experience — step inside a painter's home and studio to understand her art",
     "what": "A photogrammetry-based VR narrative experience built in Unity. Players navigate painter Emma Webster's home, studio, and garden, following one of her sculptures as a guide. Scanned in RealityCapture, cleaned in Adobe Medium and Blender. Awarded NewView VR Tokyo.",
-    "why": "Visiting an artist's studio reveals context no gallery can provide. VR makes that intimate, exploratory encounter accessible \u2014 not as a documentary to watch but as a space you inhabit and move through on your own terms.",
+    "why": "Visiting an artist's studio reveals context no gallery can provide. VR makes that intimate, exploratory encounter accessible — not as a documentary to watch but as a space you inhabit and move through on your own terms.",
     "categories": [
       "XR",
       "Art"
@@ -1539,7 +1727,7 @@
     "liveUrl": "https://sidequestvr.com/app/1885/painting-life",
     "sourceUrl": "https://www.wyattroy.com/xr/painting-life",
     "awards": [
-      "NewView Award VR Tokyo \u2014 Silver Award"
+      "NewView Award VR Tokyo — Silver Award"
     ],
     "medium": "VR",
     "tags": [],
@@ -1574,8 +1762,7 @@
     "year": 2023,
     "month": 6,
     "tagline": "VR experience shrinking you into the soil microbiome to explain Sound Agriculture's technology",
-    "description": "All over the world farmers are using fertilizer to grow our food.  Fertilizer works, but it's inefficient and terrible for the environment.  Sound Agriculture is an ag-tech startup that invented a way to use much less fertilizer to grow significantly healthier crops.",
-    "what": "A commissioned VR experience for Sound Agriculture. You start in an Idaho cornfield, then shrink into the soil until you are the same size as the microbes that help plants grow \u2014 giving you a first-person view of the biology their product activates. Translated into Spanish and Portuguese.",
+    "what": "A commissioned VR experience for Sound Agriculture. You start in an Idaho cornfield, then shrink into the soil until you are the same size as the microbes that help plants grow — giving you a first-person view of the biology their product activates. Translated into Spanish and Portuguese.",
     "why": "Sound Agriculture's technology reduces fertilizer use significantly, but it works through invisible soil biology. Making the invisible literally walkable is more powerful than any diagram or explainer video.",
     "categories": [
       "XR",
@@ -1614,10 +1801,9 @@
     "title": "Piece of String",
     "year": 2019,
     "month": 9,
-    "tagline": "VR photogrammetry piece \u2014 follow a string through a real home and the memories left behind",
-    "description": "An Architectural dreamscape rendered at home",
+    "tagline": "VR photogrammetry piece — follow a string through a real home and the memories left behind",
     "what": "A VR experience built from DSLR photogrammetry scans of a real home, processed in RealityCapture, cleaned in Oculus Medium, and assembled in Unity. A piece of string guides you through the rooms, drawing attention to the emotional residue left in spaces by the people who lived in them. Awarded NewView International VR Award.",
-    "why": "When a space is gone and only a digital record remains \u2014 one you can only enter through a headset \u2014 does it still carry the same emotional weight? This piece asks whether presence is architectural or psychological.",
+    "why": "When a space is gone and only a digital record remains — one you can only enter through a headset — does it still carry the same emotional weight? This piece asks whether presence is architectural or psychological.",
     "categories": [
       "XR",
       "Art"
@@ -1626,46 +1812,41 @@
       "pragmatic": 0.1,
       "institutional": 0.12
     },
-    "thumbnail": "assets/projects/piece-of-string/thumb.jpg",
+    "thumbnail": "assets/projects/piece-of-string/img1.jpg",
     "images": [
       "assets/projects/piece-of-string/img1.jpg",
       "assets/projects/piece-of-string/img2.jpg",
       "assets/projects/piece-of-string/img3.jpg",
-      "assets/projects/piece-of-string/img4.jpg"
+      "assets/projects/piece-of-string/img4.jpg",
+      "assets/projects/piece-of-string/thumb.jpg",
+      "assets/projects/piece-of-string/thumb-sm.jpg"
     ],
     "videos": [
       {
-        "url": "https://www.youtube.com/watch?v=23MrooAnZnw",
-        "heroOverride": true
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=2QDeK5TuUCk",
-        "heroOverride": true
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=CSxPDyEeEpI",
-        "heroOverride": true
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=4XdjYU6LM-c",
-        "heroOverride": true
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=oglCYukp77E",
-        "heroOverride": true
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=XUi42iU19rw",
-        "heroOverride": true
+        "url": "https://vimeo.com/1097224484/ff51aa93a7?share=copy&fl=cl&fe=ci",
+        "heroOverride": false
       }
     ],
     "liveUrl": null,
     "sourceUrl": "https://www.wyattroy.com/xr/piece-of-string",
-    "awards": [],
+    "awards": [
+      "NEWVIEW International: Silver Award"
+    ],
     "medium": "VR",
-    "tags": [],
-    "who": [],
-    "label": "yellow"
+    "tags": [
+      "virtual reality",
+      "photogrammetry",
+      "unity"
+    ],
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer"
+      }
+    ],
+    "label": "yellow",
+    "hero": "assets/projects/piece-of-string/img1.jpg"
   },
   {
     "id": "ceramics-3d",
@@ -1673,7 +1854,6 @@
     "year": 2024,
     "month": 6,
     "tagline": "Photogrammetric scans of ceramics",
-    "description": "Photogrammetric scans of ceramics",
     "what": "Workshop materials including session plans, equipment lists, project briefs, and reference images. Piloted with 16 MDes students. Students scan their hand-built forms, modify in Rhino, and print modifications back in clay.",
     "why": "Digital fabrication and craft are usually taught separately. This workshop tried to use each to critique the other.",
     "categories": [
@@ -1683,7 +1863,7 @@
     ],
     "tags": [],
     "axes": {
-      "pragmatic": 0.55,
+      "pragmatic": 0.66,
       "institutional": 0.19
     },
     "thumbnail": "assets/projects/ceramics-3d/bowl1.gif",
@@ -1716,17 +1896,16 @@
     "title": "Play Me",
     "year": 2019,
     "month": 3,
-    "tagline": "Live performance art on Twitch \u2014 the audience controlled my every action for 30 minutes",
-    "description": "An experimental interactive story where I live streamed my first-person point of view to an internet audience who voted to decide my every action \u2014 combining improvisational theatre, performance art, and computer gaming.",
+    "tagline": "Live performance art on Twitch — the audience controlled my every action for 30 minutes",
     "what": "A live Twitch performance in which an internet audience voted every 60 seconds on Wyatt's next action in real life. Built around a helmet-mounted iPhone rig streaming his POV and a Twitch bot compiling audience votes. The audience could suggest any action; he would do it within harm's discretion.",
-    "why": "The hypothesis was that radical perspective-sharing and shared responsibility for decisions would produce empathy. Instead, deindividuation within the group produced the opposite \u2014 the audience treated Wyatt and everyone around him like NPCs, to humorous effect.",
+    "why": "The hypothesis was that radical perspective-sharing and shared responsibility for decisions would produce empathy. Instead, deindividuation within the group produced the opposite — the audience treated Wyatt and everyone around him like NPCs, to humorous effect.",
     "categories": [
       "Art",
       "Installation"
     ],
     "axes": {
-      "pragmatic": 0.2,
-      "institutional": 0.22
+      "pragmatic": 0.16,
+      "institutional": 0.38
     },
     "thumbnail": "assets/projects/play-me/thumb.jpg",
     "images": [
@@ -1771,9 +1950,8 @@
     "year": 2024,
     "month": 10,
     "tagline": "Light sculpture on autumn leaves and gravity",
-    "description": "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change.",
     "what": "10-minute looping video, shot over three weeks in October 2020 in Cambridge. Leaves filmed against a white sheet in diffuse outdoor light. No color grading. Presented as a gallery loop.",
-    "why": "Autumn is one of the most photographed seasons, always as spectacle. Slowing it down removes the spectacle and leaves just physics \u2014 the specific weight and drag of each leaf.",
+    "why": "Autumn is one of the most photographed seasons, always as spectacle. Slowing it down removes the spectacle and leaves just physics — the specific weight and drag of each leaf.",
     "categories": [
       "Art",
       "Video"
@@ -1781,7 +1959,7 @@
     "tags": [],
     "axes": {
       "pragmatic": 0.05,
-      "institutional": 0.1
+      "institutional": 0.06
     },
     "thumbnail": "assets/projects/falling-fall/thumb.jpg",
     "images": [
@@ -1845,9 +2023,8 @@
     "year": 2024,
     "month": 4,
     "tagline": "A museum installation that accelerates human time",
-    "description": "A museum installation that accelerates human time",
-    "what": "12 captures made walking through midtown Manhattan with a 360\u00b0 camera rig. Processed in RealityCapture into ~50M polygon meshes. Decimated versions presented as interactive WebGL objects; full meshes 3D printed at 1:1000 scale.",
-    "why": "The street canyon is an accidental architecture \u2014 built bottom-up by zoning and capitalism. Photogrammetry makes it an object you can hold.",
+    "what": "12 captures made walking through midtown Manhattan with a 360° camera rig. Processed in RealityCapture into ~50M polygon meshes. Decimated versions presented as interactive WebGL objects; full meshes 3D printed at 1:1000 scale.",
+    "why": "The street canyon is an accidental architecture — built bottom-up by zoning and capitalism. Photogrammetry makes it an object you can hold.",
     "categories": [
       "Art",
       "Fabrication",
@@ -1919,8 +2096,7 @@
     "year": 2024,
     "month": 9,
     "tagline": "Psychological belonging intervention delivered as an article of clothing.",
-    "description": "HAAAARD is a psychological belonging intervention delivered as an article of clothing.",
-    "what": "iOS app (Swift). No step counts, no streaks, no graphs. Each day: a single question ('How hard did you move today?') with a 1\u20135 slider. Weekly: a reflection prompt. Annual: a single summary number.",
+    "what": "iOS app (Swift). No step counts, no streaks, no graphs. Each day: a single question ('How hard did you move today?') with a 1–5 slider. Weekly: a reflection prompt. Annual: a single summary number.",
     "why": "Fitness apps create anxiety about the metrics rather than relationship with the body. This one tried to replace the dashboard with a question.",
     "categories": [
       "Tools",
@@ -1966,7 +2142,6 @@
     "year": 2022,
     "month": 9,
     "tagline": "3D-Printed Photogrammetry of Lost Moments",
-    "description": "3D-Printed Photogrammetry of Lost Moments",
     "what": "Three 3-hour sessions: modeling for print (Rhino), slicing and printer operation (Prusa MK3S), and finishing and post-processing. Includes tutorials, exercises, and a final project brief.",
     "why": "FabLab inductions often teach tool operation without design context. This curriculum started from design intent and worked back to machine operation.",
     "categories": [
@@ -1979,7 +2154,7 @@
     ],
     "axes": {
       "pragmatic": 0.2,
-      "institutional": 0.2
+      "institutional": 0.3
     },
     "thumbnail": "assets/projects/3d-printing/thumb.jpg",
     "images": [
@@ -2019,9 +2194,8 @@
     "year": 2024,
     "month": 9,
     "tagline": "Proposal for a student-led memorial to Harvard's enslaved laborers",
-    "description": "What would the Berlin Holocaust memorial look like at Harvard?",
     "what": "Design process: 8 student workshops, 3 faculty interviews, archival research. Proposal includes spatial concept, material palette, programming, and maintenance plan. Submitted to Harvard's Presidential Task Force on Slavery.",
-    "why": "Harvard's memorial planning has been faculty and administrator-led. This proposal insisted that students \u2014 especially Black students \u2014 should lead the design.",
+    "why": "Harvard's memorial planning has been faculty and administrator-led. This proposal insisted that students — especially Black students — should lead the design.",
     "categories": [
       "Design",
       "Research"
@@ -2069,16 +2243,15 @@
     "year": 2024,
     "month": 6,
     "tagline": "Digitally-aided analogue production",
-    "description": "Three handmade paper lamps \u2014 Chicken, Droplet, and Dolphin \u2014 designed with digital tools and constructed by hand from wooden dowel and Nepali lokta paper.",
     "what": "8-lamp series. Paper made from kozo fiber processed in a home studio. Frames bent from mild steel rod. Fitted with Edison bulbs and simple toggle switches.",
-    "why": "Washi transmits light differently from glass or plastic \u2014 warmer, more directional, with visible texture. This series tried to make that difference the point.",
+    "why": "Washi transmits light differently from glass or plastic — warmer, more directional, with visible texture. This series tried to make that difference the point.",
     "categories": [
       "Craft",
       "Art"
     ],
     "axes": {
-      "pragmatic": 0.22,
-      "institutional": 0.08
+      "pragmatic": 0.28,
+      "institutional": 0.16
     },
     "thumbnail": "assets/projects/paper-lamps/thumb.jpg",
     "images": [
@@ -2110,7 +2283,7 @@
       },
       {
         "name": "Julia Mattis",
-        "url": "",
+        "url": "https://www.instagram.com/windowsill.bakery/",
         "role": "Designer, Fabricator"
       }
     ],
@@ -2121,16 +2294,15 @@
     "title": "Galapagos",
     "year": 2015,
     "month": 11,
-    "tagline": "Stanford documentary \u2014 chasing wonder at the edge of the Gal\u00e1pagos",
-    "description": "A short documentary about Stanford students and alumni learning together in the Gal\u00e1pagos Islands.",
-    "what": "Stanford education extends beyond the classroom, and beyond your twenties.\n\nOur panga bounced in the choppy water. We'd caught two flights, a bus, another flight, another bus, a ferry, another bus, and were finally at our destination \u2014 an abandoned archipelago in the middle of the Pacific. The isolation of the Gal\u00e1pagos is its source of power; but also renders it devastatingly fragile.\n\nTwelve Sophomore undergrads were there for a class called Darwin, Evolution, Gal\u00e1pagos. 30 alumni were there for a Continued Learning vacation. The professor was there to make sure everyone learned and stayed alive.",
+    "tagline": "Stanford documentary — chasing wonder at the edge of the Galápagos",
+    "what": "Stanford education extends beyond the classroom, and beyond your twenties.\n\nOur panga bounced in the choppy water. We'd caught two flights, a bus, another flight, another bus, a ferry, another bus, and were finally at our destination — an abandoned archipelago in the middle of the Pacific. The isolation of the Galápagos is its source of power; but also renders it devastatingly fragile.\n\nTwelve Sophomore undergrads were there for a class called Darwin, Evolution, Galápagos. 30 alumni were there for a Continued Learning vacation. The professor was there to make sure everyone learned and stayed alive.",
     "why": "Stanford asked me to capture its community's love of learning as seen through the frame of this magical wilderness.",
     "categories": [
       "Video"
     ],
     "axes": {
-      "pragmatic": 0.13,
-      "institutional": 0.7
+      "pragmatic": 0.08,
+      "institutional": 0.82
     },
     "thumbnail": "assets/projects/galapagos/thumb.jpg",
     "images": [
@@ -2171,10 +2343,9 @@
     "title": "PhilDev",
     "year": 2015,
     "month": 4,
-    "tagline": "Design strategy for a Philippine development nonprofit",
-    "description": "We were eating dinner with tech innovator Dado Banatao in Manila, Philippines.  We\u2019d flown in from San Francisco at 5am that morning in advance of a two week shoot for his foundation, PhilDev.",
+    "tagline": "Documentary for a Filipino nonprofit",
     "what": "6-month engagement: stakeholder interviews, theory of change mapping, communications audit, brand refresh (identity system + web redesign), and measurement framework. Implemented by PhilDev staff.",
-    "why": "Development nonprofits often have strong programs and weak communications. This engagement tried to close that gap \u2014 making the work legible to funders and beneficiaries alike.",
+    "why": "Development nonprofits often have strong programs and weak communications. This engagement tried to close that gap — making the work legible to funders and beneficiaries alike.",
     "categories": [
       "Design",
       "Research"
@@ -2184,7 +2355,24 @@
       "institutional": 0.7
     },
     "thumbnail": "assets/projects/phildev/thumb.jpg",
-    "images": [],
+    "images": [
+      "assets/projects/phildev/IMG_3711 Large.jpeg",
+      "assets/projects/phildev/IMG_3275 Large.jpeg",
+      "assets/projects/phildev/IMG_2860 Large.jpeg",
+      "assets/projects/phildev/IMG_3527 Large.jpeg",
+      "assets/projects/phildev/IMG_3315 Large.jpeg",
+      "assets/projects/phildev/thumb.jpg",
+      "assets/projects/phildev/IMG_3618 Large.jpeg",
+      "assets/projects/phildev/IMG_3426 Large.jpeg",
+      "assets/projects/phildev/IMG_3516 Large.jpeg",
+      "assets/projects/phildev/IMG_3568 Large.jpeg",
+      "assets/projects/phildev/IMG_3590 Large.jpeg",
+      "assets/projects/phildev/IMG_3008 Large.jpeg",
+      "assets/projects/phildev/thumb-sm.jpg",
+      "assets/projects/phildev/IMG_3303 Large.jpeg",
+      "assets/projects/phildev/IMG_3659 Large.jpeg",
+      "assets/projects/phildev/IMG_3246 Large.jpeg"
+    ],
     "videos": [
       {
         "url": "https://www.youtube.com/watch?v=ila9CGEu7Ks",
@@ -2196,8 +2384,40 @@
     "awards": [],
     "medium": "Film",
     "tags": [],
-    "who": [],
-    "label": "yellow"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Creative Director"
+      },
+      {
+        "name": "Garrett Gunther",
+        "url": "https://garrettgunther.com/",
+        "role": "Creative Director"
+      },
+      {
+        "name": "Kris Cheng",
+        "url": "https://www.krischeng.com/",
+        "role": "Creative Director"
+      },
+      {
+        "name": "Kai Sotto",
+        "url": "",
+        "role": "Producer"
+      },
+      {
+        "name": "Bailey Richardson",
+        "url": "",
+        "role": "Producer"
+      },
+      {
+        "name": "Dado Banatao",
+        "url": "",
+        "role": "Subject"
+      }
+    ],
+    "label": "yellow",
+    "hero": "assets/projects/phildev/thumb-sm.jpg"
   },
   {
     "id": "sols",
@@ -2205,9 +2425,8 @@
     "year": 2015,
     "month": 8,
     "tagline": "A whole life story as experienced by feet",
-    "description": "A 100-second branded film for Sols insoles, told entirely from the perspective of feet \u2014 capturing one woman's life from childhood through loss to rediscovery.",
-    "what": "iPhone LiDAR scan \u2192 custom Python processing \u2192 Rhino/Grasshopper parametric model \u2192 SLS print in TPU. Prototype fit-tested with 8 participants over 6 weeks.",
-    "why": "Custom orthotics cost $400\u2013$800 and require specialist visits. This workflow brought the cost to ~$60 and the turnaround to 3 days.",
+    "what": "iPhone LiDAR scan → custom Python processing → Rhino/Grasshopper parametric model → SLS print in TPU. Prototype fit-tested with 8 participants over 6 weeks.",
+    "why": "Custom orthotics cost $400–$800 and require specialist visits. This workflow brought the cost to ~$60 and the turnaround to 3 days.",
     "categories": [
       "Fabrication",
       "HCI",
@@ -2215,7 +2434,7 @@
     ],
     "axes": {
       "pragmatic": 0.2,
-      "institutional": 0.2
+      "institutional": 0.33
     },
     "thumbnail": "assets/projects/sols/thumb.jpg",
     "images": [
@@ -2290,16 +2509,15 @@
     "year": 2015,
     "month": 3,
     "tagline": "Video ad for Calm where the commercial itself was a meditation",
-    "description": "The one app that wants you to pay less attention to it.",
     "what": "A video commissioned for Calm, the meditation app. The creative brief was nature-focused; the production process involved extended meditation research. The resulting video is designed so that watching it offers a glimpse of the calm the app promises.",
-    "why": "Calm's brand is defined by nature and restraint. The insight was that a commercial for a relaxation app could itself be a small act of relaxation \u2014 making the form match the product.",
+    "why": "Calm's brand is defined by nature and restraint. The insight was that a commercial for a relaxation app could itself be a small act of relaxation — making the form match the product.",
     "categories": [
       "Video"
     ],
     "tags": [],
     "axes": {
-      "pragmatic": 0.2,
-      "institutional": 0.3
+      "pragmatic": 0.47,
+      "institutional": 0.45
     },
     "thumbnail": "assets/projects/calm/thumb.jpg",
     "images": [
@@ -2360,15 +2578,14 @@
     "year": 2018,
     "month": 12,
     "tagline": "A short film about the people and technology bringing off-grid energy to rural Rwanda.",
-    "description": "A short film about the people and technology bringing off-grid energy to rural Rwanda.",
     "what": "A short documentary film about OffGridBox, a company bringing containerized solar and water purification systems to off-grid communities in Rwanda. Made after visiting the country and seeing the impact firsthand.",
-    "why": "Something amazing is happening in Rwanda \u2014 many amazing things. I made this film about one of them.",
+    "why": "Something amazing is happening in Rwanda — many amazing things. I made this film about one of them.",
     "categories": [
       "Video"
     ],
     "axes": {
-      "pragmatic": 0.1,
-      "institutional": 0.7
+      "pragmatic": 0.34,
+      "institutional": 0.63
     },
     "thumbnail": "assets/projects/offgridbox/thumb.jpg",
     "images": [
@@ -2426,16 +2643,15 @@
     "year": 2016,
     "month": 2,
     "tagline": "Documentary about women, solar power, and wildlife at the ede of a Nepali jungle, where humans and wildlife share a border",
-    "description": "At the edge of a Nepali jungle, ordinary people live amongst wild animals.",
-    "what": "A documentary about the buffer zone at the edge of Chitwan National Park, Nepal \u2014 where ordinary people live alongside wild animals, the army protects rhinos from illegal poaching, and women move out of poverty by selling solar light.\n\nCreated for two American nonprofits: Empowered By Light and Empower Generation.",
-    "why": "My brief was to make a three-minute mini-documentary. Two trips, four weeks of shooting, and hundreds of hours of footage later, I realized that this many perspectives required more time.\n\nDirector: Wyatt Roy \u00b7 Producer: Alyssa Newman \u00b7 Pre-production: Arthur Scott, Ashley Gremmel",
+    "what": "A documentary about the buffer zone at the edge of Chitwan National Park, Nepal — where ordinary people live alongside wild animals, the army protects rhinos from illegal poaching, and women move out of poverty by selling solar light.\n\nCreated for two American nonprofits: Empowered By Light and Empower Generation.",
+    "why": "My brief was to make a three-minute mini-documentary. Two trips, four weeks of shooting, and hundreds of hours of footage later, I realized that this many perspectives required more time.\n\nDirector: Wyatt Roy · Producer: Alyssa Newman · Pre-production: Arthur Scott, Ashley Gremmel",
     "categories": [
       "Video"
     ],
     "tags": [],
     "axes": {
-      "pragmatic": 0.25,
-      "institutional": 0.38
+      "pragmatic": 0.58,
+      "institutional": 0.55
     },
     "thumbnail": "assets/projects/bufferzone/thumb.jpg",
     "images": [
@@ -2497,7 +2713,7 @@
       },
       {
         "name": "Briene Lermitte",
-        "url": "",
+        "url": "https://www.instagram.com/brienelermitte/",
         "role": "Cinematopgrapher"
       },
       {
@@ -2518,10 +2734,9 @@
     "title": "StreetLogic",
     "year": 2017,
     "month": 4,
-    "tagline": "Launch video for StreetLogic \u2014 an AI-powered smart dashcam for cyclists",
-    "description": "Your extra set of eyes on the road",
-    "what": "A launch video made for StreetLogic, a smart bike dashcam that records 360\u00b0 footage and uses AI to warn cyclists when vehicles approach dangerously. Made to help spread the vision of safe urban cycling to cyclists and investors.",
-    "why": "I love cycling in cities and the danger is real. StreetLogic needed to sell a dream as much as a product \u2014 safety on streets that are already hostile to cyclists.",
+    "tagline": "Launch video for StreetLogic — an AI-powered smart dashcam for cyclists",
+    "what": "A launch video made for StreetLogic, a smart bike dashcam that records 360° footage and uses AI to warn cyclists when vehicles approach dangerously. Made to help spread the vision of safe urban cycling to cyclists and investors.",
+    "why": "I love cycling in cities and the danger is real. StreetLogic needed to sell a dream as much as a product — safety on streets that are already hostile to cyclists.",
     "categories": [
       "Video"
     ],
@@ -2550,19 +2765,21 @@
     "title": "Peloton",
     "year": 2014,
     "month": 3,
-    "tagline": "Video for a trucking safety company \u2014 helped land Bloomberg coverage and raise a funding round",
-    "description": "Long before the bike in your bedroom, Peloton was a truck on a highway",
-    "what": "A brand and technology video for Peloton Technology \u2014 a trucking safety company (no relation to the bike brand) whose AI-assisted convoy systems reduce accidents and fuel consumption. The video helped secure Bloomberg News coverage and close the company's next funding round.",
-    "why": "Trucking technology is life-and-death but its audiences \u2014 fleet managers, investors, regulators \u2014 are not easily moved by specs. Video that makes the human and safety stakes vivid is more persuasive than any data sheet.",
+    "tagline": "Video for a trucking safety company that helped raise a funding round",
+    "what": "A brand and technology video for Peloton Technology — a trucking safety company (no relation to the bike brand) whose AI-assisted convoy systems reduce accidents and fuel consumption. The video helped secure Bloomberg News coverage and close the company's next funding round.",
+    "why": "Trucking technology is life-and-death but its audiences — fleet managers, investors, regulators — are not easily moved by specs. Video that makes the human and safety stakes vivid is more persuasive than any data sheet.",
     "categories": [
       "Video"
     ],
     "axes": {
-      "pragmatic": 0.3,
-      "institutional": 0.4
+      "pragmatic": 0.15,
+      "institutional": 0.47
     },
     "thumbnail": "assets/projects/peloton/thumb.jpg",
-    "images": [],
+    "images": [
+      "assets/projects/peloton/thumb.jpg",
+      "assets/projects/peloton/thumb-sm.jpg"
+    ],
     "videos": [
       {
         "url": "https://vimeo.com/94686000",
@@ -2570,12 +2787,46 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/video/peloton",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Film",
-    "tags": [],
-    "who": [],
-    "label": "yellow"
+    "tags": [
+      "video",
+      "launch",
+      "startup",
+      "fundraise",
+      "transportation"
+    ],
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Creative Director"
+      },
+      {
+        "name": "Kris Cheng",
+        "url": "https://www.krischeng.com/",
+        "role": "Creative Director"
+      },
+      {
+        "name": "Garrett Gunther",
+        "url": "",
+        "role": "Creative Director"
+      },
+      {
+        "name": "Ethan",
+        "url": "",
+        "role": "Drone Operator"
+      },
+      {
+        "name": "Wayland",
+        "url": "",
+        "role": "Drone Operator"
+      }
+    ],
+    "label": "yellow",
+    "description": "Long before the bike in your bedroom, Peloton was a truck on a highway",
+    "hero": "assets/projects/peloton/thumb.jpg"
   },
   {
     "id": "storymaker",
@@ -2583,9 +2834,8 @@
     "year": 2025,
     "month": 2,
     "tagline": "Hero's Journey bedtime story companion with random character prompts",
-    "description": "A web tool that helps you ad-lib a complete Hero's Journey bedtime story with randomly generated character prompts for names, fears, objects, and settings.",
-    "what": "A step-by-step web tool that walks you through the stages of the Hero's Journey to help you improvise a complete bedtime story. Each stage gives you random prompts \u2014 character names starting with certain letters, their biggest fears, favorite objects, homelands \u2014 to spark your imagination. You type or say the story aloud as you click through each stage. The site generates the structure and prompts; the narrative drama is up to you.",
-    "why": "It's hard to ad-lib a proper bedtime story with a complete hero's journey arc. I made this simple tool to help you come up with one on the spot. All the narrative drama is still up to you \u2014 but these are the bones. It'll even give you some help with names and relationships to get your ideas flowing.",
+    "what": "A step-by-step web tool that walks you through the stages of the Hero's Journey to help you improvise a complete bedtime story. Each stage gives you random prompts — character names starting with certain letters, their biggest fears, favorite objects, homelands — to spark your imagination. You type or say the story aloud as you click through each stage. The site generates the structure and prompts; the narrative drama is up to you.",
+    "why": "It's hard to ad-lib a proper bedtime story with a complete hero's journey arc. I made this simple tool to help you come up with one on the spot. All the narrative drama is still up to you — but these are the bones. It'll even give you some help with names and relationships to get your ideas flowing.",
     "categories": [
       "Web",
       "Tools"
@@ -2611,9 +2861,8 @@
     "year": 2025,
     "month": 3,
     "tagline": "Images containing every 24-bit RGB color exactly once",
-    "description": "4096\u00d74096 pixel images containing all 16,777,216 possible 24-bit RGB colors exactly once.",
-    "what": "Python script generates the image using a Hilbert curve to minimize perceptual distance between adjacent pixels. Printed at 40\"\u00d740\" on metallic paper. Also available as an interactive web viewer.",
-    "why": "The full RGB color space is usually encountered as an abstract swatch. This project made it a picture \u2014 all of color, at once, in one place.",
+    "what": "Python script generates the image using a Hilbert curve to minimize perceptual distance between adjacent pixels. Printed at 40\"×40\" on metallic paper. Also available as an interactive web viewer.",
+    "why": "The full RGB color space is usually encountered as an abstract swatch. This project made it a picture — all of color, at once, in one place.",
     "categories": [
       "Art",
       "Creative Technology"
@@ -2625,7 +2874,7 @@
     ],
     "axes": {
       "pragmatic": 0.08,
-      "institutional": 0.08
+      "institutional": 0.48
     },
     "thumbnail": "assets/projects/all-rgb/thumb.jpg",
     "images": [

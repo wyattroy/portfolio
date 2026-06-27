@@ -4,7 +4,6 @@
   "year": 2024,
   "month": 12,
   "tagline": "A digital sculpture about holding on and letting go",
-  "description": "A digital sculpture about holding on and letting go",
   "what": "Two people photographed hugging, photogrammetry-scanned into 3D meshes via Polycam, decimated in Rhino, cleaned in Blender, and reconstructed in Grasshopper with a custom C# script that tiles ginkgo leaves across every face of the mesh — each leaf oriented to the face normal and scripted to blow away in simulated wind. Three earlier iterations were abandoned (boolean subtraction to reveal an invisible hugger; vertex translation to stretch the legs into precariousness; 3D-printed mesh wireframe) before the leaf system emerged as the form that could carry the emotion.",
   "why": [
     {
@@ -148,8 +147,8 @@
     "grasshopper"
   ],
   "axes": {
-    "pragmatic": 0.05,
-    "institutional": 0.08
+    "pragmatic": 0.02,
+    "institutional": 0.19
   },
   "thumbnail": "assets/projects/hug/thumb.jpg",
   "hero": "assets/projects/hug/hug-v2.gif",
@@ -194,5 +193,6 @@
       "url": "",
       "role": "Designer, Engineer"
     }
-  ]
+  ],
+  "description": "A digital sculpture about holding on and letting go"
 }

@@ -4,7 +4,6 @@
   "year": 2024,
   "month": 6,
   "tagline": "Digitally-aided analogue production",
-  "description": "Three handmade paper lamps — Chicken, Droplet, and Dolphin — designed with digital tools and constructed by hand from wooden dowel and Nepali lokta paper.",
   "what": "Three handmade paper lamps designed with digital tools and constructed entirely by hand from wooden dowel and Nepali lokta paper.",
   "why": [
     {
@@ -137,8 +136,8 @@
   "medium": "Fabrication",
   "tags": [],
   "axes": {
-    "pragmatic": 0.22,
-    "institutional": 0.08
+    "pragmatic": 0.28,
+    "institutional": 0.16
   },
   "thumbnail": "assets/projects/paper-lamps/thumb.jpg",
   "hero": "assets/projects/paper-lamps/dolphin-lamp.gif",
@@ -168,8 +167,9 @@
     },
     {
       "name": "Julia Mattis",
-      "url": "",
+      "url": "https://www.instagram.com/windowsill.bakery/",
       "role": "Designer, Fabricator"
     }
-  ]
+  ],
+  "description": "Three handmade paper lamps — Chicken, Droplet, and Dolphin — designed with digital tools and constructed by hand from wooden dowel and Nepali lokta paper."
 }

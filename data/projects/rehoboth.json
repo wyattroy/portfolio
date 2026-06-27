@@ -1,10 +1,9 @@
 {
   "id": "rehoboth",
   "title": "Rehoboth",
-  "year": 2018,
+  "year": 2017,
   "month": 9,
   "tagline": "LiDAR hologram VR experience — a walkable memory of a place and its people",
-  "description": "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die.",
   "what": "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die.\n\nIn XR narratives, spaces become characters. Photogrammetry imbues those spaces with static detail, but LiDAR holograms bring them to life. The first time I combined 2.5-dimensional depth video with a photogrammetry model I was struck by how much it felt like I had stepped into a memory. Which made me ask, what do we most want to remember? One tragic, beautiful answer is: our loved ones after they die.\n\nThese holograms are videos that have been rendered into 3D meshes – they are glitchy and pixelated, imperfect like our own memories. In this liminal space, the photogrammetric walls melt into the floors and yet the sense of presence, of standing in a real space with real people, is undeniable.",
   "why": [
     {
@@ -96,8 +95,9 @@
     },
     {
       "name": "Luis Zanforlin",
-      "url": "",
+      "url": "https://www.luiszanforlin.com/",
       "role": "Unity Scripting"
     }
-  ]
+  ],
+  "description": "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die."
 }

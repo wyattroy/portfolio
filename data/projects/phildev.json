@@ -3,10 +3,57 @@
   "title": "PhilDev",
   "year": 2015,
   "month": 4,
-  "tagline": "Design strategy for a Philippine development nonprofit",
-  "description": "We were eating dinner with tech innovator Dado Banatao in Manila, Philippines.  We’d flown in from San Francisco at 5am that morning in advance of a two week shoot for his foundation, PhilDev.",
-  "what": "We were eating dinner with tech innovator Dado Banatao in Manila, Philippines. We’d flown in from San Francisco at 5am that morning in advance of a two week shoot for his foundation, PhilDev.\n\nPhilDev has a bold mission: to eliminate poverty in the Philippines. We asked Dado why he thought he could do that in the 13th most populous country in the world, where current per capita income was just $9400. What was the source of his boldness? His hope? He grew silent. Then he said, “My story. I did it once, for myself. Now we just need to teach others how.”",
-  "why": "In Social Psychology, \"belonging theory\" states that when people don’t feel like they belong somewhere, like an academic setting, they interpret normal negative events, like a bad grade, as evidence that they aren’t supposed to be there. But people who feel like they do belong interpret those same events as evidence that they need to work harder.\n\nWe used Dado’s story to deliver a belonging intervention to each viewer, to help our target audience of Filipino students reinterpret their struggles as a normal part of achieving success. The video was shared and seen over a million times across online platforms.",
+  "tagline": "Documentary for a Filipino nonprofit",
+  "what": [
+    {
+      "type": "text",
+      "content": "We were eating dinner with tech innovator Dado Banatao in Manila, Philippines. We’d flown in from San Francisco at 5am that morning in advance of a two week shoot for his foundation, PhilDev.\n\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/phildev/IMG_3659 Large.jpeg"
+    },
+    {
+      "type": "text",
+      "content": "PhilDev had a bold mission: to eliminate poverty in the Philippines. We asked Dado why he thought he could do that in the 13th most populous country in the world, where current per capita income was just $9400. What was the source of his boldness? His hope? He grew silent. Then he said, “My father was a farmer. I am an engineer. I did it once, for myself. Now we just need to teach others how.”",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/phildev/IMG_3618 Large.jpeg"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "In Social Psychology, \"belonging theory\" states that when people don’t feel like they belong somewhere, like an academic setting, they interpret normal negative events, like a bad grade, as evidence that they aren’t supposed to be there. But people who feel like they do belong interpret those same events as evidence that they need to work harder.\n"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/phildev/IMG_3008 Large.jpeg"
+    },
+    {
+      "type": "text",
+      "content": "We used Dado’s story to deliver a belonging intervention to each viewer, to help our target audience of Filipino students reinterpret their struggles as a normal part of achieving success. The video was shared and seen over a million times across online platforms."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/phildev/IMG_3426 Large.jpeg",
+      "align": "right"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Shot on RED Cinema cameras across dozens of locations in the Philippines with a 6-person crew. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/phildev/IMG_3315 Large.jpeg",
+      "align": "right"
+    }
+  ],
   "medium": "Film",
   "tags": [],
   "axes": {
@@ -14,9 +61,27 @@
     "institutional": 0.7
   },
   "thumbnail": "assets/projects/phildev/thumb.jpg",
+  "hero": "assets/projects/phildev/thumb-sm.jpg",
   "liveUrl": null,
   "sourceUrl": "https://www.wyattroy.com/video/phildev",
-  "images": [],
+  "images": [
+    "assets/projects/phildev/IMG_3711 Large.jpeg",
+    "assets/projects/phildev/IMG_3275 Large.jpeg",
+    "assets/projects/phildev/IMG_2860 Large.jpeg",
+    "assets/projects/phildev/IMG_3527 Large.jpeg",
+    "assets/projects/phildev/IMG_3315 Large.jpeg",
+    "assets/projects/phildev/thumb.jpg",
+    "assets/projects/phildev/IMG_3618 Large.jpeg",
+    "assets/projects/phildev/IMG_3426 Large.jpeg",
+    "assets/projects/phildev/IMG_3516 Large.jpeg",
+    "assets/projects/phildev/IMG_3568 Large.jpeg",
+    "assets/projects/phildev/IMG_3590 Large.jpeg",
+    "assets/projects/phildev/IMG_3008 Large.jpeg",
+    "assets/projects/phildev/thumb-sm.jpg",
+    "assets/projects/phildev/IMG_3303 Large.jpeg",
+    "assets/projects/phildev/IMG_3659 Large.jpeg",
+    "assets/projects/phildev/IMG_3246 Large.jpeg"
+  ],
   "videos": [
     {
       "url": "https://www.youtube.com/watch?v=ila9CGEu7Ks",
@@ -24,7 +89,38 @@
     }
   ],
   "awards": [],
-  "who": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Creative Director"
+    },
+    {
+      "name": "Garrett Gunther",
+      "url": "https://garrettgunther.com/",
+      "role": "Creative Director"
+    },
+    {
+      "name": "Kris Cheng",
+      "url": "https://www.krischeng.com/",
+      "role": "Creative Director"
+    },
+    {
+      "name": "Kai Sotto",
+      "url": "",
+      "role": "Producer"
+    },
+    {
+      "name": "Bailey Richardson",
+      "url": "",
+      "role": "Producer"
+    },
+    {
+      "name": "Dado Banatao",
+      "url": "",
+      "role": "Subject"
+    }
+  ],
   "scraped_raw_text": [
     "PhilDev",
     "How do you scale your mentor?",

@@ -14,7 +14,7 @@
 
   <!-- Nav -->
   <nav id="main-nav">
-    <a class="nav-logo" href="/portfolio/">Wyatt Roy</a>
+    <a class="nav-logo" href="/">Wyatt Roy</a>
     <div class="nav-links">
       <a href="/#work">Work</a>
       <a href="about.html">About</a>
@@ -419,14 +419,14 @@
         root.innerHTML = `<div class="project-not-found">
           <h2>Project not found</h2>
           <p>The project "<em>${esc(id)}</em>" doesn't exist.</p>
-          <a href="/portfolio/" class="cta-btn primary" style="margin-top:24px;display:inline-block;">← Back to portfolio</a>
+          <a href="/" class="cta-btn primary" style="margin-top:24px;display:inline-block;">← Back to portfolio</a>
         </div>`;
         return;
       }
 
       document.title = `${project.title} — Wyatt Roy`;
       const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.content = project.tagline || project.description || '';
+      if (metaDesc) metaDesc.content = project.tagline || '';
       renderProject(project);
       root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
       renderCommentSection(project.id);
@@ -638,7 +638,7 @@
       const bodyImages = hasVideoHero ? [...images] : images.slice(1);
 
       // Collect all text chunks from what + why
-      const whatChunks = chunkParas(p.what || p.description || '', 3);
+      const whatChunks = chunkParas(p.what || '', 3);
       const whyChunks = chunkParas(p.why || '', 3);
       const allTextChunks = [...whatChunks, ...whyChunks];
 
@@ -810,7 +810,7 @@
       const ctasHtml = ctas.length > 0 ? `<div class="pp-ctas">${ctas.join('')}</div>` : '';
 
       root.innerHTML = `
-        <a href="/portfolio/" class="pp-back">← All Work</a>
+        <a href="/" class="pp-back">← All Work</a>
 
         ${heroHtml}
 
@@ -847,7 +847,7 @@
     // ── Project prev/next navigation ───────────────────────────────────────────
     function sortProjectsForNav(projects) {
       function hasContent(p) {
-        return !!(p.thumbnail || p.description || p.tagline || p.what);
+        return !!(p.thumbnail || p.tagline || p.what);
       }
       return [...projects].sort((a, b) => {
         const aHas = hasContent(a) ? 0 : 1;
@@ -905,7 +905,7 @@
       } else {
         root.innerHTML = `<div class="project-not-found">
           <h2>No project specified</h2>
-          <a href="/portfolio/" class="cta-btn primary" style="margin-top:24px;display:inline-block;">← Back to portfolio</a>
+          <a href="/" class="cta-btn primary" style="margin-top:24px;display:inline-block;">← Back to portfolio</a>
         </div>`;
       }
     }

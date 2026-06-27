@@ -4,7 +4,6 @@
   "year": 2015,
   "month": 8,
   "tagline": "A whole life story as experienced by feet",
-  "description": "A 100-second branded film for Sols insoles, told entirely from the perspective of feet — capturing one woman's life from childhood through loss to rediscovery.",
   "what": "A branded short film written and creative-directed for Sols, a startup selling 3D-printed shoe insoles. Shot from the perspective of one woman's feet across her entire life: childhood in San Francisco, losing her father as a teenager, and ultimately rediscovering her passion for drumming.",
   "why": [
     {
@@ -60,7 +59,7 @@
   ],
   "axes": {
     "pragmatic": 0.2,
-    "institutional": 0.2
+    "institutional": 0.33
   },
   "thumbnail": "assets/projects/sols/thumb.jpg",
   "hero": "assets/projects/sols/thumb.jpg",
@@ -116,5 +115,6 @@
       "url": "https://ayumiashley.com/",
       "role": "Colorist"
     }
-  ]
+  ],
+  "description": "A 100-second branded film for Sols insoles, told entirely from the perspective of feet — capturing one woman's life from childhood through loss to rediscovery."
 }

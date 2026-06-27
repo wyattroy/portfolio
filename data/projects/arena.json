@@ -4,7 +4,6 @@
   "year": 2025,
   "month": 11,
   "tagline": "Web app that helps you prioritize your conflicting wants",
-  "description": "A locally-cached web app for surfacing and ranking your wants.",
   "what": [
     {
       "type": "text",
@@ -57,7 +56,7 @@
     "social emotional learning"
   ],
   "axes": {
-    "pragmatic": 0.65,
+    "pragmatic": 0.78,
     "institutional": 0.1
   },
   "thumbnail": "assets/projects/arena/Home.png",
@@ -88,5 +87,6 @@
       "url": "",
       "role": "Designer"
     }
-  ]
+  ],
+  "description": "A locally-cached web app for surfacing and ranking your wants."
 }

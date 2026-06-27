@@ -1994,7 +1994,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 700px) {
-  .pp-back { padding: 16px 20px 0; }
+  .pp-back { padding: calc(var(--nav-height) + 16px) 20px 0; }
   .pp-header { padding: 24px 20px 0; }
   .pp-body { padding: 0 20px; }
   .pp-project-nav { padding: 2em 20px 3em; gap: 16px; }

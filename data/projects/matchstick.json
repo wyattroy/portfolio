@@ -4,7 +4,6 @@
   "year": 2025,
   "month": 5,
   "tagline": "SDF 3D-printed flame sculpture",
-  "description": "A 3D-printed flame modeled as a signed distance function in Rhino, Grasshopper, and Blender.",
   "what": "A 3D-printed flame built using a signed distance field (SDF) in Rhino/Grasshopper. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value — creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moiré effect that makes the flame appear to flicker.",
   "why": [
     {
@@ -85,8 +84,8 @@
   "medium": "Fabrication",
   "tags": [],
   "axes": {
-    "pragmatic": 0.08,
-    "institutional": 0.1
+    "pragmatic": 0.38,
+    "institutional": 0.37
   },
   "thumbnail": "assets/projects/matchstick/3sdf.png",
   "hero": "assets/projects/matchstick/3sdf.png",
@@ -114,5 +113,6 @@
       "url": "youtube.com/@ParametricCamp",
       "role": "Grasshopper Definitions"
     }
-  ]
+  ],
+  "description": "A 3D-printed flame modeled as a signed distance function in Rhino, Grasshopper, and Blender."
 }

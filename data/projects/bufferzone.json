@@ -4,7 +4,6 @@
   "year": 2016,
   "month": 2,
   "tagline": "Documentary about women, solar power, and wildlife at the ede of a Nepali jungle, where humans and wildlife share a border",
-  "description": "At the edge of a Nepali jungle, ordinary people live amongst wild animals.",
   "what": [
     {
       "type": "text",
@@ -98,8 +97,8 @@
   "medium": "Film",
   "tags": [],
   "axes": {
-    "pragmatic": 0.25,
-    "institutional": 0.38
+    "pragmatic": 0.58,
+    "institutional": 0.55
   },
   "thumbnail": "assets/projects/bufferzone/thumb.jpg",
   "hero": "assets/projects/bufferzone/thumb-sm.jpg",
@@ -160,7 +159,7 @@
     },
     {
       "name": "Briene Lermitte",
-      "url": "",
+      "url": "https://www.instagram.com/brienelermitte/",
       "role": "Cinematopgrapher"
     },
     {
@@ -174,6 +173,7 @@
       "role": "Line Producer"
     }
   ],
+  "description": "At the edge of a Nepali jungle, ordinary people live amongst wild animals.",
   "scraped_raw_text": [
     "Bufferzone",
     "Documentary",

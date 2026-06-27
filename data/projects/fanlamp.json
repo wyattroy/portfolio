@@ -4,7 +4,6 @@
   "year": 2025,
   "month": 3,
   "tagline": "Kinetic oscillating lamp built primarily from plants",
-  "description": "A moving lamp made from laser-cut wood with a gear-driven mechanism that oscillates the fan blades, symbolizing the yin-yang ebb and flow of creating.",
   "what": "A kinetic desk lamp made from laser-cut wood with custom-designed gears that convert the motor's rotational movement into a windshield-wiper oscillation for the fan blades. Designed in Fusion 360, prototyped in cardboard, then lasercut in wood, powered by a geared motor. Battery-powered with a soldered switch and USB light.",
   "why": [
     {
@@ -166,7 +165,7 @@
     "PS70"
   ],
   "axes": {
-    "pragmatic": 0.2,
+    "pragmatic": 0.03,
     "institutional": 0.08
   },
   "thumbnail": "assets/projects/fanlamp/fanlampfinished.gif",
@@ -198,5 +197,6 @@
       "url": "",
       "role": "Designer, Engineer"
     }
-  ]
+  ],
+  "description": "A moving lamp made from laser-cut wood with a gear-driven mechanism that oscillates the fan blades, symbolizing the yin-yang ebb and flow of creating."
 }

@@ -4,7 +4,6 @@
   "year": 2025,
   "month": 5,
   "tagline": "Compass belt that vibrates when you face north — wearable wayfinding",
-  "description": "A wearable belt module with an ESP32, BNO055 compass, and eccentric motor that vibrates subtly when the wearer faces north.",
   "what": "An ESP32 Xiao-based wearable module containing a Bosch BNO055 9-axis IMU for compass heading, an eccentric motor for haptic feedback, a li-po battery with USB charging, an LED indicator, and a custom Fusion 360 housing with a pigeon-embossed snap-on front face designed by Julia. The BNO055 outputs a calibrated Euler-angle yaw referenced to north — the motor buzzes once when the wearer faces north.",
   "why": [
     {
@@ -116,10 +115,7 @@
       "src": "assets/projects/pigeonbelt/frontface1.jpg"
     }
   ],
-  "categories": [
-    "Wearables",
-    "HCI"
-  ],
+  "medium": "Fabrication",
   "tags": [
     "haptics",
     "navigation",
@@ -130,11 +126,13 @@
     "PS70"
   ],
   "axes": {
-    "pragmatic": 0.72,
+    "pragmatic": 0.91,
     "institutional": 0.28
   },
-  "hero": "assets/projects/pigeonbelt/pigeonbeltworn.gif",
   "thumbnail": "assets/projects/pigeonbelt/pigeonhero.jpg",
+  "hero": "assets/projects/pigeonbelt/pigeonbeltworn.gif",
+  "liveUrl": null,
+  "sourceUrl": null,
   "images": [
     "assets/projects/pigeonbelt/pigeonbeltworn.gif",
     "assets/projects/pigeonbelt/fusionbuckle.gif",
@@ -153,12 +151,12 @@
     "assets/projects/pigeonbelt/pigeonbelt.png"
   ],
   "videos": [
-    "https://www.youtube.com/watch?v=xySM_qSlbhk&t=16s"
+    {
+      "url": "https://www.youtube.com/watch?v=xySM_qSlbhk&t=16s",
+      "heroOverride": true
+    }
   ],
-  "liveUrl": null,
-  "sourceUrl": null,
   "awards": [],
-  "medium": "Fabrication",
   "who": [
     {
       "name": "Wyatt Roy",
@@ -170,5 +168,6 @@
       "url": "",
       "role": "Front face illustration"
     }
-  ]
+  ],
+  "description": "A wearable belt module with an ESP32, BNO055 compass, and eccentric motor that vibrates subtly when the wearer faces north."
 }

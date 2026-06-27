@@ -4,7 +4,6 @@
   "year": 2025,
   "month": 4,
   "tagline": "Robot that draws cinnamon patterns on cakes",
-  "description": "A drawing robot with a polar gantry system that uses a vibrating end effector to deposit cinnamon in precise circles on cakes and coffee.",
   "what": [
     {
       "type": "text",
@@ -100,7 +99,7 @@
   ],
   "axes": {
     "pragmatic": 0.62,
-    "institutional": 0.12
+    "institutional": 0.34
   },
   "thumbnail": "assets/projects/cinnabot/gantryfinalishinf.gif",
   "hero": "assets/projects/cinnabot/IMG_3370-2.jpg",
@@ -151,5 +150,6 @@
       "url": "https://ianp7.github.io/PS70_Spring2025/index.html",
       "role": "Design Engineer"
     }
-  ]
+  ],
+  "description": "A drawing robot with a polar gantry system that uses a vibrating end effector to deposit cinnamon in precise circles on cakes and coffee."
 }

@@ -2,9 +2,8 @@
   "id": "food-chain",
   "title": "Food Chain",
   "year": 2025,
-  "month": 3,
+  "month": 1,
   "tagline": "3D-printed food chain pendant sketched in VR — organic forms from digital tools",
-  "description": "A 3D-printed food chain of interlocking animals, sketched in VR using Adobe Medium and printed in high resolution on a Prusa printer.",
   "what": "Designed in VR using Adobe Medium — sketching interlocking animal and plant forms in 3D space — then exported as OBJ and prepared in Prusa slicer. After multiple failed prints at lower resolutions, succeeded at 0.05mm (9 hours overnight). Support removal required carefully heating a scalpel and using tiny pliers. Second iteration redrawn from scratch with 2D animal outlines extruded in 3D for less support material.",
   "why": [
     {
@@ -209,5 +208,6 @@
       "url": "",
       "role": "Designer, Engineer"
     }
-  ]
+  ],
+  "description": "A 3D-printed food chain of interlocking animals, sketched in VR using Adobe Medium and printed in high resolution on a Prusa printer."
 }

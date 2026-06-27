@@ -4,7 +4,6 @@
   "year": 2024,
   "month": 11,
   "tagline": "p5.js webcam dot-grid — a Zen koan about the boundary of self",
-  "description": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. But most people don't have the time or patience to sit on a cushion long enough — so I wanted to try and make a piece of digital art that might give them a shortcut.",
   "what": "A p5.js webcam installation that renders the viewer as a shifting field of colored dots. The sketch takes two webcam frames, compares pixels by color similarity, and lerps each dot toward the closest matching pixel — dissolving the boundary between self and background until the viewer becomes indistinguishable from the world around them.",
   "why": [
     {
@@ -95,8 +94,8 @@
   "medium": "Web",
   "tags": [],
   "axes": {
-    "pragmatic": 0.05,
-    "institutional": 0.1
+    "pragmatic": 0.15,
+    "institutional": 0.23
   },
   "thumbnail": "assets/projects/mu-mirror/thumb.jpg",
   "hero": "assets/projects/mu-mirror/mousedots.gif",
@@ -124,5 +123,6 @@
       "url": "",
       "role": "Designer, Engineer"
     }
-  ]
+  ],
+  "description": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. But most people don't have the time or patience to sit on a cushion long enough — so I wanted to try and make a piece of digital art that might give them a shortcut."
 }
