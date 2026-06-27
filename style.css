@@ -1327,9 +1327,40 @@ footer {
     width: 100%;
   }
 
-  #label-poetic,
-  #label-pragmatic {
-    display: none;
+  /* ── Mobile graph: 70% of viewport height ── */
+  #three-canvas,
+  #axis-labels {
+    bottom: auto;
+    height: 70%;
+  }
+
+  /* Card stack starts below the 70% graph area */
+  #work-bg {
+    margin-top: 70vh;
+  }
+
+  /* Shrink all axis labels so all four fit on a narrow screen */
+  .axis-label {
+    font-size: 0.58rem;
+    padding: 2px 5px;
+    letter-spacing: 0.09em;
+  }
+
+  /* Scroll hint sits at the canvas/card boundary */
+  .hero-scroll-hint {
+    top: 72%;
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  /* Clamp modal description so "More" button always stays on screen */
+  #project-modal-content .preview-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 

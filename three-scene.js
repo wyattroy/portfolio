@@ -8,7 +8,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const YEAR_MIN = 2020;
+const YEAR_MIN = 2015;
 const YEAR_MAX = 2026;
 const AXIS_RANGE = 5; // ±5 units
 
@@ -84,6 +84,8 @@ function tickSpring(s, stiffness = 0.8, damping = 0.8) {
 export function initThreeScene(projects, { onProjectClick } = {}) {
   const canvas = document.getElementById('three-canvas');
   const hoverLabel = document.getElementById('project-hover-label');
+  const isMobile = window.innerWidth < 768;
+  const effectiveLabelMargin = isMobile ? 44 : LABEL_MARGIN;
 
   // Scene
   const scene = new THREE.Scene();
@@ -146,30 +148,17 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     return Math.min(1, elapsed / ENTRY_FADE_MS);
   }
 
-  // Pre-compute alphabetical rank within each year for Z-offset (prevents z-fighting)
-  const yearGroups = {};
-  projects.forEach(p => {
-    const yr = p.year ?? 2022;
-    if (!yearGroups[yr]) yearGroups[yr] = [];
-    yearGroups[yr].push(p.id);
-  });
-  Object.values(yearGroups).forEach(ids => ids.sort());
-
   projects.forEach(p => {
     const pragmatic = p.axes?.pragmatic ?? 0.5;
     const institutional = p.axes?.institutional ?? 0.5;
     const year = p.year ?? 2022;
 
-    // Alphabetical rank within year → tiny Z nudge (0.08 per step) to prevent z-fighting
-    const yearPeers = yearGroups[year] || [p.id];
-    const alphaRank = yearPeers.indexOf(p.id);
-    const zNudge = alphaRank * 0.08;
-
     // Position
     const x = (pragmatic - 0.5) * 2 * AXIS_RANGE;
     const y = (institutional - 0.5) * 2 * AXIS_RANGE;
-    const t = Math.max(0, Math.min(1, (year - YEAR_MIN) / (YEAR_MAX - YEAR_MIN)));
-    const z = Z_FAR + t * (Z_NEAR - Z_FAR) + zNudge; // oldest: Z_FAR, newest: Z_NEAR
+    const monthFrac = ((p.month ?? 6) - 1) / 12; // Jan=0, Dec≈1
+    const t = Math.max(0, Math.min(1, (year + monthFrac - YEAR_MIN) / (YEAR_MAX - YEAR_MIN)));
+    const z = Z_FAR + t * (Z_NEAR - Z_FAR); // oldest: Z_FAR, newest: Z_NEAR
 
     // Scale: oldest is 50% the size of newest
     const scale = SCALE_OLD + t * (SCALE_NEW - SCALE_OLD);
@@ -263,6 +252,23 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     };
   }
 
+  // Cast a ray from (ox,oy) toward (tx,ty) and return the point where it exits the viewport.
+  // Used to pin axis labels to the viewport edge regardless of zoom level.
+  function pinToEdge(ox, oy, tx, ty, margin = LABEL_MARGIN) {
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
+    const dx = tx - ox;
+    const dy = ty - oy;
+    if (Math.abs(dx) < 0.001 && Math.abs(dy) < 0.001) return clampToScreen(tx, ty, margin);
+    let tMin = Infinity;
+    if (dx > 0) tMin = Math.min(tMin, (w - margin - ox) / dx);
+    if (dx < 0) tMin = Math.min(tMin, (    margin - ox) / dx);
+    if (dy > 0) tMin = Math.min(tMin, (h - margin - oy) / dy);
+    if (dy < 0) tMin = Math.min(tMin, (    margin - oy) / dy);
+    if (!isFinite(tMin) || tMin < 0) return clampToScreen(tx, ty, margin);
+    return { x: ox + dx * tMin, y: oy + dy * tMin };
+  }
+
   // Place a label element at canvas-relative position with optional CSS rotation and entry offset
   function placeLabel(el, x, y, extraTransform = '', ox = 0, oy = 0) {
     el.style.position = 'absolute';
@@ -322,27 +328,55 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
   canvas.style.cursor = 'grab';
 
-  // Touch drag
+  // Touch — single finger: horizontal = rotate, vertical = zoom
+  //         two fingers:  pinch = zoom in/out
+  let lastPinchDist = 0;
+
   canvas.addEventListener('touchstart', e => {
     if (e.touches.length === 1) {
       isDragging = true;
       lastPointer = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      pointerDownAt = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    } else if (e.touches.length === 2) {
+      e.preventDefault();
+      isDragging = false;
+      const t0 = e.touches[0], t1 = e.touches[1];
+      lastPinchDist = Math.hypot(t0.clientX - t1.clientX, t0.clientY - t1.clientY);
     }
-  }, { passive: true });
+  }, { passive: false });
 
   canvas.addEventListener('touchmove', e => {
+    if (e.touches.length === 2) {
+      // Pinch zoom
+      e.preventDefault();
+      isDragging = false;
+      const t0 = e.touches[0], t1 = e.touches[1];
+      const dist = Math.hypot(t0.clientX - t1.clientX, t0.clientY - t1.clientY);
+      const delta = lastPinchDist - dist; // pinch in (+) = zoom out, spread (-) = zoom in
+      lastPinchDist = dist;
+      virtualScrollY = Math.max(0, Math.min(SCROLL_DRIVE_PX, virtualScrollY + delta * 2));
+      return;
+    }
+
     if (e.touches.length !== 1 || !isDragging) return;
-    e.preventDefault();
     const dx = e.touches[0].clientX - lastPointer.x;
     const dy = e.touches[0].clientY - lastPointer.y;
     lastPointer = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+
+    // Vertical drag drives zoom (mirroring the wheel mechanic)
+    const newVirtual = virtualScrollY + dy * 1.5;
+    if (scrollFracSpring.current < SCROLL_UNLOCK_FRAC || dy < 0) {
+      e.preventDefault();
+      virtualScrollY = Math.max(0, Math.min(SCROLL_DRIVE_PX, newVirtual));
+    }
+
+    // Horizontal drag rotates the scene
     dragTheta.target = clamp(dragTheta.target - dx * 0.006, -DRAG_MAX_H, DRAG_MAX_H);
-    dragPhi.target   = clamp(dragPhi.target   - dy * 0.006, -DRAG_MAX_V, DRAG_MAX_V);
   }, { passive: false });
 
   canvas.addEventListener('touchend', () => {
     isDragging = false;
-    // intentionally not resetting dragTheta/dragPhi — rotation stays where user left it
+    // intentionally not resetting dragTheta — rotation stays where user left it
   }, { passive: true });
 
   // ─── Scroll drives camera animation ─────────────────────────────────────────
@@ -505,7 +539,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
     const R = AXIS_RANGE * 1.4;
 
-    // Endpoint labels: project the 3D tip of each axis, clamp to screen edge
+    // Endpoint labels: project the 3D tip of each axis, pin to screen edge
     // entry: direction of the 20px slide-in (shrinks to 0 as opacity reaches 1)
     const axisEndpoints = [
       { id: 'label-poetic',        pos: new THREE.Vector3(-R, 0, 0), entry: { x:  1, y: 0 } },
@@ -513,6 +547,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       { id: 'label-institutional', pos: new THREE.Vector3(0,  R, 0), entry: { x: 0, y:  1 } },
       { id: 'label-individual',    pos: new THREE.Vector3(0, -R, 0), entry: { x: 0, y: -1 } },
     ];
+    const pOrigin = project3D(new THREE.Vector3(0, 0, 0), camera);
     axisEndpoints.forEach(({ id, pos, entry }) => {
       const el = document.getElementById(id);
       if (!el) return;
@@ -522,8 +557,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       const op = entryOpacity(LABEL_REVEAL_MS[id] ?? 0);
       el.style.opacity = op;
       const fade = 1 - op;
-      const clamped = clampToScreen(p.x, p.y);
-      placeLabel(el, clamped.x, clamped.y, '', entry.x * ENTRY_SLIDE_PX * fade, entry.y * ENTRY_SLIDE_PX * fade);
+      const edgePos = pinToEdge(pOrigin.x, pOrigin.y, p.x, p.y, effectiveLabelMargin);
+      placeLabel(el, edgePos.x, edgePos.y, '', entry.x * ENTRY_SLIDE_PX * fade, entry.y * ENTRY_SLIDE_PX * fade);
     });
 
     // Helper text: anchored in screen space relative to the endpoint labels they describe.
@@ -546,20 +581,20 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
     // "design intent" hovers just left of the Pragmatic (xPos) endpoint label
     if (elDI && !xPos.behind) {
-      const clamped = clampToScreen(xPos.x, xPos.y);
+      const pinned = pinToEdge(pOrigin.x, pOrigin.y, xPos.x, xPos.y, effectiveLabelMargin);
       const deg = axisAngleDeg(xNeg, xPos);
       const opDI = entryOpacity(LABEL_REVEAL_MS['label-design-intent']);
-      placeLabel(elDI, clamped.x + DI_OFFSET_X, clamped.y + DI_OFFSET_Y, `rotate(${deg}deg)`, -ENTRY_SLIDE_PX * (1 - opDI), 0);
+      placeLabel(elDI, pinned.x + DI_OFFSET_X, pinned.y + DI_OFFSET_Y, `rotate(${deg}deg)`, -ENTRY_SLIDE_PX * (1 - opDI), 0);
       elDI.style.display = '';
       elDI.style.opacity = opDI;
     } else if (elDI) { elDI.style.display = 'none'; }
 
     // "system scale" hovers just below the Institutional (yPos) endpoint label
     if (elSS && !yPos.behind) {
-      const clamped = clampToScreen(yPos.x, yPos.y);
+      const pinned = pinToEdge(pOrigin.x, pOrigin.y, yPos.x, yPos.y, effectiveLabelMargin);
       const deg = axisAngleDeg(yNeg, yPos);
       const opSS = entryOpacity(LABEL_REVEAL_MS['label-system-scale']);
-      placeLabel(elSS, clamped.x + SS_OFFSET_X, clamped.y + SS_OFFSET_Y, `rotate(${deg}deg)`, 0, ENTRY_SLIDE_PX * (1 - opSS));
+      placeLabel(elSS, pinned.x + SS_OFFSET_X, pinned.y + SS_OFFSET_Y, `rotate(${deg}deg)`, 0, ENTRY_SLIDE_PX * (1 - opSS));
       elSS.style.display = '';
       elSS.style.opacity = opSS;
     } else if (elSS) { elSS.style.display = 'none'; }
@@ -608,7 +643,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   // the hero and the 3D scene can stop drawing.
   let renderingPaused = false;
   function updateRenderPause() {
-    const covered = window.scrollY >= window.innerHeight;
+    const covered = window.scrollY >= window.innerHeight * (isMobile ? 0.7 : 1);
     if (covered && !renderingPaused) {
       renderingPaused = true;
       cancelAnimationFrame(animFrameId);
