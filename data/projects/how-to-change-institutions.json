@@ -4,7 +4,6 @@
   "year": 2026,
   "month": 6,
   "tagline": "A simple field guide for working inside large organizations",
-  "description": "A short illustrated guide to changing institutions through care, collaboration, and mindfulness — an alternative to adversarial activism.",
   "what": [
     {
       "type": "text",
@@ -77,7 +76,6 @@
   ],
   "medium": "Pedagogy",
   "tags": [
-    "Book",
     "mindfulness",
     "meditation",
     "social emotional",
@@ -95,8 +93,8 @@
     "pragmatic": 0.5,
     "institutional": 0.5
   },
-  "thumbnail": "assets/projects/how-to-change-institutions/end dove.png",
-  "hero": "assets/projects/how-to-change-institutions/end dove.png",
+  "thumbnail": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
+  "hero": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
   "liveUrl": null,
   "sourceUrl": null,
   "images": [
@@ -123,7 +121,8 @@
     "assets/projects/how-to-change-institutions/hammer.png",
     "assets/projects/how-to-change-institutions/shovel.png",
     "assets/projects/how-to-change-institutions/tea.png",
-    "assets/projects/how-to-change-institutions/IMG_1613.jpg"
+    "assets/projects/how-to-change-institutions/IMG_1613.jpg",
+    "assets/projects/how-to-change-institutions/bookinhand.jpeg"
   ],
   "videos": [],
   "awards": [],
@@ -135,7 +134,7 @@
     },
     {
       "name": "Julia Mattis",
-      "url": "",
+      "url": "https://www.instagram.com/windowsill.bakery/",
       "role": "Illustrator"
     },
     {
@@ -143,5 +142,6 @@
       "url": "",
       "role": "Guidance"
     }
-  ]
+  ],
+  "description": "A short illustrated guide to changing institutions through care, collaboration, and mindfulness — an alternative to adversarial activism."
 }
