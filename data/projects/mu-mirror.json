@@ -3,8 +3,17 @@
   "title": "Mu Mirror",
   "year": 2024,
   "month": 11,
-  "tagline": "p5.js webcam dot-grid — a Zen koan about the boundary of self",
-  "what": "A webcam installation that renders the viewer as a shifting field of colored dots, blurring the boundaries between self and other. The piece takes a photo every few seconds, compares each pixel by color similarity, and moves each dot toward the closest matching pixel — dissolving the boundary between self and background until the viewer becomes indistinguishable from the world around them.",
+  "tagline": "A Zen koan about the boundary of self rendered as a p5.js dot-grid",
+  "what": [
+    {
+      "type": "text",
+      "content": "An art installation for the web that renders the viewer as a shifting field of colored dots, blurring the boundaries between self and other. The piece takes a photo every few seconds, compares each pixel by color similarity, and moves each dot toward the closest matching pixel — dissolving the boundary between self and background until the viewer becomes indistinguishable from the world around them."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/mu-mirror/unnamed.jpg"
+    }
+  ],
   "why": [
     {
       "type": "text",
@@ -103,23 +112,21 @@
       "align": "right"
     }
   ],
-  "medium": "Web",
+  "medium": "App",
   "tags": [],
   "axes": {
     "pragmatic": 0.26,
     "institutional": 0.38
   },
   "thumbnail": "assets/projects/mu-mirror/thumb.jpg",
-  "hero": "assets/projects/mu-mirror/mousedots.gif",
+  "hero": "assets/projects/mu-mirror/mumirror-converted.gif",
   "liveUrl": "http://mumirror.wyattroy.com",
   "sourceUrl": null,
   "images": [
     "assets/projects/mu-mirror/mousedots.gif",
-    "assets/projects/mu-mirror/img1.jpg",
     "assets/projects/mu-mirror/img2.jpg",
     "assets/projects/mu-mirror/img4.jpg",
     "assets/projects/mu-mirror/img6.jpg",
-    "assets/projects/mu-mirror/img8.jpg",
     "assets/projects/mu-mirror/thumb.jpg",
     "assets/projects/mu-mirror/dots grid_1.gif",
     "assets/projects/mu-mirror/Dots thick.gif",

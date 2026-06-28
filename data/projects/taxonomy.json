@@ -1,33 +1,47 @@
 {
   "id": "taxonomy",
-  "title": "Taxonomy",
+  "title": "Taxonomy of Narrative Conventions",
   "year": 2021,
   "month": 2,
   "tagline": "A classification system for design research methods",
-  "description": "Classify narratives based on perspective",
-  "what": "Classify narratives based on perspective\n\nWHAT\n\nA research document that finds patterns in narrative forms of different mediums by classifying based on the perspective of the story\u2019s viewer as they merge with the protagonist. The key test is how the viewer would recount their experience with the story.",
-  "why": "When classifying a story, ask whether would the viewer say of the protagonist: \u201cthey went home\u201d (third person), you fight the zombies\u201d (second person), or \u201cI built a city\u201d (first person), or \u201cGo here\u201d (zero-eth person).\n\nDifferent levels of visual fidelity and realism correspond to different types of stories. This system is a design tool when ideating on a new story, which lets the designer select the qualities that will make the story most effective and compelling.",
+  "what": "A research document that finds patterns in narrative forms of different mediums by classifying based on the perspective of the story’s viewer as they merge with the protagonist. The key test is how the viewer would recount their experience with the story.",
+  "why": "When classifying a story, ask whether would the viewer say of the protagonist: “they went home” (third person), you fight the zombies” (second person), or “I built a city” (first person), or “Go here” (zero-eth person).",
+  "how": "Different levels of visual fidelity and realism correspond to different types of stories. This system is a design tool when ideating on a new story, which lets the designer select the qualities that will make the story most effective and compelling.",
   "medium": "Narrative",
   "tags": [],
   "axes": {
-    "pragmatic": 0.62,
-    "institutional": 0.62
+    "pragmatic": 0.99,
+    "institutional": 0.59
   },
-  "thumbnail": "assets/projects/taxonomy/thumb.jpg",
+  "thumbnail": "assets/projects/taxonomy/img1.jpg",
+  "hero": "assets/projects/taxonomy/img1.jpg",
   "liveUrl": null,
+  "sourceUrl": null,
   "images": [
     "assets/projects/taxonomy/img1.jpg",
     "assets/projects/taxonomy/img2.jpg"
   ],
   "videos": [],
   "awards": [],
-  "who": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer"
+    },
+    {
+      "name": "Luis Zanforlin",
+      "url": "https://www.luiszanforlin.com/",
+      "role": "Designer"
+    }
+  ],
+  "description": "Classify narratives based on perspective",
   "scraped_raw_text": [
     "Taxonomy of Narrative Design",
     "Classify narratives based on perspective",
     "WHAT",
-    "A research document that finds patterns in narrative forms of different mediums by classifying based on the perspective of the story\u2019s viewer as they merge with the protagonist. The key test is how the viewer would recount their experience with the story.",
-    "When classifying a story, ask whether would the viewer say of the protagonist: \u201cthey went home\u201d (third person), you fight the zombies\u201d (second person), or \u201cI built a city\u201d (first person), or \u201cGo here\u201d (zero-eth person).",
+    "A research document that finds patterns in narrative forms of different mediums by classifying based on the perspective of the story’s viewer as they merge with the protagonist. The key test is how the viewer would recount their experience with the story.",
+    "When classifying a story, ask whether would the viewer say of the protagonist: “they went home” (third person), you fight the zombies” (second person), or “I built a city” (first person), or “Go here” (zero-eth person).",
     "Different levels of visual fidelity and realism correspond to different types of stories. This system is a design tool when ideating on a new story, which lets the designer select the qualities that will make the story most effective and compelling."
   ],
   "scraped_url": "https://www.wyattroy.com/design/narrative-taxonomy"

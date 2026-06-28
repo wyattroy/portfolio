@@ -148,7 +148,13 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     return Math.min(1, elapsed / ENTRY_FADE_MS);
   }
 
-  projects.forEach(p => {
+  const projectsByAge = [...projects].sort((a, b) => {
+    const aTime = (a.year ?? 2022) + ((a.month ?? 6) - 1) / 12;
+    const bTime = (b.year ?? 2022) + ((b.month ?? 6) - 1) / 12;
+    return aTime - bTime;
+  });
+
+  projectsByAge.forEach(p => {
     const pragmatic = p.axes?.pragmatic ?? 0.5;
     const institutional = p.axes?.institutional ?? 0.5;
     const year = p.year ?? 2022;

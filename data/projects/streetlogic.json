@@ -3,18 +3,32 @@
   "title": "StreetLogic",
   "year": 2017,
   "month": 4,
-  "tagline": "Launch video for StreetLogic \u2014 an AI-powered smart dashcam for cyclists",
-  "what": "Your extra set of eyes on the road\n\nStreetlogic is a smart dashcam for bikes. It does more than just record 360 footage of everything around you -- it uses AI to warn you if cars are coming too close.\n\nI love biking, and I love living in cities. But mixing the two can be dangerous. I made this video for Streetlogic's launch to help them spread the dream of safe urban cycling.",
-  "why": "I love cycling in cities and the danger is real. StreetLogic needed to sell a dream as much as a product \u2014 safety on streets that are already hostile to cyclists.",
+  "tagline": "Launch video for StreetLogic — an AI-powered smart dashcam for cyclists",
+  "what": [
+    {
+      "type": "text",
+      "content": "Streetlogic is a smart dashcam for bikes. It does more than just record 360 footage of everything around you -- it uses AI to warn you if cars are coming too close. This was the launch video for their first product: a camera system integrated into e-bikes that kept everyone safe. \n\n"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/streetlogic/thumb.jpg"
+    }
+  ],
+  "why": "I love biking, and I love living in cities. But mixing the two can be dangerous. I made this video for Streetlogic's launch to help them spread the dream of safe urban cycling. StreetLogic needed to sell a dream as much as a product — safety on streets that are already hostile to cyclists. We developed the brief: \"Your extra set of eyes on the road\" to focus a tech product on a human story. ",
+  "how": "This was frankly a strange project to create – how do you film a safety video without showing crashes? When Streetlogic first approached me with a concept for the video showing all the crashes that their product would prevent, I scoped out the production costs for closing roads, hiring stunt performers and coordinators, and police escorts. I also pitched them on a completely different idea: one showing the real reason *why* we want to stay safe on the road – for our kids, and our adventures. \n\nWe filmed this on the actual cargo ebikes that were being used to build the prototypes. I sat in the front with a cinema camera on a gimbal, and we rode around San Francisco for a day with some of Streetlogic's real customers. This gave a docu-narrative feeling of authenticity to the stakes embedded in a tech product.",
   "medium": "Film",
   "tags": [],
   "axes": {
-    "pragmatic": 0.65,
-    "institutional": 0.28
+    "pragmatic": 0.68,
+    "institutional": 0.49
   },
   "thumbnail": "assets/projects/streetlogic/thumb.jpg",
+  "hero": "assets/projects/streetlogic/thumb.jpg",
   "liveUrl": null,
-  "images": [],
+  "sourceUrl": null,
+  "images": [
+    "assets/projects/streetlogic/thumb.jpg"
+  ],
   "videos": [
     {
       "url": "https://vimeo.com/644187149",
@@ -22,7 +36,18 @@
     }
   ],
   "awards": [],
-  "who": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Director, Cinematographer, Editor"
+    },
+    {
+      "name": "Will Murphy",
+      "url": "",
+      "role": "Producer, Cyclist"
+    }
+  ],
   "scraped_raw_text": [
     "Streetlogic",
     "Your extra set of eyes on the road",

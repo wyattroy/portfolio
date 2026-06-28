@@ -1,5 +1,25 @@
 [
   {
+    "id": "pour",
+    "title": "Pour",
+    "year": 2026,
+    "tagline": "",
+    "axes": {
+      "pragmatic": 0.5,
+      "institutional": 0.5
+    },
+    "thumbnail": "assets/projects/pour/thumb.jpg",
+    "tags": [],
+    "month": 6,
+    "liveUrl": null,
+    "sourceUrl": null,
+    "images": [],
+    "videos": [],
+    "awards": [],
+    "who": [],
+    "label": "red"
+  },
+  {
     "id": "chillbrow",
     "title": "Chillbrow",
     "year": 2026,
@@ -368,7 +388,7 @@
     "title": "Mediums Proseminar",
     "year": 2025,
     "month": 9,
-    "tagline": "Media theory seminar for MDes students, co-led with Allen Sayegh at Harvard GSD",
+    "tagline": "Media theory seminar for MDes students at Harvard GSD",
     "what": "Co-led the Mediums domain seminar with Allen Sayegh for incoming MDes students. Paired critical design readings with experiential learning: students visited the Harvard glass flower collection comparing simulacra with originals; responded to Berger's Ways of Seeing by making short films in the Fogg Art Museum for an in-class festival; shared personal design practices for critique, leading to unexpected collaborations and the first sale of one student's work to another.",
     "why": "If the medium is the message (McLuhan), the pedagogical challenge is how to render the medium visible and pliable. By teaching about each medium through a combination of mediums, students gained the agency to extend their practices by understanding each one's unique affordances.",
     "categories": [
@@ -391,14 +411,37 @@
       "assets/projects/proseminar/img1.jpg",
       "assets/projects/proseminar/img2.jpg",
       "assets/projects/proseminar/img3.jpg",
-      "assets/projects/proseminar/img4.jpg"
+      "assets/projects/proseminar/img4.jpg",
+      "assets/projects/proseminar/IMG_2838.jpg",
+      "assets/projects/proseminar/IMG_2861.jpg",
+      "assets/projects/proseminar/asemic drawings_Harbor_ Marc.gif",
+      "assets/projects/proseminar/IMG_2823.jpg",
+      "assets/projects/proseminar/IMG_2836.gif"
     ],
     "videos": [],
     "liveUrl": null,
     "sourceUrl": null,
     "awards": [],
     "medium": "Pedagogy",
-    "label": "yellow"
+    "label": "green",
+    "hero": "assets/projects/proseminar/img1.jpg",
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Teaching Assistant"
+      },
+      {
+        "name": "Allen Sayegh",
+        "url": "",
+        "role": "Professor"
+      },
+      {
+        "name": "Eric Rannestad",
+        "url": "",
+        "role": "Teaching Assistant"
+      }
+    ]
   },
   {
     "id": "mdes-nps",
@@ -719,7 +762,7 @@
       "pragmatic": 0.78,
       "institutional": 0.1
     },
-    "thumbnail": "assets/projects/arena/Home.png",
+    "thumbnail": "assets/projects/arena/Conflicts.png",
     "images": [
       "assets/projects/arena/Reasons.png",
       "assets/projects/arena/Home.png",
@@ -741,7 +784,7 @@
     "sourceUrl": null,
     "awards": [],
     "medium": "App",
-    "hero": "assets/projects/arena/arena-hero.png",
+    "hero": "assets/projects/arena/Conflicts.png",
     "who": [
       {
         "name": "Wyatt Roy",
@@ -908,7 +951,7 @@
   },
   {
     "id": "taxonomy",
-    "title": "Taxonomy",
+    "title": "Taxonomy of Narrative Conventions",
     "year": 2021,
     "month": 2,
     "tagline": "A classification system for design research methods",
@@ -919,29 +962,41 @@
       "Tools"
     ],
     "axes": {
-      "pragmatic": 0.62,
-      "institutional": 0.62
+      "pragmatic": 0.99,
+      "institutional": 0.59
     },
-    "thumbnail": "assets/projects/taxonomy/thumb.jpg",
+    "thumbnail": "assets/projects/taxonomy/img1.jpg",
     "images": [
       "assets/projects/taxonomy/img1.jpg",
       "assets/projects/taxonomy/img2.jpg"
     ],
     "videos": [],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/design/narrative-taxonomy",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Narrative",
     "tags": [],
-    "who": [],
-    "label": "yellow"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer"
+      },
+      {
+        "name": "Luis Zanforlin",
+        "url": "https://www.luiszanforlin.com/",
+        "role": "Designer"
+      }
+    ],
+    "label": "green",
+    "hero": "assets/projects/taxonomy/img1.jpg"
   },
   {
     "id": "mu-mirror",
     "title": "Mu Mirror",
     "year": 2024,
     "month": 11,
-    "tagline": "p5.js webcam dot-grid — a Zen koan about the boundary of self",
+    "tagline": "A Zen koan about the boundary of self rendered as a p5.js dot-grid",
     "what": "Built in p5.js. Reads webcam data, compares pixels between frames by color similarity, and moves each pixel-dot toward its closest match — lerping both location and color over time. The result: your reflection dissolves and re-forms as a living dot-field.",
     "why": "Zen koans use riddles to trigger insight. This piece tries to make non-duality felt in the body rather than understood intellectually — if your reflection is made of the same dots as everything around you, where do you end?",
     "categories": [
@@ -956,11 +1011,9 @@
     "thumbnail": "assets/projects/mu-mirror/thumb.jpg",
     "images": [
       "assets/projects/mu-mirror/mousedots.gif",
-      "assets/projects/mu-mirror/img1.jpg",
       "assets/projects/mu-mirror/img2.jpg",
       "assets/projects/mu-mirror/img4.jpg",
       "assets/projects/mu-mirror/img6.jpg",
-      "assets/projects/mu-mirror/img8.jpg",
       "assets/projects/mu-mirror/thumb.jpg",
       "assets/projects/mu-mirror/dots grid_1.gif",
       "assets/projects/mu-mirror/Dots thick.gif",
@@ -981,7 +1034,7 @@
     "awards": [],
     "medium": "Web",
     "tags": [],
-    "hero": "assets/projects/mu-mirror/mousedots.gif",
+    "hero": "assets/projects/mu-mirror/mumirror-converted.gif",
     "who": [
       {
         "name": "Wyatt Roy",
@@ -1004,8 +1057,8 @@
       "Web"
     ],
     "axes": {
-      "pragmatic": 0.42,
-      "institutional": 0.1
+      "pragmatic": 0.08,
+      "institutional": 0.44
     },
     "thumbnail": "assets/projects/typewriter/thumb.jpg",
     "images": [
@@ -1013,13 +1066,20 @@
       "assets/projects/typewriter/img2.jpg"
     ],
     "videos": [],
-    "liveUrl": null,
-    "sourceUrl": "https://wyattroy.github.io/codeart/pages/typewriter/index.html",
+    "liveUrl": "https://wyattroy.github.io/codeart/pages/typewriter/index.html",
+    "sourceUrl": null,
     "awards": [],
-    "medium": "App",
+    "medium": "Web",
     "tags": [],
-    "who": [],
-    "label": "yellow"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer"
+      }
+    ],
+    "label": "green",
+    "hero": "assets/projects/typewriter/img1.jpg"
   },
   {
     "id": "matchstick",
@@ -1137,7 +1197,7 @@
       "Fabrication"
     ],
     "axes": {
-      "pragmatic": 0.02,
+      "pragmatic": 0.04,
       "institutional": 0.19
     },
     "thumbnail": "assets/projects/hug/thumb.jpg",
@@ -1164,7 +1224,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/design/the-hug",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Fabrication",
     "tags": [
@@ -1211,7 +1271,7 @@
       "Web"
     ],
     "axes": {
-      "pragmatic": 0.06,
+      "pragmatic": 0,
       "institutional": 0.1
     },
     "thumbnail": "assets/projects/ripplestar/ripplestarstart.png",
@@ -1220,12 +1280,24 @@
     ],
     "videos": [],
     "liveUrl": "https://wyattroy.github.io/codeart/pages/ripplestar/index.html",
-    "sourceUrl": "https://wyattroy.github.io/codeart/",
+    "sourceUrl": null,
     "awards": [],
-    "medium": "App",
+    "medium": "Web",
     "tags": [],
-    "who": [],
-    "label": "yellow"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer"
+      },
+      {
+        "name": "Luis Zanforlin",
+        "url": "https://www.luiszanforlin.com/",
+        "role": "Composer"
+      }
+    ],
+    "label": "green",
+    "hero": "assets/projects/ripplestar/ripplestarhero.gif"
   },
   {
     "id": "cinnabot",
@@ -1394,7 +1466,7 @@
       "wood"
     ],
     "axes": {
-      "pragmatic": 0.24,
+      "pragmatic": 0.29,
       "institutional": 0.08
     },
     "thumbnail": "assets/projects/cnc-cheeseboard/IMG_3763.jpg",
@@ -1768,7 +1840,7 @@
     "title": "Sound AG",
     "year": 2023,
     "month": 6,
-    "tagline": "VR experience shrinking you into the soil microbiome to explain Sound Agriculture's technology",
+    "tagline": "VR experience that shrinks you into the soil microbiome",
     "what": "A commissioned VR experience for Sound Agriculture. You start in an Idaho cornfield, then shrink into the soil until you are the same size as the microbes that help plants grow — giving you a first-person view of the biology their product activates. Translated into Spanish and Portuguese.",
     "why": "Sound Agriculture's technology reduces fertilizer use significantly, but it works through invisible soil biology. Making the invisible literally walkable is more powerful than any diagram or explainer video.",
     "categories": [
@@ -1777,7 +1849,7 @@
     ],
     "axes": {
       "pragmatic": 0.72,
-      "institutional": 0.48
+      "institutional": 0.61
     },
     "thumbnail": "assets/projects/sound-ag/thumb.jpg",
     "images": [
@@ -1795,13 +1867,20 @@
         "heroOverride": true
       }
     ],
-    "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/xr/sound-ag",
+    "liveUrl": "https://www.sound.ag/",
+    "sourceUrl": null,
     "awards": [],
     "medium": "VR",
     "tags": [],
-    "who": [],
-    "label": "yellow"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer, Engineer"
+      }
+    ],
+    "label": "green",
+    "hero": "assets/projects/sound-ag/thumb-sm.jpg"
   },
   {
     "id": "piece-of-string",
@@ -1965,7 +2044,7 @@
     ],
     "tags": [],
     "axes": {
-      "pragmatic": 0.22,
+      "pragmatic": 0.12,
       "institutional": 0.06
     },
     "thumbnail": "assets/projects/falling-fall/thumb.jpg",
@@ -2001,7 +2080,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/design/falling-fall",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Fabrication",
     "hero": "assets/projects/falling-fall/throw.png",
@@ -2748,11 +2827,13 @@
       "Video"
     ],
     "axes": {
-      "pragmatic": 0.65,
-      "institutional": 0.28
+      "pragmatic": 0.68,
+      "institutional": 0.49
     },
     "thumbnail": "assets/projects/streetlogic/thumb.jpg",
-    "images": [],
+    "images": [
+      "assets/projects/streetlogic/thumb.jpg"
+    ],
     "videos": [
       {
         "url": "https://vimeo.com/644187149",
@@ -2760,12 +2841,24 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/video/streetlogic",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Film",
     "tags": [],
-    "who": [],
-    "label": "yellow"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Director, Cinematographer, Editor"
+      },
+      {
+        "name": "Will Murphy",
+        "url": "",
+        "role": "Producer, Cyclist"
+      }
+    ],
+    "label": "green",
+    "hero": "assets/projects/streetlogic/thumb.jpg"
   },
   {
     "id": "peloton",
@@ -2848,19 +2941,33 @@
       "Tools"
     ],
     "axes": {
-      "pragmatic": 0.68,
-      "institutional": 0.32
+      "pragmatic": 0.75,
+      "institutional": 0.23
     },
-    "thumbnail": "assets/projects/storymaker/thumb.jpg",
-    "images": [],
+    "thumbnail": "assets/projects/storymaker/IMG_0214.JPG",
+    "images": [
+      "assets/projects/storymaker/stage 5.png",
+      "assets/projects/storymaker/stage 1.png",
+      "assets/projects/storymaker/storymaker.png",
+      "assets/projects/storymaker/click.png",
+      "assets/projects/storymaker/storymaker code.png",
+      "assets/projects/storymaker/IMG_0214.JPG"
+    ],
     "videos": [],
     "liveUrl": "https://wyattroy.github.io/codeart/pages/storymaker/index.html",
-    "sourceUrl": "https://wyattroy.github.io/codeart/pages/storymaker/index.html",
+    "sourceUrl": null,
     "awards": [],
-    "medium": "App",
+    "medium": "Web",
     "tags": [],
-    "who": [],
-    "label": "yellow"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer, writer"
+      }
+    ],
+    "label": "green",
+    "hero": "assets/projects/storymaker/IMG_0214.JPG"
   },
   {
     "id": "all-rgb",

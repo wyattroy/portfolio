@@ -97,6 +97,12 @@
   "hero": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [
+    {
+      "src": "assets/projects/how-to-change-institutions/How to Change Institutions.pdf",
+      "title": "Download the Book (PDF)"
+    }
+  ],
   "images": [
     "assets/projects/how-to-change-institutions/img5.jpg",
     "assets/projects/how-to-change-institutions/How to Change Institutions page 4.jpg",

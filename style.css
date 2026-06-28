@@ -1187,6 +1187,33 @@ footer {
   margin: 0 auto;
 }
 
+.about-hero-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.about-headshot {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+}
+
+.about-hero-text {
+  flex: 1;
+}
+
+@media (max-width: 520px) {
+  .about-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}
+
 .about-hero h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   color: var(--color-text);

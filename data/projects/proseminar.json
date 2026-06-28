@@ -3,14 +3,46 @@
   "title": "Mediums Proseminar",
   "year": 2025,
   "month": 9,
-  "tagline": "Media theory seminar for MDes students, co-led with Allen Sayegh at Harvard GSD",
-  "description": "A media theory seminar for incoming MDes students, co-led with domain head Allen Sayegh, pairing critical theory with hands-on experiential learning in different media.",
-  "what": "Co-led the Mediums domain seminar with Allen Sayegh for incoming MDes students. Paired critical design readings with experiential learning: students visited the Harvard glass flower collection comparing simulacra with originals; responded to Berger's Ways of Seeing by making short films in the Fogg Art Museum for an in-class festival; shared personal design practices for critique, leading to unexpected collaborations and the first sale of one student's work to another.",
-  "why": "If the medium is the message (McLuhan), the pedagogical challenge is how to render the medium visible and pliable. By teaching about each medium through a combination of mediums, students gained the agency to extend their practices by understanding each one's unique affordances.",
-  "categories": [
-    "Education",
-    "Research"
+  "tagline": "Media theory seminar for MDes students at Harvard GSD",
+  "what": [
+    {
+      "type": "text",
+      "content": "Co-led the Mediums domain seminar with Allen Sayegh for incoming MDes students. Paired critical design readings with experiential learning: students visited the Harvard glass flower collection comparing simulacra with originals; responded to Berger's Ways of Seeing by making short films in the Fogg Art Museum for an in-class festival; shared personal design practices for critique, leading to unexpected collaborations and the first sale of one student's work to another."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/proseminar/IMG_2836.gif"
+    },
+    {
+      "type": "text",
+      "content": "*Marbling Machine* by Marc Dunand and David Selles"
+    }
   ],
+  "why": [
+    {
+      "type": "text",
+      "content": "If the medium is the message (McLuhan), the pedagogical challenge is how to render the medium visible and pliable. By teaching about each medium through a combination of mediums, students gained the agency to extend their practices by understanding each one's unique affordances."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/proseminar/img3.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "Allen, Eric and I collaboratively designed the class around facilitated discussions, interactive workshops, and pin-up critiques. The discussions were led by different students each week, on topics that they had read about in critical design texts outside of class. \n\nThe workshops brought those ideas to life through active debates, creating media, and field trips. One week, after reading about flowers made of glass in the 1800's, the class went to see them in person – and each student brought a real flora specimen to the exhibit to find similarities and differences. Another week, students reacted to \"readings\" that were in video form – John Berger's *Ways of Seeing* – by shooting and editing 60-second videos of their own, using artwork from the Harvard Art Museum as the inspiration; then screening them at an in-class film festival.\n\nThe pin-ups gave students a chance to share their wide ranging personal practices with each other for feedback and advice. One student (somewhat accidentally) sold his first artwork to another student after his pinup was over. \n\nStudents gathered into teams to create their final project from the class, exploring an element of the theory from class in a personal, creative way. Final projects included a clock made out of salt deposits, a drawing machine that printed onto the surface of water, and an interactive poem \"played\" on an old CRT."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/proseminar/IMG_2823.jpg"
+    },
+    {
+      "type": "text",
+      "content": "*Salt Clock* by Alex Ember and Shlomi Wolman"
+    }
+  ],
+  "medium": "Pedagogy",
   "tags": [
     "education",
     "Harvard",
@@ -23,15 +55,39 @@
     "institutional": 0.85
   },
   "thumbnail": "assets/projects/proseminar/thumb.jpg",
+  "hero": "assets/projects/proseminar/img1.jpg",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/proseminar/img1.jpg",
     "assets/projects/proseminar/img2.jpg",
     "assets/projects/proseminar/img3.jpg",
-    "assets/projects/proseminar/img4.jpg"
+    "assets/projects/proseminar/img4.jpg",
+    "assets/projects/proseminar/IMG_2838.jpg",
+    "assets/projects/proseminar/IMG_2861.jpg",
+    "assets/projects/proseminar/asemic drawings_Harbor_ Marc.gif",
+    "assets/projects/proseminar/IMG_2823.jpg",
+    "assets/projects/proseminar/IMG_2836.gif"
   ],
   "videos": [],
-  "liveUrl": null,
-  "sourceUrl": null,
   "awards": [],
-  "medium": "Pedagogy"
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Teaching Assistant"
+    },
+    {
+      "name": "Allen Sayegh",
+      "url": "",
+      "role": "Professor"
+    },
+    {
+      "name": "Eric Rannestad",
+      "url": "",
+      "role": "Teaching Assistant"
+    }
+  ],
+  "description": "A media theory seminar for incoming MDes students, co-led with domain head Allen Sayegh, pairing critical theory with hands-on experiential learning in different media."
 }

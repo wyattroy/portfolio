@@ -69,6 +69,19 @@
     }
     #new-project-btn:hover { border-color: rgba(240, 237, 232, 0.7); background: rgba(240, 237, 232, 0.1); }
     #new-project-btn.visible { display: block; }
+    #delete-btn {
+      background: transparent;
+      color: #e06060;
+      border: 1px solid rgba(224, 96, 96, 0.4);
+      border-radius: 4px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      display: none;
+    }
+    #delete-btn:hover { background: rgba(224, 96, 96, 0.12); border-color: #e06060; }
+    #delete-btn.visible { display: block; }
 
     /* ── Layout ── */
     .main {
@@ -438,6 +451,17 @@
     #asset-picker-btn:hover { border-color: #C4603A; color: #C4603A; }
 
     /* Videos */
+    .file-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 6px;
+      max-width: 900px;
+    }
+    .file-row .file-src { flex: 2; padding: 6px 10px; border: 1px solid #C4BEB8; border-radius: 4px; font-size: 12px; background: #fff; }
+    .file-row .file-title { flex: 1; padding: 6px 10px; border: 1px solid #C4BEB8; border-radius: 4px; font-size: 12px; background: #fff; }
+    .file-row button { padding: 5px 8px; border: 1px solid #C4BEB8; border-radius: 4px; background: #fff; cursor: pointer; color: #8A8078; white-space: nowrap; }
+    .file-row button:hover { color: #C4603A; border-color: #C4603A; }
     .video-row {
       display: flex;
       gap: 8px;
@@ -884,6 +908,7 @@
   <button id="new-project-btn">+ New project</button>
   <span id="status">No folder loaded</span>
   <span id="save-indicator"></span>
+  <button id="delete-btn">🗑 Delete</button>
   <button id="save-btn">💾 Save</button>
 </div>
 
@@ -1108,6 +1133,7 @@ async function loadProject(file) {
 
   renderEditor(currentData);
   document.getElementById('save-btn').classList.add('visible');
+  document.getElementById('delete-btn').classList.add('visible');
 }
 
 // ── Block editor state ────────────────────────────────────────────────────────
@@ -1606,6 +1632,10 @@ function renderEditor(p) {
       </div>
     </div>
 
+    <p class="section-heading">Files</p>
+    <div id="files-wrap"></div>
+    <button class="add-row-btn" onclick="addFileRow({})">+ Add file</button>
+
     <p class="section-heading">Videos</p>
     <div id="videos-wrap"></div>
     <button class="add-row-btn" onclick="addVideoRow('')">+ Add video URL</button>
@@ -1635,6 +1665,7 @@ function renderEditor(p) {
   document.getElementById('images-panel-body').style.display = '';
   buildImagesGrid(p.images || []);
 
+  buildFileRows(p.files || []);
   buildVideoRows(p.videos || []);
   buildAwardRows(p.awards || []);
   buildWhoRows(p.who || []);
@@ -1874,6 +1905,97 @@ function getImages() {
 }
 
 // ── Video rows ────────────────────────────────────────────────────────────────
+// ── File rows ─────────────────────────────────────────────────────────────────
+function buildFileRows(files) {
+  const wrap = document.getElementById('files-wrap');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  (files || []).forEach(f => addFileRow(f));
+}
+
+window.addFileRow = function(val) {
+  const file = (typeof val === 'object' && val !== null) ? val : {};
+  const wrap = document.getElementById('files-wrap');
+  const row = document.createElement('div');
+  row.className = 'file-row';
+  row.innerHTML = `
+    <input class="file-src" type="text" value="${esc(file.src || '')}" placeholder="assets/projects/x/file.pdf">
+    <button class="file-browse-btn" title="Browse project assets">📄 Browse</button>
+    <input class="file-title" type="text" value="${esc(file.title || '')}" placeholder="Download title">
+    <button onclick="this.parentElement.remove(); markUnsaved();">×</button>`;
+  row.querySelector('.file-src').addEventListener('input', markUnsaved);
+  row.querySelector('.file-title').addEventListener('input', markUnsaved);
+  row.querySelector('.file-browse-btn').addEventListener('click', () => openFilePicker(row));
+  wrap.appendChild(row);
+};
+
+async function openFilePicker(row) {
+  if (!assetsHandle) {
+    assetsHandle = await pickAssetsFolder();
+    if (!assetsHandle) return;
+  }
+  const slug = currentFile ? currentFile.name.replace('.json', '') : null;
+  let scanHandle = assetsHandle;
+  let scanPath = 'assets/projects/';
+  if (slug) {
+    try {
+      scanHandle = await assetsHandle.getDirectoryHandle(slug);
+      scanPath = `assets/projects/${slug}/`;
+    } catch(e) {}
+  }
+
+  const files = [];
+  async function scan(handle, path) {
+    for await (const [name, entry] of handle.entries()) {
+      if (entry.kind === 'directory') await scan(entry, path + name + '/');
+      else files.push(path + name);
+    }
+  }
+  try { await scan(scanHandle, scanPath); } catch(e) {}
+
+  if (!files.length) { alert('No files found in project assets folder.'); return; }
+
+  const chosen = await showFilePickerModal(files);
+  if (chosen) {
+    row.querySelector('.file-src').value = chosen;
+    markUnsaved();
+  }
+}
+
+function showFilePickerModal(files) {
+  return new Promise(resolve => {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;display:flex;align-items:center;justify-content:center;';
+    const box = document.createElement('div');
+    box.style.cssText = 'background:#1a1a1a;border:1px solid #333;border-radius:8px;padding:20px;min-width:400px;max-width:600px;max-height:70vh;overflow-y:auto;';
+    box.innerHTML = `<p style="font-weight:600;margin:0 0 12px">Pick a file</p>`;
+    files.forEach(path => {
+      const btn = document.createElement('button');
+      btn.textContent = path.split('/').pop();
+      btn.title = path;
+      btn.style.cssText = 'display:block;width:100%;text-align:left;padding:8px 10px;margin-bottom:4px;background:#2a2a2a;border:1px solid #333;border-radius:4px;color:#e0d8cc;cursor:pointer;font-size:13px;';
+      btn.addEventListener('click', () => { document.body.removeChild(overlay); resolve(path); });
+      box.appendChild(btn);
+    });
+    const cancel = document.createElement('button');
+    cancel.textContent = 'Cancel';
+    cancel.style.cssText = 'margin-top:8px;padding:6px 14px;background:#333;border:none;border-radius:4px;color:#e0d8cc;cursor:pointer;';
+    cancel.addEventListener('click', () => { document.body.removeChild(overlay); resolve(null); });
+    box.appendChild(cancel);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+  });
+}
+
+function getFiles() {
+  return Array.from(document.querySelectorAll('#files-wrap .file-row'))
+    .map(row => {
+      const src = row.querySelector('.file-src')?.value.trim() || '';
+      const title = row.querySelector('.file-title')?.value.trim() || '';
+      return src ? { src, title } : null;
+    }).filter(Boolean);
+}
+
 function buildVideoRows(videos) {
   const wrap = document.getElementById('videos-wrap');
   if (!wrap) return;
@@ -2055,6 +2177,7 @@ function collectFormData() {
     hero:       get('f-hero') || undefined,
     liveUrl:    get('f-liveUrl') || null,
     sourceUrl:  get('f-sourceUrl') || null,
+    files:      getFiles(),
     images:     getImages(),
     videos:     getVideos(),
     awards:     getAwards(),
@@ -2064,11 +2187,61 @@ function collectFormData() {
       Object.entries(currentData).filter(([k]) =>
         !['id','title','year','month','tagline','what','why','how',
           'medium','categories','tags','axes','thumbnail','hero','liveUrl','sourceUrl',
-          'status','featured','images','videos','awards','who'].includes(k)
+          'status','featured','files','images','videos','awards','who'].includes(k)
       )
     ),
   };
 }
+
+// ── Delete ────────────────────────────────────────────────────────────────────
+document.getElementById('delete-btn').addEventListener('click', async () => {
+  if (!currentFile || !dirHandle) return;
+  const id = currentFile.name.replace('.json', '');
+  if (!confirm(`Delete "${id}"?\n\nThis removes the JSON file and its projects.json entry. Asset files are not deleted.`)) return;
+
+  try {
+    await dirHandle.removeEntry(currentFile.name);
+  } catch(e) {
+    alert('Could not delete file: ' + e.message);
+    return;
+  }
+
+  if (dataRootHandle) {
+    try {
+      const listFH = await dataRootHandle.getFileHandle('projects.json');
+      const txt = await (await listFH.getFile()).text();
+      const list = JSON.parse(txt);
+      const filtered = list.filter(p => p.id !== id);
+      if (filtered.length !== list.length) {
+        const lw = await listFH.createWritable();
+        await lw.write(JSON.stringify(filtered, null, 2) + '\n');
+        await lw.close();
+      }
+    } catch(e) {
+      console.warn('Could not update projects.json:', e);
+    }
+  }
+
+  unsavedIds.delete(id);
+  currentFile = null;
+  currentData = null;
+  document.getElementById('save-btn').classList.remove('visible');
+  document.getElementById('delete-btn').classList.remove('visible');
+  document.getElementById('editor').innerHTML = `
+    <div class="empty-state">
+      <p>No project selected</p>
+      <small>Open the data/projects folder, then pick a project</small>
+    </div>`;
+  document.getElementById('images-panel-empty').style.display = '';
+  document.getElementById('images-panel-body').style.display = 'none';
+
+  await loadProjectList();
+
+  const ind = document.getElementById('save-indicator');
+  ind.textContent = `✓ Deleted ${id}`;
+  ind.classList.add('visible');
+  setTimeout(() => ind.classList.remove('visible'), 3000);
+});
 
 // ── Save ──────────────────────────────────────────────────────────────────────
 document.getElementById('save-btn').addEventListener('click', saveProject);

@@ -1,0 +1,19 @@
+{
+  "id": "pour",
+  "title": "Pour",
+  "year": 2026,
+  "month": 6,
+  "tagline": "",
+  "tags": [],
+  "axes": {
+    "pragmatic": 0.5,
+    "institutional": 0.5
+  },
+  "thumbnail": "assets/projects/pour/thumb.jpg",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "images": [],
+  "videos": [],
+  "awards": [],
+  "who": []
+}

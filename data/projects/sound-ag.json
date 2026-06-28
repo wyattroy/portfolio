@@ -3,34 +3,11 @@
   "title": "Sound AG",
   "year": 2023,
   "month": 6,
-  "tagline": "VR experience shrinking you into the soil microbiome to explain Sound Agriculture's technology",
-  "description": "All over the world farmers are using fertilizer to grow our food.  Fertilizer works, but it's inefficient and terrible for the environment.  Sound Agriculture is an ag-tech startup that invented a way to use much less fertilizer to grow significantly healthier crops.",
+  "tagline": "VR experience that shrinks you into the soil microbiome",
   "what": [
     {
       "type": "text",
-      "content": "All over the world farmers are using fertilizer to grow our food. Fertilizer works, but it's inefficient and terrible for the environment. Sound Agriculture is an ag-tech startup that invented a way to use much less fertilizer to grow significantly healthier crops. It seems like magic. Good science often does. So to demystify their product, they needed to explain how it works.\n\nI created a VR experience for them where you start in a cornfield in Idaho, then shrink down into the soil - so small that you become the same size as the microbes that help plants grow."
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/sound-ag/img1.jpg",
-      "align": "right"
-    }
-  ],
-  "why": [
-    {
-      "type": "text",
-      "content": "When you can see the invisible microbiome under your feet, Sound Ag's product makes a lot more sense.\n\nTranslated into Spanish and Portuguese."
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/sound-ag/img4.jpg",
-      "align": "right"
-    }
-  ],
-  "how": [
-    {
-      "type": "text",
-      "content": ""
+      "content": "All over the world farmers are using fertilizer to grow our food. Fertilizer works, but it's inefficient and terrible for the environment. Sound Agriculture is an ag-tech startup that invented a way to use much less fertilizer to grow significantly healthier crops. It seems like magic. Good science often does. So to demystify their product, they needed to explain how it works – to the people whose livelihoods depended on their soil.\n\nI created a VR experience where you start in a cornfield in Idaho, then shrink down into the soil - so small that you become the same size as the microbes that help plants grow."
     },
     {
       "type": "image",
@@ -38,14 +15,36 @@
       "align": "right"
     }
   ],
+  "why": [
+    {
+      "type": "text",
+      "content": "When you can see the invisible microbiome under your feet, Sound Ag's product makes a lot more sense. You can watch them turn nitrogen and phosphorus into forms that the plants are able to uptake – and you watch the plants reward them in a virtuous cycle. You also see the effect of fertilizer, which drops down from above and puts the whole microbiome into hibernation. \n\nBeing *in* a place makes you feel these abstract, scientific effects in a personal, embodied way."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sound-ag/img4.jpg"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "I built the entire piece in Unity to run on standalone headsets so Sound could take the piece on a roadshow around the USA and Latin America. This meant the art style had to be figurative, low-poly, and lightweight so that rendering would work on a variety of headsets. I also needed the piece to be foolproof to users who had never done VR before – so I designed it with a \"Look button\" that only continues the story once the user is looking in the right direction each time. This allowed them to look around to their heart's content each time they are shrunk into a new scene, without missing any of the story beats. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sound-ag/img1.jpg"
+    }
+  ],
   "medium": "VR",
   "tags": [],
   "axes": {
     "pragmatic": 0.72,
-    "institutional": 0.48
+    "institutional": 0.61
   },
   "thumbnail": "assets/projects/sound-ag/thumb.jpg",
-  "liveUrl": null,
+  "hero": "assets/projects/sound-ag/thumb-sm.jpg",
+  "liveUrl": "https://www.sound.ag/",
+  "sourceUrl": null,
   "images": [
     "assets/projects/sound-ag/img1.jpg",
     "assets/projects/sound-ag/img2.jpg",
@@ -62,7 +61,14 @@
     }
   ],
   "awards": [],
-  "who": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, Engineer"
+    }
+  ],
+  "description": "All over the world farmers are using fertilizer to grow our food.  Fertilizer works, but it's inefficient and terrible for the environment.  Sound Agriculture is an ag-tech startup that invented a way to use much less fertilizer to grow significantly healthier crops.",
   "scraped_raw_text": [
     "Sound Ag",
     "Shrink into the soil",

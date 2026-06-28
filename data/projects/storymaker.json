@@ -4,20 +4,74 @@
   "year": 2025,
   "month": 2,
   "tagline": "Hero's Journey bedtime story companion with random character prompts",
-  "description": "A web tool that helps you ad-lib a complete Hero's Journey bedtime story with randomly generated character prompts for names, fears, objects, and settings.",
-  "what": "A step-by-step web tool that walks you through the stages of the Hero's Journey to help you improvise a complete bedtime story. Each stage gives you random prompts — character names starting with certain letters, their biggest fears, favorite objects, homelands — to spark your imagination. You type or say the story aloud as you click through each stage. The site generates the structure and prompts; the narrative drama is up to you.",
-  "why": "It's hard to ad-lib a proper bedtime story with a complete hero's journey arc. I made this simple tool to help you come up with one on the spot. All the narrative drama is still up to you — but these are the bones. It'll even give you some help with names and relationships to get your ideas flowing.",
-  "medium": "Web",
+  "what": [
+    {
+      "type": "text",
+      "content": "A step-by-step web app that walks you through the stages of the Hero's Journey to help you improvise a complete bedtime story. Each stage gives you random prompts — character names starting with certain letters, their biggest fears, favorite objects, homelands — to spark your imagination. You type or say the story aloud as you click through each stage. The site generates the structure and prompts; the narrative drama is up to you."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storymaker/storymaker.png"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "It's hard to ad-lib a proper bedtime story with a complete hero's journey arc. I made this simple tool to help you come up with one on the spot. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storymaker/stage 1.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "All the narrative drama is still up to you — but these are the bones. It'll even give you some help with names and relationships to get your ideas flowing.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storymaker/stage 5.png",
+      "align": "right"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "I built this in javascript to run without any AI, locally in your browser. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/storymaker/storymaker code.png"
+    }
+  ],
+  "medium": "App",
   "tags": [],
   "axes": {
-    "pragmatic": 0.68,
-    "institutional": 0.32
+    "pragmatic": 0.75,
+    "institutional": 0.23
   },
-  "thumbnail": "assets/projects/storymaker/thumb.jpg",
+  "thumbnail": "assets/projects/storymaker/IMG_0214.JPG",
+  "hero": "assets/projects/storymaker/IMG_0214.JPG",
   "liveUrl": "https://wyattroy.github.io/codeart/pages/storymaker/index.html",
-  "sourceUrl": "https://wyattroy.github.io/codeart/pages/storymaker/index.html",
-  "images": [],
+  "sourceUrl": null,
+  "images": [
+    "assets/projects/storymaker/stage 5.png",
+    "assets/projects/storymaker/stage 1.png",
+    "assets/projects/storymaker/storymaker.png",
+    "assets/projects/storymaker/click.png",
+    "assets/projects/storymaker/storymaker code.png",
+    "assets/projects/storymaker/IMG_0214.JPG"
+  ],
   "videos": [],
   "awards": [],
-  "who": []
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Designer, writer"
+    }
+  ],
+  "description": "A web tool that helps you ad-lib a complete Hero's Journey bedtime story with randomly generated character prompts for names, fears, objects, and settings."
 }

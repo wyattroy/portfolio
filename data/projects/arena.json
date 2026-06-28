@@ -11,7 +11,7 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/arena/ArenaStep.png"
+      "src": "assets/projects/arena/Home.png"
     }
   ],
   "why": [
@@ -46,7 +46,7 @@
       "align": "right"
     }
   ],
-  "medium": "Web",
+  "medium": "App",
   "tags": [
     "web app",
     "decision-making",
@@ -59,8 +59,8 @@
     "pragmatic": 0.78,
     "institutional": 0.1
   },
-  "thumbnail": "assets/projects/arena/Home.png",
-  "hero": "assets/projects/arena/arena-hero.png",
+  "thumbnail": "assets/projects/arena/Conflicts.png",
+  "hero": "assets/projects/arena/Conflicts.png",
   "liveUrl": "https://arenaofwants.com",
   "sourceUrl": null,
   "images": [
