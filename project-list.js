@@ -63,13 +63,7 @@ function buildTagChips() {
   const container = document.getElementById('tag-filters');
   if (!container) return;
 
-  const categorySet = new Set();
-  allProjects.forEach(p => {
-    (p.categories || []).forEach(c => categorySet.add(c));
-  });
-
-  // Use categories as primary filter chips (cleaner UX)
-  const filterGroups = ['All', ...Array.from(categorySet).sort()];
+  const filterGroups = ['All', 'Pedagogy', 'App', 'VR', 'Fabrication', 'Narrative'];
 
   container.innerHTML = '';
   filterGroups.forEach(tag => {
@@ -91,11 +85,9 @@ function buildTagChips() {
 function applyFilters() {
   let result = allProjects.slice();
 
-  // Tag / category filter
+  // Medium filter
   if (activeTag !== 'all') {
-    result = result.filter(p =>
-      (p.categories || []).some(c => c === activeTag)
-    );
+    result = result.filter(p => p.medium === activeTag);
   }
 
   // Fuzzy search
@@ -241,16 +233,17 @@ function buildCard(project) {
   }
 
   const quadrantSvg = buildQuadrantSvg(project.axes);
+  const quadrantLabel = project.axes ? getQuadrantShortName(project.axes.pragmatic, project.axes.institutional) : '';
 
   const MEDIUM_COLORS = {
-    'VR':           '#6B3FA6',
+    'VR':           '#7847B2',
     'Film':         '#A03030',
-    'Pedagogy':     '#B07030',
+    'Pedagogy':     '#C85C1A',
     'Web':          '#2B6BAE',
-    'Fabrication':  '#8C5523',
-    'Narrative':    '#2A7A8A',
+    'Fabrication':  '#C49A10',
+    'Narrative':    '#2464A0',
     'Research':     '#5A7080',
-    'App':          '#2A7A5A',
+    'App':          '#2E7856',
     'Performance':  '#9A3070',
     'Installation': '#7A6030',
     'Design':       '#4A3A7A',
@@ -259,7 +252,6 @@ function buildCard(project) {
   if (project.medium && MEDIUM_COLORS[project.medium]) {
     badges += `<span class="medium-badge" style="background:${MEDIUM_COLORS[project.medium]}">${escHtml(project.medium)}</span>`;
   }
-  if (project.status === 'book') badges += `<span class="status-badge">Book</span>`;
 
   // Render detail content inline using base project data (no fetch needed for preview)
   const inlineDetail = buildDetailContent(project);
@@ -269,11 +261,11 @@ function buildCard(project) {
     <div class="card-body">
       <div class="card-meta">
         <span class="card-year">${project.year || ''}</span>
-        ${quadrantSvg}
+        <span class="card-quadrant-wrap">${quadrantLabel ? `<span class="card-quadrant-label">${quadrantLabel}</span>` : ''}${quadrantSvg}</span>
       </div>
-      ${badges}
       <h3 class="card-title">${escHtml(project.title)}</h3>
       <p class="card-tagline">${escHtml(project.tagline || '')}</p>
+      ${badges}
 
       <div class="card-expanded-content" id="expanded-${project.id}" data-rendered="true">
         ${inlineDetail}
@@ -513,6 +505,15 @@ function getQuadrantName(pragmatic, institutional) {
   if (!p && i) return 'Poetic + Institutional';
   if (p && !i) return 'Pragmatic + Individual';
   return 'Poetic + Individual';
+}
+
+function getQuadrantShortName(pragmatic = 0.5, institutional = 0.5) {
+  const p = pragmatic >= 0.5;
+  const i = institutional >= 0.5;
+  if (p && i) return 'PRAGMATIC/INSTITUTIONAL';
+  if (!p && i) return 'POETIC/INSTITUTIONAL';
+  if (p && !i) return 'PRAGMATIC/INDIVIDUAL';
+  return 'POETIC/INDIVIDUAL';
 }
 
 // ─── Lightbox bridge ──────────────────────────────────────────────────────────

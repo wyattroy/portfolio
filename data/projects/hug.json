@@ -4,7 +4,16 @@
   "year": 2024,
   "month": 12,
   "tagline": "A digital sculpture about holding on and letting go",
-  "what": "Two people photographed hugging, photogrammetry-scanned into 3D meshes via Polycam, decimated in Rhino, cleaned in Blender, and reconstructed in Grasshopper with a custom C# script that tiles ginkgo leaves across every face of the mesh — each leaf oriented to the face normal and scripted to blow away in simulated wind. Three earlier iterations were abandoned (boolean subtraction to reveal an invisible hugger; vertex translation to stretch the legs into precariousness; 3D-printed mesh wireframe) before the leaf system emerged as the form that could carry the emotion.",
+  "what": [
+    {
+      "type": "text",
+      "content": "Two people photographed hugging, photogrammetry-scanned into 3D meshes via Polycam, decimated in Rhino, cleaned in Blender, and reconstructed in Grasshopper with a custom C# script that tiles ginkgo leaves across every face of the mesh — each leaf oriented to the face normal and scripted to blow away in simulated wind. Three earlier iterations were abandoned (boolean subtraction to reveal an invisible hugger; vertex translation to stretch the legs into precariousness; 3D-printed mesh wireframe) before the leaf system emerged as the form that could carry the emotion."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/hug/hug-v2.gif"
+    }
+  ],
   "why": [
     {
       "type": "text",
@@ -78,7 +87,7 @@
     },
     {
       "type": "text",
-      "content": "**Iteration 2: Stretching the vertices**\n\nFor our second experiment, we stretched the models' legs so that they would look delicate and precarious in their hug, by translating each vertex in the mesh downwards exponentially according to its distance from a parametrically set midpoint threshold — you get to choose where to start stretching them. This didn't convey the emotion either.",
+      "content": "**Iteration 2: Stretching the vertices**\n\nFor our second experiment, we stretched the models' legs so that they would look delicate and precarious in their hug, by translating each vertex in the mesh downwards exponentially according to its distance from a parametrically set midpoint threshold — you get to choose where to start stretching them. This didn't convey the emotion either. The vertex translation script let us control the stretch threshold parametrically, with real-time feedback in the Rhino viewport.",
       "align": "left"
     },
     {
@@ -88,22 +97,7 @@
     },
     {
       "type": "text",
-      "content": "The vertex translation script let us control the stretch threshold parametrically, with real-time feedback in the Rhino viewport.",
-      "align": "left"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/hug/img12.jpg",
-      "align": "right"
-    },
-    {
-      "type": "text",
-      "content": "**Iteration 3: 3D printing the mesh**\n\nFor our third experiment, we 3D printed the mesh, writing our own toolpath in Grasshopper to control the look and feel of the hugger. We experimented with printing just the outlines of the triangles so the huggers would be see-through, and printing the huggers as melting. This certainly evoked something, but not really an emotion.",
-      "align": "left"
-    },
-    {
-      "type": "text",
-      "content": "**Iteration 4: Ginkgo leaves**\n\nFor our final experiment we deconstructed the mesh to get a list of each face on it, as well as its normal — which direction the face is facing. We drew a NURBS curve based on a ginkgo leaf we found under a tree, and deformed it to match the curve of our real leaf. Then we made a copy of the leaf for every face on the model's mesh. This ended up crashing Grasshopper because there were 2,000 leaves, so we added a sparseness control and randomized each leaf's Z direction so that it looked more organic.",
+      "content": "**Iteration 3: Ginkgo leaves**\n\nFor our final experiment we deconstructed the mesh to get a list of each face on it, as well as its normal — which direction the face is facing. We drew a NURBS curve based on a ginkgo leaf we found under a tree, and deformed it to match the curve of our real leaf. Then we made a copy of the leaf for every face on the model's mesh. This ended up crashing Grasshopper because there were 2,000 leaves, so we added a sparseness control and randomized each leaf's Z direction so that it looked more organic.",
       "align": "left"
     },
     {
@@ -118,16 +112,12 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/hug/img16.jpg",
+      "src": "assets/projects/hug/img18.jpg",
       "align": "right"
     },
     {
       "type": "text",
       "content": "Ultimately, this was an iterative process. Making anything has ups and downs where you have an idea, build it, wonder if it's actually doing the thing you want it to, then try something new. We hope you like where we ended up, and have a better sense of how to make something like this yourself."
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/hug/img18.jpg"
     },
     {
       "type": "image",

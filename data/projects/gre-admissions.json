@@ -4,7 +4,6 @@
   "year": 2024,
   "month": 10,
   "tagline": "Research on how GRE requirements shape graduate design school applicant pools",
-  "description": "Helping Harvard's Graduate School of Design intentionally design their culture",
   "what": "Design research into the potential unintended consequences of an admissions policy change -- to reinstate the GRE as a mandatory requirement for applications. \n\n",
   "why": [
     {
@@ -39,7 +38,7 @@
   "tags": [],
   "axes": {
     "pragmatic": 0.82,
-    "institutional": 0.92
+    "institutional": 0.84
   },
   "thumbnail": "assets/projects/gre-admissions/GRE Description 2.jpg",
   "hero": "assets/projects/gre-admissions/GRE Description 2.jpg",
@@ -60,6 +59,7 @@
       "role": "Design Researcher"
     }
   ],
+  "description": "Helping Harvard's Graduate School of Design intentionally design their culture",
   "scraped_raw_text": [
     "GRE Survey",
     "Helping Harvard's Graduate School of Design intentionally design their culture",

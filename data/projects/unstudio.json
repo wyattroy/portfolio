@@ -64,8 +64,8 @@
     "community"
   ],
   "axes": {
-    "pragmatic": 0.83,
-    "institutional": 0.87
+    "pragmatic": 0.95,
+    "institutional": 0.94
   },
   "thumbnail": "assets/projects/unstudio/unstudio-description.jpg",
   "hero": "assets/projects/unstudio/hero.jpg",

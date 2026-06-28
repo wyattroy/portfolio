@@ -1,14 +1,13 @@
 {
   "id": "haaaard",
-  "title": "haaaard",
+  "title": "Haaaard Sweatshirt",
   "year": 2024,
   "month": 9,
   "tagline": "Psychological belonging intervention delivered as an article of clothing.",
-  "description": "HAAAARD is a psychological belonging intervention delivered as an article of clothing.",
   "what": [
     {
       "type": "text",
-      "content": "HAAAARD is a psychological belonging intervention delivered as an article of clothing.\n\nPlus a dash of sass, minus any scientific measurement of effects.\n\n",
+      "content": "It's a sweatshirt. More technically, HAAAARD is a psychological belonging intervention delivered as an article of clothing. Plus a dash of sass, minus any scientific measurement of effects.\n\n",
       "align": "none"
     },
     {
@@ -68,6 +67,7 @@
       "role": "Designer"
     }
   ],
+  "description": "HAAAARD is a psychological belonging intervention delivered as an article of clothing.",
   "scraped_raw_text": [
     "HAAAARD",
     "It's a sweatshirt.",

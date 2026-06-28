@@ -10,10 +10,10 @@
   --color-accent-2: #7A9B8A;
   --color-border: #DDD5C4;
   --color-grid: #CEC6B4;
-  --color-q-ip: #DAE4EF;
-  --color-q-ii: #C8D9EC;
-  --color-q-sp: #D8EEE4;
-  --color-q-si: #EDE4D8;
+  --color-q-ip: #7FA3C0;
+  --color-q-ii: #7FA3C0;
+  --color-q-sp: #7FA3C0;
+  --color-q-si: #7FA3C0;
 
   --font-heading: 'DM Serif Display', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
@@ -595,6 +595,19 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Quadrant indicator */
+.card-quadrant-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-quadrant-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+}
+
 .quadrant-indicator {
   width: 20px;
   height: 20px;
@@ -603,17 +616,18 @@ h1, h2, h3, h4, h5 {
 
 .card-title {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: var(--color-text);
   margin-bottom: 4px;
   line-height: 1.3;
 }
 
 .card-tagline {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  color: var(--color-text);
   line-height: 1.5;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 
 /* Card tags */
@@ -983,17 +997,27 @@ h1, h2, h3, h4, h5 {
 #project-modal-close {
   position: absolute;
   top: 0.75rem;
-  right: 0.9rem;
-  background: none;
+  right: 0.75rem;
+  background: rgba(0, 0, 0, 0.35);
   border: none;
-  font-size: 1.5rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
   line-height: 1;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
+  transition: background 0.15s, color 0.15s;
 }
-#project-modal-close:hover { color: var(--color-text); }
+#project-modal-close:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
 
 .modal-thumb {
   display: block;
@@ -1411,7 +1435,7 @@ footer {
 .preview-description {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--color-text);
+  color: var(--color-text-muted);
   margin: 0 0 16px;
 }
 

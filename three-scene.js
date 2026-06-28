@@ -429,6 +429,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   }
 
   canvas.addEventListener('mousemove', e => {
+    if (isMobile) return;
     const now = performance.now();
     if (now - lastRaycastTime < 33) return; // ~30fps
     lastRaycastTime = now;
