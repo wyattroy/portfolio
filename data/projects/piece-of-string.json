@@ -3,7 +3,7 @@
   "title": "Piece of String",
   "year": 2019,
   "month": 9,
-  "tagline": "VR photogrammetry piece — follow a string through a real home and the memories left behind",
+  "tagline": "VR photogrammetry piece \u2014 follow a string through a real home and the memories left behind",
   "what": [
     {
       "type": "text",
@@ -97,7 +97,6 @@
   "thumbnail": "assets/projects/piece-of-string/img1.jpg",
   "hero": "assets/projects/piece-of-string/img1.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/xr/piece-of-string",
   "images": [
     "assets/projects/piece-of-string/img1.jpg",
     "assets/projects/piece-of-string/img2.jpg",

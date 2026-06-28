@@ -7,7 +7,7 @@
   "what": [
     {
       "type": "text",
-      "content": "Two people photographed hugging, photogrammetry-scanned into 3D meshes via Polycam, decimated in Rhino, cleaned in Blender, and reconstructed in Grasshopper with a custom C# script that tiles ginkgo leaves across every face of the mesh — each leaf oriented to the face normal and scripted to blow away in simulated wind. Three earlier iterations were abandoned (boolean subtraction to reveal an invisible hugger; vertex translation to stretch the legs into precariousness; 3D-printed mesh wireframe) before the leaf system emerged as the form that could carry the emotion."
+      "content": "Two people photographed hugging, photogrammetry-scanned into 3D meshes via Polycam, decimated in Rhino, cleaned in Blender, and reconstructed in Grasshopper with a custom C# script that tiles ginkgo leaves across every face of the mesh \u2014 each leaf oriented to the face normal and scripted to blow away in simulated wind. Three earlier iterations were abandoned (boolean subtraction to reveal an invisible hugger; vertex translation to stretch the legs into precariousness; 3D-printed mesh wireframe) before the leaf system emerged as the form that could carry the emotion."
     },
     {
       "type": "image",
@@ -87,7 +87,7 @@
     },
     {
       "type": "text",
-      "content": "**Iteration 2: Stretching the vertices**\n\nFor our second experiment, we stretched the models' legs so that they would look delicate and precarious in their hug, by translating each vertex in the mesh downwards exponentially according to its distance from a parametrically set midpoint threshold — you get to choose where to start stretching them. This didn't convey the emotion either. The vertex translation script let us control the stretch threshold parametrically, with real-time feedback in the Rhino viewport.",
+      "content": "**Iteration 2: Stretching the vertices**\n\nFor our second experiment, we stretched the models' legs so that they would look delicate and precarious in their hug, by translating each vertex in the mesh downwards exponentially according to its distance from a parametrically set midpoint threshold \u2014 you get to choose where to start stretching them. This didn't convey the emotion either. The vertex translation script let us control the stretch threshold parametrically, with real-time feedback in the Rhino viewport.",
       "align": "left"
     },
     {
@@ -97,7 +97,7 @@
     },
     {
       "type": "text",
-      "content": "**Iteration 3: Ginkgo leaves**\n\nFor our final experiment we deconstructed the mesh to get a list of each face on it, as well as its normal — which direction the face is facing. We drew a NURBS curve based on a ginkgo leaf we found under a tree, and deformed it to match the curve of our real leaf. Then we made a copy of the leaf for every face on the model's mesh. This ended up crashing Grasshopper because there were 2,000 leaves, so we added a sparseness control and randomized each leaf's Z direction so that it looked more organic.",
+      "content": "**Iteration 3: Ginkgo leaves**\n\nFor our final experiment we deconstructed the mesh to get a list of each face on it, as well as its normal \u2014 which direction the face is facing. We drew a NURBS curve based on a ginkgo leaf we found under a tree, and deformed it to match the curve of our real leaf. Then we made a copy of the leaf for every face on the model's mesh. This ended up crashing Grasshopper because there were 2,000 leaves, so we added a sparseness control and randomized each leaf's Z direction so that it looked more organic.",
       "align": "left"
     },
     {
@@ -107,7 +107,7 @@
     },
     {
       "type": "text",
-      "content": "Finally we created a script to generate planes for the leaves blowing off the mesh. We take in the original mesh, use its maximum and minimum values along with a wind direction and wind force, and randomly scatter new leaves flying off the figure. We also multiplied the x and y values of the leaves by their own exponent to cluster the leaves around the model — then got rid of half the leaves because it just felt right.",
+      "content": "Finally we created a script to generate planes for the leaves blowing off the mesh. We take in the original mesh, use its maximum and minimum values along with a wind direction and wind force, and randomly scatter new leaves flying off the figure. We also multiplied the x and y values of the leaves by their own exponent to cluster the leaves around the model \u2014 then got rid of half the leaves because it just felt right.",
       "align": "left"
     },
     {
@@ -143,7 +143,6 @@
   "thumbnail": "assets/projects/hug/thumb.jpg",
   "hero": "assets/projects/hug/hug-v2.gif",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/design/the-hug",
   "images": [
     "assets/projects/hug/img1.jpg",
     "assets/projects/hug/img2.jpg",

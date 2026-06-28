@@ -961,7 +961,14 @@
       "assets/projects/mu-mirror/img4.jpg",
       "assets/projects/mu-mirror/img6.jpg",
       "assets/projects/mu-mirror/img8.jpg",
-      "assets/projects/mu-mirror/thumb.jpg"
+      "assets/projects/mu-mirror/thumb.jpg",
+      "assets/projects/mu-mirror/dots grid_1.gif",
+      "assets/projects/mu-mirror/Dots thick.gif",
+      "assets/projects/mu-mirror/dots mirror.gif",
+      "assets/projects/mu-mirror/Attract dots grid.gif",
+      "assets/projects/mu-mirror/unnamed.jpg",
+      "assets/projects/mu-mirror/Banana Prototype halfspeed_1.gif",
+      "assets/projects/mu-mirror/mumirror-converted.gif"
     ],
     "videos": [
       {
@@ -970,9 +977,9 @@
       }
     ],
     "liveUrl": "http://mumirror.wyattroy.com",
-    "sourceUrl": "https://www.wyattroy.com/interactive/mu-mirror",
+    "sourceUrl": null,
     "awards": [],
-    "medium": "App",
+    "medium": "Web",
     "tags": [],
     "hero": "assets/projects/mu-mirror/mousedots.gif",
     "who": [

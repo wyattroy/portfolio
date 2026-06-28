@@ -34,7 +34,7 @@
   "why": [
     {
       "type": "text",
-      "content": "Grandpa Dutch was 95 when he passed away. He spent his final decade turning wooden bowls on the lathe in his shed, running a local thrift shop, and feeding the ducks in his yard. When I was young, I saw him as my unstoppable grandpa; but as an adult I knew he wouldn’t be with us forever. So when my family had an impromptu reunion at his beach house in Rehoboth, DE, I wanted to capture that moment in a way that had never been done before.\n\nI’m obsessed with memories. How fragile and multisensory they seem – we don’t just remember audio and visual \"videos\", we remember smells, and crucially, touch. But moments in time are impossible to grasp – they slip away exactly as they happen. Or so I thought, until I figured out a way to hold one."
+      "content": "Grandpa Dutch was 95 when he passed away. He spent his final decade turning wooden bowls on the lathe in his shed, running a local thrift shop, and feeding the ducks in his yard. When I was young, I saw him as my unstoppable grandpa; but as an adult I knew he wouldn\u2019t be with us forever. So when my family had an impromptu reunion at his beach house in Rehoboth, DE, I wanted to capture that moment in a way that had never been done before.\n\nI\u2019m obsessed with memories. How fragile and multisensory they seem \u2013 we don\u2019t just remember audio and visual \"videos\", we remember smells, and crucially, touch. But moments in time are impossible to grasp \u2013 they slip away exactly as they happen. Or so I thought, until I figured out a way to hold one."
     },
     {
       "type": "image",
@@ -56,7 +56,7 @@
     },
     {
       "type": "text",
-      "content": "I had just spent the summer teaching myself photogrammetry. One afternoon I arranged us on a rock and conducted my largest scan to date: 2000+ DSLR images combined with drone footage into a three- dimensional portrait of us together before we all went separate ways.\n\nWhen the print arrived, something magic happened. I picked up this sculptural “moment” and suddenly I felt close to Anuj again. I made him a second copy and sent it across the ocean. He told me that when he picked it up, it hit him like a hug."
+      "content": "I had just spent the summer teaching myself photogrammetry. One afternoon I arranged us on a rock and conducted my largest scan to date: 2000+ DSLR images combined with drone footage into a three- dimensional portrait of us together before we all went separate ways.\n\nWhen the print arrived, something magic happened. I picked up this sculptural \u201cmoment\u201d and suddenly I felt close to Anuj again. I made him a second copy and sent it across the ocean. He told me that when he picked it up, it hit him like a hug."
     }
   ],
   "how": [
@@ -123,7 +123,6 @@
   "thumbnail": "assets/projects/3d-printing/thumb.jpg",
   "hero": "assets/projects/3d-printing/img16.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/design/3d-printing",
   "images": [
     "assets/projects/3d-printing/img1.jpg",
     "assets/projects/3d-printing/img2.jpg",
@@ -153,10 +152,10 @@
   "scraped_raw_text": [
     "Extruding Memories",
     "3D-Printed Photogrammetry of Lost Moments",
-    "Grandpa Dutch’s Last Wooden Bowl",
+    "Grandpa Dutch\u2019s Last Wooden Bowl",
     "He was 95 years young when he passed peacefully in his sleep. He spent his final decade lathing bowls in his shed, running a local thrift shop, and feeding the ducks in his yard.",
-    "As a kid, he was my unstoppable grandpa but as an adult I knew he wouldn’t be with us forever. So when my family had an impromptu reunion at his beach house in Rehoboth, DE, I wanted to capture that moment in a way that had never been done before.",
-    "I’m obsessed with memories. How fragile they are. How multisensory they seem – we don’t just remember audio and visual \"videos\", we remember smells, and crucially, touch. Moments in time are impossible to grasp – they slip away exactly as they happen. Or so I thought, until I figured out a way to hold one.",
+    "As a kid, he was my unstoppable grandpa but as an adult I knew he wouldn\u2019t be with us forever. So when my family had an impromptu reunion at his beach house in Rehoboth, DE, I wanted to capture that moment in a way that had never been done before.",
+    "I\u2019m obsessed with memories. How fragile they are. How multisensory they seem \u2013 we don\u2019t just remember audio and visual \"videos\", we remember smells, and crucially, touch. Moments in time are impossible to grasp \u2013 they slip away exactly as they happen. Or so I thought, until I figured out a way to hold one.",
     "I am a tactile human. Touch is one of my primary ways of expressing love. My art asks: what would it be like to touch a moment in time?",
     "Process",
     "Capture 1000+ photos of static scene with DSLR and Drone",
@@ -172,7 +171,7 @@
     "I love the itinerant life, but the flipside of having a vagabond spirit is that I hold memories tightly. Time feels effervescent at best, and tragically ephemeral at worst. So in 2018 I started figuring out how to use technology to let me hold onto precious moments. Literally, in my hands.",
     "By that time my core group of highschool friends had dispersed all over the world. But Anuj was turning 30, and he wanted to bring us back together. So we wiggled our way over to Baja Mexico for a week that we all knew would be too short.",
     "I had just spent the summer teaching myself photogrammetry as part of my ongoing quest to capture memories before they slipped away. So one afternoon I arranged us all on a beautiful rock and conducted my largest scan to date: 2000+ DSLR images combined with drone footage into a three- dimensional portrait of us together before we all went separate ways.",
-    "When the print arrived, something magic happened. I picked up this sculptural “moment” and suddenly I felt close to Anuj again. I made him a second copy and sent it back across the ocean. He told me that when he picked it up, it hit him like a hug.",
+    "When the print arrived, something magic happened. I picked up this sculptural \u201cmoment\u201d and suddenly I felt close to Anuj again. I made him a second copy and sent it back across the ocean. He told me that when he picked it up, it hit him like a hug.",
     "1. Capture",
     "2. Create",
     "3. Print",

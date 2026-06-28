@@ -3,12 +3,12 @@
   "title": "Play Me",
   "year": 2019,
   "month": 3,
-  "tagline": "Live performance art on Twitch — the audience controlled my every action for 30 minutes",
+  "tagline": "Live performance art on Twitch \u2014 the audience controlled my every action for 30 minutes",
   "what": "An experimental interactive story where I live streamed my point of view to an internet audience who decided my every action. The format combined improvisational theatre, performance art, and computer gaming. Audience members typed suggestions into Twitch chat, a custom chatbot organized three options for a vote, and a moderator relayed the winning action to me via earpiece every 60 seconds.",
   "why": [
     {
       "type": "text",
-      "content": "**Question:** If I gave a group of people radical control over my life and actions, would they connect with me more? Would they empathize? Or would they treat both me and everyone around me like mere playthings?\n\nThis project tested collective decision-making through improvisation and gaming. My hypothesis was that sharing perspective and responsibility for another person's actions would produce empathy — because the audience would see what I see, and bear some responsibility for what I do.\n\nInstead, each player experienced deindividuation within the group (Johnson, 1979): decisions were collective, responsibility was diffuse, and they treated both me and everyone around me like NPCs — non-player characters — to humorous effect."
+      "content": "**Question:** If I gave a group of people radical control over my life and actions, would they connect with me more? Would they empathize? Or would they treat both me and everyone around me like mere playthings?\n\nThis project tested collective decision-making through improvisation and gaming. My hypothesis was that sharing perspective and responsibility for another person's actions would produce empathy \u2014 because the audience would see what I see, and bear some responsibility for what I do.\n\nInstead, each player experienced deindividuation within the group (Johnson, 1979): decisions were collective, responsibility was diffuse, and they treated both me and everyone around me like NPCs \u2014 non-player characters \u2014 to humorous effect."
     },
     {
       "type": "image",
@@ -18,7 +18,7 @@
   "how": [
     {
       "type": "text",
-      "content": "**Tech stack**\n\nThe system was built around Twitch. I wore a helmet-mounted rig with multiple iPhones — one live-streaming my point of view, others receiving the moderator's voice commands through earbuds. A custom Twitch Bot solicited suggestions from the audience chat, compiled votes, and presented three candidates every 60 seconds. My co-creator Gordon Lanza built the bot and served as the sole moderator: the only voice I could hear during the episode.",
+      "content": "**Tech stack**\n\nThe system was built around Twitch. I wore a helmet-mounted rig with multiple iPhones \u2014 one live-streaming my point of view, others receiving the moderator's voice commands through earbuds. A custom Twitch Bot solicited suggestions from the audience chat, compiled votes, and presented three candidates every 60 seconds. My co-creator Gordon Lanza built the bot and served as the sole moderator: the only voice I could hear during the episode.",
       "align": "left"
     },
     {
@@ -28,12 +28,12 @@
     },
     {
       "type": "text",
-      "content": "**Rules**\n\nHere's how it works:\n\n- You are going to play me — as a character, as a game, as a story — but it's actually me\n- You will see what I see\n- I will do whatever you say, as long as it doesn't cause harm. \"Harm\" is up to my discretion\n- The half-hour episode will only be as good as you collectively make it, so make good offers, and make your partner look good\n\nVoting worked like this: type a suggestion into Twitch chat, then vote between three options — the first submitted, the last submitted, and a random one from the middle. I cannot go outside (I'd lose wifi). Lara, my partner, is present as a non-controllable character — she reacts naturally to whatever I do.",
+      "content": "**Rules**\n\nHere's how it works:\n\n- You are going to play me \u2014 as a character, as a game, as a story \u2014 but it's actually me\n- You will see what I see\n- I will do whatever you say, as long as it doesn't cause harm. \"Harm\" is up to my discretion\n- The half-hour episode will only be as good as you collectively make it, so make good offers, and make your partner look good\n\nVoting worked like this: type a suggestion into Twitch chat, then vote between three options \u2014 the first submitted, the last submitted, and a random one from the middle. I cannot go outside (I'd lose wifi). Lara, my partner, is present as a non-controllable character \u2014 she reacts naturally to whatever I do.",
       "align": "left"
     },
     {
       "type": "text",
-      "content": "**Episode premise**\n\nI am moving away soon, and need to go on one final grocery run to my local corner store. I'm not sure what I need to get, but I know we're running low on some things. There's a man who sometimes works behind the counter there who I've become friends with over the years, but I've forgotten his name. I want to figure out a way to let him know I'm moving away and say goodbye — but I don't know if he'll be there.\n\nHelp me prepare for this outing.",
+      "content": "**Episode premise**\n\nI am moving away soon, and need to go on one final grocery run to my local corner store. I'm not sure what I need to get, but I know we're running low on some things. There's a man who sometimes works behind the counter there who I've become friends with over the years, but I've forgotten his name. I want to figure out a way to let him know I'm moving away and say goodbye \u2014 but I don't know if he'll be there.\n\nHelp me prepare for this outing.",
       "align": "left"
     },
     {
@@ -56,7 +56,6 @@
   "thumbnail": "assets/projects/play-me/thumb.jpg",
   "hero": "assets/projects/play-me/thumb.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/interactive/play-me",
   "images": [
     "assets/projects/play-me/thumb.jpg",
     "assets/projects/play-me/img1.jpg"
@@ -80,5 +79,5 @@
       "role": "Lead Developer, Moderator"
     }
   ],
-  "description": "An experimental interactive story where I live streamed my first-person point of view to an internet audience who voted to decide my every action — combining improvisational theatre, performance art, and computer gaming."
+  "description": "An experimental interactive story where I live streamed my first-person point of view to an internet audience who voted to decide my every action \u2014 combining improvisational theatre, performance art, and computer gaming."
 }

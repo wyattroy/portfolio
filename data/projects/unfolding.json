@@ -4,11 +4,11 @@
   "year": 2025,
   "month": 5,
   "tagline": "VR cinematic experiment to develop narrative conventions",
-  "what": "A short film in 180-3D virtual reality capturing the final moments of an intimate relationship unraveling. Set inside a meticulously scanned apartment, viewers put on a headset and sit alongside the characters — not watching, but present.",
+  "what": "A short film in 180-3D virtual reality capturing the final moments of an intimate relationship unraveling. Set inside a meticulously scanned apartment, viewers put on a headset and sit alongside the characters \u2014 not watching, but present.",
   "why": [
     {
       "type": "text",
-      "content": "Unfolding is a new kind of film.\n\nIt is a spatial narrative experienced in virtual reality, capturing the final moments of an intimate relationship unraveling. Set inside a meticulously scanned apartment, the story follows two women as they navigate the tender, painful terrain of letting go. One craves connection and clarity, yearning for love—even if it means moving on. The other, paralyzed by fear of change and loss, clings to the comfort of what was. As they confront the emotional residue of an attempted open relationship, tensions surface through subtle gestures and fragmented conversations. The home—once a shared space—becomes a quiet witness to their parting. Crushed origami scattered across the floor echoes a failed attempt at reconciliation, a symbol of words unspoken and love unrevealed. Through embodied presence, spatial sound, and atmospheric storytelling, Unfolding immerses the viewer in a breakup that is neither bitter nor dramatic, but intimate, complex, and deeply human.\n\nYou're not watching the characters, you're with them. As they brush their teeth, water their plants, and dismantle their relationship, you sit with them in their home. As you never can, even with your closest friends."
+      "content": "Unfolding is a new kind of film.\n\nIt is a spatial narrative experienced in virtual reality, capturing the final moments of an intimate relationship unraveling. Set inside a meticulously scanned apartment, the story follows two women as they navigate the tender, painful terrain of letting go. One craves connection and clarity, yearning for love\u2014even if it means moving on. The other, paralyzed by fear of change and loss, clings to the comfort of what was. As they confront the emotional residue of an attempted open relationship, tensions surface through subtle gestures and fragmented conversations. The home\u2014once a shared space\u2014becomes a quiet witness to their parting. Crushed origami scattered across the floor echoes a failed attempt at reconciliation, a symbol of words unspoken and love unrevealed. Through embodied presence, spatial sound, and atmospheric storytelling, Unfolding immerses the viewer in a breakup that is neither bitter nor dramatic, but intimate, complex, and deeply human.\n\nYou're not watching the characters, you're with them. As they brush their teeth, water their plants, and dismantle their relationship, you sit with them in their home. As you never can, even with your closest friends."
     },
     {
       "type": "image",
@@ -18,7 +18,7 @@
   "how": [
     {
       "type": "text",
-      "content": "**What does 180-3D VR mean?**\n\nVirtual reality storytelling can mean many different things: interactive branching narratives, games that the audience participates in, linear 360-degree documentaries. In a word, VR storytelling is unsolved. But many major creators including Apple and Meta are aligning on 180-3D as the most promising direction.\n\n**You can look around.** 180 means you can look anywhere in front of you, but aren't distracted by what is behind you.\n\n**You can see clearly.** The resolution is higher because pixels aren't wasted showing what is irrelevant and behind them. And films are shot on actual cameras, so the fidelity is lifelike, unlike anything generated in a computer game.\n\n**You see normally.** 3D means that each of your eyes sees a slightly different view — just like you would in real life. The effect is not like seeing a 3D movie, where things pop out at you. It's subtler in a headset: you just feel like you're with them.\n\n**You are directed.** The 3D effect is most comfortable when you look directly ahead, +/- 45 degrees — which means that the director still controls your perspective, even though the conventional \"frame\" of cinema fades invisibly at your periphery.\n\n**Your story is linear.** There are no branching narratives, no choices to make. Just like conventional cinema, you simply dissolve into the narrative.\n\n**You don't interact.** Because the story is linear, you can try to pick up objects or talk to characters, but nothing will happen. Just like conventional stories that have been told around campfires for millennia, your only role is to observe.",
+      "content": "**What does 180-3D VR mean?**\n\nVirtual reality storytelling can mean many different things: interactive branching narratives, games that the audience participates in, linear 360-degree documentaries. In a word, VR storytelling is unsolved. But many major creators including Apple and Meta are aligning on 180-3D as the most promising direction.\n\n**You can look around.** 180 means you can look anywhere in front of you, but aren't distracted by what is behind you.\n\n**You can see clearly.** The resolution is higher because pixels aren't wasted showing what is irrelevant and behind them. And films are shot on actual cameras, so the fidelity is lifelike, unlike anything generated in a computer game.\n\n**You see normally.** 3D means that each of your eyes sees a slightly different view \u2014 just like you would in real life. The effect is not like seeing a 3D movie, where things pop out at you. It's subtler in a headset: you just feel like you're with them.\n\n**You are directed.** The 3D effect is most comfortable when you look directly ahead, +/- 45 degrees \u2014 which means that the director still controls your perspective, even though the conventional \"frame\" of cinema fades invisibly at your periphery.\n\n**Your story is linear.** There are no branching narratives, no choices to make. Just like conventional cinema, you simply dissolve into the narrative.\n\n**You don't interact.** Because the story is linear, you can try to pick up objects or talk to characters, but nothing will happen. Just like conventional stories that have been told around campfires for millennia, your only role is to observe.",
       "align": "left"
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "type": "text",
-      "content": "**Production**\n\nThe process for creating a VR film is similar to a conventional flat film. The primary differences are the gear used to capture the footage for two eyes simultaneously, and then the post-production workflow to interpret, align, and handle that footage.\n\nScreenwriting → Casting → Pre-production → Production → Edit → Distribution",
+      "content": "**Production**\n\nThe process for creating a VR film is similar to a conventional flat film. The primary differences are the gear used to capture the footage for two eyes simultaneously, and then the post-production workflow to interpret, align, and handle that footage.\n\nScreenwriting \u2192 Casting \u2192 Pre-production \u2192 Production \u2192 Edit \u2192 Distribution",
       "align": "left"
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "type": "text",
-      "content": "**The camera**\n\nProduction uses a ZCam K1 — no screen, no onboard battery (external power pack hanging behind) — offset from the tripod so the legs don't appear in the 180-degree shot.\n\nIn post, an extra series of steps combines fisheye footage from both lenses into one equirectangular ProRes file editable in Premiere. Though you can upload 180 videos to YouTube, the effect is completely different on a flat screen versus in a headset.",
+      "content": "**The camera**\n\nProduction uses a ZCam K1 \u2014 no screen, no onboard battery (external power pack hanging behind) \u2014 offset from the tripod so the legs don't appear in the 180-degree shot.\n\nIn post, an extra series of steps combines fisheye footage from both lenses into one equirectangular ProRes file editable in Premiere. Though you can upload 180 videos to YouTube, the effect is completely different on a flat screen versus in a headset.",
       "align": "left"
     },
     {
@@ -64,7 +64,6 @@
   "thumbnail": "assets/projects/unfolding/thumb.jpg",
   "hero": "assets/projects/unfolding/img13.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/xr/unfolding",
   "images": [
     "assets/projects/unfolding/img13.jpg",
     "assets/projects/unfolding/img1.jpg",
@@ -83,7 +82,7 @@
   "awards": [
     "CineTejo Official Selection 2025",
     "MIX Brasil 2025",
-    "Barcelona Planet Film Festival — Best VR 2025",
+    "Barcelona Planet Film Festival \u2014 Best VR 2025",
     "Miami Art Tech Summit Official Selection 2025"
   ],
   "who": [

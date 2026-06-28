@@ -5,8 +5,8 @@
   "month": 2,
   "tagline": "A classification system for design research methods",
   "description": "Classify narratives based on perspective",
-  "what": "Classify narratives based on perspective\n\nWHAT\n\nA research document that finds patterns in narrative forms of different mediums by classifying based on the perspective of the story’s viewer as they merge with the protagonist. The key test is how the viewer would recount their experience with the story.",
-  "why": "When classifying a story, ask whether would the viewer say of the protagonist: “they went home” (third person), you fight the zombies” (second person), or “I built a city” (first person), or “Go here” (zero-eth person).\n\nDifferent levels of visual fidelity and realism correspond to different types of stories. This system is a design tool when ideating on a new story, which lets the designer select the qualities that will make the story most effective and compelling.",
+  "what": "Classify narratives based on perspective\n\nWHAT\n\nA research document that finds patterns in narrative forms of different mediums by classifying based on the perspective of the story\u2019s viewer as they merge with the protagonist. The key test is how the viewer would recount their experience with the story.",
+  "why": "When classifying a story, ask whether would the viewer say of the protagonist: \u201cthey went home\u201d (third person), you fight the zombies\u201d (second person), or \u201cI built a city\u201d (first person), or \u201cGo here\u201d (zero-eth person).\n\nDifferent levels of visual fidelity and realism correspond to different types of stories. This system is a design tool when ideating on a new story, which lets the designer select the qualities that will make the story most effective and compelling.",
   "medium": "Narrative",
   "tags": [],
   "axes": {
@@ -15,7 +15,6 @@
   },
   "thumbnail": "assets/projects/taxonomy/thumb.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/design/narrative-taxonomy",
   "images": [
     "assets/projects/taxonomy/img1.jpg",
     "assets/projects/taxonomy/img2.jpg"
@@ -27,8 +26,8 @@
     "Taxonomy of Narrative Design",
     "Classify narratives based on perspective",
     "WHAT",
-    "A research document that finds patterns in narrative forms of different mediums by classifying based on the perspective of the story’s viewer as they merge with the protagonist. The key test is how the viewer would recount their experience with the story.",
-    "When classifying a story, ask whether would the viewer say of the protagonist: “they went home” (third person), you fight the zombies” (second person), or “I built a city” (first person), or “Go here” (zero-eth person).",
+    "A research document that finds patterns in narrative forms of different mediums by classifying based on the perspective of the story\u2019s viewer as they merge with the protagonist. The key test is how the viewer would recount their experience with the story.",
+    "When classifying a story, ask whether would the viewer say of the protagonist: \u201cthey went home\u201d (third person), you fight the zombies\u201d (second person), or \u201cI built a city\u201d (first person), or \u201cGo here\u201d (zero-eth person).",
     "Different levels of visual fidelity and realism correspond to different types of stories. This system is a design tool when ideating on a new story, which lets the designer select the qualities that will make the story most effective and compelling."
   ],
   "scraped_url": "https://www.wyattroy.com/design/narrative-taxonomy"

@@ -8,7 +8,7 @@
   "why": [
     {
       "type": "text",
-      "content": "Sols made good insoles, but their brand aesthetic was futuristic and cold — it failed to communicate the human lives shaped by their product. And technology without humans is just matter.\n\nI wrote and creative directed a 100-second spot that shifted the focus from the product to the purpose."
+      "content": "Sols made good insoles, but their brand aesthetic was futuristic and cold \u2014 it failed to communicate the human lives shaped by their product. And technology without humans is just matter.\n\nI wrote and creative directed a 100-second spot that shifted the focus from the product to the purpose."
     },
     {
       "type": "image",
@@ -18,7 +18,7 @@
   "how": [
     {
       "type": "text",
-      "content": "**Transportation Theory**\n\nI used the tight frame on feet to apply Transportation Theory (Green, M. C., & Brock, T. C., 2000) — a psychological process where the viewer experiences mental and emotional immersion in a narrative. They temporarily lose awareness of their immediate surroundings and become psychologically transported into the story world, increasing persuasion and behavior change, and reducing skepticism.",
+      "content": "**Transportation Theory**\n\nI used the tight frame on feet to apply Transportation Theory (Green, M. C., & Brock, T. C., 2000) \u2014 a psychological process where the viewer experiences mental and emotional immersion in a narrative. They temporarily lose awareness of their immediate surroundings and become psychologically transported into the story world, increasing persuasion and behavior change, and reducing skepticism.",
       "align": "left"
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "type": "text",
-      "content": "**Emotion Without Faces**\n\nTo evoke emotion without seeing faces and with minimal dialogue, we used sound design, music, and pacing to communicate story beats — like when the protagonist hustles out of her waitressing job and runs through hospital hallways to see her dying father.\n\nStories allow us to project our own perspective into a hypothetical reality to model emotions and behavior (Murray, J. 1997). But this perspective-switching only works if the story feels real. The majority of my films use a documentary-based approach — the subject's natural authenticity allows viewers to immerse and fuse with their perspective more easily. My \"docu-narrative\" process is consistent across mediums, forming the backbone of my XR pieces too.",
+      "content": "**Emotion Without Faces**\n\nTo evoke emotion without seeing faces and with minimal dialogue, we used sound design, music, and pacing to communicate story beats \u2014 like when the protagonist hustles out of her waitressing job and runs through hospital hallways to see her dying father.\n\nStories allow us to project our own perspective into a hypothetical reality to model emotions and behavior (Murray, J. 1997). But this perspective-switching only works if the story feels real. The majority of my films use a documentary-based approach \u2014 the subject's natural authenticity allows viewers to immerse and fuse with their perspective more easily. My \"docu-narrative\" process is consistent across mediums, forming the backbone of my XR pieces too.",
       "align": "left"
     },
     {
@@ -64,7 +64,6 @@
   "thumbnail": "assets/projects/sols/thumb.jpg",
   "hero": "assets/projects/sols/thumb.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/video/sols",
   "images": [
     "assets/projects/sols/img1.jpg",
     "assets/projects/sols/img2.jpg",
@@ -116,5 +115,5 @@
       "role": "Colorist"
     }
   ],
-  "description": "A 100-second branded film for Sols insoles, told entirely from the perspective of feet — capturing one woman's life from childhood through loss to rediscovery."
+  "description": "A 100-second branded film for Sols insoles, told entirely from the perspective of feet \u2014 capturing one woman's life from childhood through loss to rediscovery."
 }

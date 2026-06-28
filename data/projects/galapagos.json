@@ -3,7 +3,7 @@
   "title": "Galapagos",
   "year": 2015,
   "month": 11,
-  "tagline": "Stanford documentary — chasing wonder at the edge of the Galápagos",
+  "tagline": "Stanford documentary \u2014 chasing wonder at the edge of the Gal\u00e1pagos",
   "what": [
     {
       "type": "text",
@@ -29,7 +29,7 @@
   "how": [
     {
       "type": "text",
-      "content": "Our panga bounced in the choppy water. We'd caught two flights, a bus, another flight, another bus, a ferry, another bus, and were finally at our destination — a remote archipelago in the middle of the Pacific. The isolation of the Galápagos is its source of power; but also renders it devastatingly fragile. Twelve Sophomore undergrads were there for a class called Darwin, Evolution, Galápagos. 30 alumni were there for a Continued Learning vacation. The professor was there to make sure everyone learned (and stayed alive).\n\nEvery day I captured hours of footage on underwater cameras and DSLRs, and every night I edited it together to try to create the story. Ultimately I realized that a spoken narration track would distract from the wilderness and center the humans more than felt authentic to the trip itself. So I interviewed them all and used their most precient quotes to create a light narrative backbone for the film that would let the piece breathe. I referenced the work of [Brandon Li](https://vimeo.com/129171397), a filmmaking friend when putting the edit together. ",
+      "content": "Our panga bounced in the choppy water. We'd caught two flights, a bus, another flight, another bus, a ferry, another bus, and were finally at our destination \u2014 a remote archipelago in the middle of the Pacific. The isolation of the Gal\u00e1pagos is its source of power; but also renders it devastatingly fragile. Twelve Sophomore undergrads were there for a class called Darwin, Evolution, Gal\u00e1pagos. 30 alumni were there for a Continued Learning vacation. The professor was there to make sure everyone learned (and stayed alive).\n\nEvery day I captured hours of footage on underwater cameras and DSLRs, and every night I edited it together to try to create the story. Ultimately I realized that a spoken narration track would distract from the wilderness and center the humans more than felt authentic to the trip itself. So I interviewed them all and used their most precient quotes to create a light narrative backbone for the film that would let the piece breathe. I referenced the work of [Brandon Li](https://vimeo.com/129171397), a filmmaking friend when putting the edit together. ",
       "align": "none"
     },
     {
@@ -46,7 +46,6 @@
   "thumbnail": "assets/projects/galapagos/thumb.jpg",
   "hero": "assets/projects/galapagos/thumb-sm.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/video/galapagos",
   "images": [
     "assets/projects/galapagos/thumb-sm.jpg",
     "assets/projects/galapagos/iguana-eye.jpg",
@@ -73,6 +72,6 @@
       "role": "Director, Cinematographer, Editor"
     }
   ],
-  "description": "A short documentary about Stanford students and alumni learning together in the Galápagos Islands.",
+  "description": "A short documentary about Stanford students and alumni learning together in the Gal\u00e1pagos Islands.",
   "scraped_url": null
 }

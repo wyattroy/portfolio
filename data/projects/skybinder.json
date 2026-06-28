@@ -3,13 +3,13 @@
   "title": "Skybinder",
   "year": 2021,
   "month": 5,
-  "tagline": "Meditative VR puzzle game — connect dots into origami animals",
+  "tagline": "Meditative VR puzzle game \u2014 connect dots into origami animals",
   "description": "A meditative VR puzzle game where players connect numbered dots into triangles to reveal origami animals, co-created at Maku XR.",
-  "what": "Skybinder is a meditative VR puzzle game about connecting constellations of dots into origami animals. Each dot shows how many connections it needs, but not which ones. When three correctly-connected dots form a triangle, a face fills in – revealing, piece by piece, a whale, a king cobra, or a cheeky chicken.",
+  "what": "Skybinder is a meditative VR puzzle game about connecting constellations of dots into origami animals. Each dot shows how many connections it needs, but not which ones. When three correctly-connected dots form a triangle, a face fills in \u2013 revealing, piece by piece, a whale, a king cobra, or a cheeky chicken.",
   "why": [
     {
       "type": "text",
-      "content": "When I co-founded Maku XR in 2021, an interactive development studio, most VR games on the market were stressful. They relied on violence, fear, or time pressure to elicit emotions – and sometimes all three. We asked, what would the opposite game look like, and how would it make you feel?\n\nIt would be thoughtful and calming, creative instead of destructive, and utterly free of time constraints. We focused on game feel — the quality of experience that rewards behavior subconsciously through subtle feedback like sounds, movement, and haptics. And we chose a minimalist aesthetic that honored the fundamental building blocks of VR – vertices, lines, and faces – and would empower players to feel as if they were creating their own digital world."
+      "content": "When I co-founded Maku XR in 2021, an interactive development studio, most VR games on the market were stressful. They relied on violence, fear, or time pressure to elicit emotions \u2013 and sometimes all three. We asked, what would the opposite game look like, and how would it make you feel?\n\nIt would be thoughtful and calming, creative instead of destructive, and utterly free of time constraints. We focused on game feel \u2014 the quality of experience that rewards behavior subconsciously through subtle feedback like sounds, movement, and haptics. And we chose a minimalist aesthetic that honored the fundamental building blocks of VR \u2013 vertices, lines, and faces \u2013 and would empower players to feel as if they were creating their own digital world."
     },
     {
       "type": "image",
@@ -19,7 +19,7 @@
   "how": [
     {
       "type": "text",
-      "content": "\"Sudoku meets origami in VR\"\n\nA meditative VR game about connecting constellations of dots into origami animals. Each dot has a number on it that tells the player how many other dots it must connect to, but not which dots. When you connect three dots into a triangle, it will fill in and create a face – but only if it is correct.",
+      "content": "\"Sudoku meets origami in VR\"\n\nA meditative VR game about connecting constellations of dots into origami animals. Each dot has a number on it that tells the player how many other dots it must connect to, but not which dots. When you connect three dots into a triangle, it will fill in and create a face \u2013 but only if it is correct.",
       "align": "left"
     },
     {
@@ -29,7 +29,7 @@
     },
     {
       "type": "text",
-      "content": "**Tutorial sequence**\n\nThe tutorial guides players through the core mechanic: reach inside a dot, hold the trigger, and connect dots to form lines. Three correctly connected dots fill in a face — the first taste of building something out of nothing.",
+      "content": "**Tutorial sequence**\n\nThe tutorial guides players through the core mechanic: reach inside a dot, hold the trigger, and connect dots to form lines. Three correctly connected dots fill in a face \u2014 the first taste of building something out of nothing.",
       "align": "left"
     },
     {
@@ -39,7 +39,7 @@
     },
     {
       "type": "text",
-      "content": "**Built in Unity**\n\nDeveloped in Unity for Oculus Quest. The main menu shows the full creature library — each origami animal its own puzzle, unlocked by solving it. Art, puzzle design, and user testing by Wyatt Roy; sound design and software lead by Luis Zanforlin.",
+      "content": "**Built in Unity**\n\nDeveloped in Unity for Oculus Quest. The main menu shows the full creature library \u2014 each origami animal its own puzzle, unlocked by solving it. Art, puzzle design, and user testing by Wyatt Roy; sound design and software lead by Luis Zanforlin.",
       "align": "left"
     },
     {
@@ -49,7 +49,7 @@
     },
     {
       "type": "text",
-      "content": "“A very cool immersive VR experience that will mesmerize you into a zen-like flow”\n\n– VRScout\n\n“Furiously addictive… The difficulty curve is masterful”\n\n– 6DOF\n\n“Genuine, puzzling challenges and a soothing focused yet meditative experience.”\n\n– UploadVR\n\n“Instantly intuitive… a very visual puzzle experience”\n\n– VR Focus"
+      "content": "\u201cA very cool immersive VR experience that will mesmerize you into a zen-like flow\u201d\n\n\u2013 VRScout\n\n\u201cFuriously addictive\u2026 The difficulty curve is masterful\u201d\n\n\u2013 6DOF\n\n\u201cGenuine, puzzling challenges and a soothing focused yet meditative experience.\u201d\n\n\u2013 UploadVR\n\n\u201cInstantly intuitive\u2026 a very visual puzzle experience\u201d\n\n\u2013 VR Focus"
     },
     {
       "type": "image",
@@ -72,7 +72,6 @@
   "thumbnail": "assets/projects/skybinder/thumb.jpg",
   "hero": "assets/projects/skybinder/thumb.jpg",
   "liveUrl": null,
-  "sourceUrl": "https://www.wyattroy.com/xr/skybinder",
   "images": [
     "assets/projects/skybinder/thumb.jpg",
     "assets/projects/skybinder/img1.jpg",
