@@ -7,11 +7,27 @@
   "what": [
     {
       "type": "text",
-      "content": "A pilot collaborative space for the third of Harvard GSD students who have no home base in Gund Hall. The [unstudio](unstudiogsd.org) transformed an underutilized room into a drop-in collision space using furniture that already existed — where students can spontaneously meet, share ideas, increase interdisciplinary connections, and design collaboratively regardless of program.\n\nThe Unstudio ran for 10 days (April 11–20, 2026), hosted 7 events, and drew 163 total observed visits — peaking at 15 people at once, doing computer work, drawing, modeling, and conversation simultaneously. \n\nIt costs nothing. It uses furniture that already exists. It turns underutilized collaborative space into a resource for everyone."
+      "content": "A pilot collaborative space for the third of Harvard GSD students who had no home base in Gund Hall. The [unstudio](unstudiogsd.org) transformed an underutilized room into a drop-in collision space using furniture that already existed — where students could spontaneously meet, share ideas, increase interdisciplinary connections, and design collaboratively regardless of program."
     },
     {
       "type": "image",
       "src": "assets/projects/unstudio/a IMG_0735.jpeg"
+    },
+    {
+      "type": "text",
+      "content": "The results were striking: The unstudio ran for just 10 days (April 11–20, 2026), yet hosted 7 events, and drew 163 total observed visits, doing computer work, drawing, modeling, and conversation simultaneously. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/data.png"
+    },
+    {
+      "type": "text",
+      "content": "84 members of the community added their voice in support of the unstudio being made a permanent part of the school. Collaborations sprung out of it, design work was deepened, spontaneous feedback was shared. \n\nIt cost nothing. It used furniture that already exists. It turned underutilized collaborative space into a resource for everyone."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/voices.png"
     }
   ],
   "why": [
@@ -47,7 +63,8 @@
     },
     {
       "type": "text",
-      "content": "The cultural belief that desks are only for studio students was excluding a third of the school from their creative home base. The unstudio tested a different idea: what if shared space could belong to everyone?"
+      "content": "The cultural belief that \"desks were only for studio students\" was excluding a third of the school from their creative home base. The unstudio tested a different idea: what if shared space could belong to everyone?",
+      "align": "left"
     },
     {
       "type": "image",
@@ -55,7 +72,32 @@
       "align": "right"
     }
   ],
-  "how": "Led with data: walked the space and sampled usage every 4 hours for a week before making any ask. Pitched the proposal to decision-makers framed as a low-risk, temporary pilot — doing all the homework so they only had to say yes.\n\nRearranged existing furniture into a flexible, drop-in layout. Posted three shared norms on the wall: Bring anything. Share everything. / Give up space. Don't hoard space. / Work with, not against.\n\nActivation posters gave users an immediate, low-stakes way to participate — a message board, a cat mood chart, a birthday calendar, a shared space survey. Measured everything: visitor counts, activities, time of day, and a community reaction wall. The toolkit is free to download and remix for any institution.",
+  "how": [
+    {
+      "type": "text",
+      "content": "Led with data: walked the space and sampled usage every 4 hours for a week before making any ask. Pitched the proposal to decision-makers framed as a low-risk, temporary pilot — doing all the homework so they only had to say yes."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/IMG_0395.jpeg"
+    },
+    {
+      "type": "text",
+      "content": "Rearranged existing furniture into a flexible, drop-in layout. Posted three shared norms on the wall: Bring anything. Share everything. / Give up space. Don't hoard space. / Work with, not against."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/a IMG_0645.jpeg"
+    },
+    {
+      "type": "text",
+      "content": "Activation posters gave users an immediate, low-stakes way to participate — a message board, a cat mood chart, a birthday calendar, a shared space survey. Measured everything: visitor counts, activities, time of day, and a community reaction wall. The toolkit is free to download and remix for any institution."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/IMG_0522.jpeg"
+    }
+  ],
   "medium": "Pedagogy",
   "tags": [
     "spatial design",
@@ -67,16 +109,15 @@
     "pragmatic": 0.95,
     "institutional": 0.94
   },
-  "thumbnail": "assets/projects/unstudio/unstudio-description.jpg",
-  "hero": "assets/projects/unstudio/hero.jpg",
+  "thumbnail": "assets/projects/unstudio/Unstudio square.jpg",
+  "hero": "assets/projects/unstudio/Unstudio square.jpg",
   "liveUrl": "https://unstudiogsd.org",
-  "sourceUrl": "https://unstudiogsd.org",
+  "sourceUrl": null,
+  "files": [],
   "images": [
-    "assets/projects/unstudio/hero.jpg",
     "assets/projects/unstudio/snapshot.jpg",
     "assets/projects/unstudio/unstudio-description.jpg",
     "assets/projects/unstudio/norms.jpg",
-    "assets/projects/unstudio/poster.jpg",
     "assets/projects/unstudio/space-survey.jpg",
     "assets/projects/unstudio/Unstudio cat.jpg",
     "assets/projects/unstudio/IMG_0384.jpeg",
@@ -87,17 +128,15 @@
     "assets/projects/unstudio/Unstudio square.jpg",
     "assets/projects/unstudio/a IMG_0645.jpeg",
     "assets/projects/unstudio/a IMG_0735.jpeg",
-    "assets/projects/unstudio/img3.jpg",
     "assets/projects/unstudio/desked-undesked.jpeg",
     "assets/projects/unstudio/empty-desks.jpeg",
     "assets/projects/unstudio/IMG_0395.jpeg",
-    "assets/projects/unstudio/img2.jpg",
-    "assets/projects/unstudio/img1.jpg",
-    "assets/projects/unstudio/thumb.jpg",
     "assets/projects/unstudio/other-third.jpeg",
     "assets/projects/unstudio/IMG_0734.JPG",
     "assets/projects/unstudio/Unstudio message.jpg",
-    "assets/projects/unstudio/IMG_0522.jpeg"
+    "assets/projects/unstudio/IMG_0522.jpeg",
+    "assets/projects/unstudio/voices.png",
+    "assets/projects/unstudio/data.png"
   ],
   "videos": [
     {
@@ -129,7 +168,7 @@
     },
     {
       "name": "Kalana White",
-      "url": "",
+      "url": "https://kalana.co",
       "role": "Collaborator"
     },
     {

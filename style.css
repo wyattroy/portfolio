@@ -1863,11 +1863,18 @@ footer {
 .pp-ctas .cta-btn.primary { background: var(--color-accent); color: #fff; }
 .pp-ctas .cta-btn.primary:hover { background: #486688; }
 .pp-ctas .cta-btn.secondary {
-  background: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+  background: var(--color-text);
+  color: var(--color-surface);
+  border: 1px solid var(--color-text);
+  font-weight: 500;
 }
-.pp-ctas .cta-btn.secondary:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.pp-ctas .cta-btn.secondary:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
 
 /* Legacy compat: keep old class names working */
 /* ── Labeled content sections (WHAT / WHY / HOW) ── */

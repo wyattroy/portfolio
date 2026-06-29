@@ -303,13 +303,11 @@
       "pragmatic": 0.95,
       "institutional": 0.94
     },
-    "thumbnail": "assets/projects/unstudio/unstudio-description.jpg",
+    "thumbnail": "assets/projects/unstudio/Unstudio square.jpg",
     "images": [
-      "assets/projects/unstudio/hero.jpg",
       "assets/projects/unstudio/snapshot.jpg",
       "assets/projects/unstudio/unstudio-description.jpg",
       "assets/projects/unstudio/norms.jpg",
-      "assets/projects/unstudio/poster.jpg",
       "assets/projects/unstudio/space-survey.jpg",
       "assets/projects/unstudio/Unstudio cat.jpg",
       "assets/projects/unstudio/IMG_0384.jpeg",
@@ -320,17 +318,15 @@
       "assets/projects/unstudio/Unstudio square.jpg",
       "assets/projects/unstudio/a IMG_0645.jpeg",
       "assets/projects/unstudio/a IMG_0735.jpeg",
-      "assets/projects/unstudio/img3.jpg",
       "assets/projects/unstudio/desked-undesked.jpeg",
       "assets/projects/unstudio/empty-desks.jpeg",
       "assets/projects/unstudio/IMG_0395.jpeg",
-      "assets/projects/unstudio/img2.jpg",
-      "assets/projects/unstudio/img1.jpg",
-      "assets/projects/unstudio/thumb.jpg",
       "assets/projects/unstudio/other-third.jpeg",
       "assets/projects/unstudio/IMG_0734.JPG",
       "assets/projects/unstudio/Unstudio message.jpg",
-      "assets/projects/unstudio/IMG_0522.jpeg"
+      "assets/projects/unstudio/IMG_0522.jpeg",
+      "assets/projects/unstudio/voices.png",
+      "assets/projects/unstudio/data.png"
     ],
     "videos": [
       {
@@ -339,7 +335,7 @@
       }
     ],
     "liveUrl": "https://unstudiogsd.org",
-    "sourceUrl": "https://unstudiogsd.org",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Pedagogy",
     "tags": [
@@ -371,7 +367,7 @@
       },
       {
         "name": "Kalana White",
-        "url": "",
+        "url": "https://kalana.co",
         "role": "Collaborator"
       },
       {
@@ -461,7 +457,7 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/unstudio/hero.jpg"
+    "hero": "assets/projects/unstudio/Unstudio square.jpg"
   },
   {
     "id": "gre-admissions",
