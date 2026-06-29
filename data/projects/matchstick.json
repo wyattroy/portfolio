@@ -4,7 +4,7 @@
   "year": 2025,
   "month": 5,
   "tagline": "SDF 3D-printed flame sculpture",
-  "what": "A 3D-printed flame built using a signed distance field (SDF) in Rhino/Grasshopper. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value — creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moiré effect that makes the flame appear to flicker.",
+  "what": "Three materials — translucent white resin for the flame, clear for the air dissolving around it, dark for the stick — printed as one object that looks like it's about to go out. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value — creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moiré effect that makes the flame appear to flicker.",
   "why": [
     {
       "type": "text",
@@ -68,7 +68,7 @@
     },
     {
       "type": "text",
-      "content": "**Grasshopper definition**\n\nMost of these components are credit to Jose Luis, but the one on the far right is my C# script that generates the flame cubes._",
+      "content": "**Grasshopper definition**\n\nMost of these components are credit to Jose Luis, but the one on the far right is my C# script that generates the flame cubes.",
       "align": "left"
     },
     {

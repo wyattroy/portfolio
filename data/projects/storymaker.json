@@ -7,7 +7,7 @@
   "what": [
     {
       "type": "text",
-      "content": "A step-by-step web app that walks you through the stages of the Hero's Journey to help you improvise a complete bedtime story. Each stage gives you random prompts — character names starting with certain letters, their biggest fears, favorite objects, homelands — to spark your imagination. You type or say the story aloud as you click through each stage. The site generates the structure and prompts; the narrative drama is up to you."
+      "content": "You get a random character — say, a nervous astronaut who collects bottle caps — and the app walks you scene by scene until you've improvised a tale the kid won't forget. Each stage gives you random prompts — character names starting with certain letters, their biggest fears, favorite objects, homelands — to spark your imagination. You type or say the story aloud as you click through each stage. The site generates the structure and prompts; the narrative drama is up to you."
     },
     {
       "type": "image",

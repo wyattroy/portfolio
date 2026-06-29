@@ -1,16 +1,20 @@
 {
   "id": "squishy-hearts-club",
   "title": "Squishy Hearts Club",
-  "year": 2023,
+  "year": 2022,
+  "month": 10,
   "tagline": "",
-  "what": "",
-  "why": "",
+  "tags": [],
   "axes": {
     "pragmatic": 0.5,
     "institutional": 0.5
   },
   "thumbnail": "assets/projects/squishy-hearts-club/thumb.jpg",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "files": [],
   "images": [],
   "videos": [],
-  "awards": []
+  "awards": [],
+  "who": []
 }

@@ -84,7 +84,7 @@
   {
     "id": "squishy-hearts-club",
     "title": "Squishy Hearts Club",
-    "year": 2023,
+    "year": 2022,
     "tagline": "",
     "axes": {
       "pragmatic": 0.5,
@@ -92,22 +92,91 @@
     },
     "thumbnail": "assets/projects/squishy-hearts-club/thumb.jpg",
     "tags": [],
-    "featured": false,
-    "label": "red"
+    "label": "red",
+    "month": 10,
+    "liveUrl": null,
+    "sourceUrl": null,
+    "images": [],
+    "videos": [],
+    "awards": [],
+    "who": []
   },
   {
     "id": "spatial-equity",
-    "title": "Spatial Equity",
+    "title": "Spatial Equity at the GSD",
     "year": 2026,
-    "tagline": "",
+    "tagline": "Design research on the politics and effects of space allocation at Harvard's Graduate School of Design",
     "axes": {
-      "pragmatic": 0.5,
-      "institutional": 0.5
+      "pragmatic": 0.82,
+      "institutional": 0.96
     },
-    "thumbnail": "assets/projects/spatial-equity/thumb.jpg",
-    "tags": [],
-    "featured": false,
-    "label": "red"
+    "thumbnail": "assets/projects/spatial-equity/otherthird.png",
+    "tags": [
+      "data",
+      "spatial equity",
+      "GSD",
+      "Harvard",
+      "survey",
+      "data visualization"
+    ],
+    "label": "green",
+    "month": 6,
+    "medium": "Pedagogy",
+    "hero": "assets/projects/spatial-equity/otherthird.png",
+    "liveUrl": null,
+    "sourceUrl": null,
+    "images": [
+      "assets/projects/spatial-equity/00.png",
+      "assets/projects/spatial-equity/01.png",
+      "assets/projects/spatial-equity/02.png",
+      "assets/projects/spatial-equity/03.png",
+      "assets/projects/spatial-equity/04.png",
+      "assets/projects/spatial-equity/05.png",
+      "assets/projects/spatial-equity/06.png",
+      "assets/projects/spatial-equity/07.png",
+      "assets/projects/spatial-equity/08.png",
+      "assets/projects/spatial-equity/09.png",
+      "assets/projects/spatial-equity/10.png",
+      "assets/projects/spatial-equity/11.png",
+      "assets/projects/spatial-equity/12.png",
+      "assets/projects/spatial-equity/13.png",
+      "assets/projects/spatial-equity/14.png",
+      "assets/projects/spatial-equity/15.png",
+      "assets/projects/spatial-equity/16.png",
+      "assets/projects/spatial-equity/17.png",
+      "assets/projects/spatial-equity/18.png",
+      "assets/projects/spatial-equity/19.png",
+      "assets/projects/spatial-equity/20.png",
+      "assets/projects/spatial-equity/22.png",
+      "assets/projects/spatial-equity/23.png",
+      "assets/projects/spatial-equity/24.png",
+      "assets/projects/spatial-equity/otherthird.png",
+      "assets/projects/spatial-equity/usagepatternstudy.gif",
+      "assets/projects/spatial-equity/good.png",
+      "assets/projects/spatial-equity/bad.png",
+      "assets/projects/spatial-equity/problem.png",
+      "assets/projects/spatial-equity/haves.png",
+      "assets/projects/spatial-equity/nps.png"
+    ],
+    "videos": [],
+    "awards": [],
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Researcher, Designer"
+      },
+      {
+        "name": "Kalana White",
+        "url": "https://kalana.co",
+        "role": "Researcher, Designer"
+      },
+      {
+        "name": "Xavaar Quaranto",
+        "url": "",
+        "role": "Researcher, Designer"
+      }
+    ]
   },
   {
     "id": "becoming-school",
@@ -559,24 +628,15 @@
       "assets/projects/how-to-change-institutions/How to Change Institutions page 3.jpg",
       "assets/projects/how-to-change-institutions/How to Change Institutions page 2.jpg",
       "assets/projects/how-to-change-institutions/octopus.png",
-      "assets/projects/how-to-change-institutions/road.png",
       "assets/projects/how-to-change-institutions/IMG_1637.jpg",
       "assets/projects/how-to-change-institutions/How to Change Institutions acknowledge.jpg",
       "assets/projects/how-to-change-institutions/end dove.png",
       "assets/projects/how-to-change-institutions/Ice cube.png",
-      "assets/projects/how-to-change-institutions/matches.png",
       "assets/projects/how-to-change-institutions/tree.png",
       "assets/projects/how-to-change-institutions/flower.png",
-      "assets/projects/how-to-change-institutions/sweater.png",
       "assets/projects/how-to-change-institutions/baby.png",
       "assets/projects/how-to-change-institutions/How to Change Institutions cover.jpg",
-      "assets/projects/how-to-change-institutions/binoculars.png",
-      "assets/projects/how-to-change-institutions/ants.png",
-      "assets/projects/how-to-change-institutions/sprout.png",
       "assets/projects/how-to-change-institutions/institution.png",
-      "assets/projects/how-to-change-institutions/hammer.png",
-      "assets/projects/how-to-change-institutions/shovel.png",
-      "assets/projects/how-to-change-institutions/tea.png",
       "assets/projects/how-to-change-institutions/IMG_1613.jpg",
       "assets/projects/how-to-change-institutions/bookinhand.jpeg"
     ],
@@ -587,7 +647,6 @@
     "status": "book",
     "medium": "Pedagogy",
     "tags": [
-      "Book",
       "mindfulness",
       "meditation",
       "social emotional",

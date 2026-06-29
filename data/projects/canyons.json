@@ -8,7 +8,7 @@
   "what": [
     {
       "type": "text",
-      "content": "A museum installation that accelerates human time. Water cuts a path through land over millions of years. What if humans could leave our path imprinted on our built environments, on our own time scale, just like a water droplet?",
+      "content": "You walk through a gallery, and when you loop back around — the path you just took has been carved into the floor. Water cuts a path through land over millions of years. What if humans could leave our path imprinted on our built environments, on our own time scale, just like a water droplet?",
       "align": "none"
     },
     {
@@ -89,7 +89,7 @@
     },
     {
       "type": "text",
-      "content": "The final iteration of the definition is entirely parametric. Everything, including the curve’s path throw the space, is influenceable in Grasshopper.",
+      "content": "The final iteration of the definition is entirely parametric. Everything, including the curve’s path through the space, is influenceable in Grasshopper.",
       "align": "none"
     },
     {
@@ -252,7 +252,7 @@
     "Script 2 takes those points and a Rhino-drawn curve, and sinks down the Z value any points width distance away, to depth.",
     "The final component turns these points into a lofted surface rows wide in the u direction.",
     "Result",
-    "The final iteration of the definition is entirely parametric. Everything, including the curve’s path throw the space, is influenceable in Grasshopper.",
+    "The final iteration of the definition is entirely parametric. Everything, including the curve’s path through the space, is influenceable in Grasshopper.",
     "First we create a set of points for your walk through the gallery.",
     "You’ll enter the gallery through the same door each time so the final point must have the same x value as the first point to ensure the curves are contiguous.",
     "The y value of the final point is the length of the entire curve, which needs to be easily modifiable to fit the curve to our gallery model.",

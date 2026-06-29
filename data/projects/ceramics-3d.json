@@ -7,7 +7,7 @@
   "what": [
     {
       "type": "text",
-      "content": "I Photogrammetrically scanned 15 pieces by ceramicist Julia Mattis so they could be displayed online in an interactive, three-dimensional way.\n\n[View 3D Album on Polycam](https://poly.cam/album/81A58AD0-B215-41DE-8277-FA3A21A26AAD)"
+      "content": "You can see inside the rim, underneath the foot, around the curve — ceramic forms that only make sense in 3D, now spinnable in a browser with a click.\n\n[View 3D Album on Polycam](https://poly.cam/album/81A58AD0-B215-41DE-8277-FA3A21A26AAD)"
     },
     {
       "type": "image",
@@ -27,7 +27,7 @@
   "why": [
     {
       "type": "text",
-      "content": "Ceramacists work in three dimensions - but they display their work online in two. Whether selling their pieces or applying to residencies, the world of ceramics documentation is primarily flat. But these forms cannot often be expressed in 2D: the forms make sense only when you can see inside, around, and underneath them."
+      "content": "Ceramicists work in three dimensions - but they display their work online in two. Whether selling their pieces or applying to residencies, the world of ceramics documentation is primarily flat. But these forms cannot often be expressed in 2D: the forms make sense only when you can see inside, around, and underneath them."
     },
     {
       "type": "embed",
@@ -79,7 +79,7 @@
   "scraped_raw_text": [
     "Ceramics 3D",
     "Digital ceramics",
-    "Ceramacists work in three dimensions - but they communicate their work in two. Whether selling their pieces online or applying to residencies, the world of ceramics documentation is primarily flat. But these forms cannot often be expressed in 2D: the forms make sense only when you can see inside, around, and underneath them.",
+    "Ceramicists work in three dimensions - but they communicate their work in two. Whether selling their pieces online or applying to residencies, the world of ceramics documentation is primarily flat. But these forms cannot often be expressed in 2D: the forms make sense only when you can see inside, around, and underneath them.",
     "This project involved photogrammetry scanning 15 pieces by ceramicist Julia Mattis for use online.",
     "View 3D Album on Polycam",
     "Embedding Scans",

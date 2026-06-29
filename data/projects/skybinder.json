@@ -5,7 +5,7 @@
   "month": 5,
   "tagline": "Meditative VR puzzle game \u2014 connect dots into origami animals",
   "description": "A meditative VR puzzle game where players connect numbered dots into triangles to reveal origami animals, co-created at Maku XR.",
-  "what": "Skybinder is a meditative VR puzzle game about connecting constellations of dots into origami animals. Each dot shows how many connections it needs, but not which ones. When three correctly-connected dots form a triangle, a face fills in \u2013 revealing, piece by piece, a whale, a king cobra, or a cheeky chicken.",
+  "what": "Reach into a floating constellation, pull two dots together, and watch a triangular face fill in — piece by piece, an animal emerges from nothing. Each dot shows how many connections it needs, but not which ones. When three correctly-connected dots form a triangle, a face fills in \u2013 revealing, piece by piece, a whale, a king cobra, or a cheeky chicken.",
   "why": [
     {
       "type": "text",
@@ -39,7 +39,7 @@
     },
     {
       "type": "text",
-      "content": "**Built in Unity**\n\nDeveloped in Unity for Oculus Quest. The main menu shows the full creature library \u2014 each origami animal its own puzzle, unlocked by solving it. Art, puzzle design, and user testing by Wyatt Roy; sound design and software lead by Luis Zanforlin.",
+      "content": "**Built in Unity**\n\nDeveloped in Unity for Oculus Quest. The main menu shows the full creature library \u2014 each origami animal its own puzzle, unlocked by solving it. Art, puzzle design, and user testing by Wyatt Roy; sound design and software led by Luis Zanforlin.",
       "align": "left"
     },
     {

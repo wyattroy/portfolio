@@ -7,7 +7,7 @@
   "what": [
     {
       "type": "text",
-      "content": "A locally-cached web app at [arenaofwants.com](https://arenaofwants.com). Users enter their wants and the app surfaces them in head-to-head comparisons, building a ranked list of what you want most."
+      "content": "You enter your wants one at a time, the app puts them in head-to-head matchups, and what emerges is a ranked list that tells you what you actually want to do."
     },
     {
       "type": "image",
@@ -27,7 +27,7 @@
   "how": [
     {
       "type": "text",
-      "content": "Lovable: I wrote a 17-page product requirement document (PRD) which I then fed to Lovable, an AI web app creator. For each round of feedback, I found that Lovable deducted one credit from my account for every detail that I wanted changed -- but if I compiled all of my feedback into one large text document and asked it to change everything at once, it also charged just one credit. I developed a feedback system that broke their intended user behavior (of frequent chatting with the AI client) in order to more efficiently design and iterate on the app. ",
+      "content": "Lovable: I wrote a 17-page product requirement document (PRD), which I then fed to Lovable, an AI web app creator. For each round of feedback, I found that Lovable deducted one credit from my account for every detail that I wanted changed — but if I compiled all of my feedback into one large text document and asked it to change everything at once, it also charged just one credit. I developed a feedback system that broke their intended user behavior (of frequent chatting with the AI client) in order to more efficiently design and iterate on the app. ",
       "align": "left"
     },
     {

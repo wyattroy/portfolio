@@ -7,7 +7,7 @@
   "what": [
     {
       "type": "text",
-      "content": "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change. It was inspire by the desire to celebrate this transition from summer to winter by turning the motion of falling leaves into a solid form.\n\n\n"
+      "content": "Falling Fall is a sculpture that visualizes the path a leaf takes as it leaves its home to journey to the ground when the seasons change. It was inspired by the desire to celebrate this transition from summer to winter by turning the motion of falling leaves into a solid form.\n\n\n"
     },
     {
       "type": "image",
@@ -67,7 +67,7 @@
     },
     {
       "type": "text",
-      "content": "**Data Cleanup**\n\nData-cleaning scripts flipped the plane axis because Fologram records planes perpendicularly to the phone screen, and offset the (X, Y, Z) values of the Leaf Drop so we could center them around the origin – because recording in the real world is messy, and each leaf drop was recorded meters away from every other one.\n\nOnly once all the drops were centered around (0,0,0) and displaying the relevant frames could we behind to truly play around with the form and shape of the leaves falling!\n\nOne of the joys of writing your own creative tools is that when you need a feature, you just go build it. After the data was cleaned up, we realized that the leaf drops looked best if we stopped them before they hit the ground – so we wrote a helper function to cut off the bottom of the Leaf Drop wherever we dynamically thought it looked best.",
+      "content": "**Data Cleanup**\n\nData-cleaning scripts flipped the plane axis because Fologram records planes perpendicularly to the phone screen, and offset the (X, Y, Z) values of the Leaf Drop so we could center them around the origin – because recording in the real world is messy, and each leaf drop was recorded meters away from every other one.\n\nOnly once all the drops were centered around (0,0,0) and displaying the relevant frames could we begin to truly play around with the form and shape of the leaves falling!\n\nOne of the joys of writing your own creative tools is that when you need a feature, you just go build it. After the data was cleaned up, we realized that the leaf drops looked best if we stopped them before they hit the ground – so we wrote a helper function to cut off the bottom of the Leaf Drop wherever we dynamically thought it looked best.",
       "align": "left"
     },
     {
@@ -87,7 +87,7 @@
     },
     {
       "type": "text",
-      "content": "**Displaying Lines**\n\nOur next idea was to display a loft between the outlines of the leaf.\n\nWe modulated the size of the leaf based on its speed, so that the leaf got bigger as it slowed down, so that it would look take more “visual space” when it took more “temporal space.”\n\nThis looked intriguing, but again we’d lost the leafyness. Instead of dinosaur bones, we has somehow made dinosaur muscles.",
+      "content": "**Displaying Lines**\n\nOur next idea was to display a loft between the outlines of the leaf.\n\nWe modulated the size of the leaf based on its speed, so that the leaf got bigger as it slowed down, so that it would take more “visual space” when it took more “temporal space.”\n\nThis looked intriguing, but again we’d lost the leafyness. Instead of dinosaur bones, we had somehow made dinosaur muscles.",
       "align": "left"
     },
     {
@@ -225,7 +225,7 @@
     "filteredList.Add(p);",
     "f = filteredList;",
     "Data-cleaning scripts flipped the plane axis because Fologram records planes perpendicularly to the phone screen, and offset the (X, Y, Z) values of the Leaf Drop so we could center them around the origin – because recording in the real world is messy, and each leaf drop was recorded meters away from every other one.",
-    "Only once all the drops were centered around (0,0,0) and displaying the relevant frames could we behind to truly play around with the form and shape of the leaves falling!",
+    "Only once all the drops were centered around (0,0,0) and displaying the relevant frames could we begin to truly play around with the form and shape of the leaves falling!",
     "ADDING FUNCTIONALITY",
     "One of the joys of writing your own creative tools is that when you need a feature, you just go build it. After the data was cleaned up, we realized that the leaf drops looked best if we stopped them before they hit the ground – so we wrote a helper function to cut off the bottom of the Leaf Drop wherever we dynamically thought it looked best.",
     "DISPLAYING MESHES",
@@ -233,8 +233,8 @@
     "But when we fed this mesh onto the planes we’d captured (plus interpolated planes between them), it looked like a dinosaur spine, not a leaf falling.",
     "DISPLAYING LINES",
     "Our next idea was to display a loft between the outlines of the leaf.",
-    "We modulated the size of the leaf based on its speed, so that the leaf got bigger as it slowed down, so that it would look take more “visual space” when it took more “temporal space.”",
-    "This looked intriguing, but again we’d lost the leafyness. Instead of dinosaur bones, we has somehow made dinosaur muscles.",
+    "We modulated the size of the leaf based on its speed, so that the leaf got bigger as it slowed down, so that it would take more “visual space” when it took more “temporal space.”",
+    "This looked intriguing, but again we’d lost the leafyness. Instead of dinosaur bones, we had somehow made dinosaur muscles.",
     "FINAL FORM",
     "Ultimately we realized that a leaf’s path needs to visually show the beginning differently than the end. So we changed the script that modulated the size based on the leaf’s speed, and instead based size on the leaf’s position in the whole drop.",
     "This created the visual “swoosh” effect we were looking for.",

@@ -7,7 +7,7 @@
   "what": [
     {
       "type": "text",
-      "content": "Streetlogic is a smart dashcam for bikes. It does more than just record 360 footage of everything around you -- it uses AI to warn you if cars are coming too close. This was the launch video for their first product: a camera system integrated into e-bikes that kept everyone safe. \n\n"
+      "content": "Shot on cargo e-bikes weaving through San Francisco with real customers, the film reframes a tech product (360 cameras affixed to a bike) as something else: the reason you want to stay safe. \n\n"
     },
     {
       "type": "image",
@@ -26,6 +26,7 @@
   "hero": "assets/projects/streetlogic/thumb.jpg",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/streetlogic/thumb.jpg"
   ],
@@ -51,7 +52,7 @@
   "scraped_raw_text": [
     "Streetlogic",
     "Your extra set of eyes on the road",
-    "Streetlogic is a smart dashcam for bikes. It does more than just record 360 footage of everything around you -- it uses AI to warn you if cars are coming too close.",
+    "StreetLogic is a smart dashcam for bikes. It does more than just record 360 footage of everything around you — it uses AI to warn you if cars are coming too close.",
     "I love biking, and I love living in cities. But mixing the two can be dangerous. I made this video for Streetlogic's launch to help them spread the dream of safe urban cycling."
   ],
   "scraped_url": "https://www.wyattroy.com/video/streetlogic"

@@ -7,14 +7,14 @@
   "what": [
     {
       "type": "text",
-      "content": "Digital Typewriter is a provocation more than a tool. one of several projects exploring constraints as creative catalysts — the proposal that limitation is not always the enemy of expression, and that sometimes the best way to unlock creativity is to remove the ability to second-guess it. An attempt to bring David Pye's 'workmanship of risk' back to digital media, and a solution to Walter Benjamin's struggles with art in the age of mechanical reproduction."
+      "content": "Digital Typewriter is a provocation more than a tool — one of several projects exploring constraints as creative catalysts — the proposal that limitation is not always the enemy of expression, and that sometimes the best way to unlock creativity is to remove the ability to second-guess it. An attempt to bring David Pye's 'workmanship of risk' back to digital media, and a solution to Walter Benjamin's struggles with art in the age of mechanical reproduction."
     },
     {
       "type": "image",
       "src": "assets/projects/typewriter/img2.jpg"
     }
   ],
-  "why": "There's something honest about having to live with your errors and accidents. Digital tools have removed risk, stakes, and craftsmanship from the act of creation. How much more carefully would you type - will you type - when you can't backspace? Just writing that past sentence caused three typos. But we write differently when there's no undo, and when errors have higher cost. And there's a time and place for that level of care.",
+  "why": "There's something honest about having to live with your errors and accidents. Digital tools have removed risk, stakes, and craftsmanship from the act of creation. How much more carefully would you type — will you type — when you can't backspace? Just writing that past sentence caused three typos. But we write differently when there's no undo, and when errors have higher cost. And there's a time and place for that level of care.",
   "how": "I built this from scratch with Javascript, CSS, and HTML. ",
   "medium": "App",
   "tags": [],
@@ -45,7 +45,7 @@
     "Write for keeps. No backspace. No undo.",
     "There's something honest about having to live with your errors and accidents.",
     "Digital tools have removed risk, stakes, and craftsmanship from the act of creation. See this article.",
-    "How much more carefully would you type - will you type - when you can't backspace? Just writing that past sentence caused three typos. But we write differently when there's no undo, and when errors have higher cost. And there's a time and place for that level of care.",
+    "How much more carefully would you type — will you type — when you can't backspace? Just writing that past sentence caused three typos. But we write differently when there's no undo, and when errors have higher cost. And there's a time and place for that level of care.",
     "Process",
     "Website built primarily in javascript",
     "Text box listens only to alphanumeric keys and prints them below on the \"page\"",

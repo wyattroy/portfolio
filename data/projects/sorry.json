@@ -5,7 +5,7 @@
   "month": 6,
   "tagline": "Interactive web app that teaches you how to give a healing apology",
   "description": "An interactive, completely private, locally-cached web app that teaches you the rules for writing a healing apology — while helping you craft one.",
-  "what": "An interactive, completely private, locally-cached web app that teaches you the rules for writing a healing apology — while helping you craft one. Built in ReactJS, free to use, mobile and desktop.",
+  "what": "You work through it alone, at your own pace — no account, nothing stored — and by the end you have something you can actually send. Built in ReactJS, free to use, mobile and desktop.",
   "why": [
     {
       "type": "text",
