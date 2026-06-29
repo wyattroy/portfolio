@@ -4,11 +4,10 @@
   "year": 2025,
   "month": 5,
   "tagline": "Unity package for XR: finger-pinch gesture teleportation without controllers",
-  "description": "Handmove is a Unity package that lets you teleport around a virtual reality scene without controllers, using a novel UX locomotion mechanic.  It contains a script, prefabs, and a sample scene.  It extends Meta All-In-One SDK and runs on Unity 2202.",
   "what": [
     {
       "type": "text",
-      "content": "A single-script pinch-to-teleport mechanic for Meta Quest VR, built in Unity. Users pinch to place a \"ground reticle\", or a circle on the ground, then they look around -- wherever they look, the circle moves along the ground. They pinch again to teleport to the spot where the reticle is \u2014 with real-time color feedback for invalid targets and a custom demo scene for testing across varied terrain."
+      "content": "A single-script pinch-to-teleport mechanic for Meta Quest VR, built in Unity. Users pinch to place a \"ground reticle\", or a circle on the ground, then they look around -- wherever they look, the circle moves along the ground. They pinch again to teleport to the spot where the reticle is — with real-time color feedback for invalid targets and a custom demo scene for testing across varied terrain."
     },
     {
       "type": "image",
@@ -18,7 +17,7 @@
   "why": [
     {
       "type": "text",
-      "content": "Most VR teleportation schemes are clunky, controller-dependent, and cognitively heavy \u2014 they force the user to think about navigation rather than inhabiting the virtual space. Handmove reduces this to a minimum: pinch your fingers together and a teleport arc appears; release to move. Publicly available as a Unity package designed for minimal integration.",
+      "content": "Most VR teleportation schemes are clunky, controller-dependent, and cognitively heavy — they force the user to think about navigation rather than inhabiting the virtual space. Handmove reduces this to a minimum: pinch your fingers together and a teleport arc appears; release to move. Publicly available as a Unity package designed for minimal integration.",
       "align": "none"
     },
     {
@@ -33,7 +32,7 @@
   "how": [
     {
       "type": "text",
-      "content": "Extends Meta's All-In-One SDK with a custom C# script, prefabs, and a sample scene. Uses hand-tracking data to detect finger proximity, computes a parabolic arc toward the target surface, and smoothly transitions the camera rig. Special attention paid to reducing motion sickness: the arc preview provides spatial context before teleporting, and the transition is deliberately instantaneous rather than animated.\n\nHand tracking input is captured via Meta's SDK and a raycast projects from the headset to the ground each frame. A boolean validates the target surface; a Renderer modifier flips the reticle red for invalid positions. The reticle snaps instantly to wherever the user looks (replacing an earlier lerp that felt laggy) and a framerate regression \u2014 caused by esoteric Unity rendering settings \u2014 was resolved after a full rewrite to maintain the 72fps floor VR requires. A demo scene with mountains, ridges, planks, and valleys stress-tests edge cases.\n\nMeta's VR SDK is powerful but nearly undocumented, and Unity's component architecture makes sharing reusable tools painful. The goal was to solve this once, cleanly \u2014 packaging the entire mechanic into one drag-and-drop script that any developer could attach to Meta's standard OVR Camera prefab and use immediately.",
+      "content": "Extends Meta's All-In-One SDK with a custom C# script, prefabs, and a sample scene. Uses hand-tracking data to detect finger proximity, computes a parabolic arc toward the target surface, and smoothly transitions the camera rig. Special attention paid to reducing motion sickness: the arc preview provides spatial context before teleporting, and the transition is deliberately instantaneous rather than animated.\n\nHand tracking input is captured via Meta's SDK and a raycast projects from the headset to the ground each frame. A boolean validates the target surface; a Renderer modifier flips the reticle red for invalid positions. The reticle snaps instantly to wherever the user looks (replacing an earlier lerp that felt laggy) and a framerate regression — caused by esoteric Unity rendering settings — was resolved after a full rewrite to maintain the 72fps floor VR requires. A demo scene with mountains, ridges, planks, and valleys stress-tests edge cases.\n\nMeta's VR SDK is powerful but nearly undocumented, and Unity's component architecture makes sharing reusable tools painful. The goal was to solve this once, cleanly — packaging the entire mechanic into one drag-and-drop script that any developer could attach to Meta's standard OVR Camera prefab and use immediately.",
       "align": "none"
     },
     {
@@ -49,10 +48,12 @@
   "tags": [],
   "axes": {
     "pragmatic": 0.9,
-    "institutional": 0.6
+    "institutional": 0.45
   },
   "thumbnail": "assets/projects/handmove/thumb.jpg",
   "liveUrl": null,
+  "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/handmove/img1.jpg",
     "assets/projects/handmove/img3.jpg",
@@ -72,6 +73,7 @@
       "role": "Designer, Engineer"
     }
   ],
+  "description": "Handmove is a Unity package that lets you teleport around a virtual reality scene without controllers, using a novel UX locomotion mechanic.  It contains a script, prefabs, and a sample scene.  It extends Meta All-In-One SDK and runs on Unity 2202.",
   "scraped_raw_text": [
     "Handmove",
     "A new way to move in VR",

@@ -21,7 +21,7 @@ const SCALE_OLD = 0.3;
 const SCALE_NEW = 1;
 
 // Camera zoom range: scroll up past load state → CAM_ZOOM_IN; scroll down → CAM_END
-const CAM_ZOOM_IN = new THREE.Vector3(0, 0.5, 10);   // maximum zoom-in — must be > Z_NEAR
+const CAM_ZOOM_IN = new THREE.Vector3(0, 0.5, 5);   // maximum zoom-in — must be > Z_NEAR
 const CAM_END     = new THREE.Vector3(0, 0.5, 30);   // maximum zoom-out (scroll down limit)
 const CAM_TARGET  = new THREE.Vector3(0, 0,  0);   // world origin (oldest projects end)
 
@@ -123,9 +123,6 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   const meshToProject = new Map();
   const textureLoader = new THREE.TextureLoader();
 
-  // One shared material for all non-front faces across every prism
-  const sharedSideMat = new THREE.MeshLambertMaterial({ color: '#CEC6B4' });
-
   // Fade-in timing — skip on repeat visits
   const VISITED_KEY = 'wyattroy-visited';
   const skipEntry = !!localStorage.getItem(VISITED_KEY);
@@ -163,10 +160,12 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     // Geometry
     const geo = new THREE.BoxGeometry(1.6, 1.0, 0.05);
 
-    // Only the front face (index 4) is per-mesh — it carries the thumbnail and fades in.
-    // All other faces share one material; back face is back-culled and never rendered.
-    const frontMat = new THREE.MeshLambertMaterial({ color: '#EAE6DA', transparent: true, opacity: skipEntry ? 1 : 0 });
-    const materials = [sharedSideMat, sharedSideMat, sharedSideMat, sharedSideMat, frontMat, sharedSideMat];
+    // All faces fade in together — per-mesh materials so opacity can animate per-tile.
+    // On repeat visits start opaque (no transparency cost at all).
+    const initOp = skipEntry ? 1 : 0;
+    const sideMat  = new THREE.MeshLambertMaterial({ color: '#CEC6B4', transparent: !skipEntry, opacity: initOp });
+    const frontMat = new THREE.MeshLambertMaterial({ color: '#EAE6DA', transparent: !skipEntry, opacity: initOp });
+    const materials = [sideMat, sideMat, sideMat, sideMat, frontMat, sideMat];
 
     const mesh = new THREE.Mesh(geo, materials);
     mesh.position.set(x, y, z);
@@ -174,13 +173,14 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     // Store original scale for spring animation
     mesh.userData.baseScale = scale;
     mesh.userData.scaleSpring = makeSpring(scale);
+    mesh.userData.sideMat  = sideMat;
     mesh.userData.project = p;
-    mesh.userData.cardOpacity = skipEntry ? 1 : 0;
+    mesh.userData.cardOpacity = initOp;
     // revealMs assigned after loop once prismMeshes index is known
 
     // Load thumbnail for all projects that have one; stagger by index to avoid request pile-up
     if (p.thumbnail) {
-      const delay = prismMeshes.length * 60; // stagger: 60ms per project
+      const delay = skipEntry ? 0 : prismMeshes.length * 60; // stagger only on first visit
       setTimeout(() => {
         textureLoader.load(
           p.thumbnail,
@@ -207,7 +207,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
             const newMats = Array.from(mesh.material);
             const op = mesh.userData.cardOpacity;
-            newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: true, opacity: op });
+            const stillFading = !entryDone && op < 1;
+            newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: stillFading, opacity: op });
             mesh.material = newMats;
           },
           undefined,
@@ -501,11 +502,18 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
   // ─── Render loop ──────────────────────────────────────────────────────────────
 
-  const sceneStartTime = performance.now();
+  let driftTime = 0;         // accumulated only while loop runs — no jumps on pause
+  let driftSpeedMul = 1;     // lerps 0→1 when resuming so motion eases in
+  let lastFrameTs = performance.now();
   let timeLabelOpacity = 0; // smoothly lerped 0→1 when angle threshold is met
   let animFrameId;
   function animate() {
     animFrameId = requestAnimationFrame(animate);
+    const now = performance.now();
+    const dt = Math.min(now - lastFrameTs, 100); // cap at 100 ms to survive tab-hidden wakes
+    lastFrameTs = now;
+    driftSpeedMul += (1 - driftSpeedMul) * (1 - Math.pow(0.92, dt / 16.67));
+    driftTime += dt * driftSpeedMul;
 
     // Scroll-driven camera: lerp from face-on to angled as virtualScrollY accumulates
     const rawFrac = Math.max(0, Math.min(1, virtualScrollY / SCROLL_DRIVE_PX));
@@ -613,7 +621,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       }
     }
 
-    // Update prism scale springs + entry fade
+    // Update prism scale springs + entry fade (all faces together)
     prismMeshes.forEach(mesh => {
       const s = tickSpring(mesh.userData.scaleSpring);
       mesh.scale.setScalar(s);
@@ -622,6 +630,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
         const op = entryOpacity(mesh.userData.revealMs);
         if (op !== mesh.userData.cardOpacity) {
           mesh.userData.cardOpacity = op;
+          mesh.userData.sideMat.opacity = op;
           const frontMat = mesh.material[4];
           if (frontMat) frontMat.opacity = op;
         }
@@ -629,7 +638,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     });
 
     // Subtle gentle rotation of scene (very slow drift)
-    scene.rotation.y = Math.sin((performance.now() - sceneStartTime) * 0.0005) * 0.02;
+    scene.rotation.y = Math.sin(driftTime * 0.0005) * 0.02;
 
     renderer.render(scene, camera);
 
@@ -659,17 +668,29 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   // Wake the render loop when user interacts
   function wakeRender() {
     lastInteractionTime = performance.now();
-    if (!animFrameId && !renderingPaused) animate();
+    if (!animFrameId && !renderingPaused) {
+      driftSpeedMul = 0;
+      lastFrameTs = performance.now();
+      animate();
+    }
   }
   canvas.addEventListener('mousemove', wakeRender, { passive: true });
   canvas.addEventListener('touchstart', wakeRender, { passive: true });
   window.addEventListener('scroll', wakeRender, { passive: true });
   window.addEventListener('wheel', wakeRender, { passive: true });
 
-  // Mark entry done once the last card has fully faded in
+  // Mark entry done once the last card has fully faded in; switch all materials to opaque
   if (!skipEntry) {
     const lastRevealMs = CARD_REVEAL_START_MS + prismMeshes.length * CARD_REVEAL_STEP_MS + ENTRY_FADE_MS;
-    setTimeout(() => { entryDone = true; }, lastRevealMs);
+    setTimeout(() => {
+      entryDone = true;
+      prismMeshes.forEach(mesh => {
+        mesh.material.forEach(mat => {
+          mat.transparent = false;
+          mat.needsUpdate = true;
+        });
+      });
+    }, lastRevealMs);
   }
 
   animate();
@@ -687,6 +708,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       animFrameId = null;
     } else if (!covered && renderingPaused) {
       renderingPaused = false;
+      driftSpeedMul = 0;
+      lastFrameTs = performance.now();
       animate();
     }
   }

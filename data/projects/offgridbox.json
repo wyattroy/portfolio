@@ -74,13 +74,14 @@
     "engineering"
   ],
   "axes": {
-    "pragmatic": 0.34,
-    "institutional": 0.63
+    "pragmatic": 0.41,
+    "institutional": 0.65
   },
   "thumbnail": "assets/projects/offgridbox/thumb.jpg",
   "hero": "assets/projects/offgridbox/thumb.jpg",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/offgridbox/IMG_1126.JPG",
     "assets/projects/offgridbox/IMG_1132.JPG",

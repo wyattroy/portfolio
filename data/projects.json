@@ -7,7 +7,7 @@
     "tagline": "Interdisciplinary design portfolio and archive",
     "axes": {
       "pragmatic": 0.52,
-      "institutional": 0.01
+      "institutional": 0.08
     },
     "thumbnail": "assets/projects/portfolio-about/portfolio.png",
     "tags": [
@@ -107,7 +107,7 @@
     "year": 2026,
     "tagline": "Design research on the politics and effects of space allocation at Harvard's Graduate School of Design",
     "axes": {
-      "pragmatic": 0.82,
+      "pragmatic": 0.91,
       "institutional": 0.96
     },
     "thumbnail": "assets/projects/spatial-equity/otherthird.png",
@@ -301,7 +301,7 @@
     ],
     "axes": {
       "pragmatic": 0.95,
-      "institutional": 0.94
+      "institutional": 0.8
     },
     "thumbnail": "assets/projects/unstudio/Unstudio square.jpg",
     "images": [
@@ -471,7 +471,7 @@
       "Research"
     ],
     "axes": {
-      "pragmatic": 0.82,
+      "pragmatic": 0.89,
       "institutional": 0.84
     },
     "thumbnail": "assets/projects/gre-admissions/GRE Description 2.jpg",
@@ -518,7 +518,7 @@
     ],
     "axes": {
       "pragmatic": 0.65,
-      "institutional": 0.85
+      "institutional": 0.76
     },
     "thumbnail": "assets/projects/proseminar/thumb.jpg",
     "images": [
@@ -614,8 +614,8 @@
       "Research"
     ],
     "axes": {
-      "pragmatic": 0.5,
-      "institutional": 0.5
+      "pragmatic": 0.59,
+      "institutional": 0.55
     },
     "thumbnail": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
     "images": [
@@ -725,7 +725,7 @@
     "tags": [],
     "axes": {
       "pragmatic": 0.9,
-      "institutional": 0.6
+      "institutional": 0.45
     },
     "thumbnail": "assets/projects/handmove/thumb.jpg",
     "images": [
@@ -740,7 +740,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/xr/handmove",
+    "sourceUrl": null,
     "awards": [],
     "medium": "VR",
     "who": [
@@ -912,8 +912,8 @@
     ],
     "tags": [],
     "axes": {
-      "pragmatic": 0.31,
-      "institutional": 0.78
+      "pragmatic": 0.47,
+      "institutional": 0.56
     },
     "thumbnail": "assets/projects/canada/thumb.jpg",
     "images": [
@@ -1066,7 +1066,7 @@
       "Tools"
     ],
     "axes": {
-      "pragmatic": 0.99,
+      "pragmatic": 0.68,
       "institutional": 0.59
     },
     "thumbnail": "assets/projects/taxonomy/img1.jpg",
@@ -1245,8 +1245,8 @@
       "Art"
     ],
     "axes": {
-      "pragmatic": 0.05,
-      "institutional": 0.08
+      "pragmatic": 0.3,
+      "institutional": 0.34
     },
     "thumbnail": "assets/projects/rehoboth/thumb.jpg",
     "images": [
@@ -2091,8 +2091,8 @@
       "Installation"
     ],
     "axes": {
-      "pragmatic": 0.16,
-      "institutional": 0.38
+      "pragmatic": 0.24,
+      "institutional": 0.43
     },
     "thumbnail": "assets/projects/play-me/thumb.jpg",
     "images": [
@@ -2106,7 +2106,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/interactive/play-me",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Narrative",
     "hero": "assets/projects/play-me/thumb.jpg",
@@ -2488,8 +2488,8 @@
       "Video"
     ],
     "axes": {
-      "pragmatic": 0.08,
-      "institutional": 0.82
+      "pragmatic": 0.34,
+      "institutional": 0.64
     },
     "thumbnail": "assets/projects/galapagos/thumb.jpg",
     "images": [
@@ -2511,7 +2511,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/video/galapagos",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Film",
     "tags": [],
@@ -2620,8 +2620,8 @@
       "Tools"
     ],
     "axes": {
-      "pragmatic": 0.2,
-      "institutional": 0.33
+      "pragmatic": 0.27,
+      "institutional": 0.42
     },
     "thumbnail": "assets/projects/sols/thumb.jpg",
     "images": [
@@ -2638,7 +2638,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/video/sols",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Film",
     "tags": [
@@ -2771,8 +2771,8 @@
       "Video"
     ],
     "axes": {
-      "pragmatic": 0.34,
-      "institutional": 0.63
+      "pragmatic": 0.41,
+      "institutional": 0.65
     },
     "thumbnail": "assets/projects/offgridbox/thumb.jpg",
     "images": [

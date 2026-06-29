@@ -37,13 +37,14 @@
   "medium": "Pedagogy",
   "tags": [],
   "axes": {
-    "pragmatic": 0.82,
+    "pragmatic": 0.89,
     "institutional": 0.84
   },
   "thumbnail": "assets/projects/gre-admissions/GRE Description 2.jpg",
   "hero": "assets/projects/gre-admissions/GRE Description 2.jpg",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/gre-admissions/img3.jpg",
     "assets/projects/gre-admissions/GRE Description.jpg",

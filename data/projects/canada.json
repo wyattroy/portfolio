@@ -4,7 +4,6 @@
   "year": 2016,
   "month": 9,
   "tagline": "Growth mindset film for para-athletes, televised to 7.2 million people",
-  "description": "Psychology-informed short film empowering paralympic youth",
   "what": [
     {
       "type": "text",
@@ -41,12 +40,13 @@
   "medium": "Film",
   "tags": [],
   "axes": {
-    "pragmatic": 0.31,
-    "institutional": 0.78
+    "pragmatic": 0.47,
+    "institutional": 0.56
   },
   "thumbnail": "assets/projects/canada/thumb.jpg",
   "liveUrl": null,
   "sourceUrl": "https://vimeo.com/181522057",
+  "files": [],
   "images": [
     "assets/projects/canada/img1.jpg",
     "assets/projects/canada/img2.jpg",
@@ -96,6 +96,7 @@
       "role": "Sound Design and Mix"
     }
   ],
+  "description": "Psychology-informed short film empowering paralympic youth",
   "scraped_raw_text": [
     "Athletics Canada",
     "Psychology-informed short film empowering paralympic youth",

@@ -49,8 +49,8 @@
   "medium": "VR",
   "tags": [],
   "axes": {
-    "pragmatic": 0.05,
-    "institutional": 0.08
+    "pragmatic": 0.3,
+    "institutional": 0.34
   },
   "thumbnail": "assets/projects/rehoboth/thumb.jpg",
   "hero": "assets/projects/rehoboth/thumb.jpg",
