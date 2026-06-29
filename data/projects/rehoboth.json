@@ -3,12 +3,21 @@
   "title": "Rehoboth",
   "year": 2017,
   "month": 9,
-  "tagline": "LiDAR hologram VR experience \u2014 a walkable memory of a place and its people",
-  "what": "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die.\n\nIn XR narratives, spaces become characters. Photogrammetry imbues those spaces with static detail, but LiDAR holograms bring them to life. The first time I combined 2.5-dimensional depth video with a photogrammetry model I was struck by how much it felt like I had stepped into a memory. Which made me ask, what do we most want to remember? One tragic, beautiful answer is: our loved ones after they die.\n\nThese holograms are videos that have been rendered into 3D meshes \u2013 they are glitchy and pixelated, imperfect like our own memories. In this liminal space, the photogrammetric walls melt into the floors and yet the sense of presence, of standing in a real space with real people, is undeniable.",
+  "tagline": "LiDAR hologram VR experience — a walkable memory of a place and its people",
+  "what": [
+    {
+      "type": "text",
+      "content": "A LiDAR hologram-based virtual memory of the elderly that family members can step back into after they die.\n\nIn XR narratives, spaces become characters. Photogrammetry imbues those spaces with static detail, but LiDAR holograms bring them to life. The first time I combined 2.5-dimensional depth video with a photogrammetry model I was struck by how much it felt like I had stepped into a memory. Which made me ask, what do we most want to remember? One tragic, beautiful answer is: our loved ones after they die.\n\nThese holograms are videos that have been rendered into 3D meshes – they are glitchy and pixelated, imperfect like our own memories. In this liminal space, the photogrammetric walls melt into the floors and yet the sense of presence, of standing in a real space with real people, is undeniable."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/rehoboth/thumb.jpg"
+    }
+  ],
   "why": [
     {
       "type": "text",
-      "content": "In XR narratives, spaces become characters. Photogrammetry imbues those spaces with static detail, but LiDAR holograms bring them to life. The first time I combined 2.5-dimensional depth video with a photogrammetry model I was struck by how much it felt like I had stepped into a memory. Which made me ask, what do we most want to remember? One tragic, beautiful answer is: our loved ones after they die.\n\nThis project took Painting Life\u2019s explorations into XR narrative conventions a step further: when you move through the house, you can pick up a board game and the family appears playing it together at a table. If you walk outside through the garden, you hear the sounds of the geese in the lake. You may end up in the woodshed where the grandfather is turning wooden bowls with his grandchildren.\n\nThese holograms are videos that have been rendered into 3D meshes \u2013 they are glitchy and pixelated, imperfect like our own memories. In this liminal space, the photogrammetric walls melt into the floors and yet the sense of presence, of standing in a real space with real people, is undeniable.\n\nOne playtester also reported learning how to carve a wooden spoon after playing through this experience, hinting at the education potential of such virtual memories."
+      "content": "In XR narratives, spaces become characters. Photogrammetry imbues those spaces with static detail, but LiDAR holograms bring them to life. The first time I combined 2.5-dimensional depth video with a photogrammetry model I was struck by how much it felt like I had stepped into a memory. Which made me ask, what do we most want to remember? One tragic, beautiful answer is: our loved ones after they die.\n\nThis project took Painting Life’s explorations into XR narrative conventions a step further: when you move through the house, you can pick up a board game and the family appears playing it together at a table. If you walk outside through the garden, you hear the sounds of the geese in the lake. You may end up in the woodshed where the grandfather is turning wooden bowls with his grandchildren.\n\nThese holograms are videos that have been rendered into 3D meshes – they are glitchy and pixelated, imperfect like our own memories. In this liminal space, the photogrammetric walls melt into the floors and yet the sense of presence, of standing in a real space with real people, is undeniable.\n\nOne playtester also reported learning how to carve a wooden spoon after playing through this experience, hinting at the education potential of such virtual memories."
     },
     {
       "type": "image",
@@ -18,7 +27,7 @@
   "how": [
     {
       "type": "text",
-      "content": "The tech stack and development process for this was similar to Painting Life with the added complexity of hologram 2.5D depth video.\n\n**These are captured by:**\n\nAzure Kinect RGBD cameras streaming data to a gaming laptop\n\niPhone 12 running Record3D app to use the front-facing LiDAR sensor\n\nDepthkit Studio cleaning and cropping the depth data and exporting RGBD video\n\nCommand-line tools to remove the background from RGBD videos\n\nAdobe Premiere for clip trimming and sound mixing\n\nDepthkit integration with Unity via a custom plugin",
+      "content": "The tech stack and development process for this was similar to [Painting Life](http://wyattroy.com/project.html#painting-life) with the added complexity of hologram 2.5D depth video. Azure Kinect RGBD cameras streamed data to a gaming laptop, and an iPhone 12 running Record3D app used the front-facing LiDAR sensor to record \"depth videos\". Depthkit Studio cleaning and cropping the depth data and exporting RGBD video. Here you can see the Depth LiDAR on left, and the RGB Color video on right – both exported as a single MP4.",
       "align": "left"
     },
     {
@@ -28,33 +37,13 @@
     },
     {
       "type": "text",
-      "content": "Depth LiDAR on left, RGB Color video on right",
+      "content": "I used Depthkit's custom plugin in Unity, which interprets the MP4 as a hologram, which you can position in 3D space and see in VR.",
       "align": "left"
     },
     {
       "type": "image",
       "src": "assets/projects/rehoboth/img11.jpg",
       "align": "right"
-    },
-    {
-      "type": "text",
-      "content": "Integration of depth holograms into Unity"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/rehoboth/img12.jpg"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/rehoboth/img13.jpg"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/rehoboth/img14.jpg"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/rehoboth/img15.jpg"
     }
   ],
   "medium": "VR",
@@ -64,8 +53,10 @@
     "institutional": 0.08
   },
   "thumbnail": "assets/projects/rehoboth/thumb.jpg",
-  "hero": "assets/projects/rehoboth/img9.jpg",
+  "hero": "assets/projects/rehoboth/thumb.jpg",
   "liveUrl": null,
+  "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/rehoboth/img9.jpg",
     "assets/projects/rehoboth/img10.jpg",
@@ -73,15 +64,12 @@
     "assets/projects/rehoboth/img12.jpg",
     "assets/projects/rehoboth/img13.jpg",
     "assets/projects/rehoboth/img14.jpg",
-    "assets/projects/rehoboth/img15.jpg"
+    "assets/projects/rehoboth/img15.jpg",
+    "assets/projects/rehoboth/thumb.jpg"
   ],
   "videos": [
     {
       "url": "https://vimeo.com/888461019",
-      "heroOverride": true
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=9AdIwIasOjE",
       "heroOverride": true
     }
   ],

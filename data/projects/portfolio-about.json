@@ -1,0 +1,145 @@
+{
+  "id": "portfolio-about",
+  "title": "About This Portfolio",
+  "year": 2026,
+  "month": 6,
+  "tagline": "Interdisciplinary design portfolio and archive",
+  "what": [
+    {
+      "type": "text",
+      "content": "**I am a designer, educator, and researcher working at the intersection of technology, narrative, and institutional change.**"
+    },
+    {
+      "type": "text",
+      "content": "This site — wyattroy.com — is more than a personal portfolio, it's a living portrait of what I care about, who I am, and who has shaped me. I designed it from scratch over 3 months in 2026, and built it with Claude (Anthropic's AI). The 3D graph on the homepage is an attempt to bring my interdisciplinary work together into one collection. \n\nMy initial prototypes arranged my projects according to time and complexity of the medium – which tugged at some of the right ideas, but wasn't consistent or coherent enough across my full body of work.\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/portfolio-about/2x2v1.png"
+    },
+    {
+      "type": "text",
+      "content": "*An early prototype*"
+    },
+    {
+      "type": "text",
+      "content": "After contending with the limitations of dozens of different paradigms for categorizing my projects, I realized that my work most honestly exists on a spectrum. Or spectra: a 2x2. I played around with many different axis labels before settling on those that most honestly revealed my values: *who* I am designing for, in terms of the system scale (Individual ↔ Institutional)– and *how-why* I am designing something that way, in terms of the intent (Poetic ↔ Pragmatic). With this view, the **medium** of each project became incidental – a little colored label that helps ground each project in one of 5 categories. This too, resonates – I have always been medium-agnostic, using whatever form the project required to speak its message most clearly to its user/receiver/audience.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/portfolio-about/2x2v2.png"
+    },
+    {
+      "type": "text",
+      "content": "*A later prototype*",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "Then I became curious about how my work's quadrants have shifted over time. I started producing professional creative as a commercial filmmaker in 2013, designing short stories that efficiently and emotionally communicated a message on behalf of individuals and institutions. When I started building apps and tools in the early 2020's my work shifted towards the pragmatic; and then they started intervening on institutions in graduate school. All of this was invisible on a flat 2x2, so I realized it needed a third axis: time. ",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/portfolio-about/portfolio.png"
+    },
+    {
+      "type": "text",
+      "content": "*The current site*"
+    },
+    {
+      "type": "text",
+      "content": "My intention, and hope, is that you get a sense of who I am without even clicking a thing: a playful, tech-fluid designer who cares about people. And that if you choose to dig in, you find something that inspires your own curiosity, joy, and desire to connect!"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "<– When my brow isn't furrowed as I try to puzzle through a systemic complexity, I often look like this. \n\nI think our lives are most fun when they are playful, creative, and agentic. \n\nI think work is most fulfilling when it is self-motivated by internal curiosity, not externally coerced through punishments and rewards. \n\nI think learning, failing, and iterating are three of the best ways to spend our time. The only things more important than those are laughing, listening to others, and cuddling those closest to us. ",
+      "align": "right"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/portfolio-about/wyatt-headshot.jpg",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "content": "This project was a chance for me to work with AI to handle technical problems that I used to have to solve myself by googling error codes, brute-forcing suggestions from stackoverflow, and eating bug candy. Claude freed me to be a designer – and my engineering expertise helped me leverage its tools efficiently in ways that felt like games instead of drudgery. Rather than spending months learning a framework, I directed the entire build through conversation: describing what I wanted, sometimes in technical terms and sometimes in plain english, reacting to results, and iterating in real time. Over 51 conversations and 500+ individual design decisions (and counting!), the site went from a pdf prototype and a blank repository to a live domain accessible in your pocket (mobile optimized!) or desktop. "
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "The stack is deliberately minimal: vanilla JS ES modules, Three.js r160 for the 3D visualization, no build step, no framework. Deployed as a static site on GitHub Pages.\n\nMy favorite moment in the project was when I realized that I'd have to *build a tool* to make building the site *fun*. At least half of my design decisions are invisible to you, because they went into the \"editor.html\", a part of the project that you were never supposed to see. Except, because I think process is cool and learning is everything, [I've made it visible to you](https://wyattroy.com/editor.html) – I even made it easy for you to start a sample back-end to the website to see how it work. \n\nThis is a completely custom browser-based CMS editor so I could manage the 56 project JSON files naturally, like a human – dragging images, moving chunks of text, without dealing with HTML syntax in VSCode. It uses the File System Access API to read and write directly to the local data folder. [Try it!](https://wyattroy.com/editor.html)",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/portfolio-about/editor.png"
+    },
+    {
+      "type": "text",
+      "content": "The 3D graph was the most technically ambitious piece, but because Claude handled (most of) the code, I could focus on the user interface and iterate until a non-native-3D-user could navigate it without getting lost. Three.js prisms are positioned by axis values and year, with a perspective camera that responds to scroll and touch. Getting the labels to stay readable at every zoom level, the tiles to load in spatial order, and the mobile experience to feel intentional (not just \"desktop shrunk down\") took about a dozen separate debugging sessions.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/portfolio-about/portfolio.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": ""
+    }
+  ],
+  "medium": "Web",
+  "tags": [
+    "portfolio",
+    "web",
+    "Three.js",
+    "AI collaboration",
+    "vanilla JS",
+    "data visualization",
+    "editor"
+  ],
+  "axes": {
+    "pragmatic": 0.52,
+    "institutional": 0.01
+  },
+  "thumbnail": "assets/projects/portfolio-about/portfolio.png",
+  "hero": "assets/projects/portfolio-about/portfolio.png",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "files": [
+    {
+      "src": "https://docs.google.com/document/d/1sh149l6gz9TEishSJejG29iJy5zrKsiMmEkNCRgEY_A/edit?tab=t.0",
+      "title": "Resume"
+    }
+  ],
+  "images": [
+    "assets/projects/portfolio-about/homepage-grid.jpg",
+    "assets/projects/portfolio-about/2x2v1.png",
+    "assets/projects/portfolio-about/2x2v2.png",
+    "assets/projects/portfolio-about/portfoliocards.png",
+    "assets/projects/portfolio-about/wyatt-headshot.jpg",
+    "assets/projects/portfolio-about/portfolio.png",
+    "assets/projects/portfolio-about/editor.png"
+  ],
+  "videos": [],
+  "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Design, direction, content, all decisions"
+    },
+    {
+      "name": "Claude (Anthropic)",
+      "url": "",
+      "role": "Engineering, implementation, debugging"
+    }
+  ]
+}

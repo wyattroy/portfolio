@@ -90,7 +90,6 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   // Scene
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('#F5F1E6');
-  scene.fog = new THREE.Fog('#F5F1E6', 25, 50);
 
   // Renderer
   const renderer = new THREE.WebGLRenderer({
@@ -113,16 +112,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   camera.lookAt(CAM_TARGET);
 
   // ─── Lighting ───────────────────────────────────────────────────────────────
-  const ambientLight = new THREE.AmbientLight('#F5EDE0', 1.2);
+  const ambientLight = new THREE.AmbientLight('#F5EDE0', 2.4);
   scene.add(ambientLight);
-
-  const dirLight = new THREE.DirectionalLight('#FFF8F0', 2.0);
-  dirLight.position.set(8, 14, 10);
-  scene.add(dirLight);
-
-  const fillLight = new THREE.DirectionalLight('#E0E8F0', 0.6);
-  fillLight.position.set(-6, 4, -8);
-  scene.add(fillLight);
 
   // ─── Grid lines ─────────────────────────────────────────────────────────────
   addGridLines(scene);
@@ -174,7 +165,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
     // Only the front face (index 4) is per-mesh — it carries the thumbnail and fades in.
     // All other faces share one material; back face is back-culled and never rendered.
-    const frontMat = new THREE.MeshLambertMaterial({ color: '#EAE6DA', transparent: true, opacity: 0 });
+    const frontMat = new THREE.MeshLambertMaterial({ color: '#EAE6DA', transparent: true, opacity: skipEntry ? 1 : 0 });
     const materials = [sharedSideMat, sharedSideMat, sharedSideMat, sharedSideMat, frontMat, sharedSideMat];
 
     const mesh = new THREE.Mesh(geo, materials);
@@ -184,7 +175,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     mesh.userData.baseScale = scale;
     mesh.userData.scaleSpring = makeSpring(scale);
     mesh.userData.project = p;
-    mesh.userData.cardOpacity = 0;
+    mesh.userData.cardOpacity = skipEntry ? 1 : 0;
     // revealMs assigned after loop once prismMeshes index is known
 
     // Load thumbnail for all projects that have one; stagger by index to avoid request pile-up
@@ -627,11 +618,13 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       const s = tickSpring(mesh.userData.scaleSpring);
       mesh.scale.setScalar(s);
 
-      const op = entryOpacity(mesh.userData.revealMs);
-      if (op !== mesh.userData.cardOpacity) {
-        mesh.userData.cardOpacity = op;
-        const frontMat = mesh.material[4];
-        if (frontMat) frontMat.opacity = op;
+      if (!entryDone) {
+        const op = entryOpacity(mesh.userData.revealMs);
+        if (op !== mesh.userData.cardOpacity) {
+          mesh.userData.cardOpacity = op;
+          const frontMat = mesh.material[4];
+          if (frontMat) frontMat.opacity = op;
+        }
       }
     });
 
@@ -640,6 +633,43 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
     renderer.render(scene, camera);
 
+    // Pause the rAF loop after 30s of inactivity once entry is done
+    if (entryDone && springsSettled() && performance.now() - lastInteractionTime > 30000) {
+      cancelAnimationFrame(animFrameId);
+      animFrameId = null;
+    }
+  }
+
+  // True once the entry reveal animation has fully completed
+  let entryDone = skipEntry;
+
+  function springsSettled() {
+    const EPS = 0.0002;
+    if (Math.abs(scrollFracSpring.velocity) > EPS) return false;
+    if (Math.abs(dragTheta.velocity) > EPS) return false;
+    if (Math.abs(dragPhi.velocity) > EPS) return false;
+    for (const mesh of prismMeshes) {
+      if (Math.abs(mesh.userData.scaleSpring.velocity) > EPS) return false;
+    }
+    return true;
+  }
+
+  let lastInteractionTime = performance.now();
+
+  // Wake the render loop when user interacts
+  function wakeRender() {
+    lastInteractionTime = performance.now();
+    if (!animFrameId && !renderingPaused) animate();
+  }
+  canvas.addEventListener('mousemove', wakeRender, { passive: true });
+  canvas.addEventListener('touchstart', wakeRender, { passive: true });
+  window.addEventListener('scroll', wakeRender, { passive: true });
+  window.addEventListener('wheel', wakeRender, { passive: true });
+
+  // Mark entry done once the last card has fully faded in
+  if (!skipEntry) {
+    const lastRevealMs = CARD_REVEAL_START_MS + prismMeshes.length * CARD_REVEAL_STEP_MS + ENTRY_FADE_MS;
+    setTimeout(() => { entryDone = true; }, lastRevealMs);
   }
 
   animate();
@@ -653,7 +683,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     const covered = window.scrollY >= window.innerHeight * (isMobile ? 0.7 : 1);
     if (covered && !renderingPaused) {
       renderingPaused = true;
-      cancelAnimationFrame(animFrameId);
+      if (animFrameId) cancelAnimationFrame(animFrameId);
+      animFrameId = null;
     } else if (!covered && renderingPaused) {
       renderingPaused = false;
       animate();

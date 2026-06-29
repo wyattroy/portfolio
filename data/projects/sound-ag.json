@@ -42,7 +42,7 @@
     "institutional": 0.61
   },
   "thumbnail": "assets/projects/sound-ag/thumb.jpg",
-  "hero": "assets/projects/sound-ag/thumb-sm.jpg",
+  "hero": "assets/projects/sound-ag/thumb.jpg",
   "liveUrl": "https://www.sound.ag/",
   "sourceUrl": null,
   "images": [
@@ -52,7 +52,7 @@
     "assets/projects/sound-ag/img6.jpg",
     "assets/projects/sound-ag/thumb.jpg",
     "assets/projects/sound-ag/img3.jpg",
-    "assets/projects/sound-ag/thumb-sm.jpg"
+    "assets/projects/sound-ag/thumb.jpg"
   ],
   "videos": [
     {

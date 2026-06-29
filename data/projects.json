@@ -1,5 +1,54 @@
 [
   {
+    "id": "portfolio-about",
+    "title": "About This Portfolio",
+    "year": 2026,
+    "month": 6,
+    "tagline": "Interdisciplinary design portfolio and archive",
+    "axes": {
+      "pragmatic": 0.52,
+      "institutional": 0.01
+    },
+    "thumbnail": "assets/projects/portfolio-about/portfolio.png",
+    "tags": [
+      "portfolio",
+      "web",
+      "Three.js",
+      "AI collaboration",
+      "vanilla JS",
+      "data visualization",
+      "editor"
+    ],
+    "liveUrl": null,
+    "sourceUrl": null,
+    "images": [
+      "assets/projects/portfolio-about/homepage-grid.jpg",
+      "assets/projects/portfolio-about/2x2v1.png",
+      "assets/projects/portfolio-about/2x2v2.png",
+      "assets/projects/portfolio-about/portfoliocards.png",
+      "assets/projects/portfolio-about/wyatt-headshot.jpg",
+      "assets/projects/portfolio-about/portfolio.png",
+      "assets/projects/portfolio-about/editor.png"
+    ],
+    "videos": [],
+    "awards": [],
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Design, direction, content, all decisions"
+      },
+      {
+        "name": "Claude (Anthropic)",
+        "url": "",
+        "role": "Engineering, implementation, debugging"
+      }
+    ],
+    "label": "green",
+    "medium": "Web",
+    "hero": "assets/projects/portfolio-about/portfolio.png"
+  },
+  {
     "id": "pour",
     "title": "Pour",
     "year": 2026,
@@ -898,7 +947,7 @@
       "assets/projects/crawl/img6.jpg",
       "assets/projects/crawl/img10.jpg",
       "assets/projects/crawl/img16.jpg",
-      "assets/projects/crawl/thumb-sm.jpg"
+      "assets/projects/crawl/thumb.jpg"
     ],
     "videos": [
       {
@@ -914,7 +963,7 @@
     "sourceUrl": "https://www.wyattroy.com/design/crawl",
     "awards": [],
     "medium": "Narrative",
-    "hero": "assets/projects/crawl/thumb-sm.jpg",
+    "hero": "assets/projects/crawl/thumb.jpg",
     "who": [
       {
         "name": "Wyatt Roy",
@@ -1152,24 +1201,21 @@
       "assets/projects/rehoboth/img12.jpg",
       "assets/projects/rehoboth/img13.jpg",
       "assets/projects/rehoboth/img14.jpg",
-      "assets/projects/rehoboth/img15.jpg"
+      "assets/projects/rehoboth/img15.jpg",
+      "assets/projects/rehoboth/thumb.jpg"
     ],
     "videos": [
       {
         "url": "https://vimeo.com/888461019",
         "heroOverride": true
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=9AdIwIasOjE",
-        "heroOverride": true
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/xr/rehoboth",
+    "sourceUrl": null,
     "awards": [],
     "medium": "VR",
     "tags": [],
-    "hero": "assets/projects/rehoboth/img9.jpg",
+    "hero": "assets/projects/rehoboth/thumb.jpg",
     "who": [
       {
         "name": "Wyatt Roy",
@@ -1859,7 +1905,7 @@
       "assets/projects/sound-ag/img6.jpg",
       "assets/projects/sound-ag/thumb.jpg",
       "assets/projects/sound-ag/img3.jpg",
-      "assets/projects/sound-ag/thumb-sm.jpg"
+      "assets/projects/sound-ag/thumb.jpg"
     ],
     "videos": [
       {
@@ -1880,7 +1926,7 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/sound-ag/thumb-sm.jpg"
+    "hero": "assets/projects/sound-ag/thumb.jpg"
   },
   {
     "id": "piece-of-string",
@@ -1905,7 +1951,7 @@
       "assets/projects/piece-of-string/img3.jpg",
       "assets/projects/piece-of-string/img4.jpg",
       "assets/projects/piece-of-string/thumb.jpg",
-      "assets/projects/piece-of-string/thumb-sm.jpg"
+      "assets/projects/piece-of-string/thumb.jpg"
     ],
     "videos": [
       {
@@ -2392,7 +2438,7 @@
     },
     "thumbnail": "assets/projects/galapagos/thumb.jpg",
     "images": [
-      "assets/projects/galapagos/thumb-sm.jpg",
+      "assets/projects/galapagos/thumb.jpg",
       "assets/projects/galapagos/iguana-eye.jpg",
       "assets/projects/galapagos/sealion.jpg",
       "assets/projects/galapagos/DSC_0436.JPG",
@@ -2414,7 +2460,7 @@
     "awards": [],
     "medium": "Film",
     "tags": [],
-    "hero": "assets/projects/galapagos/thumb-sm.jpg",
+    "hero": "assets/projects/galapagos/thumb.jpg",
     "who": [
       {
         "name": "Wyatt Roy",
@@ -2454,7 +2500,7 @@
       "assets/projects/phildev/IMG_3568 Large.jpeg",
       "assets/projects/phildev/IMG_3590 Large.jpeg",
       "assets/projects/phildev/IMG_3008 Large.jpeg",
-      "assets/projects/phildev/thumb-sm.jpg",
+      "assets/projects/phildev/thumb.jpg",
       "assets/projects/phildev/IMG_3303 Large.jpeg",
       "assets/projects/phildev/IMG_3659 Large.jpeg",
       "assets/projects/phildev/IMG_3246 Large.jpeg"
@@ -2503,7 +2549,7 @@
       }
     ],
     "label": "yellow",
-    "hero": "assets/projects/phildev/thumb-sm.jpg"
+    "hero": "assets/projects/phildev/thumb.jpg"
   },
   {
     "id": "sols",
@@ -2758,7 +2804,7 @@
       "assets/projects/bufferzone/IMG_1952.JPG",
       "assets/projects/bufferzone/IMG_1301.JPG",
       "assets/projects/bufferzone/SCSE6734.JPG",
-      "assets/projects/bufferzone/thumb-sm.jpg"
+      "assets/projects/bufferzone/thumb.jpg"
     ],
     "videos": [
       {
@@ -2770,7 +2816,7 @@
     "sourceUrl": "https://vimeo.com/205989860",
     "awards": [],
     "medium": "Film",
-    "hero": "assets/projects/bufferzone/thumb-sm.jpg",
+    "hero": "assets/projects/bufferzone/thumb.jpg",
     "who": [
       {
         "name": "Wyatt Roy",
@@ -2878,7 +2924,7 @@
     "thumbnail": "assets/projects/peloton/thumb.jpg",
     "images": [
       "assets/projects/peloton/thumb.jpg",
-      "assets/projects/peloton/thumb-sm.jpg"
+      "assets/projects/peloton/thumb.jpg"
     ],
     "videos": [
       {

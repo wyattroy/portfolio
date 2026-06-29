@@ -1019,13 +1019,22 @@ h1, h2, h3, h4, h5 {
   color: #fff;
 }
 
+.modal-thumb-link {
+  display: block;
+  flex-shrink: 0;
+}
+
+.modal-thumb-link:hover .modal-thumb {
+  opacity: 0.9;
+}
+
 .modal-thumb {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
-  flex-shrink: 0;
+  transition: opacity 0.15s;
 }
 
 #project-modal-content .preview-description {
@@ -1863,7 +1872,7 @@ footer {
 /* Legacy compat: keep old class names working */
 /* ── Labeled content sections (WHAT / WHY / HOW) ── */
 .pp-content-section {
-  margin: 48px 0;
+  margin: 72px 0;
 }
 
 /* WHO section — two-column people table */
@@ -2012,8 +2021,8 @@ footer {
 
 .pp-nav-thumb-wrap {
   width: 100%;
-  aspect-ratio: 5/2;
-  max-height: 160px;
+  aspect-ratio: 16/9;
+  max-height: none;
   overflow: hidden;
   background: var(--color-border);
   border-radius: 10px;

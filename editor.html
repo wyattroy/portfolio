@@ -162,6 +162,14 @@
     }
     .empty-state p { font-size: 15px; }
     .empty-state small { font-size: 13px; }
+    .demo-cta { margin-top: 28px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .demo-cta p { font-size: 13px; color: #A89880; }
+    .demo-btn {
+      background: #C4603A; color: #fff; border: none; border-radius: 6px;
+      padding: 10px 22px; cursor: pointer; font-size: 14px; font-weight: 500;
+      font-family: inherit; letter-spacing: 0.02em;
+    }
+    .demo-btn:hover { background: #a84e2f; }
 
     /* Form */
     .form-grid {
@@ -901,6 +909,12 @@
 </head>
 <body>
 
+<div id="browser-warning" style="display:none; position:fixed; inset:0; background:#2A2520; color:#F0EDE8; z-index:9999; flex-direction:column; align-items:center; justify-content:center; gap:16px; font-family:'DM Sans',system-ui,sans-serif;">
+  <p style="font-size:20px; font-weight:500;">This editor requires Chrome or Edge</p>
+  <p style="font-size:14px; color:#A89880; max-width:380px; text-align:center;">Safari doesn't support the File System Access API, which this editor uses to read and write files on your computer.</p>
+  <a href="https://www.google.com/chrome/" style="margin-top:8px; background:#C4603A; color:#fff; text-decoration:none; border-radius:6px; padding:10px 22px; font-size:14px; font-weight:500;">Download Chrome →</a>
+</div>
+
 <div class="topbar">
   <h1>Project Editor</h1>
   <span class="sep">|</span>
@@ -921,9 +935,14 @@
   </div>
 
   <div class="editor" id="editor">
-    <div class="empty-state">
+    <div class="empty-state" id="main-empty-state">
       <p>No project selected</p>
       <small>Open the data/projects folder, then pick a project</small>
+      <div class="demo-cta" id="demo-cta">
+        <p>— or —</p>
+        <button class="demo-btn" onclick="createDemo()">✨ Try the editor with sample projects</button>
+        <small style="color:#B8A898">Saves 3 demo projects to a folder you choose</small>
+      </div>
     </div>
   </div>
 
@@ -995,6 +1014,10 @@
 
 <script>
 // ── State ──────────────────────────────────────────────────────────────────────
+if (!('showDirectoryPicker' in window)) {
+  document.getElementById('browser-warning').style.display = 'flex';
+}
+
 let dataRootHandle = null;    // FileSystemDirectoryHandle for data/ (enables projects.json editing)
 let dirHandle = null;         // FileSystemDirectoryHandle for data/projects/
 let assetsHandle = null;      // FileSystemDirectoryHandle for assets/projects/
@@ -1034,6 +1057,162 @@ function computeStatus(data) {
 }
 
 // ── Open folder ───────────────────────────────────────────────────────────────
+// ── Demo ─────────────────────────────────────────────────────────────────────
+const DEMO_PROJECTS = [
+  {
+    "id": "how-to-change-institutions",
+    "title": "How to Change Institutions",
+    "year": 2026,
+    "month": 6,
+    "tagline": "A simple field guide for working inside large organizations",
+    "what": [
+      { "type": "text", "content": "A palm-sized book for people who work inside institutions — schools, governments, hospitals — and want to create lasting change through collaboration rather than conflict. Covers how to notice what you want to change, how to work with institutional complexity, how to build coalitions through individual relationships, and how to sustain momentum. Illustrated by Julia Mattis. In homage to Thich Nhat Hanh.", "align": "left" },
+      { "type": "image", "src": "assets/projects/how-to-change-institutions/How to Change Institutions cover.jpg", "align": "right" },
+      { "type": "text", "content": "**Sample pages from the book**" },
+      { "type": "image", "src": "assets/projects/how-to-change-institutions/How to Change Institutions page 2.jpg" },
+      { "type": "image", "src": "assets/projects/how-to-change-institutions/How to Change Institutions page 3.jpg" }
+    ],
+    "why": [
+      { "type": "text", "content": "Most change-making assumes adversarial tactics. This book explores what becomes possible when you choose collaboration over antagonism — assuming people within institutions mutually care for each other, and inviting them to be their best selves together." },
+      { "type": "image", "src": "assets/projects/how-to-change-institutions/IMG_1613.jpg" }
+    ],
+    "how": [
+      { "type": "text", "content": "This book was my masters thesis. It wrapped together insights from dozens of different institutional interventions that I had done over my time at Harvard.", "align": "left" },
+      { "type": "image", "src": "assets/projects/how-to-change-institutions/IMG_1637.jpg", "align": "right" },
+      { "type": "text", "content": "While trying to change Harvard GSD to serve its students better, I found myself at a fork in the road: I could either fight against the administration, or work with them. I used my changemaking practice as an excuse to start conversations, then collaborations, and ultimately friendships with faculty and staff across the Academy.", "align": "left" },
+      { "type": "image", "src": "assets/projects/how-to-change-institutions/img5.jpg", "align": "right" },
+      { "type": "text", "content": "Then I collected my thoughts and wrote them in the simplest, clearest language I could muster, inspired by Thich Nhat Hanh, who wrote little books on a variety of subjects, like How To Walk and How To Love.", "align": "left" }
+    ],
+    "medium": "Pedagogy",
+    "tags": ["mindfulness", "collaboration", "organizational change", "design"],
+    "axes": { "pragmatic": 0.5, "institutional": 0.5 },
+    "thumbnail": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
+    "hero": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
+    "liveUrl": null,
+    "sourceUrl": null,
+    "files": [{ "src": "assets/projects/how-to-change-institutions/How to Change Institutions.pdf", "title": "Download the Book (PDF)" }],
+    "images": [],
+    "videos": [],
+    "awards": [],
+    "who": [
+      { "name": "Wyatt Roy", "url": "", "role": "Writer" },
+      { "name": "Julia Mattis", "url": "https://www.instagram.com/windowsill.bakery/", "role": "Illustrator" },
+      { "name": "Everyone in the acknowledgements", "url": "", "role": "Guidance" }
+    ],
+    "description": "A short illustrated guide to changing institutions through care, collaboration, and mindfulness — an alternative to adversarial activism."
+  },
+  {
+    "id": "mu-mirror",
+    "title": "Mu Mirror",
+    "year": 2024,
+    "month": 11,
+    "tagline": "A Zen koan about the boundary of self rendered as a p5.js dot-grid",
+    "what": [
+      { "type": "text", "content": "An art installation for the web that renders the viewer as a shifting field of colored dots, blurring the boundaries between self and other. The piece takes a photo every few seconds, compares each pixel by color similarity, and moves each dot toward the closest matching pixel — dissolving the boundary between self and background until the viewer becomes indistinguishable from the world around them." },
+      { "type": "image", "src": "assets/projects/mu-mirror/unnamed.jpg" }
+    ],
+    "why": [
+      { "type": "text", "content": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans, or riddles, to encode mental hacks that help people see reality in a new way. Usually, you have to meditate on a koan for a while — and eventually, something just clicks, and you see life differently.\n\nBut most people don't have the time or patience to sit on a cushion long enough or to silently chant mu in their minds for months — so I wanted to try and make a piece of digital art that might give them a shortcut." },
+      { "type": "image", "src": "assets/projects/mu-mirror/img2.jpg" },
+      { "type": "text", "content": "Where does your body end? Is your hair you? What about when you cut a strand of it off? As we expand the boundary outwards more and more to try and encapsulate all the things that make you you, we realize that any line we draw between you and not you is arbitrary. It's an illusion to believe we are in any way separable from all of existence." }
+    ],
+    "how": [
+      { "type": "text", "content": "**Iteration 1: 2D Prototype**\n\nCreated in Processing. Tried to see what it might feel like to move through a grid of dots and have them be attracted to you.", "align": "left" },
+      { "type": "image", "src": "assets/projects/mu-mirror/mousedots.gif", "align": "right" },
+      { "type": "text", "content": "**Iteration 6: Blur Mirror**\n\nRestart the project in p5.js. Read in data from webcam, draw a circle with size based off its brightness and color.", "align": "left" },
+      { "type": "image", "src": "assets/projects/mu-mirror/dots mirror.gif", "align": "right" },
+      { "type": "text", "content": "**Iteration 7: Mu Mirror**\n\nBuilt in p5. Receive webcam data. Take two photos. Compare the pixels between them based on color. Find the closest pixel of the most similar color. Move the current pixel over to the target pixel's location. Lerp both location and color over time.", "align": "left" },
+      { "type": "image", "src": "assets/projects/mu-mirror/mumirror-converted.gif", "align": "right" }
+    ],
+    "medium": "App",
+    "tags": [],
+    "axes": { "pragmatic": 0.26, "institutional": 0.38 },
+    "thumbnail": "assets/projects/mu-mirror/thumb.jpg",
+    "hero": "assets/projects/mu-mirror/mumirror-converted.gif",
+    "liveUrl": "http://mumirror.wyattroy.com",
+    "sourceUrl": null,
+    "images": [],
+    "videos": [{ "url": "https://www.youtube.com/watch?v=2BCMZMRFljI", "heroOverride": true }],
+    "awards": [],
+    "who": [{ "name": "Wyatt Roy", "url": "", "role": "Designer, Engineer" }],
+    "description": "Mu Mirror is a modern form of an ancient technology. For thousands of years, Zen has been using koans — but most people don't have time to meditate for months, so I made a piece of digital art that might give them a shortcut."
+  },
+  {
+    "id": "phildev",
+    "title": "PhilDev",
+    "year": 2015,
+    "month": 4,
+    "tagline": "Documentary for a Filipino nonprofit",
+    "what": [
+      { "type": "text", "content": "We were eating dinner with tech innovator Dado Banatao in Manila, Philippines. We'd flown in from San Francisco at 5am that morning in advance of a two week shoot for his foundation, PhilDev.", "align": "none" },
+      { "type": "image", "src": "assets/projects/phildev/IMG_3659 Large.jpeg" },
+      { "type": "text", "content": "PhilDev had a bold mission: to eliminate poverty in the Philippines. We asked Dado why he thought he could do that in the 13th most populous country in the world, where current per capita income was just $9400. What was the source of his boldness? He grew silent. Then he said, \"My father was a farmer. I am an engineer. I did it once, for myself. Now we just need to teach others how.\"", "align": "none" },
+      { "type": "image", "src": "assets/projects/phildev/IMG_3618 Large.jpeg" }
+    ],
+    "why": [
+      { "type": "text", "content": "In Social Psychology, \"belonging theory\" states that when people don't feel like they belong somewhere, like an academic setting, they interpret normal negative events, like a bad grade, as evidence that they aren't supposed to be there. But people who feel like they do belong interpret those same events as evidence that they need to work harder." },
+      { "type": "image", "src": "assets/projects/phildev/IMG_3008 Large.jpeg" },
+      { "type": "text", "content": "We used Dado's story to deliver a belonging intervention to each viewer, to help our target audience of Filipino students reinterpret their struggles as a normal part of achieving success. The video was shared and seen over a million times across online platforms." }
+    ],
+    "how": [
+      { "type": "text", "content": "Shot on RED Cinema cameras across dozens of locations in the Philippines with a 6-person crew." },
+      { "type": "image", "src": "assets/projects/phildev/IMG_3315 Large.jpeg", "align": "right" }
+    ],
+    "medium": "Film",
+    "tags": [],
+    "axes": { "pragmatic": 0.1, "institutional": 0.7 },
+    "thumbnail": "assets/projects/phildev/thumb.jpg",
+    "hero": "assets/projects/phildev/thumb.jpg",
+    "liveUrl": null,
+    "sourceUrl": null,
+    "images": [],
+    "videos": [{ "url": "https://www.youtube.com/watch?v=ila9CGEu7Ks", "heroOverride": true }],
+    "awards": [],
+    "who": [
+      { "name": "Wyatt Roy", "url": "", "role": "Creative Director" },
+      { "name": "Garrett Gunther", "url": "https://garrettgunther.com/", "role": "Creative Director" },
+      { "name": "Kris Cheng", "url": "https://www.krischeng.com/", "role": "Creative Director" },
+      { "name": "Kai Sotto", "url": "", "role": "Producer" },
+      { "name": "Bailey Richardson", "url": "", "role": "Producer" },
+      { "name": "Dado Banatao", "url": "", "role": "Subject" }
+    ],
+    "description": "A short documentary using Dado Banatao's story to deliver a belonging intervention to Filipino students, seen over a million times online."
+  }
+];
+
+async function createDemo() {
+  let demoRoot;
+  try {
+    demoRoot = await window.showDirectoryPicker({ mode: 'readwrite', startIn: 'desktop' });
+  } catch(e) {
+    if (e.name !== 'AbortError') console.error(e);
+    return;
+  }
+
+  const projectsDir = await demoRoot.getDirectoryHandle('projects', { create: true });
+
+  for (const project of DEMO_PROJECTS) {
+    const fh = await projectsDir.getFileHandle(`${project.id}.json`, { create: true });
+    const writable = await fh.createWritable();
+    await writable.write(JSON.stringify(project, null, 2));
+    await writable.close();
+  }
+
+  dirHandle = projectsDir;
+  dataRootHandle = demoRoot;
+
+  document.getElementById('status').textContent = `📁 demo`;
+  document.getElementById('new-project-btn').classList.add('visible');
+  const demoCta = document.getElementById('demo-cta');
+  if (demoCta) demoCta.style.display = 'none';
+
+  await loadProjectList();
+
+  // Auto-open the first project so the editor doesn't sit blank
+  const firstItem = document.querySelector('.project-item');
+  if (firstItem) firstItem.click();
+}
+
 document.getElementById('open-btn').addEventListener('click', async () => {
   try {
     const picked = await window.showDirectoryPicker({ mode: 'readwrite' });
@@ -1055,6 +1234,8 @@ document.getElementById('open-btn').addEventListener('click', async () => {
 
     document.getElementById('status').textContent = `📁 ${picked.name}`;
     document.getElementById('new-project-btn').classList.add('visible');
+    const demoCta = document.getElementById('demo-cta');
+    if (demoCta) demoCta.style.display = 'none';
     await loadProjectList();
   } catch (e) {
     if (e.name !== 'AbortError') console.error(e);
@@ -2230,7 +2411,7 @@ document.getElementById('delete-btn').addEventListener('click', async () => {
   document.getElementById('editor').innerHTML = `
     <div class="empty-state">
       <p>No project selected</p>
-      <small>Open the data/projects folder, then pick a project</small>
+      <small>Pick a project from the sidebar</small>
     </div>`;
   document.getElementById('images-panel-empty').style.display = '';
   document.getElementById('images-panel-body').style.display = 'none';

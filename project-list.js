@@ -42,9 +42,13 @@ export function initProjectList(projects, { onExpand } = {}) {
   // Search
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
+    let _searchDebounce = null;
     searchInput.addEventListener('input', e => {
-      searchQuery = e.target.value.trim().toLowerCase();
-      applyFilters();
+      clearTimeout(_searchDebounce);
+      _searchDebounce = setTimeout(() => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        applyFilters();
+      }, 200);
     });
   }
 

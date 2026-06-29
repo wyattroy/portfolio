@@ -12,7 +12,7 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/bufferzone/thumb-sm.jpg"
+      "src": "assets/projects/bufferzone/thumb.jpg"
     },
     {
       "type": "text",
@@ -22,7 +22,28 @@
     {
       "type": "image",
       "src": "assets/projects/bufferzone/IMG_1301.JPG"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "My brief was to make a three-minute mini-documentary. Two trips, four weeks of shooting, and hundreds of hours of footage later, I realized that this many perspectives required more time.\n\n",
+      "align": "none"
     },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_1429.JPG"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_1433.JPG"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/bufferzone/IMG_1952.JPG"
+    }
+  ],
+  "how": [
     {
       "type": "text",
       "content": "The nonprofits worked with local Nepali organizations to fund projects that were important to their community - the first was installing solar panels on a ecotourism treehouse at the edge of the park so tourists could watch rhinos in comfort and safety.",
@@ -62,36 +83,16 @@
       "type": "image",
       "src": "assets/projects/bufferzone/IMG_1474.JPG",
       "align": "right"
-    }
-  ],
-  "why": [
+    },
     {
       "type": "text",
-      "content": "My brief was to make a three-minute mini-documentary. Two trips, four weeks of shooting, and hundreds of hours of footage later, I realized that this many perspectives required more time.\n\n",
-      "align": "none"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/bufferzone/IMG_1429.JPG"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/bufferzone/IMG_1433.JPG"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/bufferzone/IMG_1952.JPG"
-    }
-  ],
-  "how": [
-    {
-      "type": "text",
-      "content": "Director, Editor: Wyatt Roy \n\nProducer: Alyssa Newman \n\nPre-production: Arthur Scott, Ashley Gremmel\n\nCinematographers: Wyatt Roy, Briene Lermitte, Jack Wachtel\n\nLine Producer: Trishagni Sakya\n\nAerial: Justin Cox\n\nStarring: Ashley Gremmel, Abhinaya Pathak, Bashu Dhungana, Sita Adhikari, Laxmi Neupana, Tulsi, Runa, and the communities of Chitwan and Kathmandu.",
+      "content": "I went to Nepal twice – once with Jake Wachtel and once with Briene Lermitte, as 2-person crews producing, interviewing, filming, learning from and living with the communities who live with nature. ",
       "align": "left"
     },
     {
       "type": "image",
-      "src": "assets/projects/bufferzone/IMG_5188.JPG"
+      "src": "assets/projects/bufferzone/IMG_5188.JPG",
+      "align": "right"
     }
   ],
   "medium": "Film",
@@ -101,9 +102,10 @@
     "institutional": 0.55
   },
   "thumbnail": "assets/projects/bufferzone/thumb.jpg",
-  "hero": "assets/projects/bufferzone/thumb-sm.jpg",
+  "hero": "assets/projects/bufferzone/thumb.jpg",
   "liveUrl": null,
   "sourceUrl": "https://vimeo.com/205989860",
+  "files": [],
   "images": [
     "assets/projects/bufferzone/IMG_1433.JPG",
     "assets/projects/bufferzone/IMG_1520.JPG",
@@ -122,7 +124,7 @@
     "assets/projects/bufferzone/IMG_1952.JPG",
     "assets/projects/bufferzone/IMG_1301.JPG",
     "assets/projects/bufferzone/SCSE6734.JPG",
-    "assets/projects/bufferzone/thumb-sm.jpg"
+    "assets/projects/bufferzone/thumb.jpg"
   ],
   "videos": [
     {

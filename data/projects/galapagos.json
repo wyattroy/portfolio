@@ -44,10 +44,10 @@
     "institutional": 0.82
   },
   "thumbnail": "assets/projects/galapagos/thumb.jpg",
-  "hero": "assets/projects/galapagos/thumb-sm.jpg",
+  "hero": "assets/projects/galapagos/thumb.jpg",
   "liveUrl": null,
   "images": [
-    "assets/projects/galapagos/thumb-sm.jpg",
+    "assets/projects/galapagos/thumb.jpg",
     "assets/projects/galapagos/iguana-eye.jpg",
     "assets/projects/galapagos/sealion.jpg",
     "assets/projects/galapagos/DSC_0436.JPG",

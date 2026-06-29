@@ -220,7 +220,21 @@ function initMobileThumbnailGrid(projects, container) {
 }
 
 // ─── Project preview modal ────────────────────────────────────────────────────
+// LRU cache capped at 10 entries to bound memory as project count grows
+const MODAL_CACHE_MAX = 10;
 let _modalCache = {};
+let _modalCacheOrder = [];
+
+function modalCacheSet(id, value) {
+  if (!(id in _modalCache)) {
+    if (_modalCacheOrder.length >= MODAL_CACHE_MAX) {
+      const evict = _modalCacheOrder.shift();
+      delete _modalCache[evict];
+    }
+    _modalCacheOrder.push(id);
+  }
+  _modalCache[id] = value;
+}
 
 function handleProjectClick(id) {
   openProjectModal(id);
@@ -235,7 +249,7 @@ async function openProjectModal(id) {
 
   // Inject thumbnail immediately from master list (no fetch needed)
   const masterProject = _allProjects.find(p => p.id === id);
-  setModalThumb(inner, masterProject?.thumbnail || null);
+  setModalThumb(inner, masterProject?.thumbnail || null, `project.html#${id}`);
 
   // Show skeleton for text content
   content.innerHTML = `
@@ -257,7 +271,7 @@ async function openProjectModal(id) {
     } catch {
       detail = masterProject || { id };
     }
-    _modalCache[id] = detail;
+    modalCacheSet(id, detail);
   }
 
   const merged = Object.assign({}, detail, {
@@ -272,17 +286,22 @@ async function openProjectModal(id) {
   modal.onclick = e => { if (e.target === modal) closeProjectModal(); };
 }
 
-function setModalThumb(inner, src) {
-  const existing = inner.querySelector('.modal-thumb');
+function setModalThumb(inner, src, href) {
+  const existing = inner.querySelector('.modal-thumb-link');
   if (src) {
     if (existing) {
-      existing.src = src;
+      existing.href = href;
+      existing.querySelector('img').src = src;
     } else {
+      const a = document.createElement('a');
+      a.className = 'modal-thumb-link';
+      a.href = href;
       const img = document.createElement('img');
       img.className = 'modal-thumb';
       img.alt = '';
       img.src = src;
-      inner.insertBefore(img, inner.querySelector('#project-modal-content'));
+      a.appendChild(img);
+      inner.insertBefore(a, inner.querySelector('#project-modal-content'));
     }
   } else {
     existing?.remove();

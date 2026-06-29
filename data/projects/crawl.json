@@ -91,7 +91,7 @@
     "institutional": 1
   },
   "thumbnail": "assets/projects/crawl/thumb.jpg",
-  "hero": "assets/projects/crawl/thumb-sm.jpg",
+  "hero": "assets/projects/crawl/thumb.jpg",
   "liveUrl": null,
   "images": [
     "assets/projects/crawl/img1.jpg",
@@ -101,7 +101,7 @@
     "assets/projects/crawl/img6.jpg",
     "assets/projects/crawl/img10.jpg",
     "assets/projects/crawl/img16.jpg",
-    "assets/projects/crawl/thumb-sm.jpg"
+    "assets/projects/crawl/thumb.jpg"
   ],
   "videos": [
     {
