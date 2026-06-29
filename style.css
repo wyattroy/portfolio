@@ -2268,3 +2268,32 @@ footer {
   .pp-comment-section { padding: 0 20px 3em; }
   .pp-comment-form-row { grid-template-columns: 1fr; }
 }
+
+/* ── Notify form ─────────────────────────────────────────────────────────── */
+.pp-notify-section { margin-top: 2em; }
+.pp-notify-label { margin: 0.5em 0 1em; font-size: 0.95rem; color: var(--color-text); }
+.pp-notify-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.pp-notify-row input[type="email"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border, #ddd);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: var(--color-bg, #fff);
+  color: var(--color-text);
+  font-family: inherit;
+}
+.pp-notify-row input[type="email"]:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+@media (max-width: 600px) {
+  .pp-notify-row { flex-direction: column; align-items: stretch; }
+  .pp-notify-row input[type="email"] { min-width: 0; }
+}

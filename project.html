@@ -808,6 +808,22 @@
       });
       const ctasHtml = ctas.length > 0 ? `<div class="pp-ctas">${ctas.join('')}</div>` : '';
 
+      // Notify form
+      const notifyHtml = p.notify ? `
+        <div class="pp-notify-section">
+          <hr class="pp-sep">
+          <div class="pp-section-label">STAY UPDATED</div>
+          <form class="pp-notify-form" id="pp-notify-form">
+            <p class="pp-notify-label">${esc(p.notify.label || 'Get notified when the next copy is available.')}</p>
+            <div class="pp-notify-row">
+              <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+              <button type="submit" class="cta-btn primary">Notify me</button>
+            </div>
+            <p class="pp-comment-status" id="pp-notify-status"></p>
+          </form>
+        </div>
+      ` : '';
+
       root.innerHTML = `
         <a href="/" class="pp-back">← All Work</a>
 
@@ -829,7 +845,43 @@
           ${bodyHtml}
           ${awardsHtml}
           ${ctasHtml}
+          ${notifyHtml}
         </div>`;
+
+      // Wire notify form
+      const notifyForm = document.getElementById('pp-notify-form');
+      if (notifyForm && p.notify?.endpoint) {
+        notifyForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = notifyForm.querySelector('[type="submit"]');
+          const statusEl = document.getElementById('pp-notify-status');
+          const email = notifyForm.email.value.trim();
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+          try {
+            const res = await fetch(p.notify.endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify({ email }),
+            });
+            const json = await res.json();
+            if (res.ok) {
+              notifyForm.reset();
+              btn.disabled = false;
+              btn.textContent = 'Notify me';
+              statusEl.textContent = "You're on the list.";
+              statusEl.className = 'pp-comment-status';
+            } else {
+              throw new Error(json.error || 'Error');
+            }
+          } catch {
+            btn.disabled = false;
+            btn.textContent = 'Notify me';
+            statusEl.textContent = 'Something went wrong — try again.';
+            statusEl.className = 'pp-comment-status error';
+          }
+        });
+      }
 
       // Wire lightbox to all clickable images (gallery + inline)
       const allImgEls = root.querySelectorAll('.pp-image img, .pp-img-wrap img, .pp-inline-img img');

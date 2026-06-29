@@ -149,5 +149,9 @@
       "role": "Guidance"
     }
   ],
-  "description": "A short illustrated guide to changing institutions through care, collaboration, and mindfulness — an alternative to adversarial activism."
+  "description": "A short illustrated guide to changing institutions through care, collaboration, and mindfulness — an alternative to adversarial activism.",
+  "notify": {
+    "endpoint": "https://formspree.io/f/mdardpkg",
+    "label": "Want to be notified when the next copy of the book is available?"
+  }
 }
