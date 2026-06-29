@@ -1,16 +1,316 @@
 {
   "id": "spatial-equity",
-  "title": "Spatial Equity",
+  "title": "Spatial Equity at the GSD",
   "year": 2026,
-  "tagline": "",
-  "what": "",
-  "why": "",
+  "month": 6,
+  "tagline": "Design research on the politics and effects of space allocation at Harvard's Graduate School of Design",
+  "what": [
+    {
+      "type": "text",
+      "content": "Through longitudinal observations, interviews, and surveys, we researched the causes and effects of spatial inequity in Gund Hall — the main campus of Harvard's Graduate School of Design (GSD). The findings were distilled into data visualizations and presented directly to the GSD Administration, including Dean Sarah Whiting. The results were paradoxical, complex, and illustrative of the challenges of managing an institution with a diverse set of stakeholders that has grown beyond its resources."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/usagepatternstudy.gif"
+    },
+    {
+      "type": "text",
+      "content": "*We designed a custom iPad app to make data collection accurate and efficient as we walked through all four floors of the school every four hours.*"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/00.png"
+    },
+    {
+      "type": "text",
+      "content": "*We wrote and disseminated a survey, then analyzed responses from 162 students across all programs to interpret the observational findings.*"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "At its best, Gund allows students to learn in community by giving students privatized chunks of the public space, in the form of desks at which they can sit, create, and socialize throughout the semester."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/good.png"
+    },
+    {
+      "type": "text",
+      "content": "But not every student is given access to these desks – in fact, desks are only allocated to certain programs, at certain times, leaving over one third of the students out."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/haves.png"
+    },
+    {
+      "type": "text",
+      "content": "The effects on students without desks are more than simply spatial or even pedagogical – they are excluded from the community."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/bad.png"
+    },
+    {
+      "type": "text",
+      "content": "The core challenge is that the school outgrew its building. A variety of forces and pressures, both internally and externally to the institution, created a situation that fails to serve its core function."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/problem.png"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Gund is 2.5x overcapacity.** Designed for 400 students in 1971, Gund served 994 in Spring, 2026."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/01.png"
+    },
+    {
+      "type": "text",
+      "content": "**The \"Other Third.\"** 37% of GSD students — 369 people — have no desk in Gund at all. There are 625 desks for 994 students."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/02.png"
+    },
+    {
+      "type": "text",
+      "content": "**Most desks were empty** during a normal, non-midterm, non-finals week. We walked through Gund and sampled every 4 hours for 7 days."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/03.png"
+    },
+    {
+      "type": "text",
+      "content": "**But desks really matter** for learning — and it's all because having a desk means you're in the building more. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/04.png"
+    },
+    {
+      "type": "text",
+      "content": "**More days in Gund means more learning from each other.** Having a desk drives more hours in Gund, which statistically predicts: socializing with classmates without planning, running into professors, feeling focused, feeling part of a community, and feeling like you belong. *(Red = statistically significant; yellow = correlated but needs more data.)*"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/05.png"
+    },
+    {
+      "type": "text",
+      "content": "**Working in community** is what makes Gund work."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/06.png"
+    },
+    {
+      "type": "text",
+      "content": "**We asked Lee Cott** — the designer who redesigned Gund's desks in 2008 — what he saw as the core question at heart of space in the GSD. His question is in grey. The data answers it clearly in white."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/07.png"
+    },
+    {
+      "type": "text",
+      "content": "**One M-Arch (Master of Architecture student) responded to a question on the surveys with an idea** for how to make this work better:"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/08.png"
+    },
+    {
+      "type": "text",
+      "content": "**The challenge** is that even while excluding the Other Third of students, the GSD still doesn’t have enough space for those with desks. Some enterprising student built their model in the cafeteria — and honestly, we can't blame them."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/09.png"
+    },
+    {
+      "type": "text",
+      "content": "**For comparison:** Yale gives every student two desks."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/10.png"
+    },
+    {
+      "type": "text",
+      "content": "**An analogy: the hungry family.** There's not enough food to feed everyone properly — but there is just enough to keep everyone alive. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/11.png"
+    },
+    {
+      "type": "text",
+      "content": "If the administration took desk space from one group to give to another, it may literally kill the other group. There is so little slack in this system that even talking about \"pedagogical effectiveness\" feels like a luxury when all stakeholders all just trying not to starve."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/12.png"
+    },
+    {
+      "type": "text",
+      "content": "**In a resource scarcity problem, there are only three moves:** \n\n- increase the resource\n- decrease the users \n- or find scraps and use them better. \n\nSome ideas for each:"
+    },
+    {
+      "type": "text",
+      "content": "**Kalana** proposed a design competition for Gund itself — turning the redesign of our own building into a live studio brief."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/13.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/14.png"
+    },
+    {
+      "type": "text",
+      "content": "**Xavaar** modeled the GSD's economics and found the school could offer free tuition if it reduced enrollment."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/15.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/16.png"
+    },
+    {
+      "type": "text",
+      "content": "**I** looked for cheap, immediate interventions — things that could make our lives a little better, right now, for free."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/17.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/18.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/19.png"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/20.png"
+    },
+    {
+      "type": "text",
+      "content": "All these ideas have risks and problems. The GSD would need an army of brave faculty, staff, and **students** to advocate for, prototype, and seek feedback on each of them. \n\nTo me, this is the fun part. Designing real, tangible solutions for problems that are intimately close to home. The GSD can be more than a one-way institution that gives its students education — it can be something everyone co-creates. A sandbox we get to shape. "
+    },
+    {
+      "type": "text",
+      "content": "And it's worth doing. **Many GSD programs have a very low NPS** — the \"Net Promoter Score\" from asking: *\"Would you recommend your program to a friend?\"* MArch 1 scores -56. MDes scores -23. Design is hard, and designing a way to *teach* design is even harder. Many of us were not having a great time, and we were not alone in that. *(Shoutout to MAUDs though — they're loving it.)*"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/nps.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "This research called the community to zoom out and remember that every part of the school was in it together. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/22.png"
+    },
+    {
+      "type": "text",
+      "content": "We referred back to the institution's mission, envisioning how we could do better — for ourselves, and each other."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/23.png"
+    },
+    {
+      "type": "text",
+      "content": "And we reminded everyone that this isn't just a school. If the GSD wants to truly address this problem, it will need to think as bravely, expansively, and collaboratively about its own site as it so often does for someone else's."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/spatial-equity/24.png"
+    }
+  ],
+  "medium": "Pedagogy",
+  "tags": [
+    "data",
+    "spatial equity",
+    "GSD",
+    "Harvard",
+    "survey",
+    "data visualization"
+  ],
   "axes": {
-    "pragmatic": 0.5,
-    "institutional": 0.5
+    "pragmatic": 0.82,
+    "institutional": 0.96
   },
-  "thumbnail": "assets/projects/spatial-equity/thumb.jpg",
-  "images": [],
+  "thumbnail": "assets/projects/spatial-equity/otherthird.png",
+  "hero": "assets/projects/spatial-equity/otherthird.png",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "files": [],
+  "images": [
+    "assets/projects/spatial-equity/00.png",
+    "assets/projects/spatial-equity/01.png",
+    "assets/projects/spatial-equity/02.png",
+    "assets/projects/spatial-equity/03.png",
+    "assets/projects/spatial-equity/04.png",
+    "assets/projects/spatial-equity/05.png",
+    "assets/projects/spatial-equity/06.png",
+    "assets/projects/spatial-equity/07.png",
+    "assets/projects/spatial-equity/08.png",
+    "assets/projects/spatial-equity/09.png",
+    "assets/projects/spatial-equity/10.png",
+    "assets/projects/spatial-equity/11.png",
+    "assets/projects/spatial-equity/12.png",
+    "assets/projects/spatial-equity/13.png",
+    "assets/projects/spatial-equity/14.png",
+    "assets/projects/spatial-equity/15.png",
+    "assets/projects/spatial-equity/16.png",
+    "assets/projects/spatial-equity/17.png",
+    "assets/projects/spatial-equity/18.png",
+    "assets/projects/spatial-equity/19.png",
+    "assets/projects/spatial-equity/20.png",
+    "assets/projects/spatial-equity/22.png",
+    "assets/projects/spatial-equity/23.png",
+    "assets/projects/spatial-equity/24.png",
+    "assets/projects/spatial-equity/otherthird.png",
+    "assets/projects/spatial-equity/usagepatternstudy.gif",
+    "assets/projects/spatial-equity/good.png",
+    "assets/projects/spatial-equity/bad.png",
+    "assets/projects/spatial-equity/problem.png",
+    "assets/projects/spatial-equity/haves.png",
+    "assets/projects/spatial-equity/nps.png"
+  ],
   "videos": [],
-  "awards": []
+  "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Researcher, Designer"
+    },
+    {
+      "name": "Kalana White",
+      "url": "https://kalana.co",
+      "role": "Researcher, Designer"
+    },
+    {
+      "name": "Xavaar Quaranto",
+      "url": "",
+      "role": "Researcher, Designer"
+    }
+  ]
 }
