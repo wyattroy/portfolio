@@ -76,7 +76,7 @@
     },
     {
       "type": "text",
-      "content": "We started by modelling a variety of droplet shapes in Blender, based off of different primitive spheres \u2014 a UV sphere and an icososphere.",
+      "content": "We started by modelling a variety of droplet shapes in Blender, based off of different primitive spheres — a UV sphere and an icososphere.",
       "align": "left"
     },
     {
@@ -129,8 +129,13 @@
       "content": "**Final Form**"
     },
     {
-      "type": "image",
-      "src": "assets/projects/paper-lamps/dolphin-lamp.gif"
+      "type": "embed",
+      "src": "https://poly.cam/capture/af2eea37-ba49-4960-9698-1d3ba11407eb",
+      "title": "Dolphin Lamp Splat"
+    },
+    {
+      "type": "text",
+      "content": "*Click around this gaussian splat to explore it. *"
     }
   ],
   "medium": "Fabrication",
@@ -142,6 +147,8 @@
   "thumbnail": "assets/projects/paper-lamps/thumb.jpg",
   "hero": "assets/projects/paper-lamps/dolphin-lamp.gif",
   "liveUrl": null,
+  "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/paper-lamps/dolphin-lamp.gif",
     "assets/projects/paper-lamps/dolphin-sketch-vr.gif",
@@ -170,5 +177,5 @@
       "role": "Designer, Fabricator"
     }
   ],
-  "description": "Three handmade paper lamps \u2014 Chicken, Droplet, and Dolphin \u2014 designed with digital tools and constructed by hand from wooden dowel and Nepali lokta paper."
+  "description": "Three handmade paper lamps — Chicken, Droplet, and Dolphin — designed with digital tools and constructed by hand from wooden dowel and Nepali lokta paper."
 }

@@ -3,12 +3,11 @@
   "title": "Painting Life",
   "year": 2021,
   "month": 3,
-  "tagline": "VR experience \u2014 step inside a painter's home and studio to understand her art",
-  "description": "A VR story where you jump inside an artist\u2019s painting to explore beyond the gallery walls and understand both a new dimension of art, and the human behind it.",
+  "tagline": "VR experience — step inside a painter's home and studio to understand her art",
   "what": [
     {
       "type": "text",
-      "content": "A VR story where you jump inside an artist\u2019s painting to explore beyond the gallery walls and understand both a new dimension of art, and the human behind it."
+      "content": "A VR story where you jump inside an artist’s painting to explore beyond the gallery walls and understand both a new dimension of art, and the human behind it."
     },
     {
       "type": "image",
@@ -18,17 +17,26 @@
   "why": [
     {
       "type": "text",
-      "content": "This piece interrogated the idea that \u201ccuts\u201d could be spatial. The project was inspired by an intimate visit to the studio and home of an artist named Emma Webster. Seeing the art on her bedroom walls, playing with her cat, and sharing her hour-by-hour relationship to light and darkness as I fell asleep in her house offered me extra context on her paintings. An insight struck: art is so much more than the final product; the creative process behind each piece can be a connection-deepening part of the artwork too \u2013 if it\u2019s shared."
+      "content": "This piece interrogated the idea that “cuts” could be spatial. The project was inspired by an intimate visit to the studio and home of an artist named Emma Webster. Seeing the art on her bedroom walls, playing with her cat, and sharing her hour-by-hour relationship to light and darkness as I fell asleep in her house offered me extra context on her paintings. An insight struck: art is so much more than the final product; the creative process behind each piece can be a connection-deepening part of the artwork too – if it’s shared."
     },
     {
       "type": "image",
       "src": "assets/projects/painting-life/bedroom.jpg"
+    },
+    {
+      "type": "text",
+      "content": "*Below is the interactive 3D model of her bedroom I made using photogrammetry. Scroll to zoom in, click to rotate, right click to drag.*"
+    },
+    {
+      "type": "embed",
+      "src": "https://poly.cam/capture/3469499c-59e2-45b9-a78f-0444d605d12e",
+      "title": "Emma's Bedroom"
     }
   ],
   "how": [
     {
       "type": "text",
-      "content": "But not everyone could be so fortunate to experience a homestay with an artist. I struggled to imagine a film that would convey my epiphany because it needed to be felt, not told. Then I realized that in VR, a passive viewer could become an active explorer. ",
+      "content": "Not everyone could be so fortunate to experience a homestay with an artist. I struggled to imagine a film that would convey my epiphany because it needed to be felt, not told. Then I realized that in VR, a passive viewer could become an active explorer. ",
       "align": "left"
     },
     {
@@ -38,7 +46,7 @@
     },
     {
       "type": "text",
-      "content": "So instead of filming a \u201chero\u2019s journey\u201d story of my personal trip, I created a digital world in which you, the player, could navigate her spaces independently to be the hero on your own journey into her art.",
+      "content": "So instead of filming a “hero’s journey” story of my personal trip, I created a digital world in which you, the player, could navigate her spaces independently to be the hero on your own journey into her art.",
       "align": "left"
     },
     {
@@ -48,14 +56,25 @@
     },
     {
       "type": "text",
-      "content": "The tech stack and development process were heavily photogrammetry based:\n\n- Scanned Emma\u2019s spaces, artworks, and objects using thousands of photographs\n- Created 3D digital models using Reality Capture software\n- Cleaned and adjusted the models in VR using Adobe Medium and Blender\n- Assembled models into a coherent navigable world in Unity\n- Wrote a narrative arc that uses one of Emma\u2019s sculptures to guide the viewer\n- Added interactive sound and music using Wwise\n- User-tested with hundreds of playtesters to ensure the piece was intuitively navigable",
+      "content": "The tech stack and development process were heavily photogrammetry based:\n\n- Scanned Emma’s spaces, artworks, and objects using thousands of photographs\n- Created 3D digital models using Reality Capture software\n- Cleaned and adjusted the models in VR using Adobe Medium and Blender",
+      "align": "left"
+    },
+    {
+      "type": "embed",
+      "src": "https://poly.cam/capture/9909b27e-4e80-415e-859a-20e3431b7d0d",
+      "title": "Emma's studio",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "- Assembled models into a coherent navigable world in Unity\n- Wrote a narrative arc that uses one of Emma’s sculptures to guide the viewer\n- Added interactive sound and music using Wwise\n- User-tested with hundreds of playtesters to ensure the piece was intuitively navigable",
       "align": "left"
     },
     {
       "type": "image",
       "src": "assets/projects/painting-life/photogrammetry.jpg",
       "align": "right",
-      "caption": "Photogrammetry of a sculpture\u2019s digital twin"
+      "caption": "Photogrammetry of a sculpture’s digital twin"
     },
     {
       "type": "text",
@@ -77,6 +96,8 @@
   "thumbnail": "assets/projects/painting-life/thumb.jpg",
   "hero": "assets/projects/painting-life/inside-painting.jpg",
   "liveUrl": "https://sidequestvr.com/app/1885/painting-life",
+  "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/painting-life/inside-painting.jpg",
     "assets/projects/painting-life/bedroom.jpg",
@@ -93,7 +114,7 @@
     }
   ],
   "awards": [
-    "NewView Award VR Tokyo \u2014 Silver Award"
+    "NewView Award VR Tokyo — Silver Award"
   ],
   "who": [
     {
@@ -116,5 +137,6 @@
       "url": "https://emmawebster.com/",
       "role": "Artist"
     }
-  ]
+  ],
+  "description": "A VR story where you jump inside an artist’s painting to explore beyond the gallery walls and understand both a new dimension of art, and the human behind it."
 }

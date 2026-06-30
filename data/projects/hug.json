@@ -71,8 +71,9 @@
       "align": "left"
     },
     {
-      "type": "image",
-      "src": "assets/projects/hug/img8.jpg",
+      "type": "embed",
+      "src": "https://poly.cam/capture/ef0b128e-5c09-4529-baf9-626f4f712997",
+      "title": "Blender model",
       "align": "right"
     },
     {
@@ -144,6 +145,7 @@
   "hero": "assets/projects/hug/hug-v2.gif",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/hug/img1.jpg",
     "assets/projects/hug/img2.jpg",

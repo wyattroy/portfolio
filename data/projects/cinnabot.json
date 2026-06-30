@@ -21,6 +21,15 @@
     },
     {
       "type": "embed",
+      "src": "https://poly.cam/capture/a085e7b5-a579-4d76-abb6-409906b0d85c",
+      "title": "Cinnabot 3D Model"
+    },
+    {
+      "type": "text",
+      "content": "*Click around the 3D Gaussian Splat to get a sense of it!*"
+    },
+    {
+      "type": "embed",
       "src": "https://youtube.com/shorts/5Z-XmH3V_fc?feature=share",
       "title": "Cinnabot Demo"
     }
@@ -105,6 +114,7 @@
   "hero": "assets/projects/cinnabot/IMG_3370-2.jpg",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/cinnabot/banner.jpg",
     "assets/projects/cinnabot/ee_evolution.jpg",

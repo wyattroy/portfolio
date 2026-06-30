@@ -4,16 +4,29 @@
   "year": 2025,
   "month": 5,
   "tagline": "Hold 3D photos in your hand.",
-  "description": "A complete workflow for physicalizing 3D Gaussian Splat captures as tangible resin-printed artifacts — bridging volumetric rendering and fabrication.",
-  "what": "A novel computational pipeline converting 3D Gaussian Splat captures of reality into multi-material resin sculptures. Custom Grasshopper/C# scripts translate the probabilistic digital representation of a Gaussian Splat — position, anisotropic scale, quaternion rotation, and opacity — into a printable dual-mesh STL, fabricated on an Objet260 Connex3 resin printer. The result is a clear cube with semi-opaque splat geometry suspended inside, viewable from any angle as a tangible volumetric photograph.",
+  "what": [
+    {
+      "type": "text",
+      "content": "A novel computational pipeline converting 3D Gaussian Splat captures of reality into multi-material resin sculptures. Custom Grasshopper/C# scripts translate the probabilistic digital representation of a Gaussian Splat — position, anisotropic scale, quaternion rotation, and opacity — into a printable dual-mesh STL, fabricated on an Objet260 Connex3 resin printer. The result is a clear cube with semi-opaque splat geometry suspended inside, viewable from any angle as a tangible volumetric photograph."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/splatcubes/aaronmia.gif"
+    }
+  ],
   "why": [
     {
       "type": "text",
       "content": "Digital photography has compressed physical reality into two dimensions. Volumetric capture techniques like Neural Radiance Fields and Gaussian Splatting encode scenes as probabilistic, spatially distributed semi-opaque volumes — providing more accurate approximations that emphasize blurriness and continuity over hard mesh edges.\n\nSplats remain inherently digital and screen-bound. This project develops a technique for physically manifesting splats via 3D printing, translating digital Gaussian fields into tangible artifacts viewable from any angle. Inspired by cubist multiview depictions, it asks: what does a photograph feel like to hold?"
     },
     {
-      "type": "image",
-      "src": "assets/projects/splatcubes/aaronmia.gif"
+      "type": "embed",
+      "src": "https://poly.cam/capture/ca2d07ef-88d7-46ef-9219-e822638e0838",
+      "title": "Source Splat"
+    },
+    {
+      "type": "text",
+      "content": "*Click around the 3D splat and you'll understand why these ethereal ways of displaying form are inherently unprintable.*"
     }
   ],
   "how": [
@@ -47,10 +60,6 @@
     }
   ],
   "medium": "Fabrication",
-  "categories": [
-    "Fabrication",
-    "Creative Technology"
-  ],
   "tags": [
     "Gaussian splatting",
     "Grasshopper",
@@ -70,20 +79,19 @@
   "hero": "assets/projects/splatcubes/aaronmia.gif",
   "liveUrl": null,
   "sourceUrl": "https://wyattroy.github.io/codeart/",
+  "files": [],
   "images": [
     "assets/projects/splatcubes/aaronmia.gif",
     "assets/projects/splatcubes/dadhead.png",
     "assets/projects/splatcubes/jujurhino.png",
     "assets/projects/splatcubes/splatcube.JPG",
-    "assets/projects/splatcubes/img1.jpg",
-    "assets/projects/splatcubes/img2.jpg",
-    "assets/projects/splatcubes/img3.jpg",
-    "assets/projects/splatcubes/img4.jpg",
-    "assets/projects/splatcubes/img5.jpg",
-    "assets/projects/splatcubes/img6.jpg"
+    "assets/projects/splatcubes/img3.jpg"
   ],
   "videos": [
-    "https://www.youtube.com/watch?v=uxgzOpmmEbI"
+    {
+      "url": "https://www.youtube.com/watch?v=uxgzOpmmEbI",
+      "heroOverride": true
+    }
   ],
   "awards": [],
   "who": [
@@ -92,5 +100,6 @@
       "url": "",
       "role": "Designer, Engineer"
     }
-  ]
+  ],
+  "description": "A complete workflow for physicalizing 3D Gaussian Splat captures as tangible resin-printed artifacts — bridging volumetric rendering and fabrication."
 }

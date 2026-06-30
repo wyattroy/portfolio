@@ -68,7 +68,19 @@
     },
     {
       "type": "text",
-      "content": "**Soldering the prototype board**\n\nSafe, working, undo-able breadboard on one side. Scary, blank, no-turning-back prototype board on the other. Permanently soldering everything required breaking apart my fully working circuit and wire-by-wire transferring each component to both the front and back of the board.\n\nThe cable management was treacherous — parallax in photos meant certain wires appeared to enter one hole but actually went into the adjacent one. I solved it with Gaussian splats via Polycam: 100 photos taken from all angles generated a stunning 3D splat in minutes. The mesh model was too blurry, but the splat was exactly what I needed. Gaussian splats have completely changed the game of reality capture.",
+      "content": "**Soldering the prototype board**\n\nPermanently soldering everything required breaking apart my fully working circuit and wire-by-wire transferring each component to both the front and back of the board. The cable management was treacherous — parallax in photos meant certain wires appeared to enter one hole but actually went into the adjacent one. I solved it with Gaussian splats via Polycam: 100 photos taken from all angles generated a stunning 3D splat in minutes. The mesh model was too blurry, but the splat was exactly what I needed. Gaussian splats have completely changed the game of reality capture. \n\n**Click around this 3D scan and you'll see why it was so helpful.**",
+      "align": "left"
+    },
+    {
+      "type": "embed",
+      "src": "https://poly.cam/capture/4923C63B-76D1-4616-A157-58D692C2E667",
+      "title": "Scan of the temporary breadboard",
+      "align": "right",
+      "height": 480
+    },
+    {
+      "type": "text",
+      "content": "Because of the splat, I was able to solder every wire across the front and back of this prototype board correctly on the first try. It was as nerve wracking as diffusing a bomb, but the smoothest step of the entire project.",
       "align": "left"
     },
     {
@@ -133,6 +145,7 @@
   "hero": "assets/projects/pigeonbelt/pigeonbeltworn.gif",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/pigeonbelt/pigeonbeltworn.gif",
     "assets/projects/pigeonbelt/fusionbuckle.gif",

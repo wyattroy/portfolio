@@ -681,7 +681,7 @@
     "title": "SplatCubes",
     "year": 2025,
     "month": 5,
-    "tagline": "Gaussian splat → 3D printed physical sculpture via Grasshopper and C#",
+    "tagline": "Hold 3D photos in your hand.",
     "what": "A novel computational design pipeline for converting 3D Gaussian Splat captures of reality into printable forms, fabricated on multi-material resin printers. Uses custom Grasshopper scripts in C# to translate the digital representation of a Gaussian Splat into a physical artifact that can be held, viewed from any angle, and appreciated as a form of tangible volumetric memory.",
     "why": "Gaussian Splatting captures scenes as probabilistic, spatially distributed semi-opaque volumes — more accurate approximations of physical reality than mesh topology. But splats remain inherently digital. This pipeline physically manifests splats via 3D printing, emphasizing the blurriness and continuity of real-world boundaries that hard mesh edges erase.",
     "categories": [
@@ -694,21 +694,42 @@
     },
     "thumbnail": "assets/projects/splatcubes/thumb.jpg",
     "images": [
-      "assets/projects/splatcubes/img1.jpg",
-      "assets/projects/splatcubes/img2.jpg",
-      "assets/projects/splatcubes/img3.jpg",
-      "assets/projects/splatcubes/img4.jpg",
-      "assets/projects/splatcubes/img5.jpg",
-      "assets/projects/splatcubes/img6.jpg"
+      "assets/projects/splatcubes/aaronmia.gif",
+      "assets/projects/splatcubes/dadhead.png",
+      "assets/projects/splatcubes/jujurhino.png",
+      "assets/projects/splatcubes/splatcube.JPG",
+      "assets/projects/splatcubes/img3.jpg"
     ],
     "videos": [
-      "https://www.youtube.com/watch?v=uxgzOpmmEbI"
+      {
+        "url": "https://www.youtube.com/watch?v=uxgzOpmmEbI",
+        "heroOverride": true
+      }
     ],
     "liveUrl": null,
     "sourceUrl": "https://wyattroy.github.io/codeart/",
     "awards": [],
     "medium": "Fabrication",
-    "label": "green"
+    "label": "green",
+    "tags": [
+      "Gaussian splatting",
+      "Grasshopper",
+      "Rhino",
+      "3D printing",
+      "resin",
+      "C#",
+      "photogrammetry",
+      "Polycam",
+      "volumetric"
+    ],
+    "hero": "assets/projects/splatcubes/aaronmia.gif",
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Designer, Engineer"
+      }
+    ]
   },
   {
     "id": "handmove",
@@ -1905,7 +1926,7 @@
       }
     ],
     "liveUrl": "https://sidequestvr.com/app/1885/painting-life",
-    "sourceUrl": "https://www.wyattroy.com/xr/painting-life",
+    "sourceUrl": null,
     "awards": [
       "NewView Award VR Tokyo — Silver Award"
     ],
@@ -2457,7 +2478,7 @@
     ],
     "videos": [],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/design/paper-lamps",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Fabrication",
     "tags": [],

@@ -1784,21 +1784,34 @@ footer {
 .pp-embed {
   margin: 2.5em 0;
   border-radius: 6px;
-  overflow: hidden;
+  border: 1px solid var(--color-border);
   background: #000;
   width: 100%;
   max-width: 1280px;
+  position: relative;
+}
+.pp-embed::after {
+  content: 'Clickable 3D Model';
+  display: block;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  color: #9B9287;
+  padding: 5px 0 6px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-border);
 }
 .pp-embed.embed-left {
   float: left;
-  width: 48%;
-  max-width: 48%;
+  width: 44%;
+  max-width: 44%;
   margin: 0 32px 20px 0;
 }
 .pp-embed.embed-right {
   float: right;
-  width: 48%;
-  max-width: 48%;
+  width: 44%;
+  max-width: 44%;
   margin: 0 0 20px 32px;
 }
 .pp-section-body .pp-embed.embed-left,
@@ -1810,6 +1823,7 @@ footer {
   border: none;
   display: block;
   min-height: 280px;
+  border-radius: 5px 5px 0 0;
 }
 
 /* Separator */
