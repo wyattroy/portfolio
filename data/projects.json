@@ -4,7 +4,7 @@
     "title": "About This Portfolio",
     "year": 2026,
     "month": 6,
-    "tagline": "Interdisciplinary design portfolio and archive",
+    "tagline": "Interdisciplinary design archive",
     "axes": {
       "pragmatic": 0.52,
       "institutional": 0.08
@@ -22,13 +22,13 @@
     "liveUrl": null,
     "sourceUrl": null,
     "images": [
-      "assets/projects/portfolio-about/homepage-grid.jpg",
       "assets/projects/portfolio-about/2x2v1.png",
       "assets/projects/portfolio-about/2x2v2.png",
       "assets/projects/portfolio-about/portfoliocards.png",
       "assets/projects/portfolio-about/wyatt-headshot.jpg",
       "assets/projects/portfolio-about/portfolio.png",
-      "assets/projects/portfolio-about/editor.png"
+      "assets/projects/portfolio-about/editor.png",
+      "assets/projects/portfolio-about/time.png"
     ],
     "videos": [],
     "awards": [],
@@ -502,7 +502,7 @@
     "title": "Mediums Proseminar",
     "year": 2025,
     "month": 9,
-    "tagline": "Media theory seminar for MDes students at Harvard GSD",
+    "tagline": "Media theory seminar for Master of Design students at Harvard GSD",
     "what": "Co-led the Mediums domain seminar with Allen Sayegh for incoming MDes students. Paired critical design readings with experiential learning: students visited the Harvard glass flower collection comparing simulacra with originals; responded to Berger's Ways of Seeing by making short films in the Fogg Art Museum for an in-class festival; shared personal design practices for critique, leading to unexpected collaborations and the first sale of one student's work to another.",
     "why": "If the medium is the message (McLuhan), the pedagogical challenge is how to render the medium visible and pliable. By teaching about each medium through a combination of mediums, students gained the agency to extend their practices by understanding each one's unique affordances.",
     "categories": [

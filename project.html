@@ -915,7 +915,7 @@
       const idx = sorted.findIndex(p => p.id === currentId);
       if (idx === -1 || sorted.length <= 1) return;
 
-      const prev = idx > 0 ? sorted[idx - 1] : null;
+      const prev = idx > 0 ? sorted[idx - 1] : sorted[sorted.length - 1];
       const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
       if (!prev && !next) return;
 
@@ -929,7 +929,8 @@
 
       function miniCard(p, dir) {
         const url = `project.html#${esc(p.id)}`;
-        const label = dir === 'prev' ? '← Previous' : 'Next →';
+        const isWrap = dir === 'prev' && idx === 0;
+        const label = dir === 'next' ? 'Next →' : (isWrap ? '← Back to last' : '← Previous');
         const alignClass = dir === 'next' ? ' pp-nav-card--next' : '';
         const thumbHtml = `<div class="pp-nav-thumb-wrap">${
           p.thumbnail

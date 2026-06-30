@@ -3,16 +3,38 @@
   "title": "About This Portfolio",
   "year": 2026,
   "month": 6,
-  "tagline": "Interdisciplinary design portfolio and archive",
+  "tagline": "Interdisciplinary design archive",
   "what": [
     {
       "type": "text",
-      "content": "**I am a designer, educator, and researcher working at the intersection of technology, narrative, and institutional change.**"
+      "content": "This site is more than a personal portfolio, it's a living portrait of what I care about, who I am, and who has shaped me. I designed it from scratch over 3 months in 2026, and built it with Claude (Anthropic's AI). The 3D graph on the homepage is an attempt to bring over a decade of  interdisciplinary work together into one cohesive collection. \n\nMy hope is that you get a sense of who I am without even clicking a thing: a playful, tech-fluid designer who cares about people and their systems. And that if you choose to dig in, you find something that inspires your own curiosity, joy, and desire to connect!\n",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/portfolio-about/portfolio.png"
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "**I am a designer, educator, and researcher working at the intersection of technology, narrative, and systems change.**\n\n<– When my brow isn't furrowed as I try to puzzle through a design challenge, I often look like this. \n\nI think our lives are most fun when they are playful, creative, and agentic. \n\nI think work is most fulfilling when it is self-motivated by internal curiosity, not externally coerced through punishments and rewards. \n\nI think learning, failing, and iterating are three of the best ways to spend our time. And I think that the only things more important than doing those are laughing, listening to feedback, and cuddling our loved ones. ",
+      "align": "right"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/portfolio-about/wyatt-headshot.jpg",
+      "align": "left"
     },
     {
       "type": "text",
-      "content": "This site — wyattroy.com — is more than a personal portfolio, it's a living portrait of what I care about, who I am, and who has shaped me. I designed it from scratch over 3 months in 2026, and built it with Claude (Anthropic's AI). The 3D graph on the homepage is an attempt to bring my interdisciplinary work together into one collection. \n\nMy initial prototypes arranged my projects according to time and complexity of the medium – which tugged at some of the right ideas, but wasn't consistent or coherent enough across my full body of work.\n",
-      "align": "none"
+      "content": "This project was a chance for me to work with AI to handle technical problems that I used to have to solve myself by googling error codes, brute-forcing suggestions from stackoverflow, and eating bug candy. Claude freed me to be a designer – and my engineering expertise helped me leverage its tools efficiently in ways that felt like games instead of drudgery. Rather than spending months learning a framework, I directed the entire build through conversation: describing what I wanted, sometimes in technical terms and sometimes in plain English, reacting to results, and iterating in real time. Over 51 conversations and 500+ individual design decisions (and counting!), the site went from a PDF prototype and a blank repository to a live domain accessible in your pocket (mobile optimized!) or desktop. "
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "My initial prototypes arranged my projects according to time and complexity of the medium – which tugged at some of the right ideas, but wasn't consistent or coherent enough across my full body of work."
     },
     {
       "type": "image",
@@ -43,34 +65,12 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/portfolio-about/portfolio.png"
+      "src": "assets/projects/portfolio-about/time.png"
     },
     {
       "type": "text",
       "content": "*The current site*"
     },
-    {
-      "type": "text",
-      "content": "My intention, and hope, is that you get a sense of who I am without even clicking a thing: a playful, tech-fluid designer who cares about people. And that if you choose to dig in, you find something that inspires your own curiosity, joy, and desire to connect!"
-    }
-  ],
-  "why": [
-    {
-      "type": "text",
-      "content": "<– When my brow isn't furrowed as I try to puzzle through a systemic complexity, I often look like this. \n\nI think our lives are most fun when they are playful, creative, and agentic. \n\nI think work is most fulfilling when it is self-motivated by internal curiosity, not externally coerced through punishments and rewards. \n\nI think learning, failing, and iterating are three of the best ways to spend our time. The only things more important than those are laughing, listening to others, and cuddling those closest to us. ",
-      "align": "right"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/portfolio-about/wyatt-headshot.jpg",
-      "align": "left"
-    },
-    {
-      "type": "text",
-      "content": "This project was a chance for me to work with AI to handle technical problems that I used to have to solve myself by googling error codes, brute-forcing suggestions from stackoverflow, and eating bug candy. Claude freed me to be a designer – and my engineering expertise helped me leverage its tools efficiently in ways that felt like games instead of drudgery. Rather than spending months learning a framework, I directed the entire build through conversation: describing what I wanted, sometimes in technical terms and sometimes in plain English, reacting to results, and iterating in real time. Over 51 conversations and 500+ individual design decisions (and counting!), the site went from a PDF prototype and a blank repository to a live domain accessible in your pocket (mobile optimized!) or desktop. "
-    }
-  ],
-  "how": [
     {
       "type": "text",
       "content": "The stack is deliberately minimal: Three.js, HTML, CSS. Deployed as a static site on GitHub Pages.\n\nMy favorite moment in the project was when I realized that I'd have to *build a tool* to make building the site *fun*. At least half of my design decisions are invisible, because they went into the \"editor.html\", a part of the project that you were never supposed to see. Except, because I think that *process* is cool and learning is everything, [I've made it visible to you](https://wyattroy.com/editor.html) – I even made it easy for you to start a sample back-end to the website to see how it works. \n\nThis completely custom browser-based CMS editor let me easily write, format, and manage the 50+ (and growing!) project JSON files naturally, like a human – dragging images, moving chunks of text, without dealing with HTML syntax in VSCode. It uses the File System Access API to read and write directly to the local data folder. [Try it!](https://wyattroy.com/editor.html)",
@@ -87,12 +87,7 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/portfolio-about/portfolio.png",
-      "align": "right"
-    },
-    {
-      "type": "text",
-      "content": ""
+      "src": "assets/projects/portfolio-about/portfolio.png"
     }
   ],
   "medium": "Web",
@@ -120,13 +115,13 @@
     }
   ],
   "images": [
-    "assets/projects/portfolio-about/homepage-grid.jpg",
     "assets/projects/portfolio-about/2x2v1.png",
     "assets/projects/portfolio-about/2x2v2.png",
     "assets/projects/portfolio-about/portfoliocards.png",
     "assets/projects/portfolio-about/wyatt-headshot.jpg",
     "assets/projects/portfolio-about/portfolio.png",
-    "assets/projects/portfolio-about/editor.png"
+    "assets/projects/portfolio-about/editor.png",
+    "assets/projects/portfolio-about/time.png"
   ],
   "videos": [],
   "awards": [],
