@@ -3,7 +3,7 @@
   "title": "Piece of String",
   "year": 2019,
   "month": 9,
-  "tagline": "VR photogrammetry piece \u2014 follow a string through a real home and the memories left behind",
+  "tagline": "VR photogrammetry piece — follow a string through a real home and the memories left behind",
   "what": [
     {
       "type": "text",
@@ -82,6 +82,15 @@
       "src": "https://www.youtube.com/watch?v=XUi42iU19rw",
       "title": "",
       "align": "right"
+    },
+    {
+      "type": "embed",
+      "src": "https://poly.cam/capture/b9400da8-5153-49ab-a236-1524e3eacd81",
+      "title": "Full 3D Model of House"
+    },
+    {
+      "type": "text",
+      "content": "Full 3D Model of the house"
     }
   ],
   "medium": "VR",
@@ -97,6 +106,8 @@
   "thumbnail": "assets/projects/piece-of-string/img1.jpg",
   "hero": "assets/projects/piece-of-string/img1.jpg",
   "liveUrl": null,
+  "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/piece-of-string/img1.jpg",
     "assets/projects/piece-of-string/img2.jpg",

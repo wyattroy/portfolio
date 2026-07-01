@@ -22,7 +22,7 @@ const SCALE_NEW = 1;
 
 // Camera zoom range: scroll up past load state → CAM_ZOOM_IN; scroll down → CAM_END
 const CAM_ZOOM_IN = new THREE.Vector3(0, 0.5, 5);   // maximum zoom-in — must be > Z_NEAR
-const CAM_END     = new THREE.Vector3(0, 0.5, 30);   // maximum zoom-out (scroll down limit)
+const CAM_END     = new THREE.Vector3(0, 0.5, 33);   // maximum zoom-out (scroll down limit)
 const CAM_TARGET  = new THREE.Vector3(0, 0,  0);   // world origin (oldest projects end)
 
 // Fraction (0 = max zoom in, 1 = max zoom out) where the page loads.
@@ -67,6 +67,7 @@ const LABEL_REVEAL_MS = {
 
 const CARD_REVEAL_START_MS = 4500; // when the first card starts fading in
 const CARD_REVEAL_STEP_MS  = 100;  // stagger between each subsequent card
+const TEXTURE_FADE_MS      = 220;  // repeat visits: crossfade thumbnail in instead of popping
 
 // ─── Spring state ─────────────────────────────────────────────────────────────
 function makeSpring(initial = 0) {
@@ -170,6 +171,10 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     const mesh = new THREE.Mesh(geo, materials);
     mesh.position.set(x, y, z);
     mesh.scale.setScalar(scale);
+    // Force texture upload + shader compile at load time instead of deferring
+    // until the tile first enters the camera frustum (which caused a jank
+    // burst the first time a user zoomed out far enough to reveal ~30 tiles).
+    mesh.frustumCulled = false;
     // Store original scale for spring animation
     mesh.userData.baseScale = scale;
     mesh.userData.scaleSpring = makeSpring(scale);
@@ -180,7 +185,9 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
     // Load thumbnail for all projects that have one; stagger by index to avoid request pile-up
     if (p.thumbnail) {
-      const delay = skipEntry ? 0 : prismMeshes.length * 60; // stagger only on first visit
+      // Repeat visits get a much shorter stagger (cache makes them resolve fast
+      // anyway) just so they crossfade in as a wave rather than all at once.
+      const delay = skipEntry ? prismMeshes.length * 15 : prismMeshes.length * 60;
       setTimeout(() => {
         textureLoader.load(
           p.thumbnail,
@@ -206,10 +213,18 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
             }
 
             const newMats = Array.from(mesh.material);
-            const op = mesh.userData.cardOpacity;
-            const stillFading = !entryDone && op < 1;
-            newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: stillFading, opacity: op });
-            mesh.material = newMats;
+            if (entryDone) {
+              // Repeat visits: card is already fully opaque, so crossfade the
+              // thumbnail in over the tile's flat color instead of popping it in.
+              newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: true, opacity: 0 });
+              mesh.material = newMats;
+              mesh.userData.textureFadeStart = performance.now();
+            } else {
+              const op = mesh.userData.cardOpacity;
+              const stillFading = op < 1;
+              newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: stillFading, opacity: op });
+              mesh.material = newMats;
+            }
           },
           undefined,
           () => {} // silently ignore missing thumbnails
@@ -633,6 +648,17 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
           mesh.userData.sideMat.opacity = op;
           const frontMat = mesh.material[4];
           if (frontMat) frontMat.opacity = op;
+        }
+      }
+
+      if (mesh.userData.textureFadeStart != null) {
+        const frontMat = mesh.material[4];
+        const t = Math.min(1, (performance.now() - mesh.userData.textureFadeStart) / TEXTURE_FADE_MS);
+        frontMat.opacity = t;
+        if (t >= 1) {
+          frontMat.transparent = false;
+          frontMat.needsUpdate = true;
+          mesh.userData.textureFadeStart = null;
         }
       }
     });

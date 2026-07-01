@@ -2036,7 +2036,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/xr/piece-of-string",
+    "sourceUrl": null,
     "awards": [
       "NEWVIEW International: Silver Award"
     ],
@@ -2053,7 +2053,7 @@
         "role": "Designer"
       }
     ],
-    "label": "yellow",
+    "label": "green",
     "hero": "assets/projects/piece-of-string/img1.jpg"
   },
   {
