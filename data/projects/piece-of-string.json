@@ -85,7 +85,7 @@
     },
     {
       "type": "embed",
-      "src": "https://poly.cam/capture/b9400da8-5153-49ab-a236-1524e3eacd81",
+      "src": "https://poly.cam/capture/b9400da8-5153-49ab-a236-1524e3eacd81/embed",
       "title": "Full 3D Model of House"
     },
     {
@@ -113,7 +113,6 @@
     "assets/projects/piece-of-string/img2.jpg",
     "assets/projects/piece-of-string/img3.jpg",
     "assets/projects/piece-of-string/img4.jpg",
-    "assets/projects/piece-of-string/thumb.jpg",
     "assets/projects/piece-of-string/thumb.jpg"
   ],
   "videos": [

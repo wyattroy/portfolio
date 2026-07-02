@@ -2,7 +2,7 @@
   "id": "typewriter",
   "title": "Digital Typewriter",
   "year": 2024,
-  "month": 11,
+  "month": 10,
   "tagline": "No-backspace writing tool — commit to every word",
   "what": [
     {
@@ -19,13 +19,14 @@
   "medium": "App",
   "tags": [],
   "axes": {
-    "pragmatic": 0.08,
+    "pragmatic": 0.2,
     "institutional": 0.44
   },
   "thumbnail": "assets/projects/typewriter/thumb.jpg",
   "hero": "assets/projects/typewriter/img1.jpg",
   "liveUrl": "https://wyattroy.github.io/codeart/pages/typewriter/index.html",
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/typewriter/img1.jpg",
     "assets/projects/typewriter/img2.jpg"

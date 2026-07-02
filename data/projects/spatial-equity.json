@@ -7,7 +7,7 @@
   "what": [
     {
       "type": "text",
-      "content": "Through longitudinal observations, interviews, and surveys, we researched the causes and effects of spatial inequity in Gund Hall — the main campus of Harvard's Graduate School of Design (GSD). The findings were distilled into data visualizations and presented directly to the GSD Administration, including Dean Sarah Whiting. The results were paradoxical, complex, and illustrative of the challenges of managing an institution with a diverse set of stakeholders that has grown beyond its resources."
+      "content": "We researched the causes and effects of spatial inequity in Gund Hall — the main campus of Harvard's Graduate School of Design (GSD) through longitudinal observations, interviews, and surveys. Our findings were distilled into data visualizations and presented directly to the GSD Administration, including Dean Sarah Whiting. The results were paradoxical, complex, and illustrative of the challenges of managing an institution with a diverse set of stakeholders that has grown beyond its resources."
     },
     {
       "type": "image",
@@ -15,7 +15,8 @@
     },
     {
       "type": "text",
-      "content": "*We designed a custom iPad app to make data collection accurate and efficient as we walked through all four floors of the school every four hours.*"
+      "content": "The custom iPad app we designed to make data collection accurate and efficient during the observational portion of our research: we walked through all four floors of the school every four hours.",
+      "isCaption": true
     },
     {
       "type": "image",
@@ -23,7 +24,8 @@
     },
     {
       "type": "text",
-      "content": "*We wrote and disseminated a survey, then analyzed responses from 162 students across all programs to interpret the observational findings.*"
+      "content": "For self-report information on behavior we wrote and disseminated a survey that combined qualitative and quantitative questions then analyzed responses from 162 students across all programs.",
+      "isCaption": true
     }
   ],
   "why": [
@@ -215,8 +217,7 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/spatial-equity/nps.png",
-      "align": "right"
+      "src": "assets/projects/spatial-equity/nps.png"
     },
     {
       "type": "text",
@@ -236,11 +237,7 @@
     },
     {
       "type": "text",
-      "content": "And we reminded everyone that this isn't just a school. If the GSD wants to truly address this problem, it will need to think as bravely, expansively, and collaboratively about its own site as it so often does for someone else's."
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/spatial-equity/24.png"
+      "content": "And we reminded everyone that this isn't just a school – it's our identity, and our future. If the GSD wants to truly address this problem, it will need to think as bravely, expansively, and collaboratively about its own site as it so often does for someone else's."
     }
   ],
   "medium": "Pedagogy",
@@ -285,7 +282,6 @@
     "assets/projects/spatial-equity/20.png",
     "assets/projects/spatial-equity/22.png",
     "assets/projects/spatial-equity/23.png",
-    "assets/projects/spatial-equity/24.png",
     "assets/projects/spatial-equity/otherthird.png",
     "assets/projects/spatial-equity/usagepatternstudy.gif",
     "assets/projects/spatial-equity/good.png",
@@ -309,8 +305,13 @@
     },
     {
       "name": "Xavaar Quaranto",
-      "url": "",
+      "url": "https://xavaar.com",
       "role": "Researcher, Designer"
+    },
+    {
+      "name": "Martin Bechthold",
+      "url": "https://www.gsd.harvard.edu/person/martin-bechthold/",
+      "role": "Advisor"
     }
   ]
 }

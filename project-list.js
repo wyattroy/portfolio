@@ -2,6 +2,8 @@
  * project-list.js — Project grid rendering, filtering, sorting, and card expansion
  */
 
+import { MEDIUM_COLORS } from './medium-colors.js';
+
 // ─── State ────────────────────────────────────────────────────────────────────
 let allProjects = [];
 let filteredProjects = [];
@@ -67,7 +69,7 @@ function buildTagChips() {
   const container = document.getElementById('tag-filters');
   if (!container) return;
 
-  const filterGroups = ['All', 'Pedagogy', 'App', 'VR', 'Fabrication', 'Narrative'];
+  const filterGroups = ['All', 'Pedagogy', 'App', 'VR', 'Fabrication', 'Narrative', 'Web'];
 
   container.innerHTML = '';
   filterGroups.forEach(tag => {
@@ -239,19 +241,6 @@ function buildCard(project) {
   const quadrantSvg = buildQuadrantSvg(project.axes);
   const quadrantLabel = project.axes ? getQuadrantShortName(project.axes.pragmatic, project.axes.institutional) : '';
 
-  const MEDIUM_COLORS = {
-    'VR':           '#7847B2',
-    'Film':         '#A03030',
-    'Pedagogy':     '#C85C1A',
-    'Web':          '#2B6BAE',
-    'Fabrication':  '#C49A10',
-    'Narrative':    '#2464A0',
-    'Research':     '#5A7080',
-    'App':          '#2E7856',
-    'Performance':  '#9A3070',
-    'Installation': '#7A6030',
-    'Design':       '#4A3A7A',
-  };
   let badges = '';
   if (project.medium && MEDIUM_COLORS[project.medium]) {
     badges += `<span class="medium-badge" style="background:${MEDIUM_COLORS[project.medium]}">${escHtml(project.medium)}</span>`;
@@ -349,7 +338,7 @@ export function buildDetailContent(project, { showHeader = false } = {}) {
     <div class="detail-inner preview-mode">
       ${showHeader ? `<h3 class="card-title">${escHtml(project.title || '')}</h3>` : ''}
       ${showHeader && project.tagline ? `<p class="card-tagline">${escHtml(project.tagline)}</p>` : ''}
-      ${preview ? `<p class="preview-description">${escHtml(preview)}</p>` : ''}
+      ${preview ? `<p class="preview-description">${formatInline(preview)}</p>` : ''}
       <div class="preview-footer">
         <div class="preview-badges">${videoIndicator}${awardsBadge}</div>
         <a href="project.html#${escHtml(project.id)}" class="cta-btn primary more-btn">
@@ -392,8 +381,7 @@ function escHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-function formatText(text) {
-  if (!text) return '';
+function tokenizeText(text) {
   text = text.replace(/\r\n/g, '\n');
   const re = /\*\*([\s\S]+?)\*\*|\*([\s\S]+?)\*|\[([^\]]+)\]\((https?:\/\/[^)]+)\)|(https?:\/\/\S+)/g;
   const tokens = [];
@@ -407,6 +395,12 @@ function formatText(text) {
     last = m.index + m[0].length;
   }
   if (last < text.length) tokens.push({ type: 'plain', text: text.slice(last) });
+  return tokens;
+}
+
+function formatText(text) {
+  if (!text) return '';
+  const tokens = tokenizeText(text);
 
   const paras = [''];
   for (const tok of tokens) {
@@ -423,6 +417,26 @@ function formatText(text) {
     }
   }
   return paras.map(p => p.trim()).filter(Boolean).map(p => `<p>${p}</p>`).join('');
+}
+
+// Same inline marks as formatText, but collapsed to a single run of HTML
+// (no <p> wrapping) — used for truncated card-preview text.
+function formatInline(text) {
+  if (!text) return '';
+  const tokens = tokenizeText(text);
+  let out = '';
+  for (const tok of tokens) {
+    if (tok.type === 'plain') {
+      out += escHtml(tok.text.replace(/\n+/g, ' '));
+    } else if (tok.type === 'strong') {
+      out += `<strong>${escHtml(tok.text.replace(/\n+/g, ' ').trim())}</strong>`;
+    } else if (tok.type === 'em') {
+      out += `<em>${escHtml(tok.text.replace(/\n+/g, ' ').trim())}</em>`;
+    } else {
+      out += `<a href="${escHtml(tok.href)}" target="_blank" rel="noopener noreferrer">${escHtml(tok.text)}</a>`;
+    }
+  }
+  return out;
 }
 
 function vimeoEmbed(url) {

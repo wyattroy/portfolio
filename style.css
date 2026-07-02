@@ -1475,6 +1475,15 @@ footer {
   margin: 0 0 16px;
 }
 
+.preview-description strong { font-weight: 600; color: var(--color-text); }
+.preview-description em { font-style: italic; }
+.preview-description a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+.preview-description a:hover { color: var(--color-text); }
+
 .preview-images {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1598,7 +1607,7 @@ footer {
 }
 .pp-header-top {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
@@ -1619,6 +1628,16 @@ footer {
   text-transform: uppercase;
   white-space: nowrap;
   padding-top: 4px;
+}
+.pp-meta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding-top: 4px;
+}
+.pp-meta-wrap .pp-meta {
+  padding-top: 0;
 }
 .pp-tagline {
   font-family: var(--font-heading);
@@ -1783,14 +1802,17 @@ footer {
 /* Generic embed (iframe) */
 .pp-embed {
   margin: 2.5em 0;
-  border-radius: 6px;
-  border: 1px solid var(--color-border);
-  background: #000;
   width: 100%;
   max-width: 1280px;
   position: relative;
 }
-.pp-embed::after {
+.pp-embed-inner {
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: #000;
+  overflow: hidden;
+}
+.pp-embed-inner.pp-embed-3d::after {
   content: 'Clickable 3D Model';
   display: block;
   text-align: center;
@@ -1818,13 +1840,22 @@ footer {
 .pp-section-body .pp-embed.embed-right {
   margin-top: 0;
 }
-.pp-embed iframe {
+.pp-embed-inner iframe {
   width: 100%;
   border: none;
   display: block;
   min-height: 280px;
-  border-radius: 5px 5px 0 0;
 }
+.pp-embed figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 6px;
+}
+.pp-embed figcaption p { margin: 0; }
+.pp-embed figcaption p + p { margin-top: 4px; }
 
 /* Separator */
 .pp-sep {
@@ -1979,6 +2010,8 @@ footer {
   text-align: center;
   margin-top: 6px;
 }
+.pp-inline-img figcaption p { margin: 0; }
+.pp-inline-img figcaption p + p { margin-top: 4px; }
 .pp-section-body .pp-text {
   max-width: none;
   margin: 0 0 1.2em;

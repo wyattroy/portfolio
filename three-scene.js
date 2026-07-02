@@ -69,6 +69,14 @@ const CARD_REVEAL_START_MS = 4500; // when the first card starts fading in
 const CARD_REVEAL_STEP_MS  = 100;  // stagger between each subsequent card
 const TEXTURE_FADE_MS      = 220;  // repeat visits: crossfade thumbnail in instead of popping
 
+// World-space Z (time axis) position for a project, given its year/month.
+function projectTimeZ(p) {
+  const year = p.year ?? 2022;
+  const monthFrac = ((p.month ?? 6) - 1) / 12; // Jan=0, Dec≈1
+  const t = Math.max(0, Math.min(1, (year + monthFrac - YEAR_MIN) / (YEAR_MAX - YEAR_MIN)));
+  return Z_FAR + t * (Z_NEAR - Z_FAR);
+}
+
 // ─── Spring state ─────────────────────────────────────────────────────────────
 function makeSpring(initial = 0) {
   return { current: initial, target: initial, velocity: 0 };
@@ -113,11 +121,17 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   camera.lookAt(CAM_TARGET);
 
   // ─── Lighting ───────────────────────────────────────────────────────────────
-  const ambientLight = new THREE.AmbientLight('#F5EDE0', 2.4);
+  const ambientLight = new THREE.AmbientLight('#F5EDE0', 3.8);
   scene.add(ambientLight);
 
   // ─── Grid lines ─────────────────────────────────────────────────────────────
-  addGridLines(scene);
+  // Size the time (Z) axis grid to the actual project range, not the fixed
+  // Z_FAR..Z_NEAR bounds — those are wider than the real data on both ends.
+  const projectZs = projects.map(projectTimeZ);
+  const zDataMin = Math.min(...projectZs);
+  const zDataMax = Math.max(...projectZs);
+  const zPad = (zDataMax - zDataMin) * 0.2;
+  addGridLines(scene, zDataMin - zPad, zDataMax + zPad);
 
   // ─── Project prisms ─────────────────────────────────────────────────────────
   const prismMeshes = [];
@@ -146,14 +160,12 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   projectsByAge.forEach(p => {
     const pragmatic = p.axes?.pragmatic ?? 0.5;
     const institutional = p.axes?.institutional ?? 0.5;
-    const year = p.year ?? 2022;
 
     // Position
     const x = (pragmatic - 0.5) * 2 * AXIS_RANGE;
     const y = (institutional - 0.5) * 2 * AXIS_RANGE;
-    const monthFrac = ((p.month ?? 6) - 1) / 12; // Jan=0, Dec≈1
-    const t = Math.max(0, Math.min(1, (year + monthFrac - YEAR_MIN) / (YEAR_MAX - YEAR_MIN)));
-    const z = Z_FAR + t * (Z_NEAR - Z_FAR); // oldest: Z_FAR, newest: Z_NEAR
+    const z = projectTimeZ(p); // oldest: near Z_FAR, newest: near Z_NEAR
+    const t = (z - Z_FAR) / (Z_NEAR - Z_FAR);
 
     // Scale: oldest is 50% the size of newest
     const scale = SCALE_OLD + t * (SCALE_NEW - SCALE_OLD);
@@ -766,23 +778,31 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 }
 
 // ─── Grid lines ───────────────────────────────────────────────────────────────
-function addGridLines(scene) {
+// zMin/zMax bound the time axis to the actual project range (+ padding), so the
+// grid doesn't extend behind the earliest project or stop short of the newest.
+function addGridLines(scene, zMin, zMax) {
   // The 2×2 grid lines (X and Y axes) are the primary visual — make them clear
   const gridMat = new THREE.LineBasicMaterial({ color: '#B8B0A6', transparent: true, opacity: 0.48 });
   const vertMat = new THREE.LineBasicMaterial({ color: '#B8B0A6', transparent: true, opacity: 0.38 });
 
   const step = 1;
-  const count = 12;
+  const count = 12; // X/Y (pragmatic/institutional) extent
   // Tiny nudge keeps background grid off the exact plane of the axis lines, preventing z-fighting
   const E = 0.005;
 
+  // Snap the time-axis bounds to whole grid steps so lines land cleanly
+  const zStart = Math.floor(zMin / step) * step;
+  const zEnd = Math.ceil(zMax / step) * step;
+
   // Horizontal plane (Y = E, not 0, to avoid z-fighting with X-axis divider at y=0)
   const hPoints = [];
-  for (let i = -count; i <= count; i++) {
+  for (let i = zStart; i <= zEnd; i++) {
     hPoints.push(new THREE.Vector3(-count, E, i * step));
     hPoints.push(new THREE.Vector3(count, E, i * step));
-    hPoints.push(new THREE.Vector3(i * step, E, -count));
-    hPoints.push(new THREE.Vector3(i * step, E, count));
+  }
+  for (let i = -count; i <= count; i++) {
+    hPoints.push(new THREE.Vector3(i * step, E, zStart));
+    hPoints.push(new THREE.Vector3(i * step, E, zEnd));
   }
   const hGeo = new THREE.BufferGeometry().setFromPoints(hPoints);
   scene.add(new THREE.LineSegments(hGeo, gridMat));
@@ -790,8 +810,10 @@ function addGridLines(scene) {
   // Vertical planes (X = E, not 0, to avoid z-fighting with Y-axis divider at x=0)
   const vPoints = [];
   for (let i = -count; i <= count; i++) {
-    vPoints.push(new THREE.Vector3(E, i * step, -count));
-    vPoints.push(new THREE.Vector3(E, i * step, count));
+    vPoints.push(new THREE.Vector3(E, i * step, zStart));
+    vPoints.push(new THREE.Vector3(E, i * step, zEnd));
+  }
+  for (let i = zStart; i <= zEnd; i++) {
     vPoints.push(new THREE.Vector3(E, -count, i * step));
     vPoints.push(new THREE.Vector3(E, count, i * step));
   }

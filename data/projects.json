@@ -149,7 +149,6 @@
       "assets/projects/spatial-equity/20.png",
       "assets/projects/spatial-equity/22.png",
       "assets/projects/spatial-equity/23.png",
-      "assets/projects/spatial-equity/24.png",
       "assets/projects/spatial-equity/otherthird.png",
       "assets/projects/spatial-equity/usagepatternstudy.gif",
       "assets/projects/spatial-equity/good.png",
@@ -173,8 +172,13 @@
       },
       {
         "name": "Xavaar Quaranto",
-        "url": "",
+        "url": "https://xavaar.com",
         "role": "Researcher, Designer"
+      },
+      {
+        "name": "Martin Bechthold",
+        "url": "https://www.gsd.harvard.edu/person/martin-bechthold/",
+        "role": "Advisor"
       }
     ]
   },
@@ -248,8 +252,7 @@
       "assets/projects/unfolding/img5.jpg",
       "assets/projects/unfolding/img4.jpg",
       "assets/projects/unfolding/img2.jpg",
-      "assets/projects/unfolding/img3.jpg",
-      "assets/projects/unfolding/img10.jpg"
+      "assets/projects/unfolding/img3.jpg"
     ],
     "videos": [
       {
@@ -258,7 +261,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/xr/unfolding",
+    "sourceUrl": null,
     "awards": [
       "CineTejo Official Selection 2025",
       "MIX Brasil 2025",
@@ -681,7 +684,7 @@
     "title": "SplatCubes",
     "year": 2025,
     "month": 5,
-    "tagline": "Hold 3D photos in your hand.",
+    "tagline": "How to print a 3D photo",
     "what": "A novel computational design pipeline for converting 3D Gaussian Splat captures of reality into printable forms, fabricated on multi-material resin printers. Uses custom Grasshopper scripts in C# to translate the digital representation of a Gaussian Splat into a physical artifact that can be held, viewed from any angle, and appreciated as a form of tangible volumetric memory.",
     "why": "Gaussian Splatting captures scenes as probabilistic, spatially distributed semi-opaque volumes — more accurate approximations of physical reality than mesh topology. But splats remain inherently digital. This pipeline physically manifests splats via 3D printing, emphasizing the blurriness and continuity of real-world boundaries that hard mesh edges erase.",
     "categories": [
@@ -951,7 +954,7 @@
     "liveUrl": null,
     "sourceUrl": "https://vimeo.com/181522057",
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "who": [
       {
         "name": "Kris Cheng",
@@ -996,7 +999,7 @@
     "title": "Crawl",
     "year": 2024,
     "month": 11,
-    "tagline": "Crawl through Harvard Yard for free speech in a 20-foot shirt",
+    "tagline": "Performance art on free speech for the Harvard community",
     "what": "Harvard ranked last out of 258 universities in the 2024 free speech rankings. Roy handwrote the entire 2,121-word Harvard Campus Use Rules on a 20-foot shirt and crawled through Harvard Yard and up the Widener Library steps. Inspired by the work of Pope.L.",
     "why": "Disseminating the university's own words to its own community — a mirror held up to the Rules and the fear they encode, on both sides.",
     "categories": [
@@ -1036,7 +1039,7 @@
       }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/design/crawl",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Narrative",
     "hero": "assets/projects/crawl/thumb.jpg",
@@ -1068,7 +1071,7 @@
       },
       {
         "name": "Julia Mattis",
-        "url": "",
+        "url": "https://www.instagram.com/windowsill.bakery/",
         "role": "Videographer"
       }
     ],
@@ -1173,7 +1176,7 @@
     "id": "typewriter",
     "title": "Digital Typewriter",
     "year": 2024,
-    "month": 11,
+    "month": 10,
     "tagline": "No-backspace writing tool — commit to every word",
     "what": "Browser app in vanilla JS. No delete, no backspace, no undo. Characters are permanent. A tool for writing with commitment rather than endless revision.",
     "why": "Digital Typewriter is one of several projects exploring constraints as creative catalysts — the proposal that limitation is not always the enemy of expression, and that sometimes the best way to unlock creativity is to remove the ability to second-guess it. An attempt to bring David Pye's 'workmanship of risk' back to digital media, and a solution to Walter Benjamin's struggles with art in the age of mechanical reproduction.",
@@ -1182,7 +1185,7 @@
       "Web"
     ],
     "axes": {
-      "pragmatic": 0.08,
+      "pragmatic": 0.2,
       "institutional": 0.44
     },
     "thumbnail": "assets/projects/typewriter/thumb.jpg",
@@ -1194,7 +1197,7 @@
     "liveUrl": "https://wyattroy.github.io/codeart/pages/typewriter/index.html",
     "sourceUrl": null,
     "awards": [],
-    "medium": "Web",
+    "medium": "App",
     "tags": [],
     "who": [
       {
@@ -1815,19 +1818,48 @@
     },
     "thumbnail": "assets/projects/storytelling-affordances/thumb.jpg",
     "images": [
-      "assets/projects/storytelling-affordances/img1.jpg",
-      "assets/projects/storytelling-affordances/img2.jpg",
-      "assets/projects/storytelling-affordances/img3.jpg"
+      "assets/projects/storytelling-affordances/thumb.jpg",
+      "assets/projects/storytelling-affordances/img3.jpg",
+      "assets/projects/storytelling-affordances/img4.jpg"
     ],
     "videos": [
-      "https://www.youtube.com/watch?v=fDiT2uUqwX0",
-      "https://www.youtube.com/watch?v=Hcq8DdXiVLY"
+      {
+        "url": "https://www.youtube.com/watch?v=fDiT2uUqwX0",
+        "heroOverride": true
+      }
     ],
     "liveUrl": null,
-    "sourceUrl": "https://www.wyattroy.com/xr/storytelling-affordances",
+    "sourceUrl": null,
     "awards": [],
     "medium": "Narrative",
-    "label": "green"
+    "label": "green",
+    "tags": [
+      "XR",
+      "virtual reality",
+      "research",
+      "storytelling",
+      "180 VR",
+      "affordances",
+      "film"
+    ],
+    "hero": "assets/projects/storytelling-affordances/thumb.jpg",
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Researcher, Director"
+      },
+      {
+        "name": "Ami M.",
+        "url": "",
+        "role": "Talent, Launder"
+      },
+      {
+        "name": "Joshito T.",
+        "url": "",
+        "role": "Talent, Launder"
+      }
+    ]
   },
   {
     "id": "skybinder",
@@ -2534,7 +2566,7 @@
     "liveUrl": null,
     "sourceUrl": null,
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "tags": [],
     "hero": "assets/projects/galapagos/thumb.jpg",
     "who": [
@@ -2590,7 +2622,7 @@
     "liveUrl": null,
     "sourceUrl": "https://www.wyattroy.com/video/phildev",
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "tags": [],
     "who": [
       {
@@ -2661,7 +2693,7 @@
     "liveUrl": null,
     "sourceUrl": null,
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "tags": [
       "film",
       "branded content",
@@ -2740,7 +2772,7 @@
     "liveUrl": null,
     "sourceUrl": "https://vimeo.com/123265642",
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "who": [
       {
         "name": "Wyatt Roy",
@@ -2818,7 +2850,7 @@
     "liveUrl": null,
     "sourceUrl": null,
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "tags": [
       "energy",
       "Rwanda",
@@ -2891,7 +2923,7 @@
     "liveUrl": null,
     "sourceUrl": "https://vimeo.com/205989860",
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "hero": "assets/projects/bufferzone/thumb.jpg",
     "who": [
       {
@@ -2965,7 +2997,7 @@
     "liveUrl": null,
     "sourceUrl": null,
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "tags": [],
     "who": [
       {
@@ -3011,7 +3043,7 @@
     "liveUrl": null,
     "sourceUrl": null,
     "awards": [],
-    "medium": "Film",
+    "medium": "Narrative",
     "tags": [
       "video",
       "launch",
@@ -3125,7 +3157,7 @@
     "liveUrl": null,
     "sourceUrl": "https://wyattroy.github.io/codeart/pages/allrgb/index.html",
     "awards": [],
-    "medium": "App",
+    "medium": "Web",
     "hero": "assets/projects/all-rgb/thumb.jpg",
     "who": [
       {

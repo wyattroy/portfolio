@@ -603,27 +603,68 @@
       display: flex;
       flex-direction: column;
     }
-    .block-drop-zone {
-      height: 6px;
-      background: transparent;
-      transition: height 0.15s, background 0.15s;
-      flex-shrink: 0;
-    }
-    .block-drop-zone.drag-over {
-      height: 28px;
-      background: rgba(196, 96, 58, 0.12);
-      border: 1px dashed #C4603A;
-      border-radius: 3px;
-      margin: 2px 8px;
-    }
     .block-item {
       display: flex;
       align-items: flex-start;
       gap: 8px;
       padding: 6px 10px;
-      border-bottom: 1px solid #F0EDE8;
+      box-sizing: border-box;
     }
-    .block-item:last-child { border-bottom: none; }
+    .block-item.dragging { opacity: 0.4; }
+    .block-item.drag-over-top    { box-shadow: 0 -2px 0 0 #C4603A; }
+    .block-item.drag-over-bottom { box-shadow: 0  2px 0 0 #C4603A; }
+    .block-joint {
+      position: relative;
+      height: 14px;
+      flex-shrink: 0;
+    }
+    .block-joint-line {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: 50%;
+      height: 1px;
+      background: #F0EDE8;
+      transition: background 0.15s;
+    }
+    .block-joint:hover .block-joint-line,
+    .block-joint.drag-over .block-joint-line {
+      background: #C4603A;
+    }
+    .block-joint.drag-over { background: rgba(196, 96, 58, 0.08); }
+    .block-joint-actions {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.92);
+      display: flex;
+      gap: 2px;
+      background: #fff;
+      border: 1px solid #D4CFC8;
+      border-radius: 12px;
+      padding: 2px 4px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.12s, transform 0.12s;
+      z-index: 2;
+    }
+    .block-joint:hover .block-joint-actions {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      pointer-events: auto;
+    }
+    .block-joint-btn {
+      font-size: 10px;
+      border: none;
+      background: transparent;
+      color: #8A8078;
+      padding: 3px 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .block-joint-btn:hover { background: #C4603A; color: #fff; }
     .block-item-handle {
       color: #C4BEB8;
       cursor: grab;
@@ -1334,36 +1375,100 @@ function buildBlockEditor(sectionKey) {
   const blocks = sectionBlocks[sectionKey];
   container.innerHTML = '';
 
-  function makeDropZone(insertIdx) {
-    const dz = document.createElement('div');
-    dz.className = 'block-drop-zone';
-    dz.dataset.insertIdx = insertIdx;
-
-    dz.addEventListener('dragover', e => {
-      if (e.dataTransfer.types.includes('text/image-src')) {
-        e.preventDefault();
-        dz.classList.add('drag-over');
-      }
-    });
-    dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
-    dz.addEventListener('drop', e => {
-      e.preventDefault();
-      dz.classList.remove('drag-over');
-      const src = e.dataTransfer.getData('text/image-src');
-      if (!src) return;
-      const idx = parseInt(dz.dataset.insertIdx);
-      sectionBlocks[sectionKey].splice(idx, 0, { type: 'image', src, align: 'right' });
-      buildBlockEditor(sectionKey);
-      markUnsaved();
-    });
-    return dz;
-  }
-
   const list = document.createElement('div');
   list.className = 'block-list';
 
+  function clearDragIndicators() {
+    list.querySelectorAll('.block-item').forEach(el => el.classList.remove('drag-over-top', 'drag-over-bottom'));
+    list.querySelectorAll('.block-joint').forEach(el => el.classList.remove('drag-over'));
+  }
+
+  // Shared by both the block-item halves (generous, approximate target) and
+  // the joint between blocks (a precise, exact-index target) — see below.
+  function dropBlockAt(e, targetIdx) {
+    const reorderRaw = e.dataTransfer.getData('text/block-reorder');
+    const imgSrc = e.dataTransfer.getData('text/image-src');
+    if (reorderRaw) {
+      const { key, idx: from } = JSON.parse(reorderRaw);
+      if (key === sectionKey) {
+        const adjusted = targetIdx > from ? targetIdx - 1 : targetIdx;
+        if (from === adjusted) return;
+        const [moved] = sectionBlocks[sectionKey].splice(from, 1);
+        sectionBlocks[sectionKey].splice(adjusted, 0, moved);
+        buildBlockEditor(sectionKey);
+      } else {
+        const [moved] = sectionBlocks[key].splice(from, 1);
+        if (!sectionBlocks[key].length) sectionBlocks[key].push({ type: 'text', content: '' });
+        sectionBlocks[sectionKey].splice(targetIdx, 0, moved);
+        buildBlockEditor(key);
+        buildBlockEditor(sectionKey);
+      }
+      markUnsaved();
+    } else if (imgSrc) {
+      sectionBlocks[sectionKey].splice(targetIdx, 0, { type: 'image', src: imgSrc, align: 'none' });
+      buildBlockEditor(sectionKey);
+      markUnsaved();
+    }
+  }
+
+  // The joint between two blocks (and before the first / after the last) —
+  // hovering it reveals a "+" menu for inserting a text block or embed
+  // exactly there. It also doubles as a precise drop target for reordering,
+  // complementing the item halves below. Its size never changes on hover —
+  // only color/opacity — so it can't shift layout and desync the cursor the
+  // way the old resizing drop-zones did.
+  function makeJoint(insertIdx) {
+    const joint = document.createElement('div');
+    joint.className = 'block-joint';
+    joint.dataset.insertIdx = insertIdx;
+
+    const line = document.createElement('div');
+    line.className = 'block-joint-line';
+    joint.appendChild(line);
+
+    const actions = document.createElement('div');
+    actions.className = 'block-joint-actions';
+    [['text', '+ Text'], ['embed', '+ Embed']].forEach(([type, label]) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'block-joint-btn';
+      btn.textContent = label;
+      btn.addEventListener('click', () => {
+        const at = parseInt(joint.dataset.insertIdx);
+        const newBlock = type === 'embed' ? { type: 'embed', src: '', title: '' } : { type: 'text', content: '' };
+        sectionBlocks[sectionKey].splice(at, 0, newBlock);
+        buildBlockEditor(sectionKey);
+        markUnsaved();
+        setTimeout(() => {
+          const newItem = container.querySelector(`.block-item[data-idx="${at}"]`);
+          const focusable = newItem?.querySelector('textarea, input[type="url"]');
+          if (focusable) focusable.focus();
+        }, 50);
+      });
+      actions.appendChild(btn);
+    });
+    joint.appendChild(actions);
+
+    joint.addEventListener('dragover', e => {
+      if (!e.dataTransfer.types.includes('text/block-reorder') && !e.dataTransfer.types.includes('text/image-src')) return;
+      e.preventDefault();
+      clearDragIndicators();
+      joint.classList.add('drag-over');
+    });
+    joint.addEventListener('dragleave', e => {
+      if (!joint.contains(e.relatedTarget)) joint.classList.remove('drag-over');
+    });
+    joint.addEventListener('drop', e => {
+      e.preventDefault();
+      joint.classList.remove('drag-over');
+      dropBlockAt(e, parseInt(joint.dataset.insertIdx));
+    });
+
+    return joint;
+  }
+
   blocks.forEach((block, idx) => {
-    list.appendChild(makeDropZone(idx));
+    list.appendChild(makeJoint(idx));
 
     const item = document.createElement('div');
     item.className = 'block-item';
@@ -1381,10 +1486,38 @@ function buildBlockEditor(sectionKey) {
       document.addEventListener('mouseup', reset, { once: true });
     });
 
-    // Block drag-to-reorder
+    // Block drag-to-reorder — the whole item is the drop target (not a thin
+    // strip between items), and the insert position is whichever half of the
+    // item the cursor is over. A hover-triggered size change on the target
+    // would shift the item under the cursor and cause dragover/dragleave to
+    // flicker, so the indicator is a non-layout-affecting box-shadow instead.
     item.addEventListener('dragstart', e => {
       e.dataTransfer.setData('text/block-reorder', JSON.stringify({ key: sectionKey, idx }));
       e.dataTransfer.effectAllowed = 'move';
+      setTimeout(() => item.classList.add('dragging'), 0);
+    });
+    item.addEventListener('dragend', () => {
+      item.classList.remove('dragging');
+      clearDragIndicators();
+    });
+    item.addEventListener('dragover', e => {
+      if (!e.dataTransfer.types.includes('text/block-reorder') && !e.dataTransfer.types.includes('text/image-src')) return;
+      e.preventDefault();
+      const rect = item.getBoundingClientRect();
+      const before = e.clientY < rect.top + rect.height / 2;
+      clearDragIndicators();
+      item.classList.add(before ? 'drag-over-top' : 'drag-over-bottom');
+    });
+    item.addEventListener('dragleave', e => {
+      if (!item.contains(e.relatedTarget)) item.classList.remove('drag-over-top', 'drag-over-bottom');
+    });
+    item.addEventListener('drop', e => {
+      e.preventDefault();
+      const rect = item.getBoundingClientRect();
+      const before = e.clientY < rect.top + rect.height / 2;
+      const targetIdx = parseInt(item.dataset.idx) + (before ? 0 : 1);
+      clearDragIndicators();
+      dropBlockAt(e, targetIdx);
     });
 
     const body = document.createElement('div');
@@ -1440,31 +1573,62 @@ function buildBlockEditor(sectionKey) {
       linkHint.textContent = 'Bold: **text** · Italic: *text* · Link: [text](https://url.com)';
       body.appendChild(linkHint);
 
-      // Align controls for text blocks (none = clear:both, breaks out of image floats)
-      const textAlignRow = document.createElement('div');
-      textAlignRow.style.cssText = 'display:flex;gap:4px;margin-top:5px;align-items:center;';
-      const textAlignLabel = document.createElement('span');
-      textAlignLabel.textContent = 'break:';
-      textAlignLabel.style.cssText = 'font-size:10px;color:#B0A8A0;';
-      textAlignRow.appendChild(textAlignLabel);
-      const textAlignBtns = document.createElement('div');
-      textAlignBtns.className = 'block-align-btns';
-      ['left', 'right', 'none'].forEach(align => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'block-align-btn' + (block.align === align ? ' active' : '');
-        btn.textContent = align;
-        btn.title = align === 'none' ? 'Clear floats — place this text below any floated images' : `Float text ${align}`;
-        btn.addEventListener('click', () => {
-          // Toggle: clicking the active align removes it
-          sectionBlocks[sectionKey][idx].align = (sectionBlocks[sectionKey][idx].align === align) ? undefined : align;
-          buildBlockEditor(sectionKey);
-          markUnsaved();
-        });
-        textAlignBtns.appendChild(btn);
+      // Caption checkbox — ties this text block to the image/embed immediately above it
+      const captionRow = document.createElement('div');
+      captionRow.style.cssText = 'display:flex;gap:6px;align-items:center;margin-top:6px;';
+      const captionCheckbox = document.createElement('input');
+      captionCheckbox.type = 'checkbox';
+      captionCheckbox.id = `caption-check-${sectionKey}-${idx}`;
+      captionCheckbox.checked = !!block.isCaption;
+      captionCheckbox.addEventListener('change', () => {
+        sectionBlocks[sectionKey][idx].isCaption = captionCheckbox.checked;
+        buildBlockEditor(sectionKey);
+        markUnsaved();
       });
-      textAlignRow.appendChild(textAlignBtns);
-      body.appendChild(textAlignRow);
+      const captionLabel = document.createElement('label');
+      captionLabel.htmlFor = captionCheckbox.id;
+      captionLabel.textContent = 'Caption for image/embed above';
+      captionLabel.style.cssText = 'font-size:11px;color:#B0A8A0;cursor:pointer;';
+      captionRow.appendChild(captionCheckbox);
+      captionRow.appendChild(captionLabel);
+      const prevBlock = blocks[idx - 1];
+      const CAPTIONABLE_TYPES = ['image', 'embed'];
+      if (block.isCaption && (!prevBlock || !CAPTIONABLE_TYPES.includes(prevBlock.type))) {
+        const warn = document.createElement('span');
+        warn.textContent = '⚠ no image/embed directly above';
+        warn.style.cssText = 'font-size:10px;color:#C4603A;';
+        captionRow.appendChild(warn);
+      }
+      body.appendChild(captionRow);
+
+      // Align controls for text blocks (none = clear:both, breaks out of image floats)
+      // Not applicable when this text block is a caption — it inherits the image's position.
+      if (!block.isCaption) {
+        const textAlignRow = document.createElement('div');
+        textAlignRow.style.cssText = 'display:flex;gap:4px;margin-top:5px;align-items:center;';
+        const textAlignLabel = document.createElement('span');
+        textAlignLabel.textContent = 'break:';
+        textAlignLabel.style.cssText = 'font-size:10px;color:#B0A8A0;';
+        textAlignRow.appendChild(textAlignLabel);
+        const textAlignBtns = document.createElement('div');
+        textAlignBtns.className = 'block-align-btns';
+        ['left', 'right', 'none'].forEach(align => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'block-align-btn' + (block.align === align ? ' active' : '');
+          btn.textContent = align;
+          btn.title = align === 'none' ? 'Clear floats — place this text below any floated images' : `Float text ${align}`;
+          btn.addEventListener('click', () => {
+            // Toggle: clicking the active align removes it
+            sectionBlocks[sectionKey][idx].align = (sectionBlocks[sectionKey][idx].align === align) ? undefined : align;
+            buildBlockEditor(sectionKey);
+            markUnsaved();
+          });
+          textAlignBtns.appendChild(btn);
+        });
+        textAlignRow.appendChild(textAlignBtns);
+        body.appendChild(textAlignRow);
+      }
     } else if (block.type === 'image') {
       const row = document.createElement('div');
       row.className = 'block-image-row';
@@ -1612,9 +1776,7 @@ function buildBlockEditor(sectionKey) {
     item.appendChild(removeBtn);
     list.appendChild(item);
   });
-
-  // Final drop zone (after all blocks)
-  list.appendChild(makeDropZone(blocks.length));
+  list.appendChild(makeJoint(blocks.length));
 
   container.appendChild(list);
 
@@ -1653,38 +1815,6 @@ function buildBlockEditor(sectionKey) {
   footer.appendChild(addEmbedBtn);
 
   container.appendChild(footer);
-
-  // Drop zones also handle block reorder drops
-  container.querySelectorAll('.block-drop-zone').forEach(dz => {
-    dz.addEventListener('dragover', e => {
-      if (e.dataTransfer.types.includes('text/block-reorder')) {
-        e.preventDefault();
-        dz.classList.add('drag-over');
-      }
-    });
-    dz.addEventListener('drop', e => {
-      const raw = e.dataTransfer.getData('text/block-reorder');
-      if (!raw) return;
-      const { key, idx: from } = JSON.parse(raw);
-      const to = parseInt(dz.dataset.insertIdx);
-      if (key === sectionKey) {
-        // Same-section reorder
-        const adjusted = to > from ? to - 1 : to;
-        if (from === adjusted) return;
-        const [moved] = sectionBlocks[sectionKey].splice(from, 1);
-        sectionBlocks[sectionKey].splice(adjusted, 0, moved);
-        buildBlockEditor(sectionKey);
-      } else {
-        // Cross-section move
-        const [moved] = sectionBlocks[key].splice(from, 1);
-        if (!sectionBlocks[key].length) sectionBlocks[key].push({ type: 'text', content: '' });
-        sectionBlocks[sectionKey].splice(to, 0, moved);
-        buildBlockEditor(key);
-        buildBlockEditor(sectionKey);
-      }
-      markUnsaved();
-    });
-  });
 
   refreshImageUsage();
 }
@@ -1761,7 +1891,7 @@ function renderEditor(p) {
     <div class="form-grid">
       <div class="form-group">
         <label>Medium</label>
-        <input id="f-medium" value="${esc(p.medium || '')}" placeholder="Web, Film, VR, Fabrication…">
+        <input id="f-medium" value="${esc(p.medium || '')}" placeholder="Web, Narrative, VR, Fabrication…">
       </div>
       <div class="form-group">
         <label>Tags</label>

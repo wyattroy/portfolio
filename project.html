@@ -50,6 +50,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script type="module">
+    import { MEDIUM_COLORS } from './medium-colors.js';
+
     // ── Utilities ──────────────────────────────────────────────────────────────
     const esc = s => s ? String(s)
       .replace(/&/g,'&amp;').replace(/</g,'&lt;')
@@ -90,13 +92,53 @@
       return paras.map(p => p.trim()).filter(Boolean).map(p => `<p>${p}</p>`).join('');
     }
 
+    function buildQuadrantSvg(axes) {
+      if (!axes) return '';
+      const { pragmatic = 0.5, institutional = 0.5 } = axes;
+      const right = pragmatic >= 0.5;
+      const top = institutional >= 0.5;
+      const quadColors = {
+        tl: top && !right ? 'var(--color-q-sp)' : '#DDD5C4',
+        tr: top && right ? 'var(--color-q-si)' : '#DDD5C4',
+        bl: !top && !right ? 'var(--color-q-ip)' : '#DDD5C4',
+        br: !top && right ? 'var(--color-q-ii)' : '#DDD5C4',
+      };
+      return `<svg class="quadrant-indicator" viewBox="0 0 20 20" aria-hidden="true" title="Quadrant: ${getQuadrantName(pragmatic, institutional)}">
+        <rect x="1" y="1" width="8" height="8" rx="1.5" fill="${quadColors.tl}"/>
+        <rect x="11" y="1" width="8" height="8" rx="1.5" fill="${quadColors.tr}"/>
+        <rect x="1" y="11" width="8" height="8" rx="1.5" fill="${quadColors.bl}"/>
+        <rect x="11" y="11" width="8" height="8" rx="1.5" fill="${quadColors.br}"/>
+      </svg>`;
+    }
+
+    function getQuadrantName(pragmatic, institutional) {
+      const p = pragmatic >= 0.5;
+      const i = institutional >= 0.5;
+      if (p && i) return 'Pragmatic + Institutional';
+      if (!p && i) return 'Poetic + Institutional';
+      if (p && !i) return 'Pragmatic + Individual';
+      return 'Poetic + Individual';
+    }
+
+    function getQuadrantShortName(pragmatic = 0.5, institutional = 0.5) {
+      const p = pragmatic >= 0.5;
+      const i = institutional >= 0.5;
+      if (p && i) return 'PRAGMATIC/INSTITUTIONAL';
+      if (!p && i) return 'POETIC/INSTITUTIONAL';
+      if (p && !i) return 'PRAGMATIC/INDIVIDUAL';
+      return 'POETIC/INDIVIDUAL';
+    }
+
     function videoUrl(v) { return typeof v === 'string' ? v : (v?.url || ''); }
 
     function videoEmbedUrl(url, { autoplay = false } = {}) {
       // Normalize missing protocol so bare domain URLs still match
       const u = /^https?:\/\//.test(url) ? url : 'https://' + url;
-      const vimeo = u.match(/vimeo\.com\/(\d+)/);
-      if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}?color=C4603A${autoplay ? '&background=1&autoplay=1&muted=1&loop=1&playsinline=1' : ''}`;
+      const vimeo = u.match(/vimeo\.com\/(\d+)(?:\/([a-zA-Z0-9]+))?/);
+      if (vimeo) {
+        const hash = vimeo[2] ? `&h=${vimeo[2]}` : '';
+        return `https://player.vimeo.com/video/${vimeo[1]}?color=C4603A${hash}${autoplay ? '&background=1&autoplay=1&muted=1&loop=1&playsinline=1' : ''}`;
+      }
       const ytShorts = u.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]+)/);
       if (ytShorts) return `https://www.youtube.com/embed/${ytShorts[1]}${autoplay ? '?autoplay=1&mute=1&playsinline=1' : ''}`;
       const yt = u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]+)/);
@@ -475,8 +517,13 @@
       let hasActiveLeft = false;
       let hasActiveRight = false;
       const parts = [];
-      for (const block of blocks) {
+      for (let bi = 0; bi < blocks.length; bi++) {
+        const block = blocks[bi];
         if (block.type === 'text') {
+          // Caption-flagged text blocks are consumed by the image block directly above them.
+          // If there's no such image, fall through and render as normal text.
+          const prevBlock = blocks[bi - 1];
+          if (block.isCaption && prevBlock && (prevBlock.type === 'image' || prevBlock.type === 'embed')) continue;
           if (block.align === 'left' || block.align === 'right') {
             // Floated text — pairs visually with an opposite-floated image.
             // Auto-clear when both sides are already occupied (completing a prior pair).
@@ -505,6 +552,16 @@
         } else if (block.type === 'embed') {
           const embedSrc = videoEmbedUrl(block.src || '') || block.src || '';
           const embedHeight = block.height || 480;
+          const is3dModel = /poly\.cam\//.test(embedSrc);
+          const embedTypeClass = is3dModel ? ' pp-embed-3d' : '';
+          const embedInner = `<iframe src="${esc(embedSrc)}" title="${esc(block.title || 'Embedded content')}"
+                style="height:${embedHeight}px" frameborder="0" allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>`;
+          // A checked "caption" text block immediately below this embed supplies its caption.
+          const nextBlock = blocks[bi + 1];
+          const captionBlock = (nextBlock && nextBlock.type === 'text' && nextBlock.isCaption) ? nextBlock : null;
+          const capText = captionBlock ? captionBlock.content : '';
+          const embedCap = capText?.trim() ? `<figcaption>${formatText(capText)}</figcaption>` : '';
           if (block.align === 'left' || block.align === 'right') {
             const isLeft = block.align === 'left';
             let clearVal = '';
@@ -520,19 +577,12 @@
             if (isLeft) hasActiveLeft = true; else hasActiveRight = true;
             const alignClass = isLeft ? ' embed-left' : ' embed-right';
             const styleAttr = clearVal ? ` style="${clearVal}"` : '';
-            parts.push(`<div class="pp-embed${alignClass}"${styleAttr}>
-              <iframe src="${esc(embedSrc)}" title="${esc(block.title || 'Embedded content')}"
-                style="height:${embedHeight}px" frameborder="0" allowfullscreen
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-            </div>`);
+            parts.push(`<figure class="pp-embed${alignClass}"${styleAttr}><div class="pp-embed-inner${embedTypeClass}">${embedInner}</div>${embedCap}</figure>`);
           } else {
+            const clearAttr = (hasActiveLeft || hasActiveRight) ? ' style="clear:both"' : '';
             hasActiveLeft = false;
             hasActiveRight = false;
-            parts.push(`<div class="pp-embed">
-              <iframe src="${esc(embedSrc)}" title="${esc(block.title || 'Embedded content')}"
-                style="height:${embedHeight}px" frameborder="0" allowfullscreen
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-            </div>`);
+            parts.push(`<figure class="pp-embed"${clearAttr}><div class="pp-embed-inner${embedTypeClass}">${embedInner}</div>${embedCap}</figure>`);
           }
         } else if (block.type === 'image') {
           let clearStyle = '';
@@ -548,7 +598,11 @@
           }
           const alignClass = block.align === 'left' ? ' inline-left'
                            : block.align === 'right' ? ' inline-right' : ' inline-none';
-          const cap = block.caption ? `<figcaption>${esc(block.caption)}</figcaption>` : '';
+          // A checked "caption" text block immediately below this image supplies its caption.
+          const nextBlock = blocks[bi + 1];
+          const captionBlock = (nextBlock && nextBlock.type === 'text' && nextBlock.isCaption) ? nextBlock : null;
+          const capText = captionBlock ? captionBlock.content : block.caption;
+          const cap = capText?.trim() ? `<figcaption>${formatText(capText)}</figcaption>` : '';
           parts.push(`<figure class="pp-inline-img${alignClass}"${clearStyle} data-lightbox-inline>
             <img src="${esc(block.src)}" alt="${esc(block.alt || title || '')}" loading="lazy"
               onerror="this.closest('figure').style.display='none'">${cap}
@@ -727,19 +781,6 @@
       // Header tags
       const tagsHtml = (p.tags || []).map(t => `<span class="card-tag">${esc(t)}</span>`).join('');
       const categoryHtml = (p.categories || []).map(c => `<span class="card-tag">${esc(c)}</span>`).join('');
-      const MEDIUM_COLORS = {
-        'VR':           '#6B3FA6',
-        'Film':         '#A03030',
-        'Pedagogy':     '#B07030',
-        'Web':          '#2B6BAE',
-        'Fabrication':  '#8C5523',
-        'Narrative':    '#2A7A8A',
-        'Research':     '#5A7080',
-        'App':          '#2A7A5A',
-        'Performance':  '#9A3070',
-        'Installation': '#7A6030',
-        'Design':       '#4A3A7A',
-      };
       const mediumBadge = (p.medium && MEDIUM_COLORS[p.medium])
         ? `<span class="medium-badge" style="background:${MEDIUM_COLORS[p.medium]};margin-right:8px;">${esc(p.medium)}</span>` : '';
       // Body sections
@@ -837,7 +878,10 @@
           ${mediumBadge}
           <div class="pp-header-top">
             <h1 class="pp-title">${esc(p.title)}</h1>
-            <span class="pp-meta">${p.year || ''}</span>
+            <span class="pp-meta-wrap">
+              ${p.axes ? `<span class="card-quadrant-wrap"><span class="card-quadrant-label">${getQuadrantShortName(p.axes.pragmatic, p.axes.institutional)}</span>${buildQuadrantSvg(p.axes)}</span>` : ''}
+              <span class="pp-meta">${p.year || ''}</span>
+            </span>
           </div>
           ${p.tagline ? `<p class="pp-tagline">${esc(p.tagline)}</p>` : ''}
           ${(p.tags || []).length

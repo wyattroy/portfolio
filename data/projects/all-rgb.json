@@ -31,7 +31,7 @@
       "src": "assets/projects/all-rgb/allrgbcode.jpg"
     }
   ],
-  "medium": "App",
+  "medium": "Web",
   "tags": [
     "Creative coding",
     "Art",
@@ -45,6 +45,7 @@
   "hero": "assets/projects/all-rgb/thumb.jpg",
   "liveUrl": null,
   "sourceUrl": "https://wyattroy.github.io/codeart/pages/allrgb/index.html",
+  "files": [],
   "images": [
     "assets/projects/all-rgb/img1.jpg",
     "assets/projects/all-rgb/img2.jpg",
