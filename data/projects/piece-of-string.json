@@ -13,75 +13,99 @@
       "type": "embed",
       "src": "https://vimeo.com/1097224484/ff51aa93a7",
       "title": ""
+    },
+    {
+      "type": "text",
+      "content": "Playthrough of the VR experience",
+      "isCaption": true
     }
   ],
-  "why": "This work questions the way a space can affect you when you're not in it, or when it's gone. When the only record of it is a digital representation that you can step into only through a VR headset, or on a computer screen. Does it evoke the same emotions? What does it mean if the answer is yes?",
+  "why": [
+    {
+      "type": "text",
+      "content": "This work questions the way a space can affect you when you're not in it, or when it's gone. When the only record of it is a digital representation that you can step into only through a VR headset, or on a computer screen. Does it evoke the same emotions? What does it mean if the answer is yes?",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/piece-of-string/img3.jpg",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/piece-of-string/img2.jpg",
+      "align": "none"
+    }
+  ],
   "how": [
     {
       "type": "text",
       "content": "I used photogrammetry to capture the space with a DSLR, thousands of photos, and manual post-processing in VR. Photogrammetry scans captured on DSLR and processed in Reality Capture. Meshes cleaned in VR in Oculus Medium. Models decimated and compiled in Blender",
-      "align": "left"
+      "align": "none"
     },
     {
       "type": "embed",
       "src": "https://www.youtube.com/watch?v=2QDeK5TuUCk",
-      "title": "",
-      "align": "right"
+      "title": ""
     },
     {
       "type": "text",
       "content": "Photography",
-      "align": "left"
+      "align": "none",
+      "isCaption": true
     },
     {
       "type": "embed",
       "src": "https://www.youtube.com/watch?v=2QDeK5TuUCk",
-      "title": "",
-      "align": "right"
+      "title": ""
     },
     {
       "type": "text",
       "content": "Lightroom post-processing",
-      "align": "left"
+      "align": "none",
+      "isCaption": true
     },
     {
       "type": "embed",
       "src": "https://www.youtube.com/watch?v=CSxPDyEeEpI",
-      "title": "",
-      "align": "right"
+      "title": ""
     },
     {
       "type": "text",
       "content": "Alignment",
-      "align": "left"
+      "align": "left",
+      "isCaption": true
     },
     {
       "type": "embed",
       "src": "https://www.youtube.com/watch?v=4XdjYU6LM-c",
-      "title": "",
-      "align": "right"
+      "title": ""
     },
     {
       "type": "text",
       "content": "Control Points",
-      "align": "left"
+      "align": "left",
+      "isCaption": true
     },
     {
       "type": "embed",
       "src": "https://www.youtube.com/watch?v=oglCYukp77E",
-      "title": "",
-      "align": "right"
+      "title": ""
     },
     {
       "type": "text",
       "content": "Mesh cleanup in VR",
-      "align": "left"
+      "align": "left",
+      "isCaption": true
     },
     {
       "type": "embed",
       "src": "https://www.youtube.com/watch?v=XUi42iU19rw",
-      "title": "",
-      "align": "right"
+      "title": ""
+    },
+    {
+      "type": "text",
+      "content": "All of these steps lead to a full 3D model of the space, which you can view (and interact with) here!"
     },
     {
       "type": "embed",
@@ -90,7 +114,8 @@
     },
     {
       "type": "text",
-      "content": "Full 3D Model of the house"
+      "content": "Full 3D Model of the house",
+      "isCaption": true
     }
   ],
   "medium": "VR",

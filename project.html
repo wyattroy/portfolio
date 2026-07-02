@@ -15,12 +15,30 @@
   <!-- Nav -->
   <nav id="main-nav">
     <a class="nav-logo" href="/">Wyatt Roy</a>
-    <div class="nav-links">
-      <a href="/#work">Work</a>
-      <a href="project.html#portfolio-about">About</a>
-      <button class="nav-email-btn" aria-label="Email Wyatt">✉</button>
+    <div class="nav-right">
+      <div class="nav-search">
+        <label for="search-input" class="visually-hidden">Search projects</label>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search projects…"
+          aria-label="Search projects"
+          autocomplete="off"
+          spellcheck="false"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-controls="search-suggestions"
+        >
+        <ul class="search-suggestions" id="search-suggestions" role="listbox" aria-label="Project suggestions" hidden></ul>
+      </div>
+      <div class="nav-links">
+        <a href="/#work">Work</a>
+        <a href="project.html#portfolio-about">About</a>
+        <button class="nav-email-btn" aria-label="Email Wyatt">✉</button>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
-    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
   </nav>
 
   <!-- Mobile nav drawer -->
@@ -51,6 +69,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script type="module">
     import { MEDIUM_COLORS } from './medium-colors.js';
+    import { initSearchSuggestions } from './search-suggestions.js';
 
     // ── Utilities ──────────────────────────────────────────────────────────────
     const esc = s => s ? String(s)
@@ -218,6 +237,20 @@
       const open = drawer.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', String(open));
       drawer.setAttribute('aria-hidden', String(!open));
+    });
+
+    // There's no project grid on this page to filter live. Arrowing to a
+    // suggestion jumps straight to that project; submitting with nothing
+    // highlighted falls back to the homepage's Work section with the query.
+    fetch('data/projects.json').then(r => r.ok ? r.json() : []).catch(() => []).then(allProjects => {
+      initSearchSuggestions(allProjects, {
+        onSelect: project => { location.hash = project.id; },
+        onSubmit: query => {
+          window.location.href = query
+            ? `/?q=${encodeURIComponent(query)}#work`
+            : '/#work';
+        },
+      });
     });
 
     window.addEventListener('scroll', () => {

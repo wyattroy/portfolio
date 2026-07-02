@@ -151,6 +151,12 @@ h1, h2, h3, h4, h5 {
   color: var(--color-accent);
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -243,6 +249,13 @@ h1, h2, h3, h4, h5 {
   }
   .nav-hamburger {
     display: flex;
+  }
+  .nav-right {
+    gap: var(--space-2);
+  }
+  #search-input,
+  #search-input:focus {
+    width: clamp(90px, 32vw, 150px);
   }
 }
 
@@ -395,6 +408,7 @@ h1, h2, h3, h4, h5 {
   z-index: 1;
   background: var(--color-bg);
   margin-top: 100vh;
+  min-height: 100vh;
   box-shadow: 0 -24px 60px 0 rgba(0, 0, 0, 0.13);
 }
 
@@ -428,18 +442,65 @@ h1, h2, h3, h4, h5 {
   border-radius: var(--radius-md);
   background: var(--color-surface);
   color: var(--color-text);
-  width: 240px;
+  width: clamp(110px, 22vw, 190px);
   outline: none;
-  transition: border-color var(--transition-micro), box-shadow var(--transition-micro);
+  transition: border-color var(--transition-micro), box-shadow var(--transition-micro), width var(--transition-micro);
 }
 
 #search-input:focus {
+  width: clamp(150px, 30vw, 240px);
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(196, 96, 58, 0.12);
 }
 
 #search-input::placeholder {
   color: var(--color-text-muted);
+}
+
+.nav-search {
+  position: relative;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: var(--space-1) 0;
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+.search-suggestions[hidden] {
+  display: none;
+}
+
+.search-suggestion {
+  padding: var(--space-1) var(--space-2);
+  font-size: 0.85rem;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.search-suggestion .suggestion-year {
+  margin-left: var(--space-1);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.search-suggestion:hover,
+.search-suggestion.active {
+  background: var(--color-border);
 }
 
 /* Tag Filter Chips */
@@ -1381,10 +1442,6 @@ footer {
   .work-header {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  #search-input {
-    width: 100%;
   }
 
   /* ── Mobile graph: 70% of viewport height ── */

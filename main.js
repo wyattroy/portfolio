@@ -5,6 +5,7 @@
 
 import { initProjectList, expandProject, buildDetailContent } from './project-list.js';
 import { initLightbox } from './project-detail.js';
+import { initSearchSuggestions } from './search-suggestions.js';
 
 // ─── Email construction (never in HTML) ──────────────────────────────────────
 const emailParts = ['wyatty', 'gmail.com'];
@@ -55,8 +56,33 @@ async function boot() {
   // Initialize project list
   initProjectList(visibleProjects, { onExpand: handleProjectExpand });
 
-  // Restore scroll position if returning from a project page
-  maybeRestoreScroll();
+  // A search submitted from a project page arrives as /?q=<query>#work —
+  // prefill the nav search input, let it drive the existing filter, and
+  // jump straight to the (now-filtered) results.
+  const q = new URLSearchParams(window.location.search).get('q');
+  if (q) {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+      searchInput.value = q;
+      searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    // Same instant/double-rAF jump as maybeRestoreScroll, so it lands
+    // past the locked hero animation the same way a restored scroll does.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.getElementById('work')?.scrollIntoView({ behavior: 'instant' });
+      });
+    });
+  } else {
+    // Restore scroll position if returning from a project page
+    maybeRestoreScroll();
+  }
+
+  // Search suggestions dropdown — wired after the ?q= prefill above so that
+  // synthetic dispatch doesn't also pop the dropdown open on load.
+  initSearchSuggestions(projects, {
+    onSelect: project => { window.location.href = `project.html#${project.id}`; },
+  });
 
   // Initialize lightbox
   initLightbox();
@@ -334,10 +360,22 @@ function handleProjectExpand(id) {
 }
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
+function scrollToWork() {
+  document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+}
+
 function setupNav() {
   const nav = document.getElementById('main-nav');
   const hamburger = document.getElementById('nav-hamburger');
   const drawer = document.getElementById('nav-drawer');
+
+  // Search input lives in the fixed nav (always visible, including over the
+  // hero) — jump to the card grid as soon as the user focuses it, so live
+  // filtering is visible instead of happening off-screen behind the 3D graph.
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.addEventListener('focus', scrollToWork);
+  }
 
   // Email button
   const emailBtn = document.getElementById('nav-email-btn');
@@ -396,7 +434,7 @@ function setupNav() {
       e.preventDefault();
       if (drawer) drawer.classList.remove('open');
       if (hamburger) hamburger.textContent = '☰';
-      document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+      scrollToWork();
     });
   }
 }

@@ -17,12 +17,30 @@
   <!-- Fixed Navigation -->
   <nav id="main-nav" aria-label="Main navigation">
     <a class="nav-logo" href="/">Wyatt Roy</a>
-    <div class="nav-links" role="navigation">
-      <a href="#work">Work</a>
-      <a href="project.html#portfolio-about">About</a>
-      <button class="nav-email-btn" id="nav-email-btn" aria-label="Email Wyatt Roy">✉</button>
+    <div class="nav-right">
+      <div class="nav-search">
+        <label for="search-input" class="visually-hidden">Search projects</label>
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search projects…"
+          aria-label="Search projects"
+          autocomplete="off"
+          spellcheck="false"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-controls="search-suggestions"
+        >
+        <ul class="search-suggestions" id="search-suggestions" role="listbox" aria-label="Project suggestions" hidden></ul>
+      </div>
+      <div class="nav-links" role="navigation">
+        <a href="#work">Work</a>
+        <a href="project.html#portfolio-about">About</a>
+        <button class="nav-email-btn" id="nav-email-btn" aria-label="Email Wyatt Roy">✉</button>
+      </div>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">☰</button>
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">☰</button>
   </nav>
 
   <!-- Mobile drawer -->
@@ -57,15 +75,6 @@
   <section id="work" aria-label="Project portfolio">
     <div class="work-header">
       <h2>Work</h2>
-      <label for="search-input" class="visually-hidden">Search projects</label>
-      <input
-        type="search"
-        id="search-input"
-        placeholder="Search projects…"
-        aria-label="Search projects"
-        autocomplete="off"
-        spellcheck="false"
-      >
     </div>
 
     <div id="tag-filters" role="group" aria-label="Filter by category">
