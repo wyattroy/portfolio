@@ -254,6 +254,32 @@
       document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 80);
     });
 
+    // On narrow screens the input shrinks below what "Search projects…" fits
+    // in, so it renders visibly clipped ("Search proj"). Swap to a shorter
+    // placeholder instead of letting the browser silently truncate it.
+    const searchInputEl = document.getElementById('search-input');
+    const narrowQuery = window.matchMedia('(max-width: 640px)');
+    const updateSearchPlaceholder = () => {
+      searchInputEl.placeholder = narrowQuery.matches ? 'Search…' : 'Search projects…';
+    };
+    updateSearchPlaceholder();
+    narrowQuery.addEventListener('change', updateSearchPlaceholder);
+
+    // Mobile browsers shift the *visual* viewport (not the layout viewport)
+    // when the on-screen keyboard opens. A position:fixed element like
+    // #main-nav is anchored to the layout viewport, so it visually scrolls
+    // out of view at the top the moment the keyboard appears. Re-pin it to
+    // the visual viewport's offset so it stays put.
+    if (window.visualViewport) {
+      const mainNavEl = document.getElementById('main-nav');
+      const vv = window.visualViewport;
+      const pinNavToVisualViewport = () => {
+        mainNavEl.style.transform = vv.offsetTop ? `translateY(${vv.offsetTop}px)` : '';
+      };
+      vv.addEventListener('resize', pinNavToVisualViewport);
+      vv.addEventListener('scroll', pinNavToVisualViewport);
+    }
+
     // ── Comments ───────────────────────────────────────────────────────────────
     // After setting up Supabase (see supabase-setup.sql), replace these two values.
     const SUPABASE_URL      = 'https://goxrimvqkzbrdlpkhjdb.supabase.co';

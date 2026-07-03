@@ -2212,6 +2212,10 @@ footer {
 @media (max-width: 700px) {
   .pp-back { padding: calc(var(--nav-height) + 16px) 20px 0; }
   .pp-header { padding: 24px 20px 0; }
+  /* On mobile the title wraps to several lines, so centering the meta-wrap
+     (quadrant + year) against its full height floats it awkwardly in the
+     middle. Top-align it instead so it lines up with the medium badge. */
+  .pp-header-top { align-items: flex-start; }
   .pp-body { padding: 0 20px; }
   .pp-project-nav { padding: 2em 20px 3em; gap: 16px; }
   .pp-feature {

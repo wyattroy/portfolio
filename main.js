@@ -5,7 +5,6 @@
 
 import { initProjectList, expandProject, buildDetailContent } from './project-list.js';
 import { initLightbox } from './project-detail.js';
-import { initSearchSuggestions } from './search-suggestions.js';
 
 // ─── Email construction (never in HTML) ──────────────────────────────────────
 const emailParts = ['wyatty', 'gmail.com'];
@@ -82,11 +81,9 @@ async function boot() {
     maybeRestoreScroll();
   }
 
-  // Search suggestions dropdown — wired after the ?q= prefill above so that
-  // synthetic dispatch doesn't also pop the dropdown open on load.
-  initSearchSuggestions(projects, {
-    onSelect: project => { window.location.href = `project.html#${project.id}`; },
-  });
+  // Note: unlike project.html, the index page doesn't wire up the text
+  // suggestions dropdown — the card grid below already gives live search
+  // feedback, so a redundant floating list would just get in the way.
 
   // Initialize lightbox
   initLightbox();
@@ -379,6 +376,30 @@ function setupNav() {
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
     searchInput.addEventListener('focus', scrollToWork);
+
+    // On narrow screens the input shrinks below what "Search projects…" fits
+    // in, so it renders visibly clipped ("Search proj"). Swap to a shorter
+    // placeholder instead of letting the browser silently truncate it.
+    const narrowQuery = window.matchMedia('(max-width: 640px)');
+    const updatePlaceholder = () => {
+      searchInput.placeholder = narrowQuery.matches ? 'Search…' : 'Search projects…';
+    };
+    updatePlaceholder();
+    narrowQuery.addEventListener('change', updatePlaceholder);
+  }
+
+  // Mobile browsers shift the *visual* viewport (not the layout viewport)
+  // when the on-screen keyboard opens. A position:fixed element like #main-nav
+  // is anchored to the layout viewport, so it visually scrolls out of view at
+  // the top the moment the keyboard appears. Re-pin it to the visual
+  // viewport's offset so it stays put.
+  if (nav && window.visualViewport) {
+    const vv = window.visualViewport;
+    const pinNavToVisualViewport = () => {
+      nav.style.transform = vv.offsetTop ? `translateY(${vv.offsetTop}px)` : '';
+    };
+    vv.addEventListener('resize', pinNavToVisualViewport);
+    vv.addEventListener('scroll', pinNavToVisualViewport);
   }
 
   // Email button
