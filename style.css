@@ -1243,6 +1243,45 @@ footer {
   font-size: 0.8rem;
 }
 
+.footer-notify {
+  margin-top: var(--space-4);
+}
+.footer-notify-label {
+  margin: 0 0 0.75em;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+.footer-notify-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer-notify-form input[type="email"] {
+  min-width: 220px;
+  padding: 9px 14px;
+  border: 1px solid var(--color-border, #ddd);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: var(--color-bg, #fff);
+  color: var(--color-text);
+  font-family: inherit;
+}
+.footer-notify-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+.footer-notify-status {
+  margin: 0.6em 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+.footer-notify-status.error { color: #c0392b; }
+@media (max-width: 600px) {
+  .footer-notify-form { flex-direction: column; align-items: center; }
+  .footer-notify-form input[type="email"] { width: 100%; max-width: 280px; }
+}
+
 /* ============================================================
    ABOUT PAGE
    ============================================================ */

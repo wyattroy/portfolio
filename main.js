@@ -11,6 +11,10 @@ import { initSearchSuggestions } from './search-suggestions.js';
 const emailParts = ['wyatty', 'gmail.com'];
 const email = emailParts.join('@');
 
+// ─── New-project notify signup (Formspree) ───────────────────────────────────
+// Create a form at https://formspree.io and paste its endpoint below.
+const NEW_PROJECT_NOTIFY_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
+
 // ─── Scroll position save/restore ────────────────────────────────────────────
 const SCROLL_KEY = 'wyattroy-index-scrollY';
 
@@ -444,6 +448,51 @@ function setupFooter() {
   if (hint) {
     hint.textContent = emailParts[0] + ' [at] ' + emailParts[1];
   }
+  setupNotifyForm();
+}
+
+function setupNotifyForm() {
+  const form = document.getElementById('footer-notify-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('[type="submit"]');
+    const statusEl = document.getElementById('footer-notify-status');
+    const emailValue = form.email.value.trim();
+    if (form._gotcha.value) return; // honeypot tripped, silently drop
+
+    if (NEW_PROJECT_NOTIFY_ENDPOINT.includes('REPLACE_ME')) {
+      statusEl.textContent = 'Signup isn’t set up yet — check back soon.';
+      statusEl.className = 'footer-notify-status error';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      const res = await fetch(NEW_PROJECT_NOTIFY_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: emailValue }),
+      });
+      const json = await res.json();
+      if (res.ok) {
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = 'Notify me';
+        statusEl.textContent = "You're on the list.";
+        statusEl.className = 'footer-notify-status';
+      } else {
+        throw new Error(json.error || 'Error');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Notify me';
+      statusEl.textContent = 'Something went wrong — try again.';
+      statusEl.className = 'footer-notify-status error';
+    }
+  });
 }
 
 // ─── Start ───────────────────────────────────────────────────────────────────

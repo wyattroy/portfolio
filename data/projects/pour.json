@@ -2,18 +2,290 @@
   "id": "pour",
   "title": "Pour",
   "year": 2026,
-  "month": 6,
-  "tagline": "",
-  "tags": [],
+  "month": 4,
+  "tagline": "Systems design intervention for eating disorder care facility",
+  "what": [
+    {
+      "type": "text",
+      "content": "Pour is a [clinical operations dashboard](https://rc-dashboard-179957537949.us-west1.run.app) designed to help the manager of a residential eating disorder facility monitor the flow of care within the organization. It serves and supports residential counsellors within an ecosystem of care by spotlighting institutional practices that would care for them but are frequently deprioritized, and it outputs a daily “System Health” score of how effectively the system is caring for its frontline caregivers.",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/Pour Dashboard.png",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "Interactive prototype of the [clinical operations dashboard](https://rc-dashboard-179957537949.us-west1.run.app)",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "System change requires more than just a new product to be designed. The product must be valued, adopted, and maintained. We recognized a need to express the problem – and the solution – in an emotional, clear way to a variety of stakeholders. In addition to the product we created two artifacts: an *ukiyo-e* style watercolor triptych showing the condition of RCs today, the solution in the middle, and the condition of RCs in the future. ",
+      "align": "none"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/care watercolors.jpg",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "On the left, an RC is stretched thin, with insufficient care flowing into her and a trickle flowing out. In the middle, a redesigned care system within the facility – with care flowing into the RC equal to its flow out, in the form of training, breaks, therapy, etc. On the right, the care ecosystem that arises when care flows. ",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "We also created a more technical systems map to show the problem another way, and visualize the spatial nature of the flow of care. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/Care Systems Map.jpg",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "A real facility is shown in section, with the activities of RCs arranged on a 2x2 below it and mapped to the physical space through lines that show the flow of care in and out of RCs. ",
+      "isCaption": true
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "A normal day for a residential counsellor (RC) at an eating disorder facility may look like this:\nOne patient intentionally cut themselves with metal blinds from the windows and had to be taken to the ER. Another patient revealed they were homicidal and told their therapist the exact ways they would kill other patients and counsellors. Another had such low blood pressure they were technically dead. \n\nThe next day you wake up before dawn and check your phone for updates on these patients from the overnight shift. When you arrive, you learn that for the next nine hours you have to run an entire floor of the facility alone – caring for up to ten times as many of these patients as you're supposed to –  because nobody else has been certified to distribute medication, your boss just quit from burn-out, and everyone else called out “sick” with the bug that you got from them. You’re paid $17/hour – less than counter staff at the Dominos around the corner. \n\nJulia was one of these counsellors. She saw first-hand how care fails in a system designed to distribute it. "
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/RC Task Urgency Map.jpeg",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "A systems map showing the urgency of the tasks an RC does.",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "**Care Manifesto**\n\nLike water, care takes many forms and is passed on from one form to another: rain becomes stream, becomes river, becomes lake, becomes cloud. Care begets care in a cycle that flows through states of need and surplus.\n\nCare requires the decentralization of the self; not to sacrifice oneself for another, instead to see in its place an ecology of interconnected concerns and fates.\n\nCare is more than an action. Care is a practice: the continuous, developing process of collecting and exploring new forms, techniques, skills, perspectives, and approaches for passing support onward. Care is not an outcome, nor a checklist – it is never completed. On small scales, care adapts; on large scales, care evolves.\n\nWhen care is consistently lost at the same point within a system, that point has been blocked from an adequate supply of care. When care is not given to those who are giving care, the care within the connected ecosystem deteriorates. When care depletes as it transitions, it is often not because it is being hoarded, but because it trickles into the cracks of a strained system. \n\nCare is not sustainable when it is freeflowing. A system that demands a vessel drain itself entirely to fill another introduces a state of drought. Systems that enable each of their parts to sustain a reserve of care are more resilient. We believe that designing a homeostatic care ecosystem is not a matter of generating more care, or pretending that less is needed; but of creating systems with durable, flexible, permeable passageways that allow for the adequate collection, intentional transfer, and resulting circulation of care.\n\nThis means: no one’s care is more important than another’s. \n\nCare-givers must be given care.",
+      "align": "none"
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Manifesto**\n\nThe manifesto was our north star. In my past film work, I would have written a 'brief' – this served the same purpose, although we modified, edited, and rewrote it throughout the project as our understanding of the system developed. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/EarlyManifesto.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "An early draft of the manifesto",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "**Relationship Systems Map**\n\nWe drew a systems map to understand and communicate the many relational interconnections between an RC and the facility, drawn as arrows between the RC's primary space (the office) to the other spaces in the facility. This map helped us understand how deeply complex the work environment is for an RC.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/CEDC System map leverage.jpg",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "The RC (pink) gives herself as an employee to the owner, who in turn gives her paychecks, certifications, company values, etc. The RC gives updates to the doctor, who gives her medications for the patients. ",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "**RC Journey Map**\n\nWe drew a journey map to visualize the path through the facility that RCs go on, with time as the organizing principle. This allowed us to envision an alternate path where the usual hire-burn-out-quit pattern is interrupted by injections of care and multiple RC cohorts hired and trained in parallel. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/JourneyMap.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Current situation on top, and an alternative below. ",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "**Speculative Futures**\n\nWe looked to alternate environments for inspiration into other ways that a facility could operate – asking *what if* instead of *why not* and seeing what elements of these more whimsical care environments we could bring back into our plan for one grounded in the present situation. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/SpeculativeFutures.JPG",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "Each \"bubble\" defines the role of the RC in this new world, as well as the role of the Patient (Pt), and identifies positive aspects (+) of the imaginary scenario.",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "**Manifesto Revision**\n\nAnother designer suggested a metaphor for care to us – water – and we realized that it could unlock our entire understanding of the system if we extended the analogy of care as a good that flows in and out of nodes in a system. We re-wrote our manifesto to explore this idea.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/Pour Care Manifesto Final.png",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "**Time-based Systems Map**\n\nNext we drew a map that showed when (and where) care was flowing into and out of RCs – organized left to right, around a clock from the time they begin their morning shift at 7am, to the time they leave in the afternoon. By seeing this daily rhythm mapped tempero-spatially, we were able to recognize where and when breaks and therapy for the RC would be needed in order to have their care be output sustainably without running a deficit. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/SystemsMapTime.JPG",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "Green shows the flow of care into the RC, pink shows care flowing out of the RC. ",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "**Interface Brainstorm**\n\nWe evaluated four different types of interface to decide which medium would be the most effective to deliver our design intervention. The RC themself is a human care-giving interface – they are the bridge between the facility and its user– however we aren't designing new humans. We decided to design a phygital (physical-digital) interface in the form of an interactive dashboard.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/Interfaces.JPG",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Dashboard Design**\n\nThe dashboard is intended to be displayed on a large always-on monitor in the RC Office inside the facility. It shows every stakeholder in the system how healthy the system as a whole is, and where the cracks are before they become too wide and the care dries up. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/RCDashboardSketch.JPG",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "**Care Audit**\n\nWe used three different paradigms to audit our designs and make sure we accounted for systemic factors that were initially invisible. Our **perception audit** helped us *see* what systemic complexities our interface was hiding, and why – and it helped us clarify our core user. A **discrimination audit** helped us recognize ways that our dashboard could actually be used to harm (or blame) RCs for their performance, and create solutions to those effects before they happened (like removing any ability for a manager to use the dashboard as a 'report card' for the RC, and framing the entire dashboard as a report on the facility). The **maintenance audit** revealed what happens on day 2 of the dashboard being used – who keeps it updated, how can it be flexible enough to change with the organization's needs, and how can we credit the \"janitors\" – the overlooked laborers who keep a system functioning?\n ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/perception.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Provocations from each audit in yellow, our answers in green, and potential solutions in pink. ",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "** Post-Audit results and Improvements**\n\n*Supernormal stimuli present in the system:* initially, our alert items were flashing. We realized this may introduce a temporality bias that prioritizes speed over quality of care, so we removed the animations and showed constant colors. \n\n*Discriminatory elements:* Our initial dashboard prioritized completing all tasks rather than the quality of care imbued in those tasks. It put responsibility on RC performance instead of the management to create a responsive system, and we foresaw them responding with \"just work faster\". Our fix was to create a notes/feedback entry system that allows RCs to report on the reasons for missed tasks.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/discrimination.png",
+      "align": "none"
+    },
+    {
+      "type": "text",
+      "content": "Provocations from each audit in yellow, our answers in green, and potential solutions in pink. ",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "*Adaptive vs. Fixed system:* we made the columns editable as necessary by managers so that maintenance can be performed.\nWhose fitness the interface optimizes for: we realized the dashboard must serve two core users: RCs in the moment, and institutional management in aggregate. \n\n*Surveillance:* we removed all columns that could be used to punish RC’s (eg. work arrival time). \nLabor of the “janitor”: we visually and materially show it by crediting editors within the pips, showing the work of managers in sustaining the system. ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/maintenance.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "Provocations from each audit in yellow, our answers in green, and potential solutions in pink. ",
+      "isCaption": true
+    },
+    {
+      "type": "text",
+      "content": "**Final Dashboard**\n\nWe wrote a Product Requirements Document (PRD) and worked with Gemini to build a working prototype of the dashboard, which you can play with [here](https://rc-dashboard-179957537949.us-west1.run.app). ",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/pour/Pour Dashboard.png",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "content": "**Core Operational Features**\n\n*System Health Engine:* A prominent, real-time percentage score that monitors facility-wide task completion. It dynamically calculates \"health\" by tallying up all the tasks that need to be done, checking their deadlines to see if it is appropriate that they are still undone, and calculating the percentage completed.\n\n*Multiple Temporal Scales:* the dashboard integrates daily tasks with long-term care goals so that it’s actually used by all stakeholders across the institution on a daily basis. \n\n*Multi-Stage Therapy Tracking:* Specialized \"pips\" for clinical sessions (Group/Individual) that use a 5-stage visual progression rather than a simple checkbox, reflecting the incremental nature of therapy.\n\n*Contextual Role Switching:* A role-aware interface that allows users to toggle between views for RCs, Managers, Owners, and Counselors, ensuring the right dashboard access for each role. This also allows different users to get credit for maintenance of the system.\n\n*Justification System:* An integrated note-taking dialogue that allows staff to provide immediate explanations for missed goals or overdue tasks. If the same task has been deprioritized repeatedly, this gives the manager a way to see and understand the root cause.\n\n*Dynamic Column Reordering:* A fully adjustable header using drag-and-drop, allowing facilities to prioritize the specific metrics that matter most for the current conditions. The dashboard’s responsiveness is integral to ongoing maintenance and repair, affording flexibility to its users.\n\n*Management Report:* A daily, weekly, and monthly report is sent to the managers with the system’s health, as well as core metrics about the lapses in care in the system. This gives them both a high-level and granular view to know in real time if and why the system is straining – and whether it can be solved through hiring, retraining, or other forms of resource management. \n",
+      "align": "none"
+    }
+  ],
+  "medium": "Web",
+  "tags": [
+    "Care",
+    "Counselling",
+    "Clinical",
+    "Systems",
+    "Manifesto"
+  ],
   "axes": {
-    "pragmatic": 0.5,
-    "institutional": 0.5
+    "pragmatic": 0.77,
+    "institutional": 0.64
   },
-  "thumbnail": "assets/projects/pour/thumb.jpg",
+  "thumbnail": "assets/projects/pour/watercolor-hero.jpg",
+  "hero": "assets/projects/pour/watercolor-hero.jpg",
   "liveUrl": null,
   "sourceUrl": null,
-  "images": [],
+  "files": [],
+  "images": [
+    "assets/projects/pour/EarlyManifesto.png",
+    "assets/projects/pour/care watercolors.jpg",
+    "assets/projects/pour/CEDC System map leverage.jpg",
+    "assets/projects/pour/Care Systems Map.jpg",
+    "assets/projects/pour/SpeculativeFutures.JPG",
+    "assets/projects/pour/JourneyMap.JPG",
+    "assets/projects/pour/RC Task Urgency Map.jpeg",
+    "assets/projects/pour/SystemsMapTime.JPG",
+    "assets/projects/pour/RCDashboardSketch.JPG",
+    "assets/projects/pour/Interfaces.JPG",
+    "assets/projects/pour/Pour Dashboard.png",
+    "assets/projects/pour/Pour Care Manifesto Final.png",
+    "assets/projects/pour/CareAudit1.png",
+    "assets/projects/pour/discrimination.png",
+    "assets/projects/pour/perception.png",
+    "assets/projects/pour/maintenance.png",
+    "assets/projects/pour/watercolor-hero.jpg"
+  ],
   "videos": [],
   "awards": [],
-  "who": []
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Systems Designer"
+    },
+    {
+      "name": "Julia Mattis",
+      "url": "https://www.instagram.com/windowsill.bakery/",
+      "role": "Systems Designer"
+    }
+  ]
 }

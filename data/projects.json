@@ -52,21 +52,58 @@
     "id": "pour",
     "title": "Pour",
     "year": 2026,
-    "tagline": "",
+    "tagline": "Systems design intervention for eating disorder care facility",
     "axes": {
-      "pragmatic": 0.5,
-      "institutional": 0.5
+      "pragmatic": 0.77,
+      "institutional": 0.64
     },
-    "thumbnail": "assets/projects/pour/thumb.jpg",
-    "tags": [],
-    "month": 6,
+    "thumbnail": "assets/projects/pour/watercolor-hero.jpg",
+    "tags": [
+      "Care",
+      "Counselling",
+      "Clinical",
+      "Systems",
+      "Manifesto"
+    ],
+    "month": 4,
     "liveUrl": null,
     "sourceUrl": null,
-    "images": [],
+    "images": [
+      "assets/projects/pour/EarlyManifesto.png",
+      "assets/projects/pour/care watercolors.jpg",
+      "assets/projects/pour/CEDC System map leverage.jpg",
+      "assets/projects/pour/Care Systems Map.jpg",
+      "assets/projects/pour/SpeculativeFutures.JPG",
+      "assets/projects/pour/JourneyMap.JPG",
+      "assets/projects/pour/RC Task Urgency Map.jpeg",
+      "assets/projects/pour/SystemsMapTime.JPG",
+      "assets/projects/pour/RCDashboardSketch.JPG",
+      "assets/projects/pour/Interfaces.JPG",
+      "assets/projects/pour/Pour Dashboard.png",
+      "assets/projects/pour/Pour Care Manifesto Final.png",
+      "assets/projects/pour/CareAudit1.png",
+      "assets/projects/pour/discrimination.png",
+      "assets/projects/pour/perception.png",
+      "assets/projects/pour/maintenance.png",
+      "assets/projects/pour/watercolor-hero.jpg"
+    ],
     "videos": [],
     "awards": [],
-    "who": [],
-    "label": "red"
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Systems Designer"
+      },
+      {
+        "name": "Julia Mattis",
+        "url": "https://www.instagram.com/windowsill.bakery/",
+        "role": "Systems Designer"
+      }
+    ],
+    "label": "green",
+    "medium": "Web",
+    "hero": "assets/projects/pour/watercolor-hero.jpg"
   },
   {
     "id": "chillbrow",
