@@ -91,7 +91,7 @@
     {
       "type": "text",
       "content": "The 3D graph was the most technically ambitious piece, but because Claude handled (most of) the code, I could focus on the user interface and iterate until a non-native-3D-user could navigate it without getting lost. Three.js prisms are positioned by axis values and year, with a perspective camera that responds to scroll and touch. Getting the labels to stay readable at every zoom level, the tiles to load in spatial order, and the mobile experience to feel intentional (not just \"desktop shrunk down\") took about a dozen separate debugging sessions.",
-      "align": "left"
+      "align": "none"
     },
     {
       "type": "image",
