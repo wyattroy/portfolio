@@ -150,31 +150,28 @@
 
     function videoUrl(v) { return typeof v === 'string' ? v : (v?.url || ''); }
 
-    function videoEmbedUrl(url, { autoplay = false } = {}) {
+    function videoEmbedUrl(url) {
       // Normalize missing protocol so bare domain URLs still match
       const u = /^https?:\/\//.test(url) ? url : 'https://' + url;
       const vimeo = u.match(/vimeo\.com\/(\d+)(?:\/([a-zA-Z0-9]+))?/);
       if (vimeo) {
         const hash = vimeo[2] ? `&h=${vimeo[2]}` : '';
-        return `https://player.vimeo.com/video/${vimeo[1]}?color=C4603A${hash}${autoplay ? '&background=1&autoplay=1&muted=1&loop=1&playsinline=1' : ''}`;
+        return `https://player.vimeo.com/video/${vimeo[1]}?color=C4603A${hash}`;
       }
       const ytShorts = u.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]+)/);
-      if (ytShorts) return `https://www.youtube.com/embed/${ytShorts[1]}${autoplay ? '?autoplay=1&mute=1&playsinline=1' : ''}`;
+      if (ytShorts) return `https://www.youtube.com/embed/${ytShorts[1]}`;
       const yt = u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]+)/);
       if (yt) {
         const t = u.match(/[?&]t=(\d+)s?/);
         const base = `https://www.youtube.com/embed/${yt[1]}`;
-        const params = [];
-        if (t) params.push('start=' + t[1]);
-        if (autoplay) params.push('autoplay=1', 'mute=1', 'playsinline=1');
-        return base + (params.length ? '?' + params.join('&') : '');
+        return base + (t ? '?start=' + t[1] : '');
       }
       const ytEmbed = u.match(/youtube\.com\/embed\/([A-Za-z0-9_-]+)/);
-      if (ytEmbed) return `https://www.youtube.com/embed/${ytEmbed[1]}${autoplay ? '?autoplay=1&mute=1&playsinline=1' : ''}`;
+      if (ytEmbed) return `https://www.youtube.com/embed/${ytEmbed[1]}`;
       const twitch = u.match(/twitch\.tv\/videos\/(\d+)/);
       if (twitch) {
         const parent = window.location.hostname || 'wyattroy.com';
-        return `https://player.twitch.tv/?video=${twitch[1]}&parent=${parent}&autoplay=${autoplay ? 'true' : 'false'}${autoplay ? '&muted=true' : ''}`;
+        return `https://player.twitch.tv/?video=${twitch[1]}&parent=${parent}&autoplay=false`;
       }
       if (u.includes('player.vimeo.com') || u.includes('player.twitch.tv')) return u;
       return null;
@@ -376,16 +373,17 @@
       section.className = 'pp-comment-section';
       section.innerHTML = `
         <hr class="pp-sep">
-        <div class="pp-section-label">CONVERSATION</div>
+        <div class="pp-section-label">REACTIONS</div>
         <div id="pp-comment-list"><p class="pp-comment-loading">Loading…</p></div>
-        <div class="pp-section-label" style="margin-top:3em">ADD TO THE CONVERSATION</div>
+        <div class="pp-section-label" style="margin-top:3em">Leave a reaction</div>
         <form class="pp-comment-form" id="new-comment-form" novalidate>
+          <textarea name="comment" placeholder="What does this project make you think of? Share a reference or a reflection…" required maxlength="2000" rows="4"></textarea>
+          <input type="url" name="link" placeholder="A link to your own work (optional)" maxlength="500">
           <div class="pp-comment-form-row">
             <input type="text" name="name" placeholder="Your name" required maxlength="100" autocomplete="name">
-            <input type="email" name="email" placeholder="Email (kept private)" required maxlength="200" autocomplete="email">
+            <input type="email" name="email" placeholder="Email (not published)" required maxlength="200" autocomplete="email">
           </div>
-          <input type="url" name="link" placeholder="A link to your work (optional)" maxlength="500">
-          <textarea name="comment" placeholder="Share a reference, reflection, or connection to this work…" required maxlength="2000" rows="4"></textarea>
+          <p class="pp-comments-empty">Your email just lets me know you're a real person, and helps me reach out to you to respond - it isn't published with your comment.</p>
           <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
             <button type="submit" class="pp-comment-form-submit">Add to the conversation</button>
@@ -405,7 +403,7 @@
 
       const myTokens = getMyTokens();
       if (!comments || comments.length === 0) {
-        listEl.innerHTML = '<p class="pp-comments-empty">No references yet — be the first to add one.</p>';
+        listEl.innerHTML = '<p class="pp-comments-empty">This space is yours - react to this project or talk about your own related work!</p>';
       } else {
         listEl.innerHTML = '';
         for (const c of comments) {
@@ -797,7 +795,7 @@
       let heroHtml = '';
       const firstVideo = videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false);
       if (firstVideo) {
-        const embedUrl = videoEmbedUrl(videoUrl(firstVideo), { autoplay: true });
+        const embedUrl = videoEmbedUrl(videoUrl(firstVideo));
         heroHtml = `<div class="pp-hero pp-hero-video">
           <iframe src="${esc(embedUrl)}" allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen title="${esc(p.title)} video"></iframe>
