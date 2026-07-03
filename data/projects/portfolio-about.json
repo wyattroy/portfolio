@@ -18,13 +18,18 @@
   "why": [
     {
       "type": "text",
-      "content": "**I am a designer, educator, and researcher working at the intersection of technology, narrative, and systems change.**\n\n<– When my brow isn't furrowed as I try to puzzle through a design challenge, I often look like this. \n\nI think our lives are most fun when they are playful, creative, and agentic. \n\nI think work is most fulfilling when it is self-motivated by internal curiosity, not externally coerced through punishments and rewards. \n\nI think learning, failing, and iterating are three of the best ways to spend our time. And I think that the only things more important than doing those are laughing, listening to feedback, and cuddling our loved ones. ",
+      "content": "**I am a designer, educator, and researcher working at the intersection of technology, narrative, and systems change.**\n\nI think our lives are most fun when they are playful, creative, and agentic. \n\nI think work is most fulfilling when it is self-motivated by internal curiosity, not externally coerced through punishments and rewards. \n\nI think learning, failing, and iterating are three of the best ways to spend our time. \n\nAnd I think that the only things more important than doing those are laughing, listening to feedback, and cuddling our loved ones. ",
       "align": "right"
     },
     {
       "type": "image",
       "src": "assets/projects/portfolio-about/wyatt-headshot.jpg",
       "align": "left"
+    },
+    {
+      "type": "text",
+      "content": "When my brow isn't furrowed as I try to puzzle through a design challenge, I often look like this. \n",
+      "isCaption": true
     },
     {
       "type": "text",
@@ -42,7 +47,8 @@
     },
     {
       "type": "text",
-      "content": "*An early prototype*"
+      "content": "An early prototype",
+      "isCaption": true
     },
     {
       "type": "text",
@@ -55,8 +61,9 @@
     },
     {
       "type": "text",
-      "content": "*A later prototype*",
-      "align": "none"
+      "content": "A later prototype",
+      "align": "left",
+      "isCaption": true
     },
     {
       "type": "text",
@@ -69,7 +76,8 @@
     },
     {
       "type": "text",
-      "content": "*The current site*"
+      "content": "The current site",
+      "isCaption": true
     },
     {
       "type": "text",
