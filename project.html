@@ -635,8 +635,8 @@
           const capText = captionBlock ? captionBlock.content : block.caption;
           const cap = capText?.trim() ? `<figcaption>${formatText(capText)}</figcaption>` : '';
           parts.push(`<figure class="pp-inline-img${alignClass}"${clearStyle} data-lightbox-inline>
-            <img src="${esc(block.src)}" alt="${esc(block.alt || title || '')}" loading="lazy"
-              onerror="this.closest('figure').style.display='none'">${cap}
+            <span class="pp-img-frame"><img src="${esc(block.src)}" alt="${esc(block.alt || title || '')}" loading="lazy"
+              onerror="this.closest('figure').style.display='none'"></span>${cap}
           </figure>`);
         }
       }
@@ -661,8 +661,8 @@
         case 'image': {
           const cap = sec.caption ? `<figcaption>${esc(sec.caption)}</figcaption>` : '';
           return `<figure class="pp-image">
-            <img src="${esc(sec.src)}" alt="${esc(sec.alt || title)}" loading="lazy"
-              onerror="this.closest('figure').style.display='none'">${cap}
+            <span class="pp-img-frame"><img src="${esc(sec.src)}" alt="${esc(sec.alt || title)}" loading="lazy"
+              onerror="this.closest('figure').style.display='none'"></span>${cap}
           </figure>`;
         }
         case 'images': {
