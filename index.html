@@ -70,6 +70,15 @@
   <section id="work" aria-label="Project portfolio">
     <div class="work-header">
       <h2>Work</h2>
+      <div class="footer-notify">
+        <p class="footer-notify-label">Get an email when a new project goes up.</p>
+        <form class="footer-notify-form" id="footer-notify-form">
+          <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
+          <button type="submit" class="cta-btn primary">Notify me</button>
+        </form>
+        <p class="footer-notify-status" id="footer-notify-status"></p>
+      </div>
     </div>
 
     <div id="tag-filters" role="group" aria-label="Filter by category">
@@ -91,15 +100,6 @@
   <!-- Footer -->
   <footer>
     <p>Wyatt Roy &middot; <span id="footer-email-hint" aria-label="Email contact"></span></p>
-    <div class="footer-notify">
-      <p class="footer-notify-label">Get an email when a new project goes up.</p>
-      <form class="footer-notify-form" id="footer-notify-form">
-        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
-        <button type="submit" class="cta-btn primary">Notify me</button>
-      </form>
-      <p class="footer-notify-status" id="footer-notify-status"></p>
-    </div>
   </footer>
   </div>
 

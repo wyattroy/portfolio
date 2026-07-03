@@ -12,7 +12,7 @@ const email = emailParts.join('@');
 
 // ─── New-project notify signup (Formspree) ───────────────────────────────────
 // Create a form at https://formspree.io and paste its endpoint below.
-const NEW_PROJECT_NOTIFY_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
+const NEW_PROJECT_NOTIFY_ENDPOINT = 'https://formspree.io/f/xaqgajpd';
 
 // ─── Scroll position save/restore ────────────────────────────────────────────
 const SCROLL_KEY = 'wyattroy-index-scrollY';
