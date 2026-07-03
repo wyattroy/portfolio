@@ -81,7 +81,6 @@
       "assets/projects/pour/Interfaces.JPG",
       "assets/projects/pour/Pour Dashboard.png",
       "assets/projects/pour/Pour Care Manifesto Final.png",
-      "assets/projects/pour/CareAudit1.png",
       "assets/projects/pour/discrimination.png",
       "assets/projects/pour/perception.png",
       "assets/projects/pour/maintenance.png",
@@ -99,6 +98,11 @@
         "name": "Julia Mattis",
         "url": "https://www.instagram.com/windowsill.bakery/",
         "role": "Systems Designer"
+      },
+      {
+        "name": "Justin Cook",
+        "url": "https://complexity.risd.edu/",
+        "role": "Advisor"
       }
     ],
     "label": "green",

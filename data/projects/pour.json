@@ -22,7 +22,7 @@
     },
     {
       "type": "text",
-      "content": "System change requires more than just a new product to be designed. The product must be valued, adopted, and maintained. We recognized a need to express the problem – and the solution – in an emotional, clear way to a variety of stakeholders. In addition to the product we created two artifacts: an *ukiyo-e* style watercolor triptych showing the condition of RCs today, the solution in the middle, and the condition of RCs in the future. ",
+      "content": "System change requires more than just a new product to be designed. The product must be valued, adopted, and maintained. We recognized a need to express the problem – and the solution – in an emotional, clear way to a variety of stakeholders. In addition to the product we created additional artifacts including an *ukiyo-e* style watercolor triptych showing the condition of RCs today, the solution in the middle, and the condition of RCs in the future. ",
       "align": "none"
     },
     {
@@ -53,7 +53,7 @@
   "why": [
     {
       "type": "text",
-      "content": "A normal day for a residential counsellor (RC) at an eating disorder facility may look like this:\nOne patient intentionally cut themselves with metal blinds from the windows and had to be taken to the ER. Another patient revealed they were homicidal and told their therapist the exact ways they would kill other patients and counsellors. Another had such low blood pressure they were technically dead. \n\nThe next day you wake up before dawn and check your phone for updates on these patients from the overnight shift. When you arrive, you learn that for the next nine hours you have to run an entire floor of the facility alone – caring for up to ten times as many of these patients as you're supposed to –  because nobody else has been certified to distribute medication, your boss just quit from burn-out, and everyone else called out “sick” with the bug that you got from them. You’re paid $17/hour – less than counter staff at the Dominos around the corner. \n\nJulia was one of these counsellors. She saw first-hand how care fails in a system designed to distribute it. "
+      "content": "Imagine for a moment that you are a residential counsellor (RC) at an eating disorder facility. Yesterday may have looked like this:\n\nOne patient intentionally cut themselves with metal blinds from the windows and had to be taken to the ER. Another patient revealed they were homicidal and told their therapist the exact ways they would kill other patients and counsellors. Another had such low blood pressure they were technically dead.\n\nSo today, you wake up before dawn and check your phone for updates on these patients from the overnight shift, and see they are all back in the facility. When you arrive, you learn that for the next nine hours you have to run an entire floor alone – caring for up to ten times as many of these patients as you're supposed to –  because nobody else has been certified to distribute medication, your boss just quit from burn-out, and everyone else called out “sick” with the flu that you also got from them – you just are fighting through the symptoms to show up, because someone has to. And you’re paid $17/hour – less than counter staff at the Dominos around the corner.\n\nJulia was one of these counsellors. She saw first-hand how care fails in a system designed to distribute it. So we decided to see what we could come up with. "
     },
     {
       "type": "image",
@@ -74,7 +74,7 @@
   "how": [
     {
       "type": "text",
-      "content": "**Manifesto**\n\nThe manifesto was our north star. In my past film work, I would have written a 'brief' – this served the same purpose, although we modified, edited, and rewrote it throughout the project as our understanding of the system developed. ",
+      "content": "**Manifesto**\n\nThe manifesto was our north star. In my filmmaking work, I usually write a 'brief' – a pithy statement that distills the core insight behind the project and gives it direciton. This manifesto served the same purpose; although unlike a brief, we modified, edited, and rewrote it throughout the project as our understanding of the system developed. ",
       "align": "left"
     },
     {
@@ -125,7 +125,7 @@
     {
       "type": "image",
       "src": "assets/projects/pour/SpeculativeFutures.JPG",
-      "align": "none"
+      "align": "right"
     },
     {
       "type": "text",
@@ -134,13 +134,13 @@
     },
     {
       "type": "text",
-      "content": "**Manifesto Revision**\n\nAnother designer suggested a metaphor for care to us – water – and we realized that it could unlock our entire understanding of the system if we extended the analogy of care as a good that flows in and out of nodes in a system. We re-wrote our manifesto to explore this idea.",
+      "content": "**Manifesto Revision**\n\n[Prasanthi Cottingham](https://www.linkedin.com/in/prasanthi-cottingham/), an urban planner, suggested a metaphor for care to us – water – and we realized that it could unlock our entire understanding of the system if we extended the analogy of care as a good that flows in and out of nodes in a system. We re-wrote our manifesto to explore this idea.",
       "align": "left"
     },
     {
       "type": "image",
       "src": "assets/projects/pour/Pour Care Manifesto Final.png",
-      "align": "none"
+      "align": "right"
     },
     {
       "type": "text",
@@ -150,7 +150,7 @@
     {
       "type": "image",
       "src": "assets/projects/pour/SystemsMapTime.JPG",
-      "align": "none"
+      "align": "right"
     },
     {
       "type": "text",
@@ -175,7 +175,7 @@
     {
       "type": "image",
       "src": "assets/projects/pour/RCDashboardSketch.JPG",
-      "align": "none"
+      "align": "right"
     },
     {
       "type": "text",
@@ -200,7 +200,7 @@
     {
       "type": "image",
       "src": "assets/projects/pour/discrimination.png",
-      "align": "none"
+      "align": "right"
     },
     {
       "type": "text",
@@ -268,7 +268,6 @@
     "assets/projects/pour/Interfaces.JPG",
     "assets/projects/pour/Pour Dashboard.png",
     "assets/projects/pour/Pour Care Manifesto Final.png",
-    "assets/projects/pour/CareAudit1.png",
     "assets/projects/pour/discrimination.png",
     "assets/projects/pour/perception.png",
     "assets/projects/pour/maintenance.png",
@@ -286,6 +285,11 @@
       "name": "Julia Mattis",
       "url": "https://www.instagram.com/windowsill.bakery/",
       "role": "Systems Designer"
+    },
+    {
+      "name": "Justin Cook",
+      "url": "https://complexity.risd.edu/",
+      "role": "Advisor"
     }
   ]
 }
