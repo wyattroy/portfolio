@@ -3,7 +3,7 @@
   "title": "MDes NPS Study",
   "year": 2026,
   "month": 3,
-  "tagline": "Net Promoter Score survey of Harvard MDes — score of -16, driving program reform",
+  "tagline": "Harvard design masters program research finding a Net Promoter Score of -16",
   "what": [
     {
       "type": "text",
@@ -59,6 +59,7 @@
   "hero": "assets/projects/mdes-nps/graph.jpg",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/mdes-nps/MDes NPS Description.jpg",
     "assets/projects/mdes-nps/img1.jpg",

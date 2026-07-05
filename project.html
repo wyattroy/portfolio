@@ -7,7 +7,7 @@
   <meta name="description" content="Wyatt Roy — Project">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400;500&display=block" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400;500&display=block" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -68,7 +68,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script type="module">
-    import { MEDIUM_COLORS } from './medium-colors.js';
+    import { MEDIUM_COLORS, mediumBadgeStyle } from './medium-colors.js';
     import { initSearchSuggestions } from './search-suggestions.js';
 
     // ── Utilities ──────────────────────────────────────────────────────────────
@@ -117,10 +117,10 @@
       const right = pragmatic >= 0.5;
       const top = institutional >= 0.5;
       const quadColors = {
-        tl: top && !right ? 'var(--color-q-sp)' : '#DDD5C4',
-        tr: top && right ? 'var(--color-q-si)' : '#DDD5C4',
-        bl: !top && !right ? 'var(--color-q-ip)' : '#DDD5C4',
-        br: !top && right ? 'var(--color-q-ii)' : '#DDD5C4',
+        tl: top && !right ? 'var(--color-q-sp)' : '#E2E1DC',
+        tr: top && right ? 'var(--color-q-si)' : '#E2E1DC',
+        bl: !top && !right ? 'var(--color-q-ip)' : '#E2E1DC',
+        br: !top && right ? 'var(--color-q-ii)' : '#E2E1DC',
       };
       return `<svg class="quadrant-indicator" viewBox="0 0 20 20" aria-hidden="true" title="Quadrant: ${getQuadrantName(pragmatic, institutional)}">
         <rect x="1" y="1" width="8" height="8" rx="1.5" fill="${quadColors.tl}"/>
@@ -156,7 +156,7 @@
       const vimeo = u.match(/vimeo\.com\/(\d+)(?:\/([a-zA-Z0-9]+))?/);
       if (vimeo) {
         const hash = vimeo[2] ? `&h=${vimeo[2]}` : '';
-        return `https://player.vimeo.com/video/${vimeo[1]}?color=C4603A${hash}`;
+        return `https://player.vimeo.com/video/${vimeo[1]}?color=5578A0${hash}`;
       }
       const ytShorts = u.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]+)/);
       if (ytShorts) return `https://www.youtube.com/embed/${ytShorts[1]}`;
@@ -839,7 +839,7 @@
       const tagsHtml = (p.tags || []).map(t => `<span class="card-tag">${esc(t)}</span>`).join('');
       const categoryHtml = (p.categories || []).map(c => `<span class="card-tag">${esc(c)}</span>`).join('');
       const mediumBadge = (p.medium && MEDIUM_COLORS[p.medium])
-        ? `<span class="medium-badge" style="background:${MEDIUM_COLORS[p.medium]};margin-right:8px;">${esc(p.medium)}</span>` : '';
+        ? `<span class="medium-badge" style="${mediumBadgeStyle(MEDIUM_COLORS[p.medium])};margin-right:8px;">${esc(p.medium)}</span>` : '';
       // Body sections
       let bodyHtml;
       if (p.sections && p.sections.length) {
@@ -1020,8 +1020,12 @@
       const idx = sorted.findIndex(p => p.id === currentId);
       if (idx === -1 || sorted.length <= 1) return;
 
-      const prev = idx > 0 ? sorted[idx - 1] : sorted[sorted.length - 1];
-      const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
+      // sorted is newest-first, so a lower index is more recent ("next" in time)
+      // and a higher index is older ("previous" in time). Both directions wrap.
+      const isOldest = idx === sorted.length - 1;
+      const isNewest = idx === 0;
+      const next = !isNewest ? sorted[idx - 1] : sorted[sorted.length - 1];
+      const prev = !isOldest ? sorted[idx + 1] : sorted[0];
       if (!prev && !next) return;
 
       // Fetch individual project files for prev/next to pick up their thumbnails
@@ -1034,7 +1038,9 @@
 
       function miniCard(p, dir) {
         const url = `project.html#${esc(p.id)}`;
-        const label = dir === 'next' ? 'Next →' : (idx === 0 ? '← Back to last' : '← Previous');
+        const label = dir === 'next'
+          ? (isNewest ? 'Back to earliest →' : 'Next →')
+          : (isOldest ? '← Back to latest' : '← Previous');
         const alignClass = dir === 'next' ? ' pp-nav-card--next' : '';
         const thumbHtml = `<div class="pp-nav-thumb-wrap">${
           p.thumbnail

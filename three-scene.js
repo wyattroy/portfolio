@@ -13,21 +13,40 @@ const YEAR_MAX = 2027;
 const AXIS_RANGE = 5; // ±5 units
 
 // Z depth range: oldest at z=0 (target), newest closer to camera — all positive Z
-const Z_NEAR = 20;   // newest projects (2026) — must be < CAM_ZOOM_IN.z
+const Z_NEAR = 20;   // newest projects (2026) — must be < ZOOM_MIN_DIST
 const Z_FAR  =  0;   // oldest projects (2016) — sits at the camera target
 
-// Scale: half the old values — hover enlarges back to full size
-const SCALE_OLD = 0.3;
-const SCALE_NEW = 1;
+// ─── Tile size & hover ──────────────────────────────────────────────────────
+// All tiles are the same actual size — only perspective distance makes older
+// (farther) tiles look smaller. Change TILE_SCALE to resize every tile.
+const TILE_SCALE = 1.0;
 
-// Camera zoom range: scroll up past load state → CAM_ZOOM_IN; scroll down → CAM_END
-const CAM_ZOOM_IN = new THREE.Vector3(0, 0.5, 5);   // maximum zoom-in — must be > Z_NEAR
-const CAM_END     = new THREE.Vector3(0, 0.5, 33);   // maximum zoom-out (scroll down limit)
-const CAM_TARGET  = new THREE.Vector3(0, 0,  0);   // world origin (oldest projects end)
+// Hover: tile grows to baseScale * TILE_HOVER_SCALE. Speed is a spring —
+// higher stiffness = faster grow/shrink, higher damping = less bounce/overshoot.
+const TILE_HOVER_SCALE      = 1.2;
+const TILE_HOVER_STIFFNESS  = 1.0;
+const TILE_HOVER_DAMPING    = 0.6;
 
-// Fraction (0 = max zoom in, 1 = max zoom out) where the page loads.
-// 0.35 ≈ the old CAM_START face-on position; raise to load more zoomed-out.
-const ZOOM_LOAD_FRAC = 0.26;
+// ─── Zoom tuning (camera distance driven by scroll / wheel / touch) ───────────
+// Everything about how the 3D graph zooms is controlled from these consts —
+// change these to adjust zoom range, speed, or springiness.
+const ZOOM_MIN_DIST  = 5;    // closest the camera can get (max zoom-in) — must be > Z_NEAR
+const ZOOM_MAX_DIST  = 33;   // farthest the camera can get (max zoom-out)
+const ZOOM_LOAD_FRAC = 0.26; // 0 (max zoom-in) to 1 (max zoom-out) — where the page loads
+
+// How much input is needed to go from min to max zoom. Lower = faster zoom.
+const ZOOM_SPEED_PX          = window.innerHeight * 0.6; // scroll px for a full min→max zoom
+const ZOOM_WHEEL_SPEED       = 1;   // multiplier on mouse wheel deltaY
+const ZOOM_TOUCH_DRAG_SPEED  = 1.5; // multiplier on single-finger vertical swipe
+const ZOOM_TOUCH_PINCH_SPEED = 2;   // multiplier on two-finger pinch distance change
+
+// Zoom spring feel — higher stiffness = snappier response, higher damping = less bounce/overshoot
+const ZOOM_STIFFNESS = 0.8;
+const ZOOM_DAMPING   = 0.8;
+
+const CAM_ZOOM_IN = new THREE.Vector3(0, 0.5, ZOOM_MIN_DIST);
+const CAM_END     = new THREE.Vector3(0, 0.5, ZOOM_MAX_DIST);
+const CAM_TARGET  = new THREE.Vector3(0, 0,  0); // world origin (oldest projects end)
 
 // Z position of the "time" axis label (0 = oldest/far end, Z_NEAR = newest/close end)
 const TIME_LABEL_Z = 2;
@@ -46,10 +65,6 @@ const LABEL_MARGIN = 80;
 const DRAG_STIFFNESS   = 0.8;
 const DRAG_DAMPING     = 0.8;
 
-// Scroll/zoom spring feel
-const SCROLL_STIFFNESS = 0.8;
-const SCROLL_DAMPING   = 0.8;
-
 // ─── Entry animation ──────────────────────────────────────────────────────────
 const ENTRY_FADE_MS      = 500;  // how long each fade-in lasts (ms)
 const ENTRY_SLIDE_PX     = 30;   // how far labels slide along their axis while fading in
@@ -57,15 +72,13 @@ const TIME_LABEL_LERP    = 0.08; // how fast the time label fades in/out (0=inst
 
 // Delay (ms) before each label fades in — adjust to re-sequence the reveal
 const LABEL_REVEAL_MS = {
-  'label-design-intent':  1000,
-  'label-pragmatic':      2000,
-  'label-poetic':         2000,
-  'label-system-scale':   3000,
-  'label-institutional':  4000,
-  'label-individual':     4000,
+  'label-pragmatic':      1000,
+  'label-poetic':         1000,
+  'label-institutional':  2000,
+  'label-individual':     2000,
 };
 
-const CARD_REVEAL_START_MS = 4500; // when the first card starts fading in
+const CARD_REVEAL_START_MS = 2500; // when the first card starts fading in
 const CARD_REVEAL_STEP_MS  = 100;  // stagger between each subsequent card
 const TEXTURE_FADE_MS      = 220;  // repeat visits: crossfade thumbnail in instead of popping
 
@@ -95,10 +108,13 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   const hoverLabel = document.getElementById('project-hover-label');
   const isMobile = window.innerWidth < 768;
   const effectiveLabelMargin = isMobile ? 44 : LABEL_MARGIN;
+  // Top margin must clear the fixed nav bar (and its search input) so the
+  // "Institutional" endpoint label never renders underneath it on mobile.
+  const effectiveLabelMarginTop = isMobile ? 84 : LABEL_MARGIN;
 
   // Scene
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color('#F5F1E6');
+  scene.background = new THREE.Color('#FFFFFF');
 
   // Renderer
   const renderer = new THREE.WebGLRenderer({
@@ -121,7 +137,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   camera.lookAt(CAM_TARGET);
 
   // ─── Lighting ───────────────────────────────────────────────────────────────
-  const ambientLight = new THREE.AmbientLight('#F5EDE0', 3.8);
+  const ambientLight = new THREE.AmbientLight('#F5F5F3', 3.0);
   scene.add(ambientLight);
 
   // ─── Grid lines ─────────────────────────────────────────────────────────────
@@ -136,7 +152,47 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   // ─── Project prisms ─────────────────────────────────────────────────────────
   const prismMeshes = [];
   const meshToProject = new Map();
-  const textureLoader = new THREE.TextureLoader();
+
+  // Source thumbnails range up to 6000×6000px, but each tile face renders at only a
+  // few hundred px on screen. Two costs stack on the naive img.onload → drawImage
+  // path: (1) the browser defers the actual JPEG decode until the first synchronous
+  // use, which blocks the main thread for the full decode time (~500-750ms measured
+  // on the largest source image) — img.decode() does that same decode off-thread,
+  // async, so awaiting it first keeps the frame loop unblocked; (2) uploading a
+  // full-res image straight to the GPU (plus its mipmap chain) is its own multi-frame
+  // stall, avoided by drawing into a small, pre-cropped canvas before it ever
+  // becomes a texture.
+  const TILE_FACE_AR = 1.6; // matches the BoxGeometry face below (1.6 : 1.0)
+  const TEX_TARGET_W = 512;
+  const TEX_TARGET_H = Math.round(TEX_TARGET_W / TILE_FACE_AR);
+
+  function loadTileTexture(url, onLoad) {
+    const img = new Image();
+    img.src = url;
+    img.decode().then(() => {
+      const canvas = document.createElement('canvas');
+      canvas.width = TEX_TARGET_W;
+      canvas.height = TEX_TARGET_H;
+      const ctx = canvas.getContext('2d');
+      const imgAR = img.width / img.height;
+      let sx, sy, sw, sh;
+      if (imgAR > TILE_FACE_AR) {
+        // Source wider than face — keep full height, crop width
+        sh = img.height;
+        sw = sh * TILE_FACE_AR;
+        sx = (img.width - sw) / 2;
+        sy = 0;
+      } else {
+        // Source taller than face — keep full width, crop height
+        sw = img.width;
+        sh = sw / TILE_FACE_AR;
+        sx = 0;
+        sy = (img.height - sh) / 2;
+      }
+      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+      onLoad(new THREE.CanvasTexture(canvas));
+    }).catch(() => {}); // silently ignore missing/undecodable thumbnails
+  }
 
   // Fade-in timing — skip on repeat visits
   const VISITED_KEY = 'wyattroy-visited';
@@ -165,10 +221,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     const x = (pragmatic - 0.5) * 2 * AXIS_RANGE;
     const y = (institutional - 0.5) * 2 * AXIS_RANGE;
     const z = projectTimeZ(p); // oldest: near Z_FAR, newest: near Z_NEAR
-    const t = (z - Z_FAR) / (Z_NEAR - Z_FAR);
-
-    // Scale: oldest is 50% the size of newest
-    const scale = SCALE_OLD + t * (SCALE_NEW - SCALE_OLD);
+    const scale = TILE_SCALE;
 
     // Geometry
     const geo = new THREE.BoxGeometry(1.6, 1.0, 0.05);
@@ -176,8 +229,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     // All faces fade in together — per-mesh materials so opacity can animate per-tile.
     // On repeat visits start opaque (no transparency cost at all).
     const initOp = skipEntry ? 1 : 0;
-    const sideMat  = new THREE.MeshLambertMaterial({ color: '#CEC6B4', transparent: !skipEntry, opacity: initOp });
-    const frontMat = new THREE.MeshLambertMaterial({ color: '#EAE6DA', transparent: !skipEntry, opacity: initOp });
+    const sideMat  = new THREE.MeshLambertMaterial({ color: '#D8D8D5', transparent: !skipEntry, opacity: initOp });
+    const frontMat = new THREE.MeshLambertMaterial({ color: '#EDEDEA', transparent: !skipEntry, opacity: initOp });
     const materials = [sideMat, sideMat, sideMat, sideMat, frontMat, sideMat];
 
     const mesh = new THREE.Mesh(geo, materials);
@@ -201,46 +254,23 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       // anyway) just so they crossfade in as a wave rather than all at once.
       const delay = skipEntry ? prismMeshes.length * 15 : prismMeshes.length * 60;
       setTimeout(() => {
-        textureLoader.load(
-          p.thumbnail,
-          texture => {
-            texture.colorSpace = THREE.SRGBColorSpace;
+        loadTileTexture(p.thumbnail, texture => {
+          texture.colorSpace = THREE.SRGBColorSpace;
 
-            // Cover-crop to face AR (1.6 : 1.0) without distortion
-            const faceAR = 1.6;
-            const img = texture.image;
-            if (img && img.width && img.height) {
-              const texAR = img.width / img.height;
-              if (texAR > faceAR) {
-                // Image wider than face — keep full height, crop width
-                const rx = faceAR / texAR;
-                texture.repeat.set(rx, 1);
-                texture.offset.set((1 - rx) / 2, 0);
-              } else {
-                // Image taller than face — keep full width, crop height
-                const ry = texAR / faceAR;
-                texture.repeat.set(1, ry);
-                texture.offset.set(0, (1 - ry) / 2);
-              }
-            }
-
-            const newMats = Array.from(mesh.material);
-            if (entryDone) {
-              // Repeat visits: card is already fully opaque, so crossfade the
-              // thumbnail in over the tile's flat color instead of popping it in.
-              newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: true, opacity: 0 });
-              mesh.material = newMats;
-              mesh.userData.textureFadeStart = performance.now();
-            } else {
-              const op = mesh.userData.cardOpacity;
-              const stillFading = op < 1;
-              newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: stillFading, opacity: op });
-              mesh.material = newMats;
-            }
-          },
-          undefined,
-          () => {} // silently ignore missing thumbnails
-        );
+          const newMats = Array.from(mesh.material);
+          if (entryDone) {
+            // Repeat visits: card is already fully opaque, so crossfade the
+            // thumbnail in over the tile's flat color instead of popping it in.
+            newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: true, opacity: 0 });
+            mesh.material = newMats;
+            mesh.userData.textureFadeStart = performance.now();
+          } else {
+            const op = mesh.userData.cardOpacity;
+            const stillFading = op < 1;
+            newMats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: stillFading, opacity: op });
+            mesh.material = newMats;
+          }
+        });
       }, delay);
     }
 
@@ -267,30 +297,32 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     };
   }
 
-  // Clamp a projected point to stay within screen bounds with a margin
-  function clampToScreen(x, y, margin = LABEL_MARGIN) {
+  // Clamp a projected point to stay within screen bounds with a margin.
+  // marginTop lets the top edge use a larger margin than the other three
+  // (e.g. to clear the fixed nav bar on mobile).
+  function clampToScreen(x, y, margin = LABEL_MARGIN, marginTop = margin) {
     const w = canvas.offsetWidth;
     const h = canvas.offsetHeight;
     return {
       x: Math.max(margin, Math.min(w - margin, x)),
-      y: Math.max(margin, Math.min(h - margin, y)),
+      y: Math.max(marginTop, Math.min(h - margin, y)),
     };
   }
 
   // Cast a ray from (ox,oy) toward (tx,ty) and return the point where it exits the viewport.
   // Used to pin axis labels to the viewport edge regardless of zoom level.
-  function pinToEdge(ox, oy, tx, ty, margin = LABEL_MARGIN) {
+  function pinToEdge(ox, oy, tx, ty, margin = LABEL_MARGIN, marginTop = margin) {
     const w = canvas.offsetWidth;
     const h = canvas.offsetHeight;
     const dx = tx - ox;
     const dy = ty - oy;
-    if (Math.abs(dx) < 0.001 && Math.abs(dy) < 0.001) return clampToScreen(tx, ty, margin);
+    if (Math.abs(dx) < 0.001 && Math.abs(dy) < 0.001) return clampToScreen(tx, ty, margin, marginTop);
     let tMin = Infinity;
     if (dx > 0) tMin = Math.min(tMin, (w - margin - ox) / dx);
     if (dx < 0) tMin = Math.min(tMin, (    margin - ox) / dx);
     if (dy > 0) tMin = Math.min(tMin, (h - margin - oy) / dy);
-    if (dy < 0) tMin = Math.min(tMin, (    margin - oy) / dy);
-    if (!isFinite(tMin) || tMin < 0) return clampToScreen(tx, ty, margin);
+    if (dy < 0) tMin = Math.min(tMin, (    marginTop - oy) / dy);
+    if (!isFinite(tMin) || tMin < 0) return clampToScreen(tx, ty, margin, marginTop);
     return { x: ox + dx * tMin, y: oy + dy * tMin };
   }
 
@@ -379,7 +411,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       const dist = Math.hypot(t0.clientX - t1.clientX, t0.clientY - t1.clientY);
       const delta = lastPinchDist - dist; // pinch in (+) = zoom out, spread (-) = zoom in
       lastPinchDist = dist;
-      virtualScrollY = Math.max(0, Math.min(SCROLL_DRIVE_PX, virtualScrollY + delta * 2));
+      virtualScrollY = Math.max(0, Math.min(ZOOM_SPEED_PX, virtualScrollY + delta * ZOOM_TOUCH_PINCH_SPEED));
       return;
     }
 
@@ -388,11 +420,14 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     const dy = e.touches[0].clientY - lastPointer.y;
     lastPointer = { x: e.touches[0].clientX, y: e.touches[0].clientY };
 
-    // Vertical drag drives zoom: swipe down = zoom out (higher frac), swipe up = zoom in
-    const newVirtual = virtualScrollY - dy * 1.5;
-    if (scrollFracSpring.current < SCROLL_UNLOCK_FRAC || dy > 0) {
+    // Vertical drag drives zoom: swipe down = zoom out (higher frac), swipe up = zoom in.
+    // Only capture while still at the very top — once the page has scrolled past the
+    // hero, native touch scroll must always win (see the wheel handler below for why).
+    const atTop = window.scrollY === 0;
+    const newVirtual = virtualScrollY - dy * ZOOM_TOUCH_DRAG_SPEED;
+    if (atTop && (scrollFracSpring.current < SCROLL_UNLOCK_FRAC || dy > 0)) {
       e.preventDefault();
-      virtualScrollY = Math.max(0, Math.min(SCROLL_DRIVE_PX, newVirtual));
+      virtualScrollY = Math.max(0, Math.min(ZOOM_SPEED_PX, newVirtual));
     }
 
     // Horizontal drag rotates the scene
@@ -410,32 +445,41 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   // On first visit the user scrolls a short way through the 3D animation before content scrolls.
   // On repeat visits the animation is skipped so scroll is unlocked immediately.
   const SCROLL_UNLOCK_FRAC = 0.95; // zoom fraction at which native page scroll is allowed
-  const SCROLL_DRIVE_PX = window.innerHeight * 0.6;
 
   // Start virtualScrollY at the load fraction so the user can scroll both in and out
-  let virtualScrollY = ZOOM_LOAD_FRAC * SCROLL_DRIVE_PX;
+  let virtualScrollY = ZOOM_LOAD_FRAC * ZOOM_SPEED_PX;
 
   // If the page scroll is restored (returning from a project page), the page will already
   // be scrolled down — meaning the user had previously passed the 3D animation. In that
   // case, immediately jump the spring to its unlocked end state so the card list scrolls
-  // freely. We check now AND on the first scroll event (which covers the rAF delay in
-  // maybeRestoreScroll).
+  // freely. We check now AND on every scroll event until it succeeds — a single check on
+  // the next 'scroll' event isn't reliable (a programmatic scroll, like the smooth
+  // scrollIntoView the nav search input triggers on focus, doesn't reliably dispatch a
+  // 'scroll' event on window in every browser), so a one-shot listener could consume
+  // itself without ever syncing, leaving native scroll wheel-locked even though the page
+  // has since moved.
   function releaseIfScrolled() {
     if (window.scrollY > 0) {
-      virtualScrollY = SCROLL_DRIVE_PX;
+      virtualScrollY = ZOOM_SPEED_PX;
       scrollFracSpring.current = 1;
       scrollFracSpring.target  = 1;
       scrollFracSpring.velocity = 0;
+      window.removeEventListener('scroll', releaseIfScrolled);
     }
   }
   releaseIfScrolled();
-  window.addEventListener('scroll', releaseIfScrolled, { passive: true, once: true });
+  window.addEventListener('scroll', releaseIfScrolled, { passive: true });
 
   window.addEventListener('wheel', e => {
-    const zoomingIn = e.deltaY < 0 && window.scrollY === 0;
-    if (scrollFracSpring.current < SCROLL_UNLOCK_FRAC || zoomingIn) {
+    // Once the page has scrolled away from the very top, never recapture the wheel for
+    // zoom — otherwise a stale/out-of-sync scrollFracSpring can leave scroll permanently
+    // blocked below the hero (see releaseIfScrolled above for how it can go stale).
+    const atTop = window.scrollY === 0;
+    const zoomingIn = e.deltaY < 0 && atTop;
+    const zoomLocked = atTop && scrollFracSpring.current < SCROLL_UNLOCK_FRAC;
+    if (zoomLocked || zoomingIn) {
       e.preventDefault();
-      virtualScrollY = Math.max(0, Math.min(SCROLL_DRIVE_PX, virtualScrollY + e.deltaY));
+      virtualScrollY = Math.max(0, Math.min(ZOOM_SPEED_PX, virtualScrollY + e.deltaY * ZOOM_WHEEL_SPEED));
     }
   }, { passive: false });
 
@@ -472,7 +516,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
         }
         hoveredMesh = mesh;
         const p = meshToProject.get(mesh);
-        mesh.userData.scaleSpring.target = mesh.userData.baseScale * 2.0;
+        mesh.userData.scaleSpring.target = mesh.userData.baseScale * TILE_HOVER_SCALE;
         canvas.style.cursor = 'pointer';
 
         if (hoverLabel) {
@@ -543,9 +587,9 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     driftTime += dt * driftSpeedMul;
 
     // Scroll-driven camera: lerp from face-on to angled as virtualScrollY accumulates
-    const rawFrac = Math.max(0, Math.min(1, virtualScrollY / SCROLL_DRIVE_PX));
+    const rawFrac = Math.max(0, Math.min(1, virtualScrollY / ZOOM_SPEED_PX));
     scrollFracSpring.target = rawFrac;
-    tickSpring(scrollFracSpring, SCROLL_STIFFNESS, SCROLL_DAMPING);
+    tickSpring(scrollFracSpring, ZOOM_STIFFNESS, ZOOM_DAMPING);
     tickSpring(dragTheta, DRAG_STIFFNESS, DRAG_DAMPING);
     tickSpring(dragPhi,   DRAG_STIFFNESS, DRAG_DAMPING);
 
@@ -590,47 +634,11 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       const op = entryOpacity(LABEL_REVEAL_MS[id] ?? 0);
       el.style.opacity = op;
       const fade = 1 - op;
-      const edgePos = pinToEdge(pOrigin.x, pOrigin.y, p.x, p.y, effectiveLabelMargin);
+      const edgePos = pinToEdge(pOrigin.x, pOrigin.y, p.x, p.y, effectiveLabelMargin, effectiveLabelMarginTop);
       placeLabel(el, edgePos.x, edgePos.y, '', entry.x * ENTRY_SLIDE_PX * fade, entry.y * ENTRY_SLIDE_PX * fade);
     });
 
-    // Helper text: anchored in screen space relative to the endpoint labels they describe.
-    // DI = "design intent" (left of Pragmatic), SS = "system scale" (below Institutional)
-    const DI_OFFSET_X = -150; // px left of Pragmatic label
-    const DI_OFFSET_Y = 0;    // px vertical shift from Pragmatic label
-    const SS_OFFSET_X = 0;    // px horizontal shift from Institutional label
-    const SS_OFFSET_Y = 80;   // px below Institutional label
-
-    const xNeg = project3D(new THREE.Vector3(-R, 0, 0), camera);
-    const xPos = project3D(new THREE.Vector3( R, 0, 0), camera);
-    const yNeg = project3D(new THREE.Vector3(0, -R, 0), camera);
-    const yPos = project3D(new THREE.Vector3(0,  R, 0), camera);
-    const zNeg = project3D(new THREE.Vector3(0, 0, Z_FAR),  camera);
-    const zPos = project3D(new THREE.Vector3(0, 0, Z_NEAR), camera);
-
-    const elDI = document.getElementById('label-design-intent');
-    const elSS = document.getElementById('label-system-scale');
-    const elT  = document.getElementById('label-time');
-
-    // "design intent" hovers just left of the Pragmatic (xPos) endpoint label
-    if (elDI && !xPos.behind) {
-      const pinned = pinToEdge(pOrigin.x, pOrigin.y, xPos.x, xPos.y, effectiveLabelMargin);
-      const deg = axisAngleDeg(xNeg, xPos);
-      const opDI = entryOpacity(LABEL_REVEAL_MS['label-design-intent']);
-      placeLabel(elDI, pinned.x + DI_OFFSET_X, pinned.y + DI_OFFSET_Y, `rotate(${deg}deg)`, -ENTRY_SLIDE_PX * (1 - opDI), 0);
-      elDI.style.display = '';
-      elDI.style.opacity = opDI;
-    } else if (elDI) { elDI.style.display = 'none'; }
-
-    // "system scale" hovers just below the Institutional (yPos) endpoint label
-    if (elSS && !yPos.behind) {
-      const pinned = pinToEdge(pOrigin.x, pOrigin.y, yPos.x, yPos.y, effectiveLabelMargin);
-      const deg = axisAngleDeg(yNeg, yPos);
-      const opSS = entryOpacity(LABEL_REVEAL_MS['label-system-scale']);
-      placeLabel(elSS, pinned.x + SS_OFFSET_X, pinned.y + SS_OFFSET_Y, `rotate(${deg}deg)`, 0, ENTRY_SLIDE_PX * (1 - opSS));
-      elSS.style.display = '';
-      elSS.style.opacity = opSS;
-    } else if (elSS) { elSS.style.display = 'none'; }
+    const elT = document.getElementById('label-time');
 
     const tA = project3D(new THREE.Vector3(0, 0, TIME_LABEL_Z), camera);
     const tB = project3D(new THREE.Vector3(0, 0, TIME_LABEL_Z + 1), camera);
@@ -650,7 +658,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 
     // Update prism scale springs + entry fade (all faces together)
     prismMeshes.forEach(mesh => {
-      const s = tickSpring(mesh.userData.scaleSpring);
+      const s = tickSpring(mesh.userData.scaleSpring, TILE_HOVER_STIFFNESS, TILE_HOVER_DAMPING);
       mesh.scale.setScalar(s);
 
       if (!entryDone) {
@@ -731,6 +739,12 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
     }, lastRevealMs);
   }
 
+  // Pre-compile all shader programs before the first visible frame — otherwise
+  // the GPU-driver shader compile happens on the first render() call, landing
+  // right on top of the auto zoom-in animation and causing a visible stutter
+  // (masked on first-ever visit only because content is still fully faded out then).
+  renderer.compile(scene, camera);
+
   animate();
 
   // ── Pause rendering when work section scrolls over the hero ─────────────────
@@ -760,7 +774,7 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   resetBtn.textContent = '⟳ Reset view';
   resetBtn.setAttribute('aria-label', 'Reset visualization to default camera position');
   resetBtn.addEventListener('click', () => {
-    virtualScrollY = ZOOM_LOAD_FRAC * SCROLL_DRIVE_PX;
+    virtualScrollY = ZOOM_LOAD_FRAC * ZOOM_SPEED_PX;
     dragTheta.target = 0;
     dragTheta.current = 0;
     dragTheta.velocity = 0;
@@ -782,8 +796,8 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
 // grid doesn't extend behind the earliest project or stop short of the newest.
 function addGridLines(scene, zMin, zMax) {
   // The 2×2 grid lines (X and Y axes) are the primary visual — make them clear
-  const gridMat = new THREE.LineBasicMaterial({ color: '#B8B0A6', transparent: true, opacity: 0.48 });
-  const vertMat = new THREE.LineBasicMaterial({ color: '#B8B0A6', transparent: true, opacity: 0.38 });
+  const gridMat = new THREE.LineBasicMaterial({ color: '#B4B3AE', transparent: true, opacity: 0.48 });
+  const vertMat = new THREE.LineBasicMaterial({ color: '#B4B3AE', transparent: true, opacity: 0.38 });
 
   const step = 1;
   const count = 12; // X/Y (pragmatic/institutional) extent
@@ -821,7 +835,7 @@ function addGridLines(scene, zMin, zMax) {
   scene.add(new THREE.LineSegments(vGeo, vertMat));
 
   // Main 2×2 dividing axes — the primary visual structure, clearly visible
-  const axisMat = new THREE.LineBasicMaterial({ color: '#8A8078', transparent: true, opacity: 0.55 });
+  const axisMat = new THREE.LineBasicMaterial({ color: '#84827C', transparent: true, opacity: 0.55 });
   const axisPoints = [
     // Horizontal divider (Poetic ↔ Pragmatic)
     new THREE.Vector3(-AXIS_RANGE * 1.4, 0, 0), new THREE.Vector3(AXIS_RANGE * 1.4, 0, 0),

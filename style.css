@@ -2,20 +2,20 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  --color-bg: #F5F1E6;
-  --color-surface: #FDFBF5;
-  --color-text: #1C1810;
-  --color-text-muted: #6B6358;
+  --color-bg: #FFFFFF;
+  --color-surface: #FAFAF9;
+  --color-text: #1A1A18;
+  --color-text-muted: #6B6862;
   --color-accent: #5578A0;
   --color-accent-2: #7A9B8A;
-  --color-border: #DDD5C4;
-  --color-grid: #CEC6B4;
+  --color-border: #E2E1DC;
+  --color-grid: #D8D8D5;
   --color-q-ip: #7FA3C0;
   --color-q-ii: #7FA3C0;
   --color-q-sp: #7FA3C0;
   --color-q-si: #7FA3C0;
 
-  --font-heading: 'DM Serif Display', Georgia, serif;
+  --font-heading: 'Source Serif 4', Georgia, serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'DM Mono', monospace;
 
@@ -450,7 +450,7 @@ h1, h2, h3, h4, h5 {
 #search-input:focus {
   width: clamp(150px, 30vw, 240px);
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(196, 96, 58, 0.12);
+  box-shadow: 0 0 0 3px rgba(85, 120, 160, 0.12);
 }
 
 #search-input::placeholder {
@@ -512,10 +512,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .tag-chip {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   padding: 4px 12px;
-  border-radius: 100px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   color: var(--color-text-muted);
@@ -649,7 +649,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .card-year {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   color: var(--color-text-muted);
   letter-spacing: 0.06em;
@@ -663,7 +663,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .card-quadrant-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   color: var(--color-text-muted);
   letter-spacing: 0.06em;
@@ -699,10 +699,10 @@ h1, h2, h3, h4, h5 {
 }
 
 .card-tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.68rem;
   padding: 2px 8px;
-  border-radius: 100px;
+  border-radius: var(--radius-sm);
   background: var(--color-bg);
   color: var(--color-text-muted);
   letter-spacing: 0.04em;
@@ -711,10 +711,10 @@ h1, h2, h3, h4, h5 {
 /* Status badge */
 .status-badge {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   padding: 3px 10px;
-  border-radius: 100px;
+  border-radius: var(--radius-sm);
   background: var(--color-accent-2);
   color: #fff;
   letter-spacing: 0.06em;
@@ -724,12 +724,11 @@ h1, h2, h3, h4, h5 {
 /* Medium badges — one per project, each with a distinct color */
 .medium-badge {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   padding: 3px 10px;
-  border-radius: 100px;
-  color: #fff;
-  letter-spacing: 0.06em;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.02em;
   margin-bottom: var(--space-1);
   margin-right: 4px;
 }
@@ -737,11 +736,11 @@ h1, h2, h3, h4, h5 {
 /* Featured badge */
 .featured-badge {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.68rem;
   padding: 2px 8px;
-  border-radius: 100px;
-  background: rgba(196, 96, 58, 0.12);
+  border-radius: var(--radius-sm);
+  background: rgba(85, 120, 160, 0.12);
   color: var(--color-accent);
   letter-spacing: 0.04em;
   margin-left: var(--space-1);
@@ -852,7 +851,7 @@ h1, h2, h3, h4, h5 {
 .video-label {
   font-size: 0.8rem;
   color: rgba(255,255,255,0.6);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
 }
 
 .detail-section {
@@ -860,7 +859,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .detail-section-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1201,7 +1200,7 @@ h1, h2, h3, h4, h5 {
   bottom: var(--space-3);
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.8rem;
   color: rgba(255,255,255,0.6);
 }
@@ -1239,7 +1238,7 @@ footer {
 }
 
 #footer-email-hint {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.8rem;
 }
 
@@ -1369,7 +1368,7 @@ footer {
 }
 
 .credential-col h3 {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1395,7 +1394,7 @@ footer {
 
 .credential-col li .year {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   color: var(--color-text-muted);
   margin-top: 2px;
@@ -1590,6 +1589,15 @@ footer {
 }
 .preview-description a:hover { color: var(--color-text); }
 
+/* Both lengths render server-side (no JS resize listener needed); CSS alone
+   picks which one is visible so the card never has to re-render on resize. */
+.preview-desktop { display: inline; }
+.preview-mobile { display: none; }
+@media (max-width: 768px) {
+  .preview-desktop { display: none; }
+  .preview-mobile { display: inline; }
+}
+
 .preview-images {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1631,7 +1639,7 @@ footer {
 
 .preview-has-video,
 .preview-awards {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   color: var(--color-text-muted);
   letter-spacing: 0.04em;
@@ -1669,7 +1677,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   color: var(--color-text-muted);
@@ -1727,7 +1735,7 @@ footer {
   flex: 1;
 }
 .pp-meta {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   color: var(--color-text-muted);
@@ -1835,7 +1843,7 @@ footer {
 .pp-image:hover .pp-img-frame::after,
 .pp-inline-img:hover .pp-img-frame::after { opacity: 0.08; }
 .pp-image figcaption {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   color: var(--color-text-muted);
@@ -1936,7 +1944,7 @@ footer {
   content: 'Clickable 3D Model';
   display: block;
   text-align: center;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.65rem;
   letter-spacing: 0.06em;
   color: #9B9287;
@@ -1967,7 +1975,7 @@ footer {
   min-height: 280px;
 }
 .pp-embed figcaption {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   color: var(--color-text-muted);
@@ -1986,7 +1994,7 @@ footer {
 
 /* Awards */
 .pp-awards-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2115,7 +2123,7 @@ footer {
   margin: 4px auto 20px;
 }
 .pp-inline-img figcaption {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   color: var(--color-text-muted);
@@ -2178,7 +2186,7 @@ footer {
 }
 
 .pp-nav-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2267,9 +2275,9 @@ footer {
 }
 
 @keyframes cardHighlight {
-  0%   { box-shadow: 0 0 0 3px rgba(196, 96, 58, 0.7), var(--shadow-md); }
-  60%  { box-shadow: 0 0 0 3px rgba(196, 96, 58, 0.4), var(--shadow-md); }
-  100% { box-shadow: 0 0 0 0   rgba(196, 96, 58, 0),   var(--shadow-md); }
+  0%   { box-shadow: 0 0 0 3px rgba(85, 120, 160, 0.7), var(--shadow-md); }
+  60%  { box-shadow: 0 0 0 3px rgba(85, 120, 160, 0.4), var(--shadow-md); }
+  100% { box-shadow: 0 0 0 0   rgba(85, 120, 160, 0),   var(--shadow-md); }
 }
 
 .project-card.card-highlight {
@@ -2304,7 +2312,7 @@ footer {
 .pp-comment-name { font-weight: 500; font-size: 0.9rem; }
 
 .pp-comment-link {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.74rem;
   color: var(--color-accent);
 }
@@ -2321,7 +2329,7 @@ footer {
 .pp-comment-edit-btn {
   background: none;
   border: none;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2358,7 +2366,7 @@ footer {
 .pp-comment-cancel-btn {
   background: none;
   border: none;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;

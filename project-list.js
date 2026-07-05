@@ -2,7 +2,7 @@
  * project-list.js — Project grid rendering, filtering, sorting, and card expansion
  */
 
-import { MEDIUM_COLORS } from './medium-colors.js';
+import { MEDIUM_COLORS, mediumBadgeStyle } from './medium-colors.js';
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let allProjects = [];
@@ -243,11 +243,15 @@ function buildCard(project) {
 
   let badges = '';
   if (project.medium && MEDIUM_COLORS[project.medium]) {
-    badges += `<span class="medium-badge" style="background:${MEDIUM_COLORS[project.medium]}">${escHtml(project.medium)}</span>`;
+    badges += `<span class="medium-badge" style="${mediumBadgeStyle(MEDIUM_COLORS[project.medium])}">${escHtml(project.medium)}</span>`;
   }
 
-  // Render detail content inline using base project data (no fetch needed for preview)
-  const inlineDetail = buildDetailContent(project);
+  // Render inline using already-fetched detail data if we have it (e.g. this
+  // card is being rebuilt after a resize) so we never regress to the master
+  // list's bare-bones fields once the real detail has loaded. Falls back to
+  // the master project data for the very first paint, before any fetch
+  // resolves.
+  const inlineDetail = buildDetailContent(detailCache[project.id] || project);
 
   card.innerHTML = `
     ${thumbHtml}
@@ -322,8 +326,14 @@ export function buildDetailContent(project, { showHeader = false } = {}) {
   } else {
     fullText = project.what || project.description || project.tagline || '';
   }
+  // Desktop shows the whole first text block (capped at 100 words as a safety
+  // net for outlier-long blocks); mobile always shows just the first two
+  // sentences of that same block. Both are rendered up front and toggled by
+  // CSS (see .preview-desktop / .preview-mobile) rather than picked in JS, so
+  // the right one is always shown regardless of viewport size at render time.
   const words = fullText.trim().split(/\s+/);
-  const preview = words.slice(0, 100).join(' ') + (words.length > 100 ? '…' : '');
+  const desktopPreview = words.slice(0, 100).join(' ') + (words.length > 100 ? '…' : '');
+  const mobilePreview = firstNSentences(fullText, 2);
 
   const videoIndicator = videos.length > 0
     ? `<span class="preview-has-video">▶ Video available</span>`
@@ -338,7 +348,10 @@ export function buildDetailContent(project, { showHeader = false } = {}) {
     <div class="detail-inner preview-mode">
       ${showHeader ? `<h3 class="card-title">${escHtml(project.title || '')}</h3>` : ''}
       ${showHeader && project.tagline ? `<p class="card-tagline">${escHtml(project.tagline)}</p>` : ''}
-      ${preview ? `<p class="preview-description">${formatInline(preview)}</p>` : ''}
+      ${fullText.trim() ? `<p class="preview-description">
+        <span class="preview-mobile">${formatInline(mobilePreview)}</span>
+        <span class="preview-desktop">${formatInline(desktopPreview)}</span>
+      </p>` : ''}
       <div class="preview-footer">
         <div class="preview-badges">${videoIndicator}${awardsBadge}</div>
         <a href="project.html#${escHtml(project.id)}" class="cta-btn primary more-btn">
@@ -379,6 +392,14 @@ function escHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+// First `n` sentences of plain text (falls back to the whole string if it
+// has fewer than `n`, or no terminal punctuation at all).
+function firstNSentences(text, n) {
+  const sentences = text.trim().match(/[^.!?]+[.!?]+(?:\s+|$)/g);
+  if (!sentences || sentences.length <= n) return text.trim();
+  return sentences.slice(0, n).join('').trim();
 }
 
 function tokenizeText(text) {
@@ -487,7 +508,7 @@ function categoryIcon(categories = []) {
 function buildQuadrantSvg(axes) {
   if (!axes) {
     return `<svg class="quadrant-indicator" viewBox="0 0 20 20" aria-hidden="true">
-      <rect width="20" height="20" rx="3" fill="#DDD5C4"/>
+      <rect width="20" height="20" rx="3" fill="#E2E1DC"/>
     </svg>`;
   }
 
@@ -502,10 +523,10 @@ function buildQuadrantSvg(axes) {
   // q-sp: poetic+institutional (left+top)
   // q-si: pragmatic+institutional (right+top)
   const quadColors = {
-    tl: top && !right ? 'var(--color-q-sp)' : '#DDD5C4',
-    tr: top && right ? 'var(--color-q-si)' : '#DDD5C4',
-    bl: !top && !right ? 'var(--color-q-ip)' : '#DDD5C4',
-    br: !top && right ? 'var(--color-q-ii)' : '#DDD5C4',
+    tl: top && !right ? 'var(--color-q-sp)' : '#E2E1DC',
+    tr: top && right ? 'var(--color-q-si)' : '#E2E1DC',
+    bl: !top && !right ? 'var(--color-q-ip)' : '#E2E1DC',
+    br: !top && right ? 'var(--color-q-ii)' : '#E2E1DC',
   };
 
   return `<svg class="quadrant-indicator" viewBox="0 0 20 20" aria-hidden="true" title="Quadrant: ${getQuadrantName(pragmatic, institutional)}">

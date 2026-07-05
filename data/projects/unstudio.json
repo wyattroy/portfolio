@@ -20,14 +20,6 @@
     {
       "type": "image",
       "src": "assets/projects/unstudio/data.png"
-    },
-    {
-      "type": "text",
-      "content": "84 members of the community added their voice in support of the unstudio being made a permanent part of the school. Collaborations sprung out of it, design work was deepened, spontaneous feedback was shared. \n\nIt cost nothing. It used furniture that already exists. It turned underutilized collaborative space into a resource for everyone."
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/unstudio/voices.png"
     }
   ],
   "why": [
@@ -96,6 +88,14 @@
     {
       "type": "image",
       "src": "assets/projects/unstudio/IMG_0522.jpeg"
+    },
+    {
+      "type": "text",
+      "content": "84 members of the community added their voice in support of the unstudio being made a permanent part of the school. Collaborations sprung out of it, design work was deepened, spontaneous feedback was shared. \n\nIt cost nothing. It used furniture that already exists. It turned underutilized collaborative space into a resource for everyone."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/unstudio/voices.png"
     }
   ],
   "medium": "Pedagogy",
@@ -173,7 +173,7 @@
     },
     {
       "name": "Xavaar Quaranto",
-      "url": "",
+      "url": "https://xavaar.com",
       "role": "Collaborator"
     },
     {
