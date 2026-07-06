@@ -163,13 +163,16 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
   // stall, avoided by drawing into a small, pre-cropped canvas before it ever
   // becomes a texture.
   const TILE_FACE_AR = 1.6; // matches the BoxGeometry face below (1.6 : 1.0)
-  const TEX_TARGET_W = 512;
+  // Sized for the closest a tile can appear on screen (hover + max zoom-in), not
+  // just the "few hundred px" typical case — a face can fill most of the viewport.
+  const TEX_TARGET_W = 1024;
   const TEX_TARGET_H = Math.round(TEX_TARGET_W / TILE_FACE_AR);
 
   function loadTileTexture(url, onLoad) {
     const img = new Image();
     img.src = url;
-    img.decode().then(() => {
+
+    function draw() {
       const canvas = document.createElement('canvas');
       canvas.width = TEX_TARGET_W;
       canvas.height = TEX_TARGET_H;
@@ -191,7 +194,16 @@ export function initThreeScene(projects, { onProjectClick } = {}) {
       }
       ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
       onLoad(new THREE.CanvasTexture(canvas));
-    }).catch(() => {}); // silently ignore missing/undecodable thumbnails
+    }
+
+    img.decode().then(draw).catch(() => {
+      // Safari's decode() can reject on some large/ICC-profiled JPEGs even
+      // though the image renders fine normally (e.g. via a plain <img>) — fall
+      // back to the load event instead of leaving the tile permanently blank.
+      if (img.complete && img.naturalWidth) { draw(); return; }
+      img.onload = draw;
+      img.onerror = () => {}; // genuinely missing/undecodable — leave tile blank
+    });
   }
 
   // Fade-in timing — skip on repeat visits
