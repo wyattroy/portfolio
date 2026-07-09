@@ -4,8 +4,16 @@
   "year": 2020,
   "month": 6,
   "tagline": "Interactive web app that teaches you how to give a healing apology",
-  "description": "An interactive, completely private, locally-cached web app that teaches you the rules for writing a healing apology — while helping you craft one.",
-  "what": "You work through it alone, at your own pace — no account, nothing stored — and by the end you have something you can actually send. Built in ReactJS, free to use, mobile and desktop.",
+  "what": [
+    {
+      "type": "text",
+      "content": "You work through it alone, at your own pace — no account, nothing stored — and by the end you have something you can actually send. Built in ReactJS, free to use, mobile and desktop."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/sorry/img2.jpg"
+    }
+  ],
   "why": [
     {
       "type": "text",
@@ -13,21 +21,11 @@
     },
     {
       "type": "image",
-      "src": "assets/projects/sorry/img1.jpg"
+      "src": "assets/projects/sorry/sorrynotreally.jpeg",
+      "align": "none"
     }
   ],
-  "how": [
-    {
-      "type": "text",
-      "content": "We distilled the core components of a psychologically healing apology into a step-by-step process, then built a mobile and desktop web app in ReactJS that is free to use and easy to start.",
-      "align": "left"
-    },
-    {
-      "type": "image",
-      "src": "assets/projects/sorry/img2.jpg",
-      "align": "right"
-    }
-  ],
+  "how": "We distilled the core components of a psychologically healing apology into a step-by-step process, then built a mobile and desktop web app in ReactJS that is free to use and easy to start – if you're ready.",
   "medium": "App",
   "tags": [
     "web",
@@ -40,14 +38,16 @@
     "pragmatic": 0.5,
     "institutional": 0.1
   },
-  "thumbnail": "assets/projects/sorry/thumb.jpg",
-  "hero": "assets/projects/sorry/thumb.jpg",
+  "thumbnail": "assets/projects/sorry/sorry-iphone.jpg",
+  "hero": "assets/projects/sorry/sorry-iphone.jpg",
   "liveUrl": "https://www.iwanttosaysorry.com",
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/sorry/thumb.jpg",
-    "assets/projects/sorry/img1.jpg",
-    "assets/projects/sorry/img2.jpg"
+    "assets/projects/sorry/img2.jpg",
+    "assets/projects/sorry/sorry-iphone.jpg",
+    "assets/projects/sorry/sorrynotreally.jpeg"
   ],
   "videos": [],
   "awards": [],
@@ -59,7 +59,7 @@
     },
     {
       "name": "Luis Zanforlin",
-      "url": "",
+      "url": "https://www.luiszanforlin.com/",
       "role": "Creative Director"
     },
     {
@@ -67,5 +67,6 @@
       "url": "",
       "role": "Lead Developer"
     }
-  ]
+  ],
+  "description": "An interactive, completely private, locally-cached web app that teaches you the rules for writing a healing apology — while helping you craft one."
 }

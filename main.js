@@ -370,6 +370,19 @@ function setupNav() {
   const hamburger = document.getElementById('nav-hamburger');
   const drawer = document.getElementById('nav-drawer');
 
+  // Logo click: we're already on the homepage, so instead of a full
+  // reload back to "/" (which would restore the scroll position we're
+  // trying to leave), just scroll up to the 3D graph. Plain clicks only —
+  // modifier/middle clicks should still open "/" normally (e.g. new tab).
+  const navLogo = document.querySelector('.nav-logo');
+  if (navLogo) {
+    navLogo.addEventListener('click', e => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   // Search input lives in the fixed nav (always visible, including over the
   // hero) — jump to the card grid as soon as the user focuses it, so live
   // filtering is visible instead of happening off-screen behind the 3D graph.
@@ -451,6 +464,39 @@ function setupNav() {
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // "Back to 3D Graph" nav button — appears once the card grid is in view,
+  // lets the user jump back up to the hero without scrolling by hand.
+  // Fades in/out (rather than snapping via `hidden`) at the same
+  // transition-micro rate as the nav's own scrolled-state fade, so the two
+  // don't visually fight each other while the user scrolls.
+  const graphBtn = document.getElementById('nav-graph-btn');
+  const projectGrid = document.getElementById('project-grid');
+  if (graphBtn && projectGrid) {
+    graphBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    graphBtn.addEventListener('transitionend', e => {
+      if (e.propertyName === 'opacity' && !graphBtn.classList.contains('visible')) {
+        graphBtn.hidden = true;
+      }
+    });
+    const graphBtnObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          graphBtn.hidden = false;
+          // Force layout before adding the class so the opacity change is
+          // picked up as a transition rather than an instant jump.
+          void graphBtn.offsetWidth;
+          graphBtn.classList.add('visible');
+        } else {
+          graphBtn.classList.remove('visible');
+        }
+      },
+      { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height') || '64px'} 0px 0px 0px` }
+    );
+    graphBtnObserver.observe(projectGrid);
+  }
 
   // Drawer work link: close and scroll
   const drawerWork = document.getElementById('drawer-work');

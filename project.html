@@ -250,9 +250,11 @@
       });
     });
 
-    window.addEventListener('scroll', () => {
-      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 80);
-    });
+    const updateNavScrolled = () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+    };
+    updateNavScrolled();
+    window.addEventListener('scroll', updateNavScrolled);
 
     // On narrow screens the input shrinks below what "Search projects…" fits
     // in, so it renders visibly clipped ("Search proj"). Swap to a shorter

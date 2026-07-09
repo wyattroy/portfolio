@@ -53,6 +53,7 @@
   "hero": "assets/projects/cnc-cheeseboard/IMG_3763.jpg",
   "liveUrl": null,
   "sourceUrl": null,
+  "files": [],
   "images": [
     "assets/projects/cnc-cheeseboard/b6-ojai-hero.jpeg",
     "assets/projects/cnc-cheeseboard/b1-old-map.jpg",
@@ -79,7 +80,7 @@
     },
     {
       "name": "Bobby McCarthy",
-      "url": "https://www.instagram.com/bobmccarthyjr/",
+      "url": "https://www.bobbymccarthy.com/",
       "role": "CNC Assistance"
     }
   ],

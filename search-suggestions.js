@@ -21,7 +21,16 @@ function matchProjects(projects, query) {
   return projects
     .filter(p => p.label === 'green')
     .filter(p => {
-      const haystack = [p.title, p.tagline, p.description, ...(p.categories || []), String(p.year || '')]
+      const haystack = [
+        p.title,
+        p.tagline,
+        p.description,
+        p.medium,
+        ...(p.categories || []),
+        ...(p.tags || []),
+        ...(p.who || []).map(w => w.name),
+        String(p.year || ''),
+      ]
         .join(' ')
         .toLowerCase();
       return haystack.includes(q);
