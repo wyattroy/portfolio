@@ -474,18 +474,19 @@
         statusEl.textContent = ''; statusEl.className = 'pp-comment-status';
 
         const token = makeToken();
-        const { data, error } = await db.from('comments').insert({
-          project_id: projectId, name, email, link: link || '', comment, browser_token: token,
-        }).select('id').single();
+        const id = makeToken();
+        const { error } = await db.from('comments').insert({
+          id, project_id: projectId, name, email, link: link || '', comment, browser_token: token,
+        });
 
-        if (error || !data) {
+        if (error) {
           btn.disabled = false; btn.textContent = 'Add to the conversation';
           statusEl.textContent = 'Something went wrong — please try again.';
           statusEl.className = 'pp-comment-status error';
           return;
         }
 
-        saveMyToken(data.id, token);
+        saveMyToken(id, token);
         form.reset();
         btn.disabled = false; btn.textContent = 'Add to the conversation';
         statusEl.textContent = '✓ Your comment is pending review — thank you.';
