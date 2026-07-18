@@ -4,17 +4,17 @@
   "year": 2025,
   "month": 5,
   "tagline": "SDF 3D-printed flame sculpture",
-  "what": "Three materials — translucent white resin for the flame, clear for the air dissolving around it, dark for the stick — printed as one object that looks like it's about to go out. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value — creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moiré effect that makes the flame appear to flicker.",
-  "why": [
+  "what": [
     {
       "type": "text",
-      "content": "Capture something ineffable and organic in a physical medium. Use code to do it. Create a recognizable object. Leave an imprint of the process on the final result."
+      "content": "Three materials — translucent white resin for the flame, clear for the air dissolving around it, dark for the stick — printed as one object that looks like it's about to go out. A voxel grid is populated with two volumes (a sphere for the match head, a conical swept curve for the flame tip) and the SDF measures each voxel's distance to the nearest surface. Cubes instantiated at voxels inside the flame are scaled proportionally to their SDF value — creating a soft, continuous boundary, the mathematical equivalent of how real flames blur into air. Exported as separate STLs per material layer for multi-material resin printing. One surface left unsanded after noticing the print striations create a moiré effect that makes the flame appear to flicker."
     },
     {
       "type": "image",
       "src": "assets/projects/matchstick/matchstick.gif"
     }
   ],
+  "why": "Capture something ineffable and organic in a physical medium. Use code to do it. Create a recognizable object. Leave an imprint of the process on the final result.",
   "how": [
     {
       "type": "text",
@@ -87,10 +87,11 @@
     "pragmatic": 0.38,
     "institutional": 0.37
   },
-  "thumbnail": "assets/projects/matchstick/3sdf.png",
-  "hero": "assets/projects/matchstick/3sdf.png",
+  "thumbnail": "assets/projects/matchstick/matchstick-hand.jpeg",
+  "hero": "assets/projects/matchstick/matchstick-hand.jpeg",
   "liveUrl": null,
   "sourceUrl": "https://wyattroy.github.io/codeart/pages/matchstick/index.html",
+  "files": [],
   "images": [
     "assets/projects/matchstick/matchstick.gif",
     "assets/projects/matchstick/1voxelgrid.png",
@@ -98,7 +99,8 @@
     "assets/projects/matchstick/3sdf.png",
     "assets/projects/matchstick/blender2.png",
     "assets/projects/matchstick/blender1.png",
-    "assets/projects/matchstick/matchstickghdef.png"
+    "assets/projects/matchstick/matchstickghdef.png",
+    "assets/projects/matchstick/matchstick-hand.jpeg"
   ],
   "videos": [],
   "awards": [],

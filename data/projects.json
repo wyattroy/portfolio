@@ -1259,7 +1259,7 @@
       "pragmatic": 0.38,
       "institutional": 0.37
     },
-    "thumbnail": "assets/projects/matchstick/3sdf.png",
+    "thumbnail": "assets/projects/matchstick/matchstick-hand.jpeg",
     "images": [
       "assets/projects/matchstick/matchstick.gif",
       "assets/projects/matchstick/1voxelgrid.png",
@@ -1267,7 +1267,8 @@
       "assets/projects/matchstick/3sdf.png",
       "assets/projects/matchstick/blender2.png",
       "assets/projects/matchstick/blender1.png",
-      "assets/projects/matchstick/matchstickghdef.png"
+      "assets/projects/matchstick/matchstickghdef.png",
+      "assets/projects/matchstick/matchstick-hand.jpeg"
     ],
     "videos": [],
     "liveUrl": null,
@@ -1275,7 +1276,7 @@
     "awards": [],
     "medium": "Fabrication",
     "tags": [],
-    "hero": "assets/projects/matchstick/3sdf.png",
+    "hero": "assets/projects/matchstick/matchstick-hand.jpeg",
     "who": [
       {
         "name": "Wyatt Roy",
@@ -1370,7 +1371,8 @@
       "assets/projects/hug/img16.jpg",
       "assets/projects/hug/img18.jpg",
       "assets/projects/hug/img22.jpg",
-      "assets/projects/hug/hug-v2.gif"
+      "assets/projects/hug/hug-v2.gif",
+      "assets/projects/hug/hug-print.gif"
     ],
     "videos": [
       {

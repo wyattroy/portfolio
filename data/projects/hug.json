@@ -118,11 +118,12 @@
     },
     {
       "type": "text",
-      "content": "Ultimately, this was an iterative process. Making anything has ups and downs where you have an idea, build it, wonder if it's actually doing the thing you want it to, then try something new. We hope you like where we ended up, and have a better sense of how to make something like this yourself."
+      "content": "Though designed to be a purely digital sculpture, I ultimately printed it in multimaterial resin. Ultimately, this was an iterative process. Making anything has ups and downs where you have an idea, build it, wonder if it's actually doing the thing you want it to, then try something new. "
     },
     {
       "type": "image",
-      "src": "assets/projects/hug/hug-v2.gif"
+      "src": "assets/projects/hug/hug-print.gif",
+      "align": "none"
     }
   ],
   "medium": "Fabrication",
@@ -160,7 +161,8 @@
     "assets/projects/hug/img16.jpg",
     "assets/projects/hug/img18.jpg",
     "assets/projects/hug/img22.jpg",
-    "assets/projects/hug/hug-v2.gif"
+    "assets/projects/hug/hug-v2.gif",
+    "assets/projects/hug/hug-print.gif"
   ],
   "videos": [
     {
