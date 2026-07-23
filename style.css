@@ -2316,10 +2316,11 @@ footer {
      `overflow:hidden` + `border-radius` (as .pp-embed-inner does), touch
      events never reach the iframe, so the splat can't be dragged/rotated.
      Dropping the clip on mobile restores touch. A fixed height keeps the
-     frame from ballooning to the embed's content height, and touch-action
-     keeps a drag on the splat instead of scrolling the page. Desktop keeps
-     its rounded, clipped frame — this whole rule lives inside the
-     max-width:700px query. */
+     frame from ballooning to the embed's content height. Note: do NOT add
+     `touch-action:none` here — on iOS that makes Safari swallow the gesture
+     instead of forwarding it to the cross-origin embed. Desktop keeps its
+     rounded, clipped frame — this whole rule lives inside the max-width:700px
+     query. */
   .pp-embed-inner.pp-embed-3d {
     overflow: visible;
     border-radius: 0;
@@ -2329,7 +2330,6 @@ footer {
     height: 70vh !important;
     max-height: 560px;
     min-height: 0;
-    touch-action: none;
   }
   .pp-text.text-float-left,
   .pp-text.text-float-right {
