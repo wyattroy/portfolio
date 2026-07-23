@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Splat test 1 — bare iframe</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 0; padding: 16px 14px 80px; color: #222; }
+  h1 { font-size: 1.1rem; }
+  p { font-size: 0.9rem; color: #555; }
+  /* Test 1: the barest possible iframe. No wrapper, no border-radius,
+     no overflow clipping, no touch-action. Direct child of <body>. */
+  iframe { display: block; width: 100%; height: 340px; border: 1px solid #ccc; background: #000; }
+</style>
+</head>
+<body>
+  <h1>Test 1 — bare iframe (no wrapper)</h1>
+  <p>Try to <strong>drag to rotate</strong> the model. There's some text above and below so the page scrolls — see if the splat responds to touch or if it just scrolls the page.</p>
+
+  <iframe src="https://poly.cam/capture/af2eea37-ba49-4960-9698-1d3ba11407eb/embed"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <p>Does it rotate when you drag on it? Scroll down a little and try again from the middle of the frame.</p>
+  <div style="height: 400px"></div>
+  <p>End of page — this padding just makes the page scrollable, like the real project page.</p>
+</body>
+</html>
