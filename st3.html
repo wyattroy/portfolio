@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Splat test 3 — body overflow-x:clip</title>
+<style>
+  /* Identical to test 2, EXCEPT overflow-x uses `clip` instead of `hidden`.
+     `clip` stops horizontal scroll without making the body a scroll container. */
+  body { overflow-x: clip; }
+
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 0; padding: 16px 14px 80px; color: #222; }
+  h1 { font-size: 1.1rem; }
+  p { font-size: 0.9rem; color: #555; }
+  iframe { display: block; width: 100%; height: 340px; border: 1px solid #ccc; background: #000; }
+</style>
+</head>
+<body>
+  <h1>Test 3 — bare iframe + body{overflow-x:clip}</h1>
+  <p>Same as test 2, but <code>overflow-x: clip</code> instead of <code>hidden</code>. Try to <strong>drag to rotate</strong>.</p>
+
+  <iframe src="https://poly.cam/capture/af2eea37-ba49-4960-9698-1d3ba11407eb/embed"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <p>Does it rotate? (I expect this one to WORK — that would confirm the fix.)</p>
+  <div style="height: 400px"></div>
+  <p>End of page.</p>
+</body>
+</html>
