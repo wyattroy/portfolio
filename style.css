@@ -2312,43 +2312,24 @@ footer {
     margin: 0 0 20px;
   }
   /* Mobile-only fix for clickable 3D-model (Poly.cam) embeds.
-     iOS Safari "flattens" an in-flow iframe — it ignores the inline pixel
-     height and expands the frame to its content height, then routes taps to
-     page scrolling instead of into the WebGL canvas, so the splat feels dead.
-     Giving the wrapper a fixed height and absolutely positioning the iframe to
-     fill it stops the flattening (an out-of-flow, explicitly sized iframe is
-     not expanded) and hands gestures back to the model. Desktop is untouched:
-     this whole rule lives inside the max-width:700px query. */
+     iOS Safari has a WebKit bug: when an iframe's ancestor clips it with
+     `overflow:hidden` + `border-radius` (as .pp-embed-inner does), touch
+     events never reach the iframe, so the splat can't be dragged/rotated.
+     Dropping the clip on mobile restores touch. A fixed height keeps the
+     frame from ballooning to the embed's content height, and touch-action
+     keeps a drag on the splat instead of scrolling the page. Desktop keeps
+     its rounded, clipped frame — this whole rule lives inside the
+     max-width:700px query. */
   .pp-embed-inner.pp-embed-3d {
-    position: relative;
-    height: 70vh;
-    max-height: 620px;
+    overflow: visible;
+    border-radius: 0;
   }
   .pp-embed-inner.pp-embed-3d iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    /* An iframe is a replaced element, so `height:auto` would collapse to its
-       intrinsic 150px rather than stretching between top/bottom — set an
-       explicit height instead, leaving 28px at the bottom for the label bar.
-       !important overrides the inline style="height:480px" that project.html
-       puts on the iframe. */
-    height: calc(100% - 28px) !important;
+    /* !important overrides the inline style="height:480px" from project.html */
+    height: 70vh !important;
+    max-height: 560px;
     min-height: 0;
     touch-action: none;
-  }
-  /* Pin the "Clickable 3D Model" label to the bottom so the absolutely
-     positioned iframe above doesn't cover it. */
-  .pp-embed-inner.pp-embed-3d::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 28px;
-    box-sizing: border-box;
-    line-height: 17px; /* vertically center within the 28px bar */
   }
   .pp-text.text-float-left,
   .pp-text.text-float-right {
