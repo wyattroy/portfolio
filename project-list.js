@@ -223,7 +223,7 @@ function buildCard(project) {
   // Thumbnail
   const icon = categoryIcon(project.categories);
   let thumbHtml;
-  const projectUrl = `project.html#${escHtml(project.id)}`;
+  const projectUrl = `/p/${escHtml(project.id)}/`;
   if (project.thumbnail) {
     thumbHtml = `<a href="${projectUrl}" class="card-thumb-link card-thumb-wrap">
       <img
@@ -354,7 +354,7 @@ export function buildDetailContent(project, { showHeader = false } = {}) {
       </p>` : ''}
       <div class="preview-footer">
         <div class="preview-badges">${videoIndicator}${awardsBadge}</div>
-        <a href="project.html#${escHtml(project.id)}" class="cta-btn primary more-btn">
+        <a href="/p/${escHtml(project.id)}/" class="cta-btn primary more-btn">
           More →
         </a>
       </div>

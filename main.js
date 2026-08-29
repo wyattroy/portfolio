@@ -276,7 +276,7 @@ async function openProjectModal(id) {
 
   // Inject thumbnail immediately from master list (no fetch needed)
   const masterProject = _allProjects.find(p => p.id === id);
-  setModalThumb(inner, masterProject?.thumbnail || null, `project.html#${id}`);
+  setModalThumb(inner, masterProject?.thumbnail || null, `/p/${id}/`);
 
   // Show skeleton for text content
   content.innerHTML = `

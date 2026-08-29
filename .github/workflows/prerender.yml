@@ -1,0 +1,59 @@
+name: Pre-render project pages
+
+# Keeps the static pages in p/ (plus sitemap.xml, robots.txt and the crawlable
+# link list inside index.html) in sync with data/projects*. Without this, editing
+# a project and forgetting `npm run prerender` leaves crawlers reading a stale
+# copy of the page while visitors see the current one.
+
+on:
+  push:
+    branches: [main]
+    # The job commits its own output; ignoring those paths keeps it from
+    # chasing its own tail. (Pushes made with GITHUB_TOKEN don't retrigger
+    # workflows anyway — this is belt and braces.)
+    paths-ignore:
+      - 'p/**'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - '**/*.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prerender-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prerender:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Pinned to the browser the installed Playwright expects.
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Pre-render
+        run: npm run prerender
+
+      - name: Commit regenerated pages
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A p sitemap.xml robots.txt index.html
+          if git diff --cached --quiet; then
+            echo "Pre-rendered pages already up to date."
+            exit 0
+          fi
+          git diff --cached --stat
+          git commit -m "Re-render project pages [skip ci]"
+          git push

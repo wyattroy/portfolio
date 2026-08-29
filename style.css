@@ -2525,3 +2525,32 @@ footer {
   .pp-notify-row { flex-direction: column; align-items: stretch; }
   .pp-notify-row input[type="email"] { min-width: 0; }
 }
+
+/* ── Pre-rendered project links ───────────────────────────────────────────────
+   scripts/prerender.mjs writes a plain list of every project into #project-grid
+   so crawlers and no-JS visitors get real links. project-list.js clears
+   #project-grid on boot, so this only shows for the moment before the real grid
+   renders — styled to read as a quiet loading list rather than raw markup. */
+.prerender-index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 48px;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+.prerender-index li {
+  break-inside: avoid;
+  margin-bottom: 0.4em;
+}
+.prerender-index a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+.prerender-index span { opacity: 0.6; }
+
+@media (max-width: 700px) {
+  .prerender-index { columns: 1; }
+}

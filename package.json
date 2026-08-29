@@ -4,7 +4,8 @@
   "description": "Wyatt Roy portfolio — static GitHub Pages site",
   "private": true,
   "scripts": {
-    "scrape": "node scripts/scrape.js"
+    "scrape": "node scripts/scrape.js",
+    "prerender": "node scripts/prerender.mjs"
   },
   "devDependencies": {
     "cheerio": "^1.0.0",
