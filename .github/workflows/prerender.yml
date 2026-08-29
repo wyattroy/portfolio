@@ -30,6 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: sitemap <lastmod> comes from each data file's commit
+          # date, which a shallow clone can't see.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:

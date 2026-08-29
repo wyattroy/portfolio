@@ -19,7 +19,8 @@
  */
 
 import { createServer } from 'node:http';
-import { readFile, writeFile, mkdir, rm, stat } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { extname, join, normalize, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,6 +28,7 @@ import { chromium } from 'playwright';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://wyattroy.com';
+const PROD_HOST = new URL(ORIGIN).host;
 const OUT_DIR = join(ROOT, 'p');
 
 const MIME = {
@@ -75,7 +77,7 @@ function describe(project) {
 }
 
 /** Runs inside the page: rewrite <head> for this project, then clean up. */
-function injectMeta({ id, title, description, image, url, keywords, year, medium }) {
+function injectMeta({ id, title, description, image, url, keywords, year, medium, origin }) {
   const head = document.head;
 
   // <base> must precede the first relative URL in <head>.
@@ -138,7 +140,7 @@ function injectMeta({ id, title, description, image, url, keywords, year, medium
     ...(year ? { dateCreated: String(year) } : {}),
     ...(medium ? { genre: medium } : {}),
     ...(keywords ? { keywords } : {}),
-    author: { '@type': 'Person', name: 'Wyatt Roy', url: `${location.origin}/` },
+    author: { '@type': 'Person', name: 'Wyatt Roy', url: origin },
   }, null, 2);
   head.appendChild(ld);
 
@@ -152,12 +154,18 @@ function injectMeta({ id, title, description, image, url, keywords, year, medium
 
 // ─── Generated files ──────────────────────────────────────────────────────────
 async function writeSitemap(projects) {
-  const lastmod = async id => {
-    const file = join(ROOT, 'data', 'projects', `${id}.json`);
-    try { return (await stat(file)).mtime.toISOString().slice(0, 10); } catch { return null; }
+  // NOT file mtime: a fresh clone stamps every file with the checkout time, so
+  // mtime-based dates would churn on every CI run. Commit dates are stable.
+  const gitDate = file => {
+    try {
+      const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', file],
+        { cwd: ROOT, encoding: 'utf8' }).trim();
+      return out || null;
+    } catch { return null; }
   };
+  const lastmod = async id => gitDate(join('data', 'projects', `${id}.json`));
   const entries = [
-    { loc: `${ORIGIN}/`, priority: '1.0', mod: (await stat(join(ROOT, 'data/projects.json'))).mtime.toISOString().slice(0, 10) },
+    { loc: `${ORIGIN}/`, priority: '1.0', mod: gitDate('data/projects.json') },
     { loc: `${ORIGIN}/about.html`, priority: '0.6', mod: null },
   ];
   for (const p of projects) {
@@ -258,9 +266,15 @@ for (const summary of targets) {
   const project = { ...summary, ...detail };
 
   try {
-    await page.goto(`http://127.0.0.1:${port}/project.html#${encodeURIComponent(id)}`,
+    // Must be ?id= and not #id: a fragment change is a same-document navigation,
+    // so the page would never reload and every <head> tag injected for the
+    // previous project would still be attached to this one.
+    await page.goto(`http://127.0.0.1:${port}/project.html?id=${encodeURIComponent(id)}`,
       { waitUntil: 'domcontentloaded' });
     await page.waitForSelector('#project-page-root .pp-title', { timeout: 20000 });
+    await page.waitForFunction(
+      expected => document.querySelector('#project-page-root .pp-title')?.textContent === expected,
+      project.title, { timeout: 20000 });
 
     const url = `${ORIGIN}/p/${id}/`;
     await page.evaluate(injectMeta, {
@@ -270,14 +284,35 @@ for (const summary of targets) {
       image: absolute(project.thumbnail || project.hero || (project.images || [])[0]),
       url,
       keywords: (project.tags || []).join(', ') || null,
+      origin: `${ORIGIN}/`,
       year: project.year || null,
       medium: project.medium || null,
     });
 
+    const shape = await page.evaluate(() => ({
+      ld: document.querySelectorAll('script[type="application/ld+json"]').length,
+      base: document.querySelectorAll('base').length,
+      canonical: document.querySelector('link[rel="canonical"]')?.getAttribute('href'),
+      title: document.title,
+    }));
+    if (shape.ld !== 1 || shape.base !== 1 || shape.canonical !== url) {
+      throw new Error(`contaminated dump: ${JSON.stringify(shape)}`);
+    }
+
+    // Anything the page derived from its own address (a Twitch embed's parent=
+    // param, for instance) points at the throwaway dev server. Rewrite those to
+    // the production origin, then assert nothing slipped through.
+    const html = (await page.content())
+      .replace(/^<!DOCTYPE html>\s*/i, '')
+      .replaceAll(`http://127.0.0.1:${port}`, ORIGIN)
+      .replaceAll('127.0.0.1', PROD_HOST);
+    if (html.includes('127.0.0.1')) {
+      throw new Error(`dev-server address leaked into p/${id}/`);
+    }
+
     const dir = join(OUT_DIR, id);
     await mkdir(dir, { recursive: true });
-    await writeFile(join(dir, 'index.html'), `<!DOCTYPE html>\n${await page.content()
-      .then(html => html.replace(/^<!DOCTYPE html>\s*/i, ''))}`);
+    await writeFile(join(dir, 'index.html'), `<!DOCTYPE html>\n${html}`);
     console.log(`  p/${id}/`);
   } catch (err) {
     failures.push({ id, message: err.message.split('\n')[0] });
