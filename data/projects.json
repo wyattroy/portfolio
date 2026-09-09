@@ -239,17 +239,65 @@
   },
   {
     "id": "gingerbread-amphora",
-    "title": "GIngerbread Amphora",
+    "title": "Gingerbread Amphora",
     "year": 2025,
-    "tagline": "",
+    "tagline": "A two-foot ancient Greek amphora baked entirely out of gingerbread",
     "axes": {
-      "pragmatic": 0.5,
-      "institutional": 0.5
+      "pragmatic": 0.05,
+      "institutional": 0.24
     },
     "thumbnail": "assets/projects/gingerbread-amphora/thumb.jpg",
-    "tags": [],
+    "tags": [
+      "gingerbread",
+      "ceramics",
+      "photogrammetry",
+      "Blender",
+      "digital fabrication",
+      "food",
+      "black-figure pottery",
+      "baking",
+      "collaboration"
+    ],
     "featured": false,
-    "label": "red"
+    "label": "green",
+    "month": 11,
+    "medium": "Fabrication",
+    "liveUrl": null,
+    "sourceUrl": null,
+    "images": [
+      "assets/projects/gingerbread-amphora/hero-black.jpg",
+      "assets/projects/gingerbread-amphora/portrait.jpg",
+      "assets/projects/gingerbread-amphora/terracotta-original.jpg",
+      "assets/projects/gingerbread-amphora/grinding-to-dust.jpg",
+      "assets/projects/gingerbread-amphora/painting-asheville.jpg",
+      "assets/projects/gingerbread-amphora/on-display.jpg",
+      "assets/projects/gingerbread-amphora/museum-scan.gif",
+      "assets/projects/gingerbread-amphora/stencils.gif",
+      "assets/projects/gingerbread-amphora/rings-and-stencils.jpg",
+      "assets/projects/gingerbread-amphora/stacking-rings.gif",
+      "assets/projects/gingerbread-amphora/icing-layers.jpg",
+      "assets/projects/gingerbread-amphora/three-sections.jpg",
+      "assets/projects/gingerbread-amphora/gingerbread-clay.jpg",
+      "assets/projects/gingerbread-amphora/painting-friezes.gif",
+      "assets/projects/gingerbread-amphora/reassembly.gif",
+      "assets/projects/gingerbread-amphora/carrying-out.jpg",
+      "assets/projects/gingerbread-amphora/thumb.jpg"
+    ],
+    "videos": [],
+    "awards": [],
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Design, 3D modeling, fabrication, painting"
+      },
+      {
+        "name": "Julia Mattis",
+        "url": "https://www.instagram.com/windowsill.bakery/",
+        "role": "Pastry, ceramics, fabrication, painting"
+      }
+    ],
+    "hero": "assets/projects/gingerbread-amphora/hero-black.jpg"
   },
   {
     "id": "squidgeridoo",

@@ -2,15 +2,220 @@
   "id": "gingerbread-amphora",
   "title": "Gingerbread Amphora",
   "year": 2025,
-  "tagline": "",
-  "what": "",
-  "why": "",
+  "month": 11,
+  "tagline": "A two-foot ancient Greek amphora baked entirely out of gingerbread",
+  "what": [
+    {
+      "type": "text",
+      "content": "A two-foot-tall handled vessel made entirely out of gingerbread. It reads as a black-figure Greek amphora, and it is edible down to the last ring. Julia Mattis and I built it in our galley kitchen out of fifty stacked gingerbread rings, coated it in gingerbread clay, and hand-painted the friezes with gel food dye and vodka. A year later, ginger and cinnamon still waft off it, which is a kind of material memory most art objects either lose or never had."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/portrait.jpg",
+      "caption": "Julia Mattis and me with the finished amphora at the Grove Park Inn, entry A162."
+    }
+  ],
+  "why": [
+    {
+      "type": "text",
+      "content": "Two years ago Julia and I were hiking and trying to think of the most absurd thing a person could make out of gingerbread. Gingerbread affords structure. It bakes flat, it holds weight, it makes walls and roofs and windows, and every year people use those affordances beautifully. We wanted to work against them. What would curvy gingerbread look like? What object could never be made out of gingerbread? What artifact would treat gingerbread's brown as an intentional color instead of a default canvas to be iced over? Somewhere in the foliage we landed on an ancient Greek amphora: impossibly curvaceous, audaciously large, and normally thrown on a potter's wheel, which is a process gingerbread cannot survive. Greek amphoras also celebrate the natural orange-brown of terracotta, a near-perfect visual twin for baked gingerbread."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/terracotta-original.jpg",
+      "caption": "Julia with the kind of vessel we were trying to imagine in cookie form."
+    },
+    {
+      "type": "text",
+      "content": "**Clay and cookie**\n\nThe piece started as a question about material affordances. Clay and cookie are closer relatives than they look. Both pass through a dough phase, both need heat to harden, and both trace back to the earth: clay through its minerals, gingerbread through the plants that grew out of those minerals into wheat for flour, cane for sugar, and ginger root. Both can be ground into a fine powder and mixed with water to make a paste, and the edible version of that paste is already called gingerbread clay. We kept reaching for ceramic tools without planning to, turning the vessel on a wheel to check that each layer sat level and shaving the outside with a clay shredder."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/grinding-to-dust.jpg",
+      "caption": "Baked gingerbread ground down into a powder, which becomes gingerbread clay once you add water."
+    },
+    {
+      "type": "text",
+      "content": "**What the two materials do differently**\n\nA ceramic amphora is often toxic to make, since manganese, silica, and other carcinogenic minerals go in for color and stability. Gingerbread stays a nutritive food the whole way through. Ceramic is also built to outlast everyone who touches it, while gingerbread is built to compost back into dirt in a matter of weeks. That turns conservation into a conversation with the artifact, since it holds its shape only inside a narrow band of temperature and humidity. The cracks that show up over time are the artwork rather than a failure of it, a living testament to impermanence."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/painting-asheville.jpg",
+      "caption": "Touching up the base. Working on an edible artifact means repairing it more or less continuously."
+    },
+    {
+      "type": "text",
+      "content": "For thousands of years art has depicted and referenced food. We wanted to know what happens when food references art, whether edibility is enough to make something food, and what it means for a container for food to be made of food."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/on-display.jpg",
+      "caption": "On the table at the Grove Park Inn, being asked all the questions we hoped it would raise."
+    }
+  ],
+  "how": [
+    {
+      "type": "text",
+      "content": "**Measuring the originals**\n\nWe started with real ones. We made photogrammetric scans of ancient Greek amphoras at the Met and at the Harvard Art Museums to understand their actual dimensions, which were bigger than we had guessed and, serendipitously, still inside the competition's size limit.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/museum-scan.gif",
+      "align": "right",
+      "caption": "Photogrammetry in the gallery: the phone holds the finished 3D scan next to the amphora it came from."
+    },
+    {
+      "type": "text",
+      "content": "**Drawing, modeling, slicing**\n\nI drew the profile we wanted as a flat 2D pencil drawing, then extruded it into a 3D model in Blender using the heights and diameters from the scans so the scale stayed honest. Then I sliced the model into fifty rings, each one centimeter thick, and printed them at full size on paper to use as stencils.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/stencils.gif",
+      "align": "right",
+      "caption": "Fifty rings sliced out of the Blender model and printed at full size as paper stencils."
+    },
+    {
+      "type": "text",
+      "content": "**Fifty rings**\n\nSeven pounds of flour and five pounds of sugar, not counting the batch of tasting gingerbread we made so that one of us would stop eating the rings. We rolled the dough into flat sheets, traced and cut around the stencils, and baked the rings in sets of two or three concentric rings at a time. Sheet pans went on and off the tops of the rings throughout the bake to keep them flat, dry, and evenly browned, and each one cooled under something heavy and flat.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/rings-and-stencils.jpg",
+      "align": "right",
+      "caption": "Baked rings cooling next to the stencils they were cut from."
+    },
+    {
+      "type": "text",
+      "content": "**Stacking**\n\nWe leveled each cooled ring and checked every course on a turntable, the way you would center a pot on a wheel.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/stacking-rings.gif",
+      "align": "right",
+      "caption": "Dry-stacking a section on the turntable to check the profile before icing it together."
+    },
+    {
+      "type": "text",
+      "content": "Cinnamon royal icing went between all fifty rings and did the work mortar does in a wall. It is also the only adhesive in the piece, which is part of why the whole thing stays edible.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/icing-layers.jpg",
+      "align": "right",
+      "caption": "Cinnamon royal icing doing the job mortar does."
+    },
+    {
+      "type": "text",
+      "content": "To make the flight possible we built the amphora as three separate sections of sixteen or seventeen rings each, so it could be packed apart and iced back together on the other end.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/three-sections.jpg",
+      "align": "right",
+      "caption": "The body and the neck, built as separate sections so the whole thing could fly."
+    },
+    {
+      "type": "text",
+      "content": "**Gingerbread clay**\n\nThen we shaved the outside with a clay shredder and a microplane to lose the stair-stepping, baked a few more pounds of gingerbread to grind into dust, mixed that into gingerbread clay, and double-coated the exterior. That coat is what turns fifty stacked cookies into a single continuous surface.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/gingerbread-clay.jpg",
+      "align": "right",
+      "caption": "Julia coating the neck section in gingerbread clay."
+    },
+    {
+      "type": "text",
+      "content": "**Painting the friezes**\n\nWe wanted black-figure pottery, the ancient Greek technique of painting friezes in black slip on terracotta. Those scenes usually show daily life, including harvesting and food preparation, so we painted the making of gingerbread: wheat, sugarcane, and ginger, wrapped in the geometric bands that appear on Greek pottery between the 7th and 5th centuries BCE. Everything was hand-painted with gel food dye cut with vodka, using size 2/0 brushes.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/painting-friezes.gif",
+      "align": "right",
+      "caption": "Gel food dye cut with vodka, size 2/0 brush, over a pencil underdrawing."
+    },
+    {
+      "type": "text",
+      "content": "**Getting it to Asheville**\n\nWe smuggled the disassembled amphora past TSA at dawn, then walked three miles across Asheville hunting for a single egg so we could make the last batch of royal icing and reassemble it. It was 3:14 on a Sunday morning by the time we finished painting, nine hours in, with final papers and applications waiting at home. Julia is a pastry chef and ceramicist who works on bringing people together through food. I am a computational designer who keeps looking for strange mediums to tell stories in, which in this case meant turning pixels into dough. This is the craziest thing either of us has made, and for those weeks it was the only thing we wanted to be doing.",
+      "align": "left"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/reassembly.gif",
+      "align": "right",
+      "caption": "Icing the seam between two sections back together in an Asheville kitchen."
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/gingerbread-amphora/carrying-out.jpg",
+      "align": "right",
+      "caption": "Carrying it out to the car, past a Greek-key planter we did not plan."
+    },
+    {
+      "type": "text",
+      "content": "We left the bottom rings visible inside the mouth, so anyone curious about the construction can lean over and look. We hope people wonder whether it's ancient. It isn't. We hope they wonder whether it's edible. It is."
+    }
+  ],
+  "medium": "Fabrication",
+  "tags": [
+    "gingerbread",
+    "ceramics",
+    "photogrammetry",
+    "Blender",
+    "digital fabrication",
+    "food",
+    "black-figure pottery",
+    "baking",
+    "collaboration"
+  ],
   "axes": {
-    "pragmatic": 0.5,
-    "institutional": 0.5
+    "pragmatic": 0.05,
+    "institutional": 0.24
   },
   "thumbnail": "assets/projects/gingerbread-amphora/thumb.jpg",
-  "images": [],
+  "hero": "assets/projects/gingerbread-amphora/hero-black.jpg",
+  "liveUrl": null,
+  "sourceUrl": null,
+  "images": [
+    "assets/projects/gingerbread-amphora/hero-black.jpg",
+    "assets/projects/gingerbread-amphora/portrait.jpg",
+    "assets/projects/gingerbread-amphora/terracotta-original.jpg",
+    "assets/projects/gingerbread-amphora/grinding-to-dust.jpg",
+    "assets/projects/gingerbread-amphora/painting-asheville.jpg",
+    "assets/projects/gingerbread-amphora/on-display.jpg",
+    "assets/projects/gingerbread-amphora/museum-scan.gif",
+    "assets/projects/gingerbread-amphora/stencils.gif",
+    "assets/projects/gingerbread-amphora/rings-and-stencils.jpg",
+    "assets/projects/gingerbread-amphora/stacking-rings.gif",
+    "assets/projects/gingerbread-amphora/icing-layers.jpg",
+    "assets/projects/gingerbread-amphora/three-sections.jpg",
+    "assets/projects/gingerbread-amphora/gingerbread-clay.jpg",
+    "assets/projects/gingerbread-amphora/painting-friezes.gif",
+    "assets/projects/gingerbread-amphora/reassembly.gif",
+    "assets/projects/gingerbread-amphora/carrying-out.jpg",
+    "assets/projects/gingerbread-amphora/thumb.jpg"
+  ],
   "videos": [],
-  "awards": []
+  "awards": [],
+  "who": [
+    {
+      "name": "Wyatt Roy",
+      "url": "",
+      "role": "Design, 3D modeling, fabrication, painting"
+    },
+    {
+      "name": "Julia Mattis",
+      "url": "https://www.instagram.com/windowsill.bakery/",
+      "role": "Pastry, ceramics, fabrication, painting"
+    }
+  ],
+  "description": "A two-foot-tall ancient Greek amphora made entirely out of gingerbread, built from fifty stacked rings and hand-painted in black-figure style."
 }
