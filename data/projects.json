@@ -1,5 +1,107 @@
 [
   {
+    "id": "pastry-pirates",
+    "title": "Pastry Pirates",
+    "year": 2026,
+    "month": 7,
+    "tagline": "A board game as a designed system, in cardboard and code",
+    "categories": [
+      "Creative Technology",
+      "Design",
+      "Fabrication"
+    ],
+    "axes": {
+      "pragmatic": 0.4,
+      "institutional": 0.5
+    },
+    "thumbnail": "assets/projects/pastry-pirates/thumb.jpg",
+    "images": [
+      "assets/projects/pastry-pirates/hero.jpg",
+      "assets/projects/pastry-pirates/home.jpg",
+      "assets/projects/pastry-pirates/board-art.jpg",
+      "assets/projects/pastry-pirates/island.jpg",
+      "assets/projects/pastry-pirates/cocoa-island.jpg",
+      "assets/projects/pastry-pirates/flippenator.png",
+      "assets/projects/pastry-pirates/recipes.jpg",
+      "assets/projects/pastry-pirates/build-01-emoji.jpg",
+      "assets/projects/pastry-pirates/build-02-painted.jpg",
+      "assets/projects/pastry-pirates/build-03-today.jpg",
+      "assets/projects/pastry-pirates/wind-battle.jpg",
+      "assets/projects/pastry-pirates/playtest-parents.jpg",
+      "assets/projects/pastry-pirates/two-machines.jpg",
+      "assets/projects/pastry-pirates/rules-lab.png",
+      "assets/projects/pastry-pirates/battle-sim.png",
+      "assets/projects/pastry-pirates/storm-tuner.png",
+      "assets/projects/pastry-pirates/the-glass.png",
+      "assets/projects/pastry-pirates/narration-tool.png",
+      "assets/projects/pastry-pirates/art-review.png",
+      "assets/projects/pastry-pirates/logo.jpg",
+      "assets/projects/pastry-pirates/thumb.jpg",
+      "assets/projects/pastry-pirates/playtest-wyatt.jpg",
+      "assets/projects/pastry-pirates/cutting-sheet.png",
+      "assets/projects/pastry-pirates/board-pieces.jpg",
+      "assets/projects/pastry-pirates/board-bare.jpg",
+      "assets/projects/pastry-pirates/board-painted.jpg",
+      "assets/projects/pastry-pirates/board-friends.jpg",
+      "assets/projects/pastry-pirates/board-overhead.jpg"
+    ],
+    "videos": [],
+    "liveUrl": "https://playpastrypirates.com/",
+    "sourceUrl": "https://playpastrypirates.com/about.html",
+    "awards": [],
+    "medium": "App",
+    "label": "green",
+    "tags": [
+      "game design",
+      "systems thinking",
+      "board games",
+      "multiplayer",
+      "simulation",
+      "AI collaboration",
+      "laser cutting",
+      "teaching"
+    ],
+    "hero": "assets/projects/pastry-pirates/hero.jpg",
+    "who": [
+      {
+        "name": "Wyatt Roy",
+        "url": "",
+        "role": "Game design, art direction, writing, direction of the build"
+      },
+      {
+        "name": "Xavaar",
+        "url": "https://xavaar.com",
+        "role": "Sailing and battle mechanics, relentless playtesting"
+      },
+      {
+        "name": "Luis Zanforlin",
+        "url": "https://www.luiszanforlin.com/",
+        "role": "Battle mechanics, sound effects"
+      },
+      {
+        "name": "Luca and Amelia",
+        "url": "",
+        "role": "Seafarers, the game that started this one"
+      },
+      {
+        "name": "Nick Lesko",
+        "url": "",
+        "role": "Taught Luca and Amelia to design a board game"
+      },
+      {
+        "name": "Robin and Cathy",
+        "url": "",
+        "role": "First multiplayer playtesters"
+      },
+      {
+        "name": "Claude (Anthropic)",
+        "url": "",
+        "role": "Engineering, implementation, debugging"
+      }
+    ],
+    "description": "A browser and tabletop board game about sailing, baking, and piracy, tuned against a purpose-built simulation engine."
+  },
+  {
     "id": "portfolio-about",
     "title": "About This Portfolio",
     "year": 2026,
