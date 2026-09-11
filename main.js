@@ -456,7 +456,10 @@ function setupNav() {
         return;
       }
       // Collapsing the chrome moves the grid, so measure on the next frame.
-      requestAnimationFrame(() => revealResults('smooth'));
+      // Instant, not smooth: iOS re-pins the fixed nav to visualViewport.offsetTop,
+      // which churns for the whole duration of a smooth scroll — the nav visibly
+      // detaches and snaps back. A jump gives it no window to drift in.
+      requestAnimationFrame(() => revealResults('instant'));
     });
 
     searchInput.addEventListener('blur', () => {
@@ -472,7 +475,7 @@ function setupNav() {
       // yanks itself out from under someone already reading results.
       clearTimeout(revealTimer);
       revealTimer = setTimeout(() => {
-        if (resultsOutOfView()) revealResults('smooth');
+        if (resultsOutOfView()) revealResults('instant');
       }, 300);
     });
 
@@ -494,8 +497,20 @@ function setupNav() {
   // viewport's offset so it stays put.
   if (nav && window.visualViewport) {
     const vv = window.visualViewport;
+    // These fire in bursts while the keyboard animates. Coalesce them to one
+    // write per frame, and skip the write when the offset hasn't actually
+    // changed, so the nav stops jittering against its own transform.
+    let pinFrame = null;
+    let pinnedOffset = -1;
+    const applyPin = () => {
+      pinFrame = null;
+      const offset = Math.round(vv.offsetTop);
+      if (offset === pinnedOffset) return;
+      pinnedOffset = offset;
+      nav.style.transform = offset ? `translateY(${offset}px)` : '';
+    };
     const pinNavToVisualViewport = () => {
-      nav.style.transform = vv.offsetTop ? `translateY(${vv.offsetTop}px)` : '';
+      if (pinFrame === null) pinFrame = requestAnimationFrame(applyPin);
     };
     vv.addEventListener('resize', pinNavToVisualViewport);
     vv.addEventListener('scroll', pinNavToVisualViewport);

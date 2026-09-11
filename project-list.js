@@ -186,11 +186,30 @@ function shortestCol() {
   );
 }
 
+// Every filter, sort and search keystroke re-runs renderGrid, which clears the
+// grid and rebuilds each card from scratch — including a fresh <img> for the
+// thumbnail. On a phone that means re-fetching and re-decoding megabytes of
+// images per keystroke (and re-firing the per-project detail fetch below).
+// A card is a pure function of its project — they render always-expanded, so
+// there's no per-render state to reset — so build each one once and re-append
+// the same node on later renders. Detaching a node keeps its loaded images
+// intact, so re-appending costs nothing.
+const _cardCache = new Map();
+
+function getCard(project) {
+  let card = _cardCache.get(project.id);
+  if (!card) {
+    card = buildCard(project);
+    _cardCache.set(project.id, card);
+  }
+  return card;
+}
+
 function renderNextPage() {
   if (!_columns.length) return;
   const batch = filteredProjects.slice(renderedCount, renderedCount + PAGE_SIZE);
   batch.forEach(project => {
-    shortestCol().appendChild(buildCard(project));
+    shortestCol().appendChild(getCard(project));
   });
   renderedCount += batch.length;
 
