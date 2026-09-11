@@ -1577,6 +1577,45 @@ footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* ── Mobile search: clear the runway above the results ──
+     The "Work" heading, newsletter signup, tag chips and sort control stack
+     ~410px tall on a phone. With the on-screen keyboard open only ~300px of
+     page is still visible, so every result lands below the fold and live
+     filtering looks dead. While a search is running (body.search-active, set
+     in main.js) collapse that chrome to ~155px so results sit in view. */
+  body.search-active #work {
+    padding-top: var(--space-2);
+  }
+
+  body.search-active .work-header {
+    margin-bottom: var(--space-1);
+  }
+
+  body.search-active .work-header h2 {
+    font-size: 1.25rem;
+  }
+
+  /* The newsletter signup is the single tallest block above the results. */
+  body.search-active .footer-notify {
+    display: none;
+  }
+
+  body.search-active #tag-filters {
+    margin-bottom: var(--space-1);
+  }
+
+  body.search-active #sort-controls {
+    margin-bottom: var(--space-2);
+  }
+
+  /* A query matching little or nothing shrinks the page so far that it can no
+     longer scroll enough to bring the grid up under the nav — the no-results
+     message being the worst case. Keep a viewport of runway below the grid's
+     top so there is always somewhere to scroll to. */
+  body.search-active #project-grid {
+    min-height: calc(100vh - var(--nav-height));
+  }
 }
 
 /* ============================================================

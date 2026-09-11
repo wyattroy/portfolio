@@ -73,7 +73,8 @@ async function boot() {
     // past the locked hero animation the same way a restored scroll does.
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        document.getElementById('work')?.scrollIntoView({ behavior: 'instant' });
+        if (isMobileLayout()) revealResults('instant');
+        else document.getElementById('work')?.scrollIntoView({ behavior: 'instant' });
       });
     });
   } else {
@@ -365,6 +366,53 @@ function scrollToWork() {
   document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
 }
 
+// ─── Mobile search visibility ─────────────────────────────────────────────────
+// On a phone the card grid sits ~410px down #work: the "Work" heading, the
+// newsletter signup, the tag chips and the sort control all stack above it.
+// Once the on-screen keyboard claims the bottom half of the screen there is no
+// band left to render a single result in, so typing filters the grid entirely
+// off-screen and search reads as broken. Worse, a query that matches little or
+// nothing shortens the page below the scroll distance needed to reach the grid
+// at all. Two fixes work together: collapse that chrome while a search is
+// running (body.search-active, styled in the mobile media query) and scroll the
+// grid itself — not the top of #work — up under the fixed nav.
+const MOBILE_LAYOUT_QUERY = '(max-width: 768px)';
+
+function isMobileLayout() {
+  return window.matchMedia(MOBILE_LAYOUT_QUERY).matches;
+}
+
+function navHeightPx() {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue('--nav-height');
+  const px = parseInt(raw, 10);
+  return Number.isFinite(px) ? px : 64;
+}
+
+// Bottom edge of what the user can actually see. The visual viewport shrinks
+// when the keyboard opens; window.innerHeight doesn't, so it would happily
+// report space that's sitting behind the keyboard.
+function visibleBottomPx() {
+  const vv = window.visualViewport;
+  return vv ? vv.offsetTop + vv.height : window.innerHeight;
+}
+
+// True when so little of the grid overlaps the visible band that a filter
+// change would look like nothing happened.
+function resultsOutOfView() {
+  const grid = document.getElementById('project-grid');
+  if (!grid) return false;
+  const rect = grid.getBoundingClientRect();
+  const overlap = Math.min(rect.bottom, visibleBottomPx()) - Math.max(rect.top, navHeightPx());
+  return overlap < 80;
+}
+
+function revealResults(behavior = 'smooth') {
+  const grid = document.getElementById('project-grid');
+  if (!grid) return;
+  const top = grid.getBoundingClientRect().top + window.scrollY - navHeightPx() - 8;
+  window.scrollTo({ top: Math.max(0, top), behavior });
+}
+
 function setupNav() {
   const nav = document.getElementById('main-nav');
   const hamburger = document.getElementById('nav-hamburger');
@@ -388,7 +436,45 @@ function setupNav() {
   // filtering is visible instead of happening off-screen behind the 3D graph.
   const searchInput = document.getElementById('search-input');
   if (searchInput) {
-    searchInput.addEventListener('focus', scrollToWork);
+    let searchFocused = false;
+    let revealTimer = null;
+
+    // The collapsed chrome only exists while a search is live: focused input,
+    // or a query still sitting in it after the keyboard is dismissed.
+    const syncSearchActive = () => {
+      document.body.classList.toggle(
+        'search-active',
+        searchFocused || searchInput.value.trim() !== ''
+      );
+    };
+
+    searchInput.addEventListener('focus', () => {
+      searchFocused = true;
+      syncSearchActive();
+      if (!isMobileLayout()) {
+        scrollToWork();
+        return;
+      }
+      // Collapsing the chrome moves the grid, so measure on the next frame.
+      requestAnimationFrame(() => revealResults('smooth'));
+    });
+
+    searchInput.addEventListener('blur', () => {
+      searchFocused = false;
+      syncSearchActive();
+    });
+
+    searchInput.addEventListener('input', () => {
+      syncSearchActive();
+      if (!isMobileLayout()) return;
+      // project-list.js debounces filtering by 200ms — wait for the new results
+      // to render, then only nudge when they're off-screen, so the page never
+      // yanks itself out from under someone already reading results.
+      clearTimeout(revealTimer);
+      revealTimer = setTimeout(() => {
+        if (resultsOutOfView()) revealResults('smooth');
+      }, 300);
+    });
 
     // On narrow screens the input shrinks below what "Search projects…" fits
     // in, so it renders visibly clipped ("Search proj"). Swap to a shorter
