@@ -366,7 +366,7 @@
     "liveUrl": null,
     "sourceUrl": null,
     "images": [
-      "assets/projects/gingerbread-amphora/hero-black.jpg",
+      "assets/projects/gingerbread-amphora/gingerbread-amphora-hero-wide.jpg",
       "assets/projects/gingerbread-amphora/portrait.jpg",
       "assets/projects/gingerbread-amphora/terracotta-original.jpg",
       "assets/projects/gingerbread-amphora/grinding-to-dust.jpg",
@@ -398,7 +398,7 @@
         "role": "Pastry, ceramics, fabrication, painting"
       }
     ],
-    "hero": "assets/projects/gingerbread-amphora/hero-black.jpg"
+    "hero": "assets/projects/gingerbread-amphora/gingerbread-amphora-hero-wide.jpg"
   },
   {
     "id": "squidgeridoo",
