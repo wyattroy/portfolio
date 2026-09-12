@@ -14,7 +14,7 @@
       "pragmatic": 0.4,
       "institutional": 0.5
     },
-    "thumbnail": "assets/projects/pastry-pirates/thumb.jpg",
+    "thumbnail": "assets/projects/pastry-pirates/thumb-tile.jpg",
     "images": [
       "assets/projects/pastry-pirates/hero.jpg",
       "assets/projects/pastry-pirates/home.jpg",
@@ -110,7 +110,7 @@
       "pragmatic": 0.52,
       "institutional": 0.08
     },
-    "thumbnail": "assets/projects/portfolio-about/portfolio.png",
+    "thumbnail": "assets/projects/portfolio-about/portfolio-tile.jpg",
     "tags": [
       "portfolio",
       "web",
@@ -158,7 +158,7 @@
       "pragmatic": 0.77,
       "institutional": 0.64
     },
-    "thumbnail": "assets/projects/pour/watercolor-hero.jpg",
+    "thumbnail": "assets/projects/pour/watercolor-hero-tile.jpg",
     "tags": [
       "Care",
       "Counselling",
@@ -252,7 +252,7 @@
       "pragmatic": 0.91,
       "institutional": 0.96
     },
-    "thumbnail": "assets/projects/spatial-equity/otherthird.png",
+    "thumbnail": "assets/projects/spatial-equity/otherthird-tile.jpg",
     "tags": [
       "data",
       "spatial equity",
@@ -496,7 +496,7 @@
       "pragmatic": 0.95,
       "institutional": 0.8
     },
-    "thumbnail": "assets/projects/unstudio/Unstudio square.jpg",
+    "thumbnail": "assets/projects/unstudio/Unstudio square-tile.jpg",
     "images": [
       "assets/projects/unstudio/snapshot.jpg",
       "assets/projects/unstudio/unstudio-description.jpeg",
@@ -665,7 +665,7 @@
       "pragmatic": 0.89,
       "institutional": 0.84
     },
-    "thumbnail": "assets/projects/gre-admissions/GRE Description 2.jpg",
+    "thumbnail": "assets/projects/gre-admissions/GRE Description 2-tile.jpg",
     "images": [
       "assets/projects/gre-admissions/img3.jpg",
       "assets/projects/gre-admissions/GRE Description.jpg",
@@ -802,7 +802,7 @@
       "pragmatic": 0.59,
       "institutional": 0.55
     },
-    "thumbnail": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
+    "thumbnail": "assets/projects/how-to-change-institutions/bookinhand-tile.jpg",
     "images": [
       "assets/projects/how-to-change-institutions/img5.jpg",
       "assets/projects/how-to-change-institutions/How to Change Institutions page 4.jpg",
@@ -968,7 +968,7 @@
       "pragmatic": 0.5,
       "institutional": 0.1
     },
-    "thumbnail": "assets/projects/sorry/sorry-iphone.jpg",
+    "thumbnail": "assets/projects/sorry/sorry-iphone-tile.jpg",
     "images": [
       "assets/projects/sorry/thumb.jpg",
       "assets/projects/sorry/img2.jpg",
@@ -1412,7 +1412,7 @@
       "pragmatic": 0.38,
       "institutional": 0.37
     },
-    "thumbnail": "assets/projects/matchstick/matchstick-hand.jpeg",
+    "thumbnail": "assets/projects/matchstick/matchstick-hand-tile.jpg",
     "images": [
       "assets/projects/matchstick/matchstick.gif",
       "assets/projects/matchstick/1voxelgrid.png",
@@ -1707,7 +1707,7 @@
       "pragmatic": 0.91,
       "institutional": 0.28
     },
-    "thumbnail": "assets/projects/pigeonbelt/pigeonhero.jpg",
+    "thumbnail": "assets/projects/pigeonbelt/pigeonhero-tile.jpg",
     "images": [
       "assets/projects/pigeonbelt/pigeonbeltworn.gif",
       "assets/projects/pigeonbelt/fusionbuckle.gif",
@@ -1771,7 +1771,7 @@
       "pragmatic": 0.29,
       "institutional": 0.08
     },
-    "thumbnail": "assets/projects/cnc-cheeseboard/IMG_3763.jpg",
+    "thumbnail": "assets/projects/cnc-cheeseboard/IMG_3763-tile.jpg",
     "images": [
       "assets/projects/cnc-cheeseboard/b6-ojai-hero.jpeg",
       "assets/projects/cnc-cheeseboard/b1-old-map.jpg",
@@ -2218,7 +2218,7 @@
       "pragmatic": 0.1,
       "institutional": 0.12
     },
-    "thumbnail": "assets/projects/piece-of-string/img1.jpg",
+    "thumbnail": "assets/projects/piece-of-string/img1-tile.jpg",
     "images": [
       "assets/projects/piece-of-string/img1.jpg",
       "assets/projects/piece-of-string/img2.jpg",
@@ -3229,7 +3229,7 @@
       "pragmatic": 0.75,
       "institutional": 0.23
     },
-    "thumbnail": "assets/projects/storymaker/IMG_0214.JPG",
+    "thumbnail": "assets/projects/storymaker/IMG_0214-tile.jpg",
     "images": [
       "assets/projects/storymaker/stage 5.png",
       "assets/projects/storymaker/stage 1.png",

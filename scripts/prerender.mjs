@@ -281,7 +281,10 @@ for (const summary of targets) {
       id,
       title: `${project.title} — Wyatt Roy`,
       description: describe(project),
-      image: absolute(project.thumbnail || project.hero || (project.images || [])[0]),
+      // Prefer the hero: `thumbnail` now points at a downscaled index tile
+      // (see scripts/make-tiles.py), which is sized for a 3D prism face rather
+      // than for a social card.
+      image: absolute(project.hero || project.thumbnail || (project.images || [])[0]),
       url,
       keywords: (project.tags || []).join(', ') || null,
       origin: `${ORIGIN}/`,
