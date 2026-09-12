@@ -47,6 +47,17 @@ MIN_SAVING_RATIO = 0.15
 
 SUFFIX = "-tile"
 
+# Animated GIFs cost far more than any still on the index — the graph only ever
+# shows one frozen frame of them anyway, and the card wall is too small to read
+# an animation. These are flattened to a single still for the index only; the
+# GIF itself stays on `hero`/`images[]`, so the detail page and lightbox still
+# animate. Frames are chosen for how well they read as a still, not frame 0.
+GIF_STILL_FRAME = {
+    "ceramics-3d": 37,  # looking into the bowl — shows the form and the pattern
+    "cinnabot": 15,     # machine clear of the hand, which stays in for scale
+    "fanlamp": 57,      # fan fully open, glow centred
+}
+
 
 def target_size(w, h):
     """Smallest size that still fills the graph's cropped texture exactly.
@@ -90,9 +101,12 @@ def main():
         stem, ext = os.path.splitext(thumb)
         if stem.endswith(SUFFIX):
             continue  # already repointed at a tile
-        if ext.lower() == ".gif":
+
+        is_gif = ext.lower() == ".gif"
+        if is_gif and p["id"] not in GIF_STILL_FRAME:
+            # Don't silently freeze an animation nobody has chosen a frame for.
             skipped += 1
-            continue  # animation is a design call, not a mechanical one
+            continue
 
         src = os.path.join(ROOT, thumb.lstrip("/"))
         if not os.path.exists(src):
@@ -100,6 +114,9 @@ def main():
 
         try:
             im = Image.open(src)
+            if is_gif:
+                frame = min(GIF_STILL_FRAME[p["id"]], getattr(im, "n_frames", 1) - 1)
+                im.seek(frame)
             im.load()
         except Exception as err:
             print(f"  ! could not read {thumb}: {err}")
@@ -107,10 +124,16 @@ def main():
 
         size = target_size(*im.size)
         if size is None:
-            skipped += 1
-            continue
+            if not is_gif:
+                skipped += 1
+                continue
+            # A GIF already under the cap still wins hugely by dropping every
+            # frame but one, so keep its native size rather than skipping.
+            size = im.size
 
         alpha = has_alpha(im)
+        if is_gif:
+            alpha = False  # one opaque still; no matte to preserve
         out_ext = ".png" if alpha else ".jpg"
         out_rel = f"{stem}{SUFFIX}{out_ext}"
         out_abs = os.path.join(ROOT, out_rel.lstrip("/"))

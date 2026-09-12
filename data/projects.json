@@ -1631,7 +1631,7 @@
       "pragmatic": 0.62,
       "institutional": 0.34
     },
-    "thumbnail": "assets/projects/cinnabot/gantryfinalishinf.gif",
+    "thumbnail": "assets/projects/cinnabot/gantryfinalishinf-tile.jpg",
     "images": [
       "assets/projects/cinnabot/banner.jpg",
       "assets/projects/cinnabot/ee_evolution.jpg",
@@ -1829,7 +1829,7 @@
       "pragmatic": 0.03,
       "institutional": 0.62
     },
-    "thumbnail": "assets/projects/fanlamp/fanlampfinished.gif",
+    "thumbnail": "assets/projects/fanlamp/fanlampfinished-tile.jpg",
     "images": [
       "assets/projects/fanlamp/fanlampfinished.gif",
       "assets/projects/fanlamp/fusionfanlamp.gif",
@@ -2269,7 +2269,7 @@
       "pragmatic": 0.66,
       "institutional": 0.19
     },
-    "thumbnail": "assets/projects/ceramics-3d/bowl1.gif",
+    "thumbnail": "assets/projects/ceramics-3d/bowl1-tile.jpg",
     "images": [
       "assets/projects/ceramics-3d/bowl1.gif",
       "assets/projects/ceramics-3d/ceramics.png"
