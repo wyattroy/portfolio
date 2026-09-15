@@ -168,10 +168,7 @@
              </div></div>
 <figure class="pp-image" style="cursor: pointer;">
             <span class="pp-img-frame"><img src="assets/projects/pigeonbelt/pigeonbelt.png" alt="PigeonBelt" loading="lazy" onerror="this.closest('figure').style.display='none'"></span>
-          </figure>
-<div class="pp-video">
-            <iframe src="https://www.youtube.com/embed/xySM_qSlbhk?start=16" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="PigeonBelt"></iframe>
-          </div></div>
+          </figure></div>
           
           
           
@@ -1026,7 +1023,8 @@
         } else if (bodyImgs.length === 1) {
           galleryParts.push(renderSection({ type: 'image', src: bodyImgs[0] }, p.title));
         }
-        videos.forEach(v => { if (videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
+        const heroVideo = hasVideoHero ? videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false) : null;
+        videos.forEach(v => { if (v !== heroVideo && videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
 
         bodyHtml = parts.join('\n') + (galleryParts.length ? `<div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div>${galleryParts.join('\n')}</div>` : '');
       } else {

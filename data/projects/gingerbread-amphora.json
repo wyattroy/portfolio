@@ -202,7 +202,12 @@
     "assets/projects/gingerbread-amphora/reassembly.gif",
     "assets/projects/gingerbread-amphora/carrying-out.jpg"
   ],
-  "videos": [],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=eEb6DW66zNM",
+      "heroOverride": true
+    }
+  ],
   "awards": [],
   "who": [
     {

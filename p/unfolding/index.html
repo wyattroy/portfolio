@@ -146,10 +146,7 @@
                <img src="assets/projects/unfolding/img10.jpg" alt="Unfolding image 1" loading="lazy" onerror="this.parentElement.style.display='none'">
              </div><div class="pp-img-wrap" data-lightbox="" style="cursor: pointer;">
                <img src="assets/projects/unfolding/img14.jpg" alt="Unfolding image 2" loading="lazy" onerror="this.parentElement.style.display='none'">
-             </div></div>
-<div class="pp-video">
-            <iframe src="https://www.youtube.com/embed/wtlhi_1HNiQ" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="Unfolding"></iframe>
-          </div></div>
+             </div></div></div>
           <hr class="pp-sep">
            <p class="pp-awards-label">Awards</p>
            <ul class="pp-awards"><li>CineTejo Official Selection 2025</li><li>MIX Brasil 2025</li><li>Barcelona Planet Film Festival — Best VR 2025</li><li>Miami Art Tech Summit Official Selection 2025</li></ul>
@@ -1006,7 +1003,8 @@
         } else if (bodyImgs.length === 1) {
           galleryParts.push(renderSection({ type: 'image', src: bodyImgs[0] }, p.title));
         }
-        videos.forEach(v => { if (videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
+        const heroVideo = hasVideoHero ? videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false) : null;
+        videos.forEach(v => { if (v !== heroVideo && videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
 
         bodyHtml = parts.join('\n') + (galleryParts.length ? `<div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div>${galleryParts.join('\n')}</div>` : '');
       } else {

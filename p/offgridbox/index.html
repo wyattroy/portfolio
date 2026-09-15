@@ -150,10 +150,7 @@
                <img src="assets/projects/offgridbox/IMG_1289.JPG" alt="OffGridBox image 1" loading="lazy" onerror="this.parentElement.style.display='none'">
              </div><div class="pp-img-wrap" data-lightbox="" style="cursor: pointer;">
                <img src="assets/projects/offgridbox/IMG_1257.JPG" alt="OffGridBox image 2" loading="lazy" onerror="this.parentElement.style.display='none'">
-             </div></div>
-<div class="pp-video">
-            <iframe src="https://player.vimeo.com/video/250939980?color=5578A0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="OffGridBox"></iframe>
-          </div></div>
+             </div></div></div>
           
           
           
@@ -1008,7 +1005,8 @@
         } else if (bodyImgs.length === 1) {
           galleryParts.push(renderSection({ type: 'image', src: bodyImgs[0] }, p.title));
         }
-        videos.forEach(v => { if (videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
+        const heroVideo = hasVideoHero ? videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false) : null;
+        videos.forEach(v => { if (v !== heroVideo && videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
 
         bodyHtml = parts.join('\n') + (galleryParts.length ? `<div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div>${galleryParts.join('\n')}</div>` : '');
       } else {

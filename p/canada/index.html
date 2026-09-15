@@ -140,9 +140,7 @@
           <td class="pp-who-role">Sound Design and Mix</td>
         </tr></tbody></table>
         </div>
-      </div><div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div><div class="pp-video">
-            <iframe src="https://player.vimeo.com/video/181522057?color=5578A0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="Athletics Canada"></iframe>
-          </div></div>
+      </div>
           
           <div class="pp-ctas"><a href="https://vimeo.com/181522057" target="_blank" rel="noopener" class="cta-btn secondary">↗ Source / More</a></div>
           
@@ -997,7 +995,8 @@
         } else if (bodyImgs.length === 1) {
           galleryParts.push(renderSection({ type: 'image', src: bodyImgs[0] }, p.title));
         }
-        videos.forEach(v => { if (videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
+        const heroVideo = hasVideoHero ? videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false) : null;
+        videos.forEach(v => { if (v !== heroVideo && videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
 
         bodyHtml = parts.join('\n') + (galleryParts.length ? `<div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div>${galleryParts.join('\n')}</div>` : '');
       } else {

@@ -124,9 +124,7 @@
           <td class="pp-who-role">Designer, Engineer</td>
         </tr></tbody></table>
         </div>
-      </div><div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div><div class="pp-video">
-            <iframe src="https://www.youtube.com/embed/UeqSCYz189w" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="HandMove"></iframe>
-          </div></div>
+      </div>
           
           
           
@@ -981,7 +979,8 @@
         } else if (bodyImgs.length === 1) {
           galleryParts.push(renderSection({ type: 'image', src: bodyImgs[0] }, p.title));
         }
-        videos.forEach(v => { if (videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
+        const heroVideo = hasVideoHero ? videos.find(v => videoEmbedUrl(videoUrl(v)) && v.heroOverride !== false) : null;
+        videos.forEach(v => { if (v !== heroVideo && videoEmbedUrl(videoUrl(v))) galleryParts.push(renderSection({ type: 'video', src: videoUrl(v) }, p.title)); });
 
         bodyHtml = parts.join('\n') + (galleryParts.length ? `<div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div>${galleryParts.join('\n')}</div>` : '');
       } else {
