@@ -143,6 +143,11 @@
       "name": "Claude (Anthropic)",
       "url": "",
       "role": "Engineering, implementation, debugging"
+    },
+    {
+      "name": "Diane Zoi",
+      "url": "",
+      "role": "QA"
     }
   ]
 }
