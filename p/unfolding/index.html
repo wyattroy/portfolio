@@ -152,7 +152,7 @@
            <ul class="pp-awards"><li>CineTejo Official Selection 2025</li><li>MIX Brasil 2025</li><li>Barcelona Planet Film Festival — Best VR 2025</li><li>Miami Art Tech Summit Official Selection 2025</li></ul>
           
           
-        </div><div id="pp-comment-section" class=""></div><div class="pp-project-nav">
+        </div><div class="pp-project-nav">
         <a href="/p/splatcubes/" class="pp-nav-card">
           <span class="pp-nav-label">← Previous</span>
           <div class="pp-nav-thumb-wrap"><img src="assets/projects/splatcubes/thumb.jpg" alt="SplatCubes" loading="lazy" onerror="this.style.display='none'"></div>
@@ -644,8 +644,11 @@
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.content = project.tagline || '';
       renderProject(project);
-      root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
-      renderCommentSection(project.id);
+      // REACTIONS DISABLED 2026-09-15 — nobody was using the comment wall and the
+      // Supabase table is frozen. The whole implementation below (renderCommentSection
+      // and friends) is left intact; un-comment these two lines to bring it back.
+      // root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
+      // renderCommentSection(project.id);
       renderProjectNav(id, allProjects);
     }
 

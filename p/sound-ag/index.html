@@ -124,13 +124,13 @@
         </div>
       </div><div class="pp-gallery-section"><div class="pp-section-label">GALLERY</div><div class="pp-images cols-2"><div class="pp-img-wrap" data-lightbox="" style="cursor: pointer;">
                <img src="assets/projects/sound-ag/img2.jpg" alt="Sound AG image 1" loading="lazy" onerror="this.parentElement.style.display='none'">
-             </div><div class="pp-img-wrap" data-lightbox="" style="cursor: pointer; display: none;">
+             </div><div class="pp-img-wrap" data-lightbox="" style="cursor: pointer;">
                <img src="assets/projects/sound-ag/img6.jpg" alt="Sound AG image 2" loading="lazy" onerror="this.parentElement.style.display='none'">
              </div></div></div>
           
           <div class="pp-ctas"><a href="https://www.sound.ag/" target="_blank" rel="noopener" class="cta-btn primary">↗ Visit Project</a></div>
           
-        </div><div id="pp-comment-section" class=""></div><div class="pp-project-nav">
+        </div><div class="pp-project-nav">
         <a href="/p/3d-printing/" class="pp-nav-card">
           <span class="pp-nav-label">← Previous</span>
           <div class="pp-nav-thumb-wrap"><img src="assets/projects/3d-printing/thumb.jpg" alt="3D Printed Memories" loading="lazy" onerror="this.style.display='none'"></div>
@@ -622,8 +622,11 @@
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.content = project.tagline || '';
       renderProject(project);
-      root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
-      renderCommentSection(project.id);
+      // REACTIONS DISABLED 2026-09-15 — nobody was using the comment wall and the
+      // Supabase table is frozen. The whole implementation below (renderCommentSection
+      // and friends) is left intact; un-comment these two lines to bring it back.
+      // root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
+      // renderCommentSection(project.id);
       renderProjectNav(id, allProjects);
     }
 

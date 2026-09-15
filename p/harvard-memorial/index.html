@@ -166,7 +166,7 @@ Issues: degradation from making a model out of photos of a model; overhead satel
           
           
           
-        </div><div id="pp-comment-section" class=""></div><div class="pp-project-nav">
+        </div><div class="pp-project-nav">
         <a href="/p/ceramics-3d/" class="pp-nav-card">
           <span class="pp-nav-label">← Previous</span>
           <div class="pp-nav-thumb-wrap"><img src="assets/projects/ceramics-3d/bowl1.gif" alt="Ceramics 3D" loading="lazy" onerror="this.style.display='none'"></div>
@@ -658,8 +658,11 @@ Issues: degradation from making a model out of photos of a model; overhead satel
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.content = project.tagline || '';
       renderProject(project);
-      root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
-      renderCommentSection(project.id);
+      // REACTIONS DISABLED 2026-09-15 — nobody was using the comment wall and the
+      // Supabase table is frozen. The whole implementation below (renderCommentSection
+      // and friends) is left intact; un-comment these two lines to bring it back.
+      // root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
+      // renderCommentSection(project.id);
       renderProjectNav(id, allProjects);
     }
 

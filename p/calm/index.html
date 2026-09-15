@@ -138,7 +138,7 @@
           
           <div class="pp-ctas"><a href="https://vimeo.com/123265642" target="_blank" rel="noopener" class="cta-btn secondary">↗ Source / More</a></div>
           
-        </div><div id="pp-comment-section" class=""></div><div class="pp-project-nav">
+        </div><div class="pp-project-nav">
         <a href="/p/pastry-pirates/" class="pp-nav-card">
           <span class="pp-nav-label">← Back to latest</span>
           <div class="pp-nav-thumb-wrap"><img src="assets/projects/pastry-pirates/thumb.jpg" alt="Pastry Pirates" loading="lazy" onerror="this.style.display='none'"></div>
@@ -630,8 +630,11 @@
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.content = project.tagline || '';
       renderProject(project);
-      root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
-      renderCommentSection(project.id);
+      // REACTIONS DISABLED 2026-09-15 — nobody was using the comment wall and the
+      // Supabase table is frozen. The whole implementation below (renderCommentSection
+      // and friends) is left intact; un-comment these two lines to bring it back.
+      // root.insertAdjacentHTML('beforeend', '<div id="pp-comment-section"></div>');
+      // renderCommentSection(project.id);
       renderProjectNav(id, allProjects);
     }
 
