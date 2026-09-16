@@ -152,4 +152,54 @@ const B3 = ({ FONTS }) => {
 </div>`);
 };
 
-export const VARIANTS = { A1, A2, A3, B1, B2, B3 };
+/* ── B2 without the plate: "Wyatt Roy" set straight onto the mosaic ────────
+   White type on 52 thumbnails of wildly different brightness needs something
+   under it. These three differ only in what that something is. Shared parts
+   live in mosaic() and lockup() so the comparison is honest. */
+
+const mosaic = (BASE, P, cols = 9, rows = 6) => {
+  const cw = 1200 / cols, ch = 105;
+  const list = [...P];
+  let seed = 11;
+  const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+  for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }
+  let cells = '';
+  for (let i = 0; i < cols * rows; i++) {
+    cells += `<img src="${BASE + encodeURI(list[i % list.length].thumb)}" style="width:${cw}px;height:${ch}px;object-fit:cover;display:block">`;
+  }
+  return `<div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(${cols},${cw}px);grid-auto-rows:${ch}px;filter:saturate(.98)">${cells}</div>`;
+};
+
+const lockup = (P, shadow) => `
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <div style="font-family:var(--serif);font-weight:700;font-size:132px;line-height:1;color:#fff;letter-spacing:-.024em;text-shadow:${shadow}">Wyatt Roy</div>
+    <div style="margin-top:24px;font-family:var(--sans);font-weight:300;font-size:30px;color:rgba(255,255,255,.96);text-shadow:${shadow}">Systems designer, educator, creative director</div>
+    <div class="mono" style="margin-top:26px;font-size:14px;color:rgba(255,255,255,.88);text-shadow:${shadow}">${P.length} projects &nbsp;·&nbsp; 2015&ndash;2026</div>
+  </div>`;
+
+/* B2-bloom — a soft dark oval behind the lockup, mosaic bright everywhere else */
+const B2bloom = ({ FONTS, BASE, P }) => shell(FONTS, `
+<div class="frame" style="background:#151311">
+  ${mosaic(BASE, P)}
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 55% 52% at 50% 50%, rgba(16,13,11,.86) 0%, rgba(16,13,11,.76) 34%, rgba(16,13,11,.42) 64%, rgba(16,13,11,.06) 90%, rgba(16,13,11,0) 100%)"></div>
+  ${lockup(P, '0 2px 30px rgba(0,0,0,.5)')}
+</div>`);
+
+/* B2-band — a horizontal scrim across the middle third, top and bottom rows clear */
+const B2band = ({ FONTS, BASE, P }) => shell(FONTS, `
+<div class="frame" style="background:#151311">
+  ${mosaic(BASE, P)}
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(16,13,11,0) 14%, rgba(16,13,11,.66) 34%, rgba(16,13,11,.72) 50%, rgba(16,13,11,.66) 66%, rgba(16,13,11,0) 86%)"></div>
+  ${lockup(P, '0 2px 24px rgba(0,0,0,.45)')}
+</div>`);
+
+/* B2-bare — no scrim at all, just a heavy shadow. Brightest mosaic, and the
+   type has to survive whatever thumbnail happens to land under it. */
+const B2bare = ({ FONTS, BASE, P }) => shell(FONTS, `
+<div class="frame" style="background:#151311">
+  ${mosaic(BASE, P)}
+  <div style="position:absolute;inset:0;background:rgba(16,13,11,.20)"></div>
+  ${lockup(P, '0 2px 10px rgba(0,0,0,.85), 0 0 46px rgba(0,0,0,.75), 0 1px 3px rgba(0,0,0,.6)')}
+</div>`);
+
+export const VARIANTS = { A1, A2, A3, B1, B2, B3, B2bloom, B2band, B2bare };
