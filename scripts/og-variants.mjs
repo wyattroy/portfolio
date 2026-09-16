@@ -48,7 +48,7 @@ const A2 = ({ FONTS, BASE }) => shell(FONTS, `
      radial-gradient(ellipse 48% 66% at 50% 47%, rgba(250,250,249,.97) 0%, rgba(250,250,249,.92) 30%, rgba(250,250,249,.58) 60%, rgba(250,250,249,.10) 88%, rgba(250,250,249,0) 100%)"></div>
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
     <div style="font-family:var(--serif);font-weight:700;font-size:206px;line-height:1;color:var(--ink);letter-spacing:-.025em">Wyatt</div>
-    <div style="margin-top:30px;font-family:var(--sans);font-weight:300;font-size:31px;color:#403D36">Designer, researcher, and educator</div>
+    <div style="margin-top:30px;font-family:var(--sans);font-weight:300;font-size:28px;color:#403D36">Systems designer, educator, creative director</div>
   </div>
 </div>`);
 
@@ -88,7 +88,7 @@ const B1 = ({ FONTS, BASE, P }) => {
 <div class="frame" style="background:#fff">
   <div style="position:absolute;left:84px;top:0;bottom:0;width:470px;display:flex;flex-direction:column;justify-content:center">
     <div style="font-family:var(--serif);font-weight:700;font-size:94px;line-height:1;color:var(--ink);letter-spacing:-.022em">Wyatt Roy</div>
-    <div style="font-family:var(--sans);font-weight:300;font-size:29px;line-height:1.35;color:#403D36;margin-top:22px">Designer, researcher,<br>and educator.</div>
+    <div style="font-family:var(--sans);font-weight:300;font-size:29px;line-height:1.35;color:#403D36;margin-top:22px">Systems designer, educator,<br>creative director.</div>
     <div style="height:1px;background:var(--border);width:280px;margin:32px 0 22px"></div>
     <div class="mono" style="font-size:15px;color:var(--muted);line-height:2">${P.length} projects, 2015&ndash;2026<br><span style="color:var(--accent)">wyattroy.com</span></div>
   </div>
@@ -119,11 +119,11 @@ const B2 = ({ FONTS, BASE, P }) => {
   }
   return shell(FONTS, `
 <div class="frame" style="background:#151311">
-  <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(${cols},${cw}px);grid-auto-rows:${ch}px;filter:saturate(.9) brightness(.96)">${cells}</div>
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%, rgba(20,17,15,.46) 0%, rgba(20,17,15,.30) 60%, rgba(20,17,15,.22) 100%)"></div>
-  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:716px;background:var(--surface);border-radius:12px;box-shadow:0 26px 76px rgba(0,0,0,.42);padding:48px 56px 44px;text-align:center">
+  <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(${cols},${cw}px);grid-auto-rows:${ch}px;filter:saturate(.98)">${cells}</div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%, rgba(20,17,15,.22) 0%, rgba(20,17,15,.12) 60%, rgba(20,17,15,.08) 100%)"></div>
+  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:716px;background:var(--surface);border-radius:12px;box-shadow:0 30px 84px rgba(0,0,0,.46), 0 2px 8px rgba(0,0,0,.18);padding:48px 56px 44px;text-align:center">
     <div style="font-family:var(--serif);font-weight:700;font-size:88px;line-height:1;color:var(--ink);letter-spacing:-.022em">Wyatt Roy</div>
-    <div style="font-family:var(--sans);font-weight:300;font-size:27px;color:#403D36;margin-top:16px">Designer, researcher, and educator</div>
+    <div style="font-family:var(--sans);font-weight:300;font-size:26px;color:#403D36;margin-top:16px">Systems designer, educator, creative director</div>
     <div style="height:1px;background:var(--border);margin:24px auto 18px;width:160px"></div>
     <div class="mono" style="font-size:14px;color:var(--muted)">${P.length} projects &nbsp;·&nbsp; 2015&ndash;2026</div>
   </div>
@@ -144,7 +144,7 @@ const B3 = ({ FONTS }) => {
   <div class="mono" style="position:absolute;left:88px;top:84px;font-size:14px;color:var(--muted)">wyattroy.com</div>
   <div style="position:absolute;left:88px;right:88px;top:50%;transform:translateY(-46%)">
     <div style="font-family:var(--serif);font-weight:700;font-size:140px;line-height:1;color:var(--ink);letter-spacing:-.026em">Wyatt Roy</div>
-    <div style="font-family:var(--sans);font-weight:300;font-size:35px;color:#403D36;margin-top:24px">Designer, researcher, and educator.</div>
+    <div style="font-family:var(--sans);font-weight:300;font-size:35px;color:#403D36;margin-top:24px">Systems designer, educator, creative director.</div>
   </div>
   <div style="position:absolute;left:88px;right:88px;bottom:124px;height:1px;background:var(--border)"></div>
   <div class="mono" style="position:absolute;left:88px;bottom:80px;font-size:14px;color:var(--muted)">XR &nbsp;·&nbsp; Creative technology &nbsp;·&nbsp; Institutional change &nbsp;·&nbsp; Making</div>

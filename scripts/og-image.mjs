@@ -4,8 +4,8 @@
  * Run by hand, NOT by CI. Unlike `prerender.mjs`, the output of this script is a
  * source asset: render it, eyeball it, commit the JPG. Nothing regenerates it.
  *
- *   npm run og            # renders every variant to assets/og/candidates/
- *   npm run og -- A2      # renders one variant
+ *   npm run og            # renders the live image to assets/og/preview.jpg
+ *   npm run og -- A2 B1   # renders those layouts to assets/og/candidates/ to compare
  *
  * It needs Playwright and a network path to fonts.googleapis.com (the site's real
  * Source Serif 4 / DM Sans / DM Mono are inlined so the render matches the site).
@@ -19,8 +19,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const OUT  = path.join(ROOT, 'assets/og/candidates');
 const W = 1200, H = 630;
+
+// The layout the site actually ships. og-variants.mjs keeps the alternates
+// that lost, so swapping the preview is a one-word change here.
+const CHOSEN = 'B2';
+const LIVE = path.join(ROOT, 'assets/og/preview.jpg');
+const CANDIDATES = path.join(ROOT, 'assets/og/candidates');
 
 const GOOGLE_FONTS = 'https://fonts.googleapis.com/css2'
   + '?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700'
@@ -74,14 +79,14 @@ const run = async () => {
   const P = projects();
   const { VARIANTS } = await import('./og-variants.mjs');
   const wanted = process.argv.slice(2).filter(a => VARIANTS[a]);
-  const names = wanted.length ? wanted : Object.keys(VARIANTS);
+  const names = wanted.length ? wanted : [CHOSEN];
+  const dest = name => wanted.length ? path.join(CANDIDATES, name + '.jpg') : LIVE;
 
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
   const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 2 });
   const page = await ctx.newPage();
   const scaler = await ctx.newPage();
   await scaler.setContent('<body></body>');
-  fs.mkdirSync(OUT, { recursive: true });
 
   for (const name of names) {
     await page.setContent(VARIANTS[name]({ FONTS, BASE, P }), { waitUntil: 'load' });
@@ -105,7 +110,8 @@ const run = async () => {
       return c.toDataURL('image/jpeg', 0.92).split(',')[1];
     }, shot);
 
-    const file = path.join(OUT, name + '.jpg');
+    const file = dest(name);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, Buffer.from(jpg, 'base64'));
     console.log(`${name}  ${(fs.statSync(file).size / 1024) | 0} KB  →  ${path.relative(ROOT, file)}`);
   }
