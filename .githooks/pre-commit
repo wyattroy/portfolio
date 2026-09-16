@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+# Keeps generated pages out of local commits.
+#
+# The 52 pages under p/, plus sitemap.xml, robots.txt and the crawlable link
+# list inside index.html, are built by scripts/prerender.mjs. They are committed
+# by the GitHub Action in .github/workflows/prerender.yml, and by nothing else.
+#
+# Why this hook exists: if a local render also commits those files, two things
+# write the same generated output, and whichever one rendered from an
+# out-of-date copy silently reverts the other's work. A local render is also
+# wrong by construction -- sitemap <lastmod> reads each data file's commit date,
+# and that commit does not exist yet at the moment you render.
+#
+# Render locally as much as you want to check your work. This hook only keeps
+# the output out of the commit; the Action rebuilds it a minute after you push.
+#
+# Escape hatch, for the rare time you really do mean it:
+#   ALLOW_GENERATED=1 git commit ...
+
+if [ "$ALLOW_GENERATED" = "1" ]; then
+  exit 0
+fi
+
+GENERATED="p sitemap.xml robots.txt"
+
+restored=""
+
+staged_generated=$(git diff --cached --name-only -- $GENERATED)
+if [ -n "$staged_generated" ]; then
+  count=$(printf '%s\n' "$staged_generated" | wc -l | tr -d ' ')
+  git checkout HEAD -- $GENERATED 2>/dev/null || true
+  restored="$count generated file(s) under p/ sitemap.xml robots.txt"
+fi
+
+# index.html is hand-written except for the block between the PRERENDER:LINKS
+# markers, so restore just that block rather than the whole file.
+if ! git diff --cached --quiet -- index.html 2>/dev/null; then
+  if node -e '
+    const { execFileSync } = require("child_process");
+    const fs = require("fs");
+    const S = "<!-- PRERENDER:LINKS:START -->";
+    const E = "<!-- PRERENDER:LINKS:END -->";
+    const slice = t => {
+      const a = t.indexOf(S), b = t.indexOf(E);
+      return (a < 0 || b < 0) ? null : t.slice(a, b + E.length);
+    };
+    const head = execFileSync("git", ["show", "HEAD:index.html"], { encoding: "utf8" });
+    const cur  = fs.readFileSync("index.html", "utf8");
+    const h = slice(head), c = slice(cur);
+    if (h === null || c === null || h === c) process.exit(1);
+    fs.writeFileSync("index.html", cur.replace(c, h));
+    process.exit(0);
+  ' 2>/dev/null; then
+    git add index.html
+    restored="${restored:+$restored, }the generated link list in index.html"
+  fi
+fi
+
+if [ -n "$restored" ]; then
+  echo ""
+  echo "  Left out of this commit: $restored"
+  echo "  Those are built files -- the GitHub Action rebuilds and commits them"
+  echo "  after you push. Your own edits are untouched and still staged."
+  echo ""
+fi
+
+exit 0
