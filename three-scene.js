@@ -974,13 +974,40 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
   // with a short crossfade instead of holding the intro hostage.
   // Frosted loading screen over the graph. Only appears if the preload is slow
   // (a first visit on a slow connection); cached repeat visits never see it.
-  const loadingEl = document.createElement('div');
-  loadingEl.className = 'graph-loading';
-  loadingEl.setAttribute('role', 'status');
-  loadingEl.innerHTML = '<div class="graph-loading-inner"><span class="graph-loading-text"></span><span class="graph-loading-bar"><i></i></span></div>';
-  document.getElementById('hero')?.appendChild(loadingEl);
-  const loadingText = loadingEl.querySelector('.graph-loading-text');
-  const loadingBar = loadingEl.querySelector('.graph-loading-bar i');
+  //
+  // It is only ever created if loading is actually slow, and it is gone before
+  // the zoom starts. Adding or removing a full-size backdrop-filter layer makes
+  // Safari rebuild its compositing layers, WebGL canvas included: when this was
+  // removed on a timer after the intro began, it froze the zoom for ~250 ms,
+  // 0.8 s in, on every load.
+  let loadingEl = null;
+  let loadingProgress = 0;
+  function showLoading(total) {
+    if (loadingEl) return;
+    loadingEl = document.createElement('div');
+    loadingEl.className = 'graph-loading';
+    loadingEl.setAttribute('role', 'status');
+    loadingEl.innerHTML = '<div class="graph-loading-inner"><span class="graph-loading-text"></span><span class="graph-loading-bar"><i></i></span></div>';
+    loadingEl.querySelector('.graph-loading-text').textContent = `Loading ${total} projects`;
+    document.getElementById('hero')?.appendChild(loadingEl);
+    updateLoadingBar();
+    requestAnimationFrame(() => loadingEl?.classList.add('visible'));
+  }
+  function updateLoadingBar() {
+    const bar = loadingEl?.querySelector('.graph-loading-bar i');
+    if (bar) bar.style.transform = `scaleX(${loadingProgress})`;
+  }
+  // Resolves once the loading screen has faded out and left the page
+  async function hideLoading() {
+    if (!loadingEl) return;
+    const el = loadingEl;
+    el.classList.remove('visible');
+    await new Promise(resolve => setTimeout(resolve, 550)); // matches the CSS fade
+    el.remove();
+    loadingEl = null;
+    await nextFrame(); // let the browser settle its layers before anything animates
+    await nextFrame();
+  }
 
   function attachTexture(mesh, texture, crossfade) {
     const mats = Array.from(mesh.material);
@@ -1008,8 +1035,6 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
   function scheduleIntro() {
     if (introScheduled) return;
     introScheduled = true;
-    loadingEl.classList.remove('visible');
-    setTimeout(() => loadingEl.remove(), 600);
     // Cards wait for the axis labels' own reveal on a first visit
     const earliest = sceneInitTime + (skipEntry ? INTRO_REPEAT_DELAY_MS : CARD_REVEAL_START_MS);
     intro.startAt = Math.max(performance.now(), earliest);
@@ -1027,11 +1052,11 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     const withThumbs = prismMeshes.filter(m => m.userData.project.thumbnail);
     let decoded = 0;
     const updateLoading = () => {
-      loadingText.textContent = `Loading ${withThumbs.length} projects`;
-      loadingBar.style.transform = `scaleX(${withThumbs.length ? decoded / withThumbs.length : 1})`;
+      loadingProgress = withThumbs.length ? decoded / withThumbs.length : 1;
+      updateLoadingBar();
     };
     // Only cover the graph if loading is actually slow
-    const loadingTimer = setTimeout(() => loadingEl.classList.add('visible'), 700);
+    const loadingTimer = setTimeout(() => showLoading(withThumbs.length), 700);
     updateLoading();
 
     let preloadOver = false;
@@ -1070,6 +1095,7 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     }
     ready.forEach(({ mesh, texture }) => attachTexture(mesh, texture, false));
     warmUpGpu();
+    await hideLoading();
     await nextFrame();
     scheduleIntro();
   }
