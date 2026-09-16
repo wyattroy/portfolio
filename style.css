@@ -38,6 +38,8 @@
   --shadow-lg: 0 16px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
 
   --nav-height: 64px;
+  /* How much of the card stack peeks up below the 3D graph */
+  --hero-peek: 14vh;
   --transition-micro: 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-layout: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -322,16 +324,21 @@ h1, h2, h3, h4, h5 {
   background: var(--color-bg);
 }
 
+/* The graph ends where the peeking card stack begins, so nothing hides behind it */
 #three-canvas {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - var(--hero-peek));
 }
 
 #axis-labels {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - var(--hero-peek));
   pointer-events: none;
 }
 
@@ -364,12 +371,72 @@ h1, h2, h3, h4, h5 {
   transform-origin: center center;
 }
 
+/* Year frame labels — placed per frame at each frame's top-left corner */
 .axis-year {
-  opacity: 0;
-  transition: opacity 0.3s;
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  transform: translate(4px, 3px);
+  white-space: nowrap;
+  user-select: none;
+  display: none;
 }
 .axis-year.visible {
+  display: block;
+  opacity: calc(0.85 * var(--year-ghost, 1));
+}
+
+/* Frosted loading screen over the graph — only shown when thumbnails are slow
+   to arrive (the intro waits for all of them). Sits above the graph and labels,
+   below the nav, and stops short of the peeking card stack. */
+.graph-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - var(--hero-peek));
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.graph-loading.visible {
   opacity: 1;
+  pointer-events: auto;
+}
+.graph-loading-inner {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+.graph-loading-text {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.graph-loading-bar {
+  display: block;
+  width: 160px;
+  height: 2px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+.graph-loading-bar i {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
 }
 
 #project-hover-label {
@@ -401,13 +468,20 @@ h1, h2, h3, h4, h5 {
 }
 
 /* ============================================================
-   HERO SCROLL HINT
+   GRAPH CONTROLS (reset view + year slider)
    ============================================================ */
-#viz-reset-btn {
+#viz-controls {
   position: absolute;
-  bottom: calc(var(--space-4) + 2rem);
-  right: var(--space-4);
+  right: var(--space-3);
+  bottom: calc(var(--hero-peek) + var(--space-2));
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+}
+
+#viz-reset-btn {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
@@ -427,39 +501,101 @@ h1, h2, h3, h4, h5 {
   color: var(--color-accent);
 }
 
-.hero-scroll-hint {
-  position: absolute;
-  bottom: var(--space-4);
-  right: var(--space-4);
+.viz-year-filter {
+  width: 200px;
+  padding: 6px 10px 4px;
+  background: rgba(248, 246, 242, 0.82);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
   color: var(--color-text-muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  opacity: 0.6;
-  pointer-events: none;
-  animation: fadeInUp 1s 1.5s both;
 }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 0.6; transform: translateY(0); }
+.viz-year-label {
+  display: block;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.viz-year-label output {
+  color: var(--color-text);
+}
+.viz-year-filter.active .viz-year-label output {
+  color: var(--color-accent);
+}
+.viz-year-filter input[type="range"] {
+  width: 100%;
+  margin: 4px 0 0;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+.viz-year-ends {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6rem;
+  opacity: 0.8;
 }
 
 /* ============================================================
    WORK SECTION
    ============================================================ */
 #work-bg {
-  /* Full-width background layer for the list section */
+  /* Full-width background layer for the list section. Starts --hero-peek
+     above the bottom of the window, so the card stack is always visible. */
   position: relative;
   z-index: 1;
   background: var(--color-bg);
-  margin-top: 100vh;
+  margin-top: calc(100vh - var(--hero-peek));
   min-height: 100vh;
   box-shadow: 0 -24px 60px 0 rgba(0, 0, 0, 0.13);
+}
+
+/* Drawer handle: a grab bar at the top edge of the card stack */
+.work-drawer-handle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 0 6px;
+  background: none;
+  border: none;
+  cursor: grab;
+  touch-action: none; /* the handle drags the stack instead of scrolling the page */
+  user-select: none;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.work-drawer-handle.dragging { cursor: grabbing; }
+.work-drawer-handle::before {
+  content: '';
+  width: 44px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color-border);
+  transition: background var(--transition-micro), width var(--transition-micro);
+}
+.work-drawer-handle:hover { color: var(--color-text); }
+.work-drawer-handle:hover::before {
+  background: var(--color-text-muted);
+  width: 56px;
+}
+
+/* Two bounces after the graph settles, hinting the stack can be scrolled up */
+@keyframes drawer-bounce {
+  0%, 50%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.33, 0, 0.2, 1); }
+  20%, 70%      { transform: translateY(-5vh); animation-timing-function: cubic-bezier(0.6, 0, 0.9, 0.5); }
+}
+#work-bg.drawer-bounce {
+  animation: drawer-bounce 1.3s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  #work-bg.drawer-bounce { animation: none; }
 }
 
 #work {
@@ -467,21 +603,53 @@ h1, h2, h3, h4, h5 {
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  padding: var(--space-10) var(--space-4);
+  padding: var(--space-1) var(--space-4) var(--space-8);
 }
 
-.work-header {
+/* Filter chips and sort share one row, so cards start high in the peek */
+.work-controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
   flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-3);
 }
 
-.work-header h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--color-text);
+.work-controls #tag-filters,
+.work-controls #sort-controls {
+  margin-bottom: 0;
+}
+
+.year-cutoff-note {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+.year-cutoff-note button {
+  font: inherit;
+  color: var(--color-accent);
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 4px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Newsletter signup: its own band at the bottom of the page, above the footer */
+.notify-band {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) 0;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: center;
+}
+.notify-band .footer-notify {
+  text-align: center;
+}
+.notify-band .footer-notify-form {
+  justify-content: center;
 }
 
 #search-input {
@@ -1524,34 +1692,31 @@ footer {
    ============================================================ */
 @media (max-width: 768px) {
   #work {
-    padding: var(--space-8) var(--space-3);
+    padding: var(--space-1) var(--space-3) var(--space-6);
   }
 
-  .work-header {
-    flex-direction: column;
+  .work-controls {
     align-items: flex-start;
   }
 
-  .footer-notify {
-    width: 100%;
-    text-align: left;
-    margin-top: var(--space-2);
+  .notify-band {
+    padding: var(--space-4) var(--space-3) 0;
   }
 
-  .footer-notify-form {
-    justify-content: flex-start;
+  /* ── Mobile graph: 70% of viewport height, card stack peeks up below it ── */
+  :root {
+    --hero-peek: 30vh;
   }
 
-  /* ── Mobile graph: 70% of viewport height ── */
-  #three-canvas,
-  #axis-labels {
-    bottom: auto;
-    height: 70%;
+  #viz-controls {
+    right: var(--space-2);
+    bottom: calc(var(--hero-peek) + var(--space-1));
   }
 
-  /* Card stack starts below the 70% graph area */
-  #work-bg {
-    margin-top: 70vh;
+  /* Narrow enough to stay clear of the bottom-center "Individual" label */
+  .viz-year-filter {
+    width: 128px;
+    font-size: 0.58rem;
   }
 
   /* Shrink all axis labels so all four fit on a narrow screen */
@@ -1559,15 +1724,6 @@ footer {
     font-size: 0.58rem;
     padding: 2px 5px;
     letter-spacing: 0.09em;
-  }
-
-  /* Scroll hint sits at the canvas/card boundary */
-  .hero-scroll-hint {
-    top: 72%;
-    bottom: auto;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
   }
 
   /* Clamp modal description so "More" button always stays on screen */
@@ -1579,8 +1735,8 @@ footer {
   }
 
   /* ── Mobile search: clear the runway above the results ──
-     The "Work" heading, newsletter signup, tag chips and sort control stack
-     ~410px tall on a phone. With the on-screen keyboard open only ~300px of
+     The tag chips and sort control (and, before they moved, the "Work"
+     heading and newsletter signup) stack tall on a phone. With the on-screen keyboard open only ~300px of
      page is still visible, so every result lands below the fold and live
      filtering looks dead. While a search is running (body.search-active, set
      in main.js) collapse that chrome to ~155px so results sit in view. */
@@ -1588,17 +1744,8 @@ footer {
     padding-top: var(--space-2);
   }
 
-  body.search-active .work-header {
+  body.search-active .work-controls {
     margin-bottom: var(--space-1);
-  }
-
-  body.search-active .work-header h2 {
-    font-size: 1.25rem;
-  }
-
-  /* The newsletter signup is the single tallest block above the results. */
-  body.search-active .footer-notify {
-    display: none;
   }
 
   body.search-active #tag-filters {

@@ -3,7 +3,7 @@
  * Vanilla ES modules, no build step
  */
 
-import { initProjectList, expandProject, buildDetailContent } from './project-list.js';
+import { initProjectList, expandProject, buildDetailContent, setYearCutoff } from './project-list.js';
 import { initLightbox } from './project-detail.js';
 
 // ─── Email construction (never in HTML) ──────────────────────────────────────
@@ -33,11 +33,32 @@ function maybeRestoreScroll() {
   });
 }
 
+// ─── Offline cache for thumbnails ────────────────────────────────────────────
+// sw.js keeps tile thumbnails and three.js on the device between visits (see
+// the note at its top for why HTTP caching alone can't). Skipped on localhost so
+// editing in editor.html never shows a stale image; add ?sw=1 to test locally.
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  const local = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const forced = new URLSearchParams(location.search).has('sw');
+  if (local && !forced) {
+    navigator.serviceWorker.getRegistrations()
+      .then(regs => regs.forEach(r => r.unregister()))
+      .catch(() => {});
+    return;
+  }
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+
 // ─── Boot ────────────────────────────────────────────────────────────────────
 async function boot() {
+  registerServiceWorker();
   // Set up nav behaviors first (no data needed)
   setupNav();
   setupFooter();
+  setupDrawer();
 
   // Load project data
   let projects = [];
@@ -116,7 +137,14 @@ async function initVisualization(projects) {
   if (hasWebGL) {
     try {
       const { initThreeScene } = await import('./three-scene.js');
-      initThreeScene(projects, { onProjectClick: handleProjectClick });
+      const scene = initThreeScene(projects, {
+        onProjectClick: handleProjectClick,
+        onYearCutoffChange: year => {
+          setYearCutoff(year);
+          updateYearCutoffNote(year, scene);
+        },
+        onSettled: bounceDrawerHint,
+      });
     } catch (err) {
       console.warn('Three.js init failed, falling back to 2D:', err);
       initMobileThumbnailGrid(projects, scatter2d);
@@ -367,8 +395,8 @@ function scrollToWork() {
 }
 
 // ─── Mobile search visibility ─────────────────────────────────────────────────
-// On a phone the card grid sits ~410px down #work: the "Work" heading, the
-// newsletter signup, the tag chips and the sort control all stack above it.
+// On a phone the card grid sits below the tag chips and the sort control in
+// #work (the "Work" heading and newsletter signup used to stack there too).
 // Once the on-screen keyboard claims the bottom half of the screen there is no
 // band left to render a single result in, so typing filters the grid entirely
 // off-screen and search reads as broken. Worse, a query that matches little or
@@ -566,14 +594,15 @@ function setupNav() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // "Back to 3D Graph" nav button — appears once the card grid is in view,
-  // lets the user jump back up to the hero without scrolling by hand.
-  // Fades in/out (rather than snapping via `hidden`) at the same
-  // transition-micro rate as the nav's own scrolled-state fade, so the two
-  // don't visually fight each other while the user scrolls.
+  // "Back to 3D Graph" nav button — appears once the card stack covers most
+  // of the graph, lets the user jump back up to the hero without scrolling by
+  // hand. (The stack now peeks up from the start, so "grid in view" can't be
+  // the trigger any more.) Fades in/out (rather than snapping via `hidden`) at
+  // the same transition-micro rate as the nav's own scrolled-state fade, so the
+  // two don't visually fight each other while the user scrolls.
   const graphBtn = document.getElementById('nav-graph-btn');
-  const projectGrid = document.getElementById('project-grid');
-  if (graphBtn && projectGrid) {
+  const workBg = document.getElementById('work-bg');
+  if (graphBtn && workBg) {
     graphBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -582,21 +611,24 @@ function setupNav() {
         graphBtn.hidden = true;
       }
     });
-    const graphBtnObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          graphBtn.hidden = false;
-          // Force layout before adding the class so the opacity change is
-          // picked up as a transition rather than an instant jump.
-          void graphBtn.offsetWidth;
-          graphBtn.classList.add('visible');
-        } else {
-          graphBtn.classList.remove('visible');
-        }
-      },
-      { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-height') || '64px'} 0px 0px 0px` }
-    );
-    graphBtnObserver.observe(projectGrid);
+    let graphBtnShown = false;
+    const syncGraphBtn = () => {
+      const show = workBg.getBoundingClientRect().top < window.innerHeight * 0.5;
+      if (show === graphBtnShown) return;
+      graphBtnShown = show;
+      if (show) {
+        graphBtn.hidden = false;
+        // Force layout before adding the class so the opacity change is
+        // picked up as a transition rather than an instant jump.
+        void graphBtn.offsetWidth;
+        graphBtn.classList.add('visible');
+      } else {
+        graphBtn.classList.remove('visible');
+      }
+    };
+    window.addEventListener('scroll', syncGraphBtn, { passive: true });
+    window.addEventListener('resize', syncGraphBtn, { passive: true });
+    syncGraphBtn();
   }
 
   // Drawer work link: close and scroll
@@ -609,6 +641,107 @@ function setupNav() {
       scrollToWork();
     });
   }
+}
+
+// ─── Card stack drawer ───────────────────────────────────────────────────────
+// The card stack always peeks up below the graph. Its handle opens it, and
+// after the intro zoom settles it bounces twice to show it can be scrolled up —
+// until the visitor has opened the stack once, after which it stays still.
+const STACK_OPENED_KEY = 'wyattroy-opened-stack';
+
+function stackOpenedBefore() {
+  try { return !!localStorage.getItem(STACK_OPENED_KEY); } catch { return false; }
+}
+
+function setupDrawer() {
+  const handle = document.getElementById('work-drawer-handle');
+  const workBg = document.getElementById('work-bg');
+  if (!handle || !workBg) return;
+
+  const openStack = () => {
+    const work = document.getElementById('work');
+    if (!work) return;
+    const top = work.getBoundingClientRect().top + window.scrollY - navHeightPx();
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  };
+
+  // Drag: the stack follows the pointer, then snaps open or closed in the
+  // direction of the last movement. A press that barely moves is a click.
+  const DRAG_THRESHOLD_PX = 5;
+  let drag = null;
+  handle.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    drag = { startY: e.clientY, lastY: e.clientY, startScroll: window.scrollY, dir: 0, moved: false };
+    handle.setPointerCapture(e.pointerId);
+    handle.classList.add('dragging');
+  });
+  handle.addEventListener('pointermove', e => {
+    if (!drag) return;
+    const dy = e.clientY - drag.startY;
+    if (!drag.moved && Math.abs(dy) < DRAG_THRESHOLD_PX) return;
+    drag.moved = true;
+    if (e.clientY !== drag.lastY) drag.dir = Math.sign(e.clientY - drag.lastY);
+    drag.lastY = e.clientY;
+    // Dragging up (dy < 0) raises the stack, i.e. scrolls the page down
+    window.scrollTo({ top: Math.max(0, drag.startScroll - dy), behavior: 'instant' });
+  });
+  const endDrag = () => {
+    if (!drag) return;
+    const { moved, dir } = drag;
+    drag = null;
+    handle.classList.remove('dragging');
+    if (!moved) return; // the click handler opens it
+    handle.dataset.justDragged = '1';
+    if (dir > 0) window.scrollTo({ top: 0, behavior: 'smooth' });
+    else openStack();
+  };
+  handle.addEventListener('pointerup', endDrag);
+  handle.addEventListener('pointercancel', endDrag);
+
+  handle.addEventListener('click', () => {
+    if (handle.dataset.justDragged) {
+      delete handle.dataset.justDragged;
+      return;
+    }
+    openStack();
+  });
+
+  // Count the stack as opened once its top edge passes the middle of the window
+  if (stackOpenedBefore()) return;
+  const markOpened = () => {
+    if (workBg.getBoundingClientRect().top > window.innerHeight * 0.5) return;
+    try { localStorage.setItem(STACK_OPENED_KEY, '1'); } catch {}
+    window.removeEventListener('scroll', markOpened);
+  };
+  window.addEventListener('scroll', markOpened, { passive: true });
+}
+
+function bounceDrawerHint() {
+  if (stackOpenedBefore() || window.scrollY > 0) return;
+  const workBg = document.getElementById('work-bg');
+  if (!workBg) return;
+  workBg.classList.remove('drawer-bounce');
+  void workBg.offsetWidth; // restart the animation if it somehow ran before
+  workBg.classList.add('drawer-bounce');
+  workBg.addEventListener('animationend', () => workBg.classList.remove('drawer-bounce'), { once: true });
+}
+
+// "Through 2019 · Show all" above the cards while the graph's year slider is back in time
+function updateYearCutoffNote(year, scene) {
+  const note = document.getElementById('year-cutoff-note');
+  if (!note) return;
+  if (year == null) {
+    note.hidden = true;
+    note.textContent = '';
+    return;
+  }
+  note.hidden = false;
+  note.textContent = `Through ${year}`;
+  const showAll = document.createElement('button');
+  showAll.type = 'button';
+  showAll.textContent = 'Show all';
+  showAll.addEventListener('click', () => scene?.setYearCutoff(null));
+  note.appendChild(showAll);
 }
 
 function setupFooter() {

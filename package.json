@@ -1,11 +1,12 @@
 {
   "name": "wyattroy-portfolio",
   "version": "1.0.0",
-  "description": "Wyatt Roy portfolio — static GitHub Pages site",
+  "description": "Wyatt Roy portfolio \u2014 static GitHub Pages site",
   "private": true,
   "scripts": {
     "scrape": "node scripts/scrape.js",
-    "prerender": "node scripts/prerender.mjs"
+    "prerender": "node scripts/prerender.mjs",
+    "check:graph": "node --no-warnings scripts/check-graph-depth.mjs"
   },
   "devDependencies": {
     "cheerio": "^1.0.0",

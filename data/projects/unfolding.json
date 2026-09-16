@@ -108,5 +108,6 @@
       "role": "Actor"
     }
   ],
-  "description": "A short film in 180-3D virtual reality."
+  "description": "A short film in 180-3D virtual reality.",
+  "featured": false
 }
