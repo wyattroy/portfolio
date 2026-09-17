@@ -23,7 +23,7 @@ export const PULSE = {
   spreadPx: 14,         // glow blur radius, in texture px (the tile face is 160 px wide)
   size: 2.45,            // glow plane size as a multiple of the tile; raise it if a wide spread gets clipped
   coreAlpha: 0.6,         // strength of the solid gradient behind the tile, which feeds the glow
-  edgeWidth: 5,         // a hot outline hugging the tile edge, in texture px (0 = none)
+  edgeWidth: 1,         // a hot outline hugging the tile edge, in texture px (0 = none)
   colorA: '#f5d42e',    // gradient start
   colorB: '#f7eac5',    // gradient end
   glowColor: '#f9e2a4', // colour of the blur and outline
@@ -39,16 +39,16 @@ export const PULSE = {
 // back, squashes and stretches with its speed, and rocks slightly. The glow is
 // parented to the tile, so it bounces along.
 export const BOUNCE = {
-  sizeBoost: 1.15,      // resting size of a highlighted tile vs the others
-  amount: 0.1,          // strength of each kick (0.1 ≈ a 10% hop before the spring settles)
+  sizeBoost: 1.42,      // resting size of a highlighted tile vs the others
+  amount: 0.015,          // strength of each kick (0.1 ≈ a 10% hop before the spring settles)
   at: 0,                // when in the breath the kick lands: 0 = breath starts, 0.5 = brightest
   hops: 1,              // kicks per breath (2 = a double-bounce)
   hopSpacing: 0.12,     // gap between those kicks, as a share of the breath
   hopDecay: 0.5,        // each extra kick's strength relative to the one before
-  stiffness: 0.12,      // spring pull back to rest: higher = quicker, snappier
-  damping: 0.12,        // spring friction: lower = more overshoot and wobble
+  stiffness: 0.03,      // spring pull back to rest: higher = quicker, snappier
+  damping: 0.375,        // spring friction: lower = more overshoot and wobble
   squash: 1.5,          // squash & stretch from the tile's speed (0 = keeps its shape)
-  wobbleDeg: 1.5,       // how far the tile rocks on each kick, in degrees
+  wobbleDeg: 0,       // how far the tile rocks on each kick, in degrees
 };
 
 const RECT_W = 160;           // tile face in texture px

@@ -8,8 +8,8 @@
  */
 
 export const FOG = {
-  startYears: 1.5,     // how far behind the newest project the fog begins, in years
-  strength: 0.6,       // how faded the oldest project is (0 = no fog, 1 = gone into the background)
+  startYears: 0,     // how far behind the newest project the fog begins, in years
+  strength: 0.58,       // how faded the oldest project is (0 = no fog, 1 = gone into the background)
   color: '#FFFFFF',    // what tiles fade toward; keep it the page background unless you want a tint
 };
 
