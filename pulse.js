@@ -14,7 +14,7 @@
 export const PULSE = {
   count: 3,             // how many top-ranked projects pulse
   periodMs: 3800,       // one full breath, including any rest
-  opacityMin: 0.3,     // glow opacity at the bottom of a breath
+  opacityMin: 0.41,     // glow opacity at the bottom of a breath
   opacityMax: 1,     // …and at the top
   curve: 1,             // breath shape: 1 = smooth sine, >1 = brief peaks, <1 = long highs
   holdAtPeak: 0,        // share of each breath held at full brightness (0–0.8)
@@ -42,17 +42,17 @@ export const PULSE = {
 // or late so the rhythm never settles into a heartbeat. The glow is parented to
 // the tile and moves with it.
 export const BOUNCE = {
-  sizeBoost: 1.42,      // resting size of a highlighted tile vs the others
-  press: 0.035,         // how far a press dips the tile (0.035 = 3.5% smaller at the bottom)
+  sizeBoost: 1.55,      // resting size of a highlighted tile vs the others
+  press: 0.042,         // how far a press dips the tile (0.035 = 3.5% smaller at the bottom)
   at: 0,                // when in the breath the press lands: 0 = breath starts, 0.5 = brightest
-  irregularity: 0.3,    // how much each press's timing wanders, as a share of the breath
-  bobTempo: 0.012,      // buoyancy: higher = quicker bobs back up
-  bobDamping: 0.035,    // water resistance: lower = more bobs before it settles
-  flatten: 0.4,         // how much the tile widens as it's pressed, like it's being squashed flat
-  rockDeg: 2.5,         // how far it tilts on each press, in degrees
-  rockTempo: 0.75,      // rocking speed relative to the bob; not 1, so the two drift in and out of step
-  driftPct: 0.006,      // idle floating between presses: size breathing, share of size
-  driftDeg: 0.6,        // idle floating between presses: gentle tilt, in degrees
+  irregularity: 0.16,    // how much each press's timing wanders, as a share of the breath
+  bobTempo: 0.005,      // buoyancy: higher = quicker bobs back up
+  bobDamping: 0.02,    // water resistance: lower = more bobs before it settles
+  flatten: 0,         // how much the tile widens as it's pressed, like it's being squashed flat
+  rockDeg: 0,         // how far it tilts on each press, in degrees
+  rockTempo: 0.3,      // rocking speed relative to the bob; not 1, so the two drift in and out of step
+  driftPct: 0,      // idle floating between presses: size breathing, share of size
+  driftDeg: 0,        // idle floating between presses: gentle tilt, in degrees
 };
 
 const RECT_W = 160;           // tile face in texture px
