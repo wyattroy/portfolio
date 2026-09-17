@@ -15,6 +15,10 @@
 # Render locally as much as you want to check your work. This hook only keeps
 # the output out of the commit; the Action rebuilds it a minute after you push.
 #
+# It stands aside during a merge, cherry-pick, revert or rebase. There the
+# staged generated files are the other side's committed output, not a local
+# render, and dropping them reverts work that was already on the branch.
+#
 # Escape hatch, for the rare time you really do mean it:
 #   ALLOW_GENERATED=1 git commit ...
 
@@ -32,6 +36,20 @@ if git diff --cached --name-only | grep -qE '^(data/projects\.json|graph-depth\.
     echo ""
     exit 1
   fi
+fi
+
+# Everything below rewrites the commit, so it has to stay out of the way of a
+# commit git is composing from another commit. In a merge, cherry-pick, revert
+# or rebase the staged p/, sitemap.xml and robots.txt are whatever the Action
+# already committed on the other side; restoring them to HEAD reverts it, and
+# nothing in the diff shows why. That silently undid two sitemap lastmod dates
+# on 2026-09-17.
+git_dir=$(git rev-parse --git-dir)
+if git rev-parse -q --verify MERGE_HEAD >/dev/null 2>&1 ||
+   git rev-parse -q --verify CHERRY_PICK_HEAD >/dev/null 2>&1 ||
+   git rev-parse -q --verify REVERT_HEAD >/dev/null 2>&1 ||
+   [ -d "$git_dir/rebase-merge" ] || [ -d "$git_dir/rebase-apply" ]; then
+  exit 0
 fi
 
 GENERATED="p sitemap.xml robots.txt"

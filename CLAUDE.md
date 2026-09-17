@@ -22,7 +22,9 @@ date*, and that commit does not exist yet at the moment you render.
 
 `npm run prerender` locally to check your work is fine and encouraged. Just don't
 commit what it produces. `.githooks/pre-commit` drops those paths automatically,
-so a stray `git add -A` is safe.
+so a stray `git add -A` is safe. It stands aside during a merge, cherry-pick,
+revert or rebase, where those paths carry the other side's committed output
+rather than your render. `npm run test:hook` covers both behaviours.
 
 One-time setup in a fresh clone (the hook lives in the repo, but git has to be
 pointed at it):
