@@ -24,9 +24,9 @@ export const PULSE = {
   size: 2.45,            // glow plane size as a multiple of the tile; raise it if a wide spread gets clipped
   coreAlpha: 0.6,         // strength of the solid gradient behind the tile, which feeds the glow
   edgeWidth: 1,         // a hot outline hugging the tile edge, in texture px (0 = none)
-  colorA: '#f5d42e',    // gradient start
-  colorB: '#f7eac5',    // gradient end
-  glowColor: '#f9e2a4', // colour of the blur and outline
+  colorA: '#E6E6E3',    // gradient start
+  colorB: '#F0F0EE',    // gradient end
+  glowColor: '#DDDDD9', // colour of the blur and outline
   gradientAngle: 135,   // degrees
   cornerRadius: 0,      // texture px
   scaleAmount: 0.065,       // how much the glow swells at the top of a breath (0.1 = 10%)
@@ -34,21 +34,25 @@ export const PULSE = {
   ringOpacity: 0.49,       // an outline that ripples outward at the start of each breath (0 = none)
 };
 
-// Game-feel hop on the same tiles, timed to their pulse. The tile is a little
-// larger at rest, then gets a springy kick each breath: it overshoots, wobbles
-// back, squashes and stretches with its speed, and rocks slightly. The glow is
-// parented to the tile, so it bounces along.
+// The same tiles float like a toy boat on water. They sit a little larger than
+// the rest, and in time with the pulse get a gentle press: the tile dips, then
+// buoyancy brings it back in a few slow, softening bobs while it rocks off-axis
+// (a 3D tilt, so it reads as floating in the scene). Between presses it keeps
+// drifting a touch, so it never goes still, and each press lands a little early
+// or late so the rhythm never settles into a heartbeat. The glow is parented to
+// the tile and moves with it.
 export const BOUNCE = {
   sizeBoost: 1.42,      // resting size of a highlighted tile vs the others
-  amount: 0.015,          // strength of each kick (0.1 ≈ a 10% hop before the spring settles)
-  at: 0,                // when in the breath the kick lands: 0 = breath starts, 0.5 = brightest
-  hops: 1,              // kicks per breath (2 = a double-bounce)
-  hopSpacing: 0.12,     // gap between those kicks, as a share of the breath
-  hopDecay: 0.5,        // each extra kick's strength relative to the one before
-  stiffness: 0.03,      // spring pull back to rest: higher = quicker, snappier
-  damping: 0.375,        // spring friction: lower = more overshoot and wobble
-  squash: 1.5,          // squash & stretch from the tile's speed (0 = keeps its shape)
-  wobbleDeg: 0,       // how far the tile rocks on each kick, in degrees
+  press: 0.035,         // how far a press dips the tile (0.035 = 3.5% smaller at the bottom)
+  at: 0,                // when in the breath the press lands: 0 = breath starts, 0.5 = brightest
+  irregularity: 0.3,    // how much each press's timing wanders, as a share of the breath
+  bobTempo: 0.012,      // buoyancy: higher = quicker bobs back up
+  bobDamping: 0.035,    // water resistance: lower = more bobs before it settles
+  flatten: 0.4,         // how much the tile widens as it's pressed, like it's being squashed flat
+  rockDeg: 2.5,         // how far it tilts on each press, in degrees
+  rockTempo: 0.75,      // rocking speed relative to the bob; not 1, so the two drift in and out of step
+  driftPct: 0.006,      // idle floating between presses: size breathing, share of size
+  driftDeg: 0.6,        // idle floating between presses: gentle tilt, in degrees
 };
 
 const RECT_W = 160;           // tile face in texture px
@@ -185,45 +189,63 @@ export function pulsePhase(pulse, cfg, now) {
   return ((((now + pulse.phase) % cfg.periodMs) + cfg.periodMs) % cfg.periodMs) / cfg.periodMs;
 }
 
-export function createBounce() {
-  return { x: 0, v: 0, rot: 0, rotV: 0, lastT: null, side: 1, carry: 0 };
+export function createBounce(seed = Math.random()) {
+  return {
+    x: 0, v: 0,           // bob: scale offset and its velocity
+    rx: 0, rvx: 0,        // rock: tilt around X
+    ry: 0, rvy: 0,        // rock: tilt around Y
+    lastT: null, carry: 0,
+    offset: 0,            // this breath's timing wander
+    seed: seed * 1000,    // offsets the idle drift so tiles don't float in unison
+  };
 }
 
-// Advances the bounce spring by `dt` ms and returns { sx, sy, rot } for the tile.
-// The spring steps at a fixed 60 Hz, so it feels the same at any frame rate.
-export function updateBounce(state, cfg, t, dt, reducedMotion) {
-  if (reducedMotion) return { sx: cfg.sizeBoost, sy: cfg.sizeBoost, rot: 0 };
+// Advances the float and returns { sx, sy, rx, ry } for the tile.
+// Springs step at a fixed 60 Hz, so it feels the same at any frame rate.
+export function updateBounce(state, cfg, t, dt, reducedMotion, now = 0) {
+  if (reducedMotion) return { sx: cfg.sizeBoost, sy: cfg.sizeBoost, rx: 0, ry: 0 };
 
-  // A kick lands whenever the breath phase crosses one of the hop times
+  // A press lands when the breath crosses this breath's (wandering) press time
   if (state.lastT !== null) {
-    const crossed = at => (state.lastT <= t ? at > state.lastT && at <= t : at > state.lastT || at <= t);
-    let strength = cfg.amount;
-    for (let k = 0; k < Math.max(1, Math.round(cfg.hops)); k++) {
-      if (crossed((cfg.at + k * cfg.hopSpacing) % 1)) {
-        state.v += strength;
-        state.rotV += (cfg.wobbleDeg * Math.PI / 180) * 0.35 * state.side;
-        state.side = -state.side;
-      }
-      strength *= cfg.hopDecay;
+    const at = ((cfg.at + state.offset) % 1 + 1) % 1;
+    const crossed = state.lastT <= t ? at > state.lastT && at <= t : at > state.lastT || at <= t;
+    if (crossed) {
+      // An impulse of v gives a dip of about v / sqrt(tempo), so scale it to land at `press`
+      state.v -= cfg.press * Math.sqrt(cfg.bobTempo);
+      const dir = Math.random() * Math.PI * 2;
+      const kick = (cfg.rockDeg * Math.PI / 180) * Math.sqrt(cfg.bobTempo * cfg.rockTempo);
+      state.rvx += Math.cos(dir) * kick;
+      state.rvy += Math.sin(dir) * kick;
+      state.offset = (Math.random() - 0.5) * cfg.irregularity;
     }
   }
   state.lastT = t;
 
+  const rockK = cfg.bobTempo * cfg.rockTempo;
   state.carry += Math.min(dt, 100);
   while (state.carry >= 1000 / 60) {
     state.carry -= 1000 / 60;
-    state.v += -state.x * cfg.stiffness;
-    state.v *= 1 - cfg.damping;
+    state.v += -state.x * cfg.bobTempo;
+    state.v *= 1 - cfg.bobDamping;
     state.x += state.v;
-    state.rotV += -state.rot * cfg.stiffness;
-    state.rotV *= 1 - cfg.damping;
-    state.rot += state.rotV;
+    state.rvx += -state.rx * rockK;
+    state.rvx *= 1 - cfg.bobDamping;
+    state.rx += state.rvx;
+    state.rvy += -state.ry * rockK;
+    state.rvy *= 1 - cfg.bobDamping;
+    state.ry += state.rvy;
   }
 
-  const stretch = cfg.squash * state.v;
+  // Idle drift: slow, unrelated sine waves, so it never quite repeats
+  const k = now + state.seed;
+  const drift = cfg.driftPct * 0.5 * (Math.sin(k / 2300) + Math.sin(k / 3710));
+  const driftRad = cfg.driftDeg * Math.PI / 180;
+  const size = 1 + state.x + drift;
+  const widen = -state.x * cfg.flatten; // pressed down (x < 0) = a little wider and shorter
   return {
-    sx: cfg.sizeBoost * (1 + state.x - stretch),
-    sy: cfg.sizeBoost * (1 + state.x + stretch),
-    rot: state.rot,
+    sx: cfg.sizeBoost * (size + widen),
+    sy: cfg.sizeBoost * (size - widen),
+    rx: state.rx + driftRad * Math.sin(k / 2900),
+    ry: state.ry + driftRad * Math.sin(k / 4130),
   };
 }

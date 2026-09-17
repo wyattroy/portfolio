@@ -904,10 +904,10 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
       const ud = mesh.userData;
       const s = tickSpring(ud.scaleSpring, TILE_HOVER_STIFFNESS, TILE_HOVER_DAMPING);
       if (ud.bounce && hl > 0) {
-        // Highlighted tile: larger at rest, with a springy hop on each pulse
-        const b = updateBounce(ud.bounce, BOUNCE, pulsePhase(ud.pulse, PULSE, now), dt, reducedMotion);
+        // Highlighted tile: larger at rest, floating, pressed on each pulse
+        const b = updateBounce(ud.bounce, BOUNCE, pulsePhase(ud.pulse, PULSE, now), dt, reducedMotion, now);
         mesh.scale.set(s * (1 + (b.sx - 1) * hlEase), s * (1 + (b.sy - 1) * hlEase), 1);
-        mesh.rotation.z = b.rot * hlEase;
+        mesh.rotation.set(b.rx * hlEase, b.ry * hlEase, 0);
       } else {
         mesh.scale.set(s, s, 1);
       }
