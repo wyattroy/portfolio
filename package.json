@@ -6,7 +6,8 @@
   "scripts": {
     "scrape": "node scripts/scrape.js",
     "prerender": "node scripts/prerender.mjs",
-    "check:graph": "node --no-warnings scripts/check-graph-depth.mjs"
+    "check:graph": "node --no-warnings scripts/check-graph-depth.mjs",
+    "og": "node scripts/og-image.mjs"
   },
   "devDependencies": {
     "cheerio": "^1.0.0",
