@@ -1645,8 +1645,10 @@ footer {
     padding: var(--space-1) var(--space-3) var(--space-6);
   }
 
+  /* Chips and sort eat too much of the peek on a phone: the drawer handle
+     reads "All projects", and the newest card sits right under it */
   .work-controls {
-    align-items: flex-start;
+    display: none;
   }
 
   .notify-band {
@@ -1692,18 +1694,6 @@ footer {
      in main.js) collapse that chrome to ~155px so results sit in view. */
   body.search-active #work {
     padding-top: var(--space-2);
-  }
-
-  body.search-active .work-controls {
-    margin-bottom: var(--space-1);
-  }
-
-  body.search-active #tag-filters {
-    margin-bottom: var(--space-1);
-  }
-
-  body.search-active #sort-controls {
-    margin-bottom: var(--space-2);
   }
 
   /* A query matching little or nothing shrinks the page so far that it can no
