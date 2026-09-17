@@ -8,7 +8,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 import { topProjectIds } from './highlight.js';
 import { PULSE, BOUNCE, buildPulseTextures, attachPulse, updatePulse, pulsePhase, createBounce, updateBounce } from './pulse.js';
-import { FOG, updateFog, installFogCurve, installFogCurveIn } from './fog.js';
+import { FOG, createFogState, updateFog, installFogCurve, installFogCurveIn } from './fog.js';
 // Time-axis depth lives in its own module so CI can check that no two tiles
 // share a depth (z-fighting) — see graph-depth.js and scripts/check-graph-depth.mjs
 import { projectDepths, timeZ, yearFraction, TILE_DEPTH, Z_NEAR, Z_FAR, YEAR_MIN, YEAR_MAX } from './graph-depth.js';
@@ -769,6 +769,22 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
   const _frameCorner = new THREE.Vector3();
   const _viewDir = new THREE.Vector3();
   const _fogPoint = new THREE.Vector3();
+  const fogState = createFogState();
+  const FOG_MIN_DEPTH = 1; // cards closer than this are passing the camera; don't start fog there
+
+  // Camera-forward depth of the nearest card that's on screen and not ghosted
+  function nearestCardDepth() {
+    let best = null;
+    for (const mesh of prismMeshes) {
+      if (mesh.userData.ghostTarget !== 1) continue;
+      const depth = _fogPoint.copy(mesh.position).sub(camera.position).dot(_viewDir);
+      if (depth < FOG_MIN_DEPTH || (best !== null && depth >= best)) continue;
+      _fogPoint.copy(mesh.position).project(camera);
+      if (Math.abs(_fogPoint.x) > 1.05 || Math.abs(_fogPoint.y) > 1.05) continue;
+      best = depth;
+    }
+    return best;
+  }
   const ORIGIN = new THREE.Vector3(0, 0, 0);
   const TIME_A = new THREE.Vector3(0, 0, TIME_LABEL_Z);
   const TIME_B = new THREE.Vector3(0, 0, TIME_LABEL_Z + 1);
@@ -830,14 +846,9 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     // Must run after camera matrices are updated (post-lookAt, pre-render)
     camera.updateMatrixWorld();
 
-    // Fog, measured along the camera's view so it holds when rotated or zoomed
+    // Fog starts at the nearest card on screen, so whatever you zoom to is crisp
     camera.getWorldDirection(_viewDir);
-    updateFog(
-      scene.fog, FOG,
-      _fogPoint.set(0, 0, zDataMax).sub(camera.position).dot(_viewDir),
-      _fogPoint.set(0, 0, zDataMin).sub(camera.position).dot(_viewDir),
-      UNITS_PER_YEAR
-    );
+    updateFog(scene.fog, FOG, fogState, nearestCardDepth(), zDataMax - zDataMin, UNITS_PER_YEAR, dt);
 
     // Endpoint labels: project the 3D tip of each axis, pin to screen edge
     const pOrigin = project3D(ORIGIN, camera);

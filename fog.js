@@ -1,20 +1,24 @@
 /**
  * fog.js — tiles fade toward the background as they recede into the past.
  *
- * The fade is front-loaded: most of it happens just behind the newest projects,
- * then it eases off toward the oldest, so the last couple of years read as their
- * own cluster in front of a softer past. three.js's built-in fog only fades in a
- * straight line, so every fogged material gets this curve patched into its
- * shader (installFogCurve). Distances are re-aimed every frame relative to the
- * graph, not the camera, so the look holds at any zoom or rotation.
+ * Fog is measured from where you're looking, not baked onto old projects: it
+ * starts at the nearest card on screen in front of the camera. Zoomed out, that's
+ * the newest work; zoom in on a 2019 project and 2019 is crisp while what lies
+ * behind it fades. When cards pass behind the camera the starting point glides
+ * to the next one rather than jumping.
+ *
+ * The fade is front-loaded: most of it happens just behind that nearest card,
+ * then it eases off across the graph's full depth. three.js's built-in fog only
+ * fades in a straight line, so every fogged material gets this curve patched
+ * into its shader (installFogCurve).
  *
  * The "Bounce & Fog Tuner" artifact runs this same code and exports FOG.
  */
 
 export const FOG = {
-  startYears: 0,       // how far behind the newest project the fog begins, in years
-  strength: 0.65,      // how faded the oldest project is (0 = no fog, 1 = gone into the background)
-  falloff: 4,          // 0 = even fade front to back; higher = more of the fade right behind the newest work
+  startYears: 0,       // how far behind the nearest card on screen the fog begins, in years
+  strength: 0.65,      // how faded a card the graph's full depth behind that is (0 = no fog, 1 = gone)
+  falloff: 4,          // 0 = even fade; higher = more of the fade right behind the nearest card
   color: '#FFFFFF',    // what tiles fade toward; keep it the page background unless you want a tint
 };
 
@@ -36,7 +40,7 @@ uniform float fogFalloff;`;
 
 const FOG_FRAGMENT = `
 #ifdef USE_FOG
-  // fogNear = where the fog starts, fogFar = depth of the oldest project
+  // fogNear = where the fog starts (nearest card on screen), fogFar = one graph-depth further
   float fogX = clamp( ( vFogDepth - fogNear ) / max( fogFar - fogNear, 1e-4 ), 0.0, 1.0 );
   float fogShaped = fogFalloff < 0.001 ? fogX : ( 1.0 - exp( -fogFalloff * fogX ) ) / ( 1.0 - exp( -fogFalloff ) );
   gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogStrength * fogShaped );
@@ -67,12 +71,27 @@ export function installFogCurveIn(root) {
   });
 }
 
-// Per frame. depthNewest / depthOldest: camera-forward distance to the newest
-// and oldest tiles. unitsPerYear: time-axis world units per year.
-export function updateFog(fog, cfg, depthNewest, depthOldest, unitsPerYear) {
-  const near = Math.max(0.1, depthNewest + cfg.startYears * unitsPerYear);
+export function createFogState() {
+  return { front: null };
+}
+
+// How quickly the fog's starting point glides to a new nearest card
+const FRONT_GLIDE = 0.12; // share of the remaining gap closed per 60 Hz frame
+
+// Per frame.
+//   nearestDepth: camera-forward distance to the nearest card on screen in
+//                 front of the camera (null if none — keeps the last value)
+//   spanDepth:    the graph's full depth, newest to oldest, in world units
+//   unitsPerYear: time-axis world units per year
+export function updateFog(fog, cfg, state, nearestDepth, spanDepth, unitsPerYear, dt = 16.67) {
+  if (nearestDepth != null) {
+    if (state.front == null) state.front = nearestDepth;
+    else state.front += (nearestDepth - state.front) * (1 - Math.pow(1 - FRONT_GLIDE, dt / 16.67));
+  }
+  const front = state.front ?? 0;
+  const near = Math.max(0.1, front + cfg.startYears * unitsPerYear);
   fog.near = near;
-  fog.far = Math.max(near + 0.001, depthOldest);
+  fog.far = near + Math.max(0.001, spanDepth);
   fog.color.set(cfg.color);
   fogUniforms.fogStrength.value = Math.min(1, Math.max(0, cfg.strength));
   fogUniforms.fogFalloff.value = Math.max(0, cfg.falloff);
