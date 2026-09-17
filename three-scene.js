@@ -8,7 +8,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 import { topProjectIds } from './highlight.js';
 import { PULSE, BOUNCE, buildPulseTextures, attachPulse, updatePulse, pulsePhase, createBounce, updateBounce } from './pulse.js';
-import { FOG, updateFog } from './fog.js';
+import { FOG, updateFog, installFogCurve, installFogCurveIn } from './fog.js';
 // Time-axis depth lives in its own module so CI can check that no two tiles
 // share a depth (z-fighting) — see graph-depth.js and scripts/check-graph-depth.mjs
 import { projectDepths, timeZ, yearFraction, TILE_DEPTH, Z_NEAR, Z_FAR, YEAR_MIN, YEAR_MAX } from './graph-depth.js';
@@ -740,7 +740,10 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
-    if (aspectChanged) layoutScene(); // re-flow tiles to fill the new shape
+    if (aspectChanged) {
+      layoutScene(); // re-flow tiles to fill the new shape
+      installFogCurveIn(gridGroup); // the grid was rebuilt with fresh materials
+    }
     wakeRender();
   }
 
@@ -1055,6 +1058,7 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     const mats = Array.from(mesh.material);
     const old = mats[4];
     mats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: true, opacity: old.opacity });
+    installFogCurve(mats[4]);
     old.dispose();
     mesh.material = mats;
     if (crossfade) {
@@ -1195,6 +1199,8 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
 
   // Pre-compile the untextured shaders before the first visible frame — otherwise
   // the GPU-driver compile lands on the first render() call.
+  // Every fogged material gets the front-loaded fog curve before its first compile
+  installFogCurveIn(scene);
   renderer.compile(scene, camera);
 
   animate();
