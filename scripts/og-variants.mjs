@@ -127,7 +127,7 @@ const B2 = ({ FONTS, BASE, P }) => {
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(16,13,11,0) 14%, rgba(16,13,11,.66) 34%, rgba(16,13,11,.72) 50%, rgba(16,13,11,.66) 66%, rgba(16,13,11,0) 86%)"></div>
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
     <div style="font-family:var(--serif);font-weight:700;font-size:132px;line-height:1;color:#fff;letter-spacing:-.024em;text-shadow:${shadow}">Wyatt Roy</div>
-    <div style="margin-top:24px;font-family:var(--sans);font-weight:300;font-size:30px;color:rgba(255,255,255,.96);text-shadow:${shadow}">Systems designer, educator, creative director</div>
+    <div style="margin-top:24px;font-family:var(--sans);font-weight:300;font-size:30px;color:rgba(255,255,255,.96);text-shadow:${shadow}">Designer, researcher, and educator</div>
     <div class="mono" style="margin-top:26px;font-size:14px;color:rgba(255,255,255,.88);text-shadow:${shadow}">${P.length} projects &nbsp;·&nbsp; 2015&ndash;2026</div>
   </div>
 </div>`);
