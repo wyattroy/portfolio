@@ -1900,6 +1900,14 @@ function renderEditor(p) {
         <label>Tags</label>
         <div class="tags-input-wrap" id="tags-wrap"></div>
       </div>
+      <div class="form-group">
+        <label>Highlight</label>
+        <select id="f-featured" title="Auto ranks by newness and page depth (see highlight.js)">
+          <option value="" ${p.featured == null ? 'selected' : ''}>Auto (by score)</option>
+          <option value="true" ${p.featured === true ? 'selected' : ''}>Feature this</option>
+          <option value="false" ${p.featured === false ? 'selected' : ''}>Never highlight</option>
+        </select>
+      </div>
     </div>
     <div class="axes-wrap" style="max-width:900px;margin-top:12px;">
       <div class="axis-control">
@@ -2496,12 +2504,14 @@ function collectFormData() {
     videos:     getVideos(),
     awards:     getAwards(),
     who:        getWho(),
+    // Highlight override: true = always feature, false = never, absent = automatic score
+    featured:   { true: true, false: false }[document.getElementById('f-featured')?.value],
     // Preserve extra fields, excluding removed ones
     ...Object.fromEntries(
       Object.entries(currentData).filter(([k]) =>
         !['id','title','year','month','tagline','what','why','how',
           'medium','categories','tags','axes','thumbnail','hero','liveUrl','sourceUrl',
-          'status','featured','files','images','videos','awards','who'].includes(k)
+          'status','featured','files','images','videos','awards','who','words'].includes(k)
       )
     ),
   };
@@ -2611,14 +2621,22 @@ async function saveProject() {
         const list = JSON.parse(txt);
         const entryIdx = list.findIndex(p => p.id === id);
         if (entryIdx !== -1) {
+          // Page word count feeds the automatic highlight score (highlight.js)
+          const { countWords } = await import('./highlight.js');
+          data.words = countWords(data);
           const cardFields = ['title','year','month','tagline','medium',
                               'tags','axes','thumbnail','hero','liveUrl','sourceUrl',
-                              'images','videos','awards','who','featured'];
+                              'images','videos','awards','who','featured','words'];
           cardFields.forEach(k => {
             if (data[k] !== undefined) list[entryIdx][k] = data[k];
             else delete list[entryIdx][k];
           });
           list[entryIdx].label = newStatus;
+          // The day a page first goes live is its publish date — the highlight
+          // score (highlight.js) counts newness from it
+          if (newStatus === 'green' && !list[entryIdx].published) {
+            list[entryIdx].published = new Date().toISOString().slice(0, 10);
+          }
           const lw = await listFH.createWritable();
           await lw.write(JSON.stringify(list, null, 2) + '\n');
           await lw.close();
@@ -2892,7 +2910,6 @@ document.getElementById('np-create').addEventListener('click', async () => {
             axes: { pragmatic: 0.5, institutional: 0.5 },
             thumbnail: `assets/projects/${slug}/thumb.jpg`,
             tags: [],
-            featured: false,
           });
           const lw = await listFH.createWritable();
           await lw.write(JSON.stringify(list, null, 2) + '\n');

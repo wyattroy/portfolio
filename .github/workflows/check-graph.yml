@@ -1,0 +1,37 @@
+name: Check 3D graph depth
+
+# Fails if two project tiles in the homepage's 3D graph could z-fight — sit at
+# depths closer than a tile is thick, so their faces flicker through each other.
+# The rule lives in graph-depth.js; scripts/check-graph-depth.mjs verifies it
+# against the real project data. .githooks/pre-commit runs the same check locally.
+
+on:
+  push:
+    paths:
+      - 'data/projects.json'
+      - 'graph-depth.js'
+      - 'three-scene.js'
+      - 'scripts/check-graph-depth.mjs'
+      - '.github/workflows/check-graph.yml'
+  pull_request:
+    paths:
+      - 'data/projects.json'
+      - 'graph-depth.js'
+      - 'three-scene.js'
+      - 'scripts/check-graph-depth.mjs'
+      - '.github/workflows/check-graph.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # No npm ci: the check has no dependencies
+      - run: npm run check:graph

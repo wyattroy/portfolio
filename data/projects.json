@@ -98,7 +98,9 @@
         "role": "Engineering, implementation, debugging"
       }
     ],
-    "description": "A browser and tabletop board game about sailing, baking, and piracy, tuned against a purpose-built simulation engine."
+    "description": "A browser and tabletop board game about sailing, baking, and piracy, tuned against a purpose-built simulation engine.",
+    "words": 3643,
+    "published": "2026-09-10"
   },
   {
     "id": "portfolio-about",
@@ -147,7 +149,9 @@
     ],
     "label": "green",
     "medium": "Web",
-    "hero": "assets/projects/portfolio-about/portfolio.png"
+    "hero": "assets/projects/portfolio-about/portfolio.png",
+    "words": 858,
+    "published": "2026-06-29"
   },
   {
     "id": "pour",
@@ -208,7 +212,9 @@
     ],
     "label": "green",
     "medium": "Web",
-    "hero": "assets/projects/pour/watercolor-hero.jpg"
+    "hero": "assets/projects/pour/watercolor-hero.jpg",
+    "words": 2035,
+    "published": "2026-07-03"
   },
   {
     "id": "chillbrow",
@@ -221,7 +227,7 @@
     },
     "thumbnail": "assets/projects/chillbrow/thumb.jpg",
     "tags": [],
-    "featured": false
+    "words": 0
   },
   {
     "id": "squishy-hearts-club",
@@ -241,7 +247,8 @@
     "images": [],
     "videos": [],
     "awards": [],
-    "who": []
+    "who": [],
+    "words": 0
   },
   {
     "id": "spatial-equity",
@@ -322,7 +329,9 @@
         "url": "https://www.gsd.harvard.edu/person/martin-bechthold/",
         "role": "Advisor"
       }
-    ]
+    ],
+    "words": 896,
+    "published": "2026-06-29"
   },
   {
     "id": "becoming-school",
@@ -335,8 +344,8 @@
     },
     "thumbnail": "assets/projects/becoming-school/thumb.jpg",
     "tags": [],
-    "featured": false,
-    "label": "red"
+    "label": "red",
+    "words": 0
   },
   {
     "id": "gingerbread-amphora",
@@ -359,7 +368,6 @@
       "baking",
       "collaboration"
     ],
-    "featured": false,
     "label": "green",
     "month": 11,
     "medium": "Fabrication",
@@ -402,7 +410,9 @@
         "role": "Pastry, ceramics, fabrication, painting"
       }
     ],
-    "hero": "assets/projects/gingerbread-amphora/gingerbread-amphora-hero-wide.jpg"
+    "hero": "assets/projects/gingerbread-amphora/gingerbread-amphora-hero-wide.jpg",
+    "words": 1063,
+    "published": "2026-09-09"
   },
   {
     "id": "squidgeridoo",
@@ -422,7 +432,8 @@
     "videos": [],
     "awards": [],
     "who": [],
-    "label": "red"
+    "label": "red",
+    "words": 0
   },
   {
     "id": "unfolding",
@@ -484,7 +495,10 @@
         "url": "",
         "role": "Actor"
       }
-    ]
+    ],
+    "words": 623,
+    "featured": false,
+    "published": "2026-06-25"
   },
   {
     "id": "unstudio",
@@ -654,7 +668,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/unstudio/Unstudio square.jpg"
+    "hero": "assets/projects/unstudio/Unstudio square.jpg",
+    "words": 342,
+    "published": "2026-06-27"
   },
   {
     "id": "gre-admissions",
@@ -690,7 +706,9 @@
       }
     ],
     "hero": "assets/projects/gre-admissions/GRE Description 2.jpg",
-    "label": "green"
+    "label": "green",
+    "words": 317,
+    "published": "2026-06-25"
   },
   {
     "id": "proseminar",
@@ -748,7 +766,9 @@
         "url": "",
         "role": "Teaching Assistant"
       }
-    ]
+    ],
+    "words": 360,
+    "published": "2026-06-28"
   },
   {
     "id": "mdes-nps",
@@ -790,7 +810,9 @@
         "role": "Principal INv"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 851,
+    "published": "2026-06-25"
   },
   {
     "id": "how-to-change-institutions",
@@ -863,7 +885,9 @@
       }
     ],
     "hero": "assets/projects/how-to-change-institutions/bookinhand.jpeg",
-    "label": "green"
+    "label": "green",
+    "words": 314,
+    "published": "2026-06-25"
   },
   {
     "id": "splatcubes",
@@ -916,7 +940,9 @@
         "url": "",
         "role": "Designer, Engineer"
       }
-    ]
+    ],
+    "words": 654,
+    "published": "2026-06-25"
   },
   {
     "id": "handmove",
@@ -956,7 +982,9 @@
         "role": "Designer, Engineer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 329,
+    "published": "2026-06-25"
   },
   {
     "id": "sorry",
@@ -1009,7 +1037,9 @@
         "url": "",
         "role": "Lead Developer"
       }
-    ]
+    ],
+    "words": 197,
+    "published": "2026-06-25"
   },
   {
     "id": "tonos",
@@ -1069,7 +1099,9 @@
         "role": "Creative Director, Lead Developer, Sound Design"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 260,
+    "published": "2026-06-25"
   },
   {
     "id": "arena",
@@ -1123,7 +1155,9 @@
         "role": "Designer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 325,
+    "published": "2026-06-25"
   },
   {
     "id": "canada",
@@ -1193,7 +1227,9 @@
         "role": "Sound Design and Mix"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 113,
+    "published": "2026-06-25"
   },
   {
     "id": "crawl",
@@ -1274,7 +1310,9 @@
         "role": "Videographer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 751,
+    "published": "2026-06-25"
   },
   {
     "id": "taxonomy",
@@ -1314,7 +1352,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/taxonomy/img1.jpg"
+    "hero": "assets/projects/taxonomy/img1.jpg",
+    "words": 119,
+    "published": "2026-06-28"
   },
   {
     "id": "mu-mirror",
@@ -1365,7 +1405,9 @@
         "role": "Designer, Engineer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 870,
+    "published": "2026-06-25"
   },
   {
     "id": "typewriter",
@@ -1400,7 +1442,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/typewriter/img1.jpg"
+    "hero": "assets/projects/typewriter/img1.jpg",
+    "words": 160,
+    "published": "2026-06-28"
   },
   {
     "id": "matchstick",
@@ -1446,7 +1490,9 @@
         "role": "Grasshopper Definitions"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 613,
+    "published": "2026-06-25"
   },
   {
     "id": "rehoboth",
@@ -1497,7 +1543,9 @@
         "role": "Unity Scripting"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 459,
+    "published": "2026-06-25"
   },
   {
     "id": "hug",
@@ -1570,7 +1618,9 @@
         "role": "Designer, Engineer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 804,
+    "published": "2026-06-25"
   },
   {
     "id": "ripplestar",
@@ -1609,7 +1659,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/ripplestar/ripplestarhero.gif"
+    "hero": "assets/projects/ripplestar/ripplestarhero.gif",
+    "words": 310,
+    "published": "2026-06-28"
   },
   {
     "id": "cinnabot",
@@ -1686,7 +1738,9 @@
         "role": "Design Engineer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 376,
+    "published": "2026-06-25"
   },
   {
     "id": "pigeonbelt",
@@ -1752,7 +1806,9 @@
         "url": "",
         "role": "Front face illustration"
       }
-    ]
+    ],
+    "words": 961,
+    "published": "2026-06-25"
   },
   {
     "id": "cnc-cheeseboard",
@@ -1810,7 +1866,9 @@
         "role": "CNC Assistance"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 276,
+    "published": "2026-06-25"
   },
   {
     "id": "fanlamp",
@@ -1864,7 +1922,9 @@
         "role": "Designer, Engineer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 795,
+    "published": "2026-06-25"
   },
   {
     "id": "food-chain",
@@ -1920,7 +1980,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/food-chain/3dprint2.gif"
+    "hero": "assets/projects/food-chain/3dprint2.gif",
+    "words": 680,
+    "published": "2026-06-25"
   },
   {
     "id": "windowsill-stamp",
@@ -1973,7 +2035,9 @@
         "role": "Designer, Fabricator"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 310,
+    "published": "2026-06-25"
   },
   {
     "id": "storytelling-affordances",
@@ -2032,7 +2096,9 @@
         "url": "",
         "role": "Talent, Launder"
       }
-    ]
+    ],
+    "words": 885,
+    "published": "2026-06-25"
   },
   {
     "id": "skybinder",
@@ -2094,7 +2160,9 @@
         "role": "Creative Director, Sound Design, Software Lead"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 382,
+    "published": "2026-06-25"
   },
   {
     "id": "painting-life",
@@ -2161,7 +2229,9 @@
         "role": "VR Artist Residency, Tokyo"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 326,
+    "published": "2026-06-25"
   },
   {
     "id": "sound-ag",
@@ -2206,7 +2276,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/sound-ag/thumb.jpg"
+    "hero": "assets/projects/sound-ag/thumb.jpg",
+    "words": 305,
+    "published": "2026-06-28"
   },
   {
     "id": "piece-of-string",
@@ -2255,7 +2327,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/piece-of-string/img1.jpg"
+    "hero": "assets/projects/piece-of-string/img1.jpg",
+    "words": 172,
+    "published": "2026-07-01"
   },
   {
     "id": "ceramics-3d",
@@ -2296,7 +2370,9 @@
         "role": "Ceramicist"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 145,
+    "published": "2026-06-25"
   },
   {
     "id": "play-me",
@@ -2347,7 +2423,9 @@
         "role": "Lead Developer, Moderator"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 475,
+    "published": "2026-06-25"
   },
   {
     "id": "falling-fall",
@@ -2418,7 +2496,9 @@
         "role": ""
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 861,
+    "published": "2026-06-25"
   },
   {
     "id": "canyons",
@@ -2489,7 +2569,9 @@
         "role": "Designer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 945,
+    "published": "2026-06-25"
   },
   {
     "id": "haaaard",
@@ -2533,7 +2615,9 @@
       }
     ],
     "hero": "assets/projects/haaaard/img2.jpg",
-    "label": "green"
+    "label": "green",
+    "words": 482,
+    "published": "2026-06-25"
   },
   {
     "id": "3d-printing",
@@ -2583,7 +2667,9 @@
         "role": "Designer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 502,
+    "published": "2026-06-25"
   },
   {
     "id": "harvard-memorial",
@@ -2630,7 +2716,9 @@
         "role": "Designer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 256,
+    "published": "2026-06-25"
   },
   {
     "id": "paper-lamps",
@@ -2680,7 +2768,9 @@
         "role": "Designer, Fabricator"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 438,
+    "published": "2026-06-25"
   },
   {
     "id": "galapagos",
@@ -2727,7 +2817,9 @@
         "role": "Director, Cinematographer, Editor"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 382,
+    "published": "2026-06-25"
   },
   {
     "id": "phildev",
@@ -2806,7 +2898,8 @@
       }
     ],
     "label": "yellow",
-    "hero": "assets/projects/phildev/thumb.jpg"
+    "hero": "assets/projects/phildev/thumb.jpg",
+    "words": 225
   },
   {
     "id": "sols",
@@ -2888,7 +2981,9 @@
         "role": "Colorist"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 313,
+    "published": "2026-06-25"
   },
   {
     "id": "calm",
@@ -2955,7 +3050,9 @@
         "role": "Producer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 214,
+    "published": "2026-06-25"
   },
   {
     "id": "offgridbox",
@@ -3018,7 +3115,9 @@
       }
     ],
     "hero": "assets/projects/offgridbox/thumb.jpg",
-    "label": "green"
+    "label": "green",
+    "words": 302,
+    "published": "2026-06-25"
   },
   {
     "id": "bufferzone",
@@ -3108,7 +3207,9 @@
         "role": "Line Producer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 192,
+    "published": "2026-06-25"
   },
   {
     "id": "streetlogic",
@@ -3151,7 +3252,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/streetlogic/thumb.jpg"
+    "hero": "assets/projects/streetlogic/thumb.jpg",
+    "words": 252,
+    "published": "2026-06-28"
   },
   {
     "id": "peloton",
@@ -3217,7 +3320,8 @@
     ],
     "label": "yellow",
     "description": "Long before the bike in your bedroom, Peloton was a truck on a highway",
-    "hero": "assets/projects/peloton/thumb.jpg"
+    "hero": "assets/projects/peloton/thumb.jpg",
+    "words": 249
   },
   {
     "id": "storymaker",
@@ -3256,7 +3360,9 @@
       }
     ],
     "label": "green",
-    "hero": "assets/projects/storymaker/IMG_0214.JPG"
+    "hero": "assets/projects/storymaker/IMG_0214.JPG",
+    "words": 156,
+    "published": "2026-06-28"
   },
   {
     "id": "all-rgb",
@@ -3299,6 +3405,8 @@
         "role": "Designer"
       }
     ],
-    "label": "green"
+    "label": "green",
+    "words": 213,
+    "published": "2026-06-25"
   }
 ]

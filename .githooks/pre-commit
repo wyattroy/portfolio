@@ -22,6 +22,18 @@ if [ "$ALLOW_GENERATED" = "1" ]; then
   exit 0
 fi
 
+# 3D graph depth check -- blocks a commit that would let two project tiles
+# z-fight (see graph-depth.js). Only runs when something it reads is staged.
+if git diff --cached --name-only | grep -qE '^(data/projects\.json|graph-depth\.js|three-scene\.js)$'; then
+  if ! node --no-warnings scripts/check-graph-depth.mjs >/dev/null 2>&1; then
+    node --no-warnings scripts/check-graph-depth.mjs
+    echo ""
+    echo "  Commit blocked: project tiles in the 3D graph could z-fight (details above)."
+    echo ""
+    exit 1
+  fi
+fi
+
 GENERATED="p sitemap.xml robots.txt"
 
 restored=""

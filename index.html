@@ -74,37 +74,29 @@
     <p class="visually-hidden">Interactive 3D chart of Wyatt's projects arranged by design intention (poetic to pragmatic) and system scale (individual to institutional). Click any prism to see project details below.</p>
     <div id="project-hover-label" role="tooltip" style="display:none;"></div>
     <div id="scatter-2d" style="display:none;" aria-label="2D scatter plot of projects by design intention and scale"></div>
-    <p class="hero-scroll-hint" aria-hidden="true">↓ Scroll to explore</p>
   </section>
 
   <!-- Work Section -->
   <div id="work-bg">
+  <!-- Drawer handle: the card stack peeks up below the graph; this opens it -->
+  <button class="work-drawer-handle" id="work-drawer-handle" aria-controls="work">All projects</button>
   <section id="work" aria-label="Project portfolio">
-    <div class="work-header">
-      <h2>Work</h2>
-      <div class="footer-notify">
-        <p class="footer-notify-label">Get an email when a new project goes up.</p>
-        <form class="footer-notify-form" id="footer-notify-form">
-          <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
-          <button type="submit" class="cta-btn primary">Notify me</button>
-        </form>
-        <p class="footer-notify-status" id="footer-notify-status"></p>
+    <h2 class="visually-hidden">Work</h2>
+    <div class="work-controls">
+      <div id="tag-filters" role="group" aria-label="Filter by category">
+        <button class="tag-chip active" data-tag="all">All</button>
       </div>
-    </div>
 
-    <div id="tag-filters" role="group" aria-label="Filter by category">
-      <button class="tag-chip active" data-tag="all">All</button>
-    </div>
-
-    <div id="sort-controls">
-      <label for="sort-select">Sort:
-        <select id="sort-select" aria-label="Sort projects">
-          <option value="year-desc">Year (newest)</option>
-          <option value="year-asc">Year (oldest)</option>
-          <option value="alpha">Alphabetical</option>
-        </select>
-      </label>
+      <div id="sort-controls">
+        <span class="year-cutoff-note" id="year-cutoff-note" hidden></span>
+        <label for="sort-select">Sort:
+          <select id="sort-select" aria-label="Sort projects">
+            <option value="year-desc">Year (newest)</option>
+            <option value="year-asc">Year (oldest)</option>
+            <option value="alpha">Alphabetical</option>
+          </select>
+        </label>
+      </div>
     </div>
 
     <div id="project-grid" role="list" aria-label="Projects">
@@ -166,6 +158,18 @@
       <!-- PRERENDER:LINKS:END -->
     </div>
   </section>
+  <!-- New-project signup: bottom of the page, above the footer -->
+  <div class="notify-band">
+    <div class="footer-notify">
+      <p class="footer-notify-label">Get an email when a new project goes up.</p>
+      <form class="footer-notify-form" id="footer-notify-form">
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true">
+        <button type="submit" class="cta-btn primary">Notify me</button>
+      </form>
+      <p class="footer-notify-status" id="footer-notify-status"></p>
+    </div>
+  </div>
   <!-- Footer -->
   <footer>
     <p>Wyatt Roy &middot; <span id="footer-email-hint" aria-label="Email contact"></span></p>

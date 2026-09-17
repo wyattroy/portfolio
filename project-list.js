@@ -10,6 +10,7 @@ let filteredProjects = [];
 let activeTag = 'all';
 let searchQuery = '';
 let sortMode = 'year-desc';
+let yearCutoff = null; // set by the 3D graph's year slider; null = all years
 let detailCache = {}; // id → fetched detail data
 const PAGE_SIZE = 10;
 let renderedCount = 0;
@@ -64,6 +65,13 @@ export function initProjectList(projects, { onExpand } = {}) {
   }
 }
 
+// Called when the 3D graph's year slider moves
+export function setYearCutoff(year) {
+  if (year === yearCutoff) return;
+  yearCutoff = year;
+  applyFilters();
+}
+
 // ─── Tag Chips ────────────────────────────────────────────────────────────────
 function buildTagChips() {
   const container = document.getElementById('tag-filters');
@@ -94,6 +102,11 @@ function applyFilters() {
   // Medium filter
   if (activeTag !== 'all') {
     result = result.filter(p => p.medium === activeTag);
+  }
+
+  // Year slider (3D graph) — hide projects newer than the chosen year
+  if (yearCutoff != null) {
+    result = result.filter(p => (p.year ?? 0) <= yearCutoff);
   }
 
   // Fuzzy search
