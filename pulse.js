@@ -34,6 +34,23 @@ export const PULSE = {
   ringOpacity: 0.49,       // an outline that ripples outward at the start of each breath (0 = none)
 };
 
+// Game-feel hop on the same tiles, timed to their pulse. The tile is a little
+// larger at rest, then gets a springy kick each breath: it overshoots, wobbles
+// back, squashes and stretches with its speed, and rocks slightly. The glow is
+// parented to the tile, so it bounces along.
+export const BOUNCE = {
+  sizeBoost: 1.15,      // resting size of a highlighted tile vs the others
+  amount: 0.1,          // strength of each kick (0.1 ≈ a 10% hop before the spring settles)
+  at: 0,                // when in the breath the kick lands: 0 = breath starts, 0.5 = brightest
+  hops: 1,              // kicks per breath (2 = a double-bounce)
+  hopSpacing: 0.12,     // gap between those kicks, as a share of the breath
+  hopDecay: 0.5,        // each extra kick's strength relative to the one before
+  stiffness: 0.12,      // spring pull back to rest: higher = quicker, snappier
+  damping: 0.12,        // spring friction: lower = more overshoot and wobble
+  squash: 1.5,          // squash & stretch from the tile's speed (0 = keeps its shape)
+  wobbleDeg: 1.5,       // how far the tile rocks on each kick, in degrees
+};
+
 const RECT_W = 160;           // tile face in texture px
 const RECT_H = 100;
 const RING_GROW = 0.3;        // the ripple grows to 1.3× by the time it fades out
@@ -149,7 +166,7 @@ export function attachPulse(THREE, mesh, textures, cfg, tileDepth, phaseMs) {
 
 // Per frame. `op` is the tile's own opacity (entry fade × year filter).
 export function updatePulse(pulse, cfg, now, op, hovered, reducedMotion) {
-  const t = (((now + pulse.phase) % cfg.periodMs) + cfg.periodMs) % cfg.periodMs / cfg.periodMs;
+  const t = pulsePhase(pulse, cfg, now);
   const b = reducedMotion ? 0.5 : breath(t, cfg);
   const boost = hovered ? cfg.hoverBoost : 1;
   pulse.glow.material.opacity = Math.min(1, (cfg.opacityMin + (cfg.opacityMax - cfg.opacityMin) * b) * boost) * op;
@@ -161,4 +178,52 @@ export function updatePulse(pulse, cfg, now, op, hovered, reducedMotion) {
     pulse.ring.scale.set(r.scale, r.scale, 1);
     pulse.ring.material.opacity = Math.min(1, r.opacity) * op;
   }
+}
+
+// Where a pulsing tile is in its breath, 0–1 — the pulse and bounce share this clock
+export function pulsePhase(pulse, cfg, now) {
+  return ((((now + pulse.phase) % cfg.periodMs) + cfg.periodMs) % cfg.periodMs) / cfg.periodMs;
+}
+
+export function createBounce() {
+  return { x: 0, v: 0, rot: 0, rotV: 0, lastT: null, side: 1, carry: 0 };
+}
+
+// Advances the bounce spring by `dt` ms and returns { sx, sy, rot } for the tile.
+// The spring steps at a fixed 60 Hz, so it feels the same at any frame rate.
+export function updateBounce(state, cfg, t, dt, reducedMotion) {
+  if (reducedMotion) return { sx: cfg.sizeBoost, sy: cfg.sizeBoost, rot: 0 };
+
+  // A kick lands whenever the breath phase crosses one of the hop times
+  if (state.lastT !== null) {
+    const crossed = at => (state.lastT <= t ? at > state.lastT && at <= t : at > state.lastT || at <= t);
+    let strength = cfg.amount;
+    for (let k = 0; k < Math.max(1, Math.round(cfg.hops)); k++) {
+      if (crossed((cfg.at + k * cfg.hopSpacing) % 1)) {
+        state.v += strength;
+        state.rotV += (cfg.wobbleDeg * Math.PI / 180) * 0.35 * state.side;
+        state.side = -state.side;
+      }
+      strength *= cfg.hopDecay;
+    }
+  }
+  state.lastT = t;
+
+  state.carry += Math.min(dt, 100);
+  while (state.carry >= 1000 / 60) {
+    state.carry -= 1000 / 60;
+    state.v += -state.x * cfg.stiffness;
+    state.v *= 1 - cfg.damping;
+    state.x += state.v;
+    state.rotV += -state.rot * cfg.stiffness;
+    state.rotV *= 1 - cfg.damping;
+    state.rot += state.rotV;
+  }
+
+  const stretch = cfg.squash * state.v;
+  return {
+    sx: cfg.sizeBoost * (1 + state.x - stretch),
+    sy: cfg.sizeBoost * (1 + state.x + stretch),
+    rot: state.rot,
+  };
 }
