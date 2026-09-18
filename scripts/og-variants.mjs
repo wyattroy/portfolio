@@ -106,10 +106,10 @@ const B1 = ({ FONTS, BASE, P }) => {
 
 /* ── B2 — the work, with the name over it ─────────────────────────────────
    A mosaic of every published thumbnail with "Wyatt Roy" set straight onto
-   it. White type over 52 images of unpredictable brightness needs something
-   under it, so a scrim crosses the middle third and leaves the top and
-   bottom rows at full strength. Says "there is a lot here" before anyone
-   reads a word. */
+   it, no descriptor line. White type over 52 images of unpredictable
+   brightness needs something under it, so a scrim crosses the middle third
+   and leaves the top and bottom rows at full strength. Says "there is a lot
+   here" before anyone reads a word. */
 const B2 = ({ FONTS, BASE, P }) => {
   const cols = 9, rows = 6, cw = 1200 / cols, ch = 105;
   const list = [...P];
@@ -124,11 +124,10 @@ const B2 = ({ FONTS, BASE, P }) => {
   return shell(FONTS, `
 <div class="frame" style="background:#151311">
   <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(${cols},${cw}px);grid-auto-rows:${ch}px;filter:saturate(.98)">${cells}</div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(16,13,11,0) 14%, rgba(16,13,11,.66) 34%, rgba(16,13,11,.72) 50%, rgba(16,13,11,.66) 66%, rgba(16,13,11,0) 86%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(16,13,11,0) 18%, rgba(16,13,11,.66) 36%, rgba(16,13,11,.72) 50%, rgba(16,13,11,.66) 64%, rgba(16,13,11,0) 82%)"></div>
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
     <div style="font-family:var(--serif);font-weight:700;font-size:132px;line-height:1;color:#fff;letter-spacing:-.024em;text-shadow:${shadow}">Wyatt Roy</div>
-    <div style="margin-top:24px;font-family:var(--sans);font-weight:300;font-size:30px;color:rgba(255,255,255,.96);text-shadow:${shadow}">Designer, researcher, and educator</div>
-    <div class="mono" style="margin-top:26px;font-size:14px;color:rgba(255,255,255,.88);text-shadow:${shadow}">${P.length} projects &nbsp;·&nbsp; 2015&ndash;2026</div>
+    <div class="mono" style="margin-top:30px;font-size:14px;color:rgba(255,255,255,.88);text-shadow:${shadow}">${P.length} projects &nbsp;·&nbsp; 2015&ndash;2026</div>
   </div>
 </div>`);
 };
