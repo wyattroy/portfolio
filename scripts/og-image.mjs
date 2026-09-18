@@ -7,6 +7,12 @@
  *   npm run og            # renders the live image to assets/og/preview.jpg
  *   npm run og -- A2 B1   # renders those layouts to assets/og/candidates/ to compare
  *
+ * After rendering the live image it stamps a hash of the file into the og:image
+ * and twitter:image URLs on index.html and about.html. Scrapers key their cache
+ * on that URL, so a new image always arrives at an address nothing has cached.
+ * It does not clear a platform's cache of the PAGE -- for that, re-scrape the
+ * URL in Facebook's Sharing Debugger or LinkedIn's Post Inspector.
+ *
  * It needs Playwright and a network path to fonts.googleapis.com (the site's real
  * Source Serif 4 / DM Sans / DM Mono are inlined so the render matches the site).
  * Output is a 2x screenshot downsampled to exactly 1200x630 — the size Facebook,
@@ -14,6 +20,7 @@
  */
 import { chromium } from 'playwright';
 import http from 'node:http';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -24,6 +31,8 @@ const W = 1200, H = 630;
 // The layout the site actually ships. og-variants.mjs keeps the alternates
 // that lost, so swapping the preview is a one-word change here.
 const CHOSEN = 'B2';
+const PAGES = ['index.html', 'about.html'];
+const IMG_URL = 'https://wyattroy.com/assets/og/preview.jpg';
 const LIVE = path.join(ROOT, 'assets/og/preview.jpg');
 const CANDIDATES = path.join(ROOT, 'assets/og/candidates');
 
@@ -118,6 +127,24 @@ const run = async () => {
 
   await browser.close();
   srv.close();
+
+  if (!wanted.length) stampVersion();
 };
+
+// Point og:image and twitter:image at preview.jpg?v=<hash of the file>, so the
+// URL changes whenever the image does and no scraper serves a stale one.
+function stampVersion() {
+  const hash = crypto.createHash('sha256').update(fs.readFileSync(LIVE)).digest('hex').slice(0, 8);
+  const url = `${IMG_URL}?v=${hash}`;
+  const pattern = new RegExp(IMG_URL.replace(/[.?*+^$[\]\\(){}|-]/g, '\\$&') + '(\\?v=[0-9a-f]+)?', 'g');
+  for (const page of PAGES) {
+    const file = path.join(ROOT, page);
+    const before = fs.readFileSync(file, 'utf8');
+    const after = before.replace(pattern, url);
+    if (after === before) continue;
+    fs.writeFileSync(file, after);
+    console.log(`${page}  og:image -> preview.jpg?v=${hash}`);
+  }
+}
 
 run();
