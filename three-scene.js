@@ -7,10 +7,11 @@
 
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 import { topProjectIds } from './highlight.js';
-import { PULSE, buildPulseTextures, attachPulse, updatePulse } from './pulse.js';
+import { PULSE, BOUNCE, buildPulseTextures, attachPulse, updatePulse, pulsePhase, createBounce, updateBounce } from './pulse.js';
+import { FOG, createFogState, updateFog, installFogCurve, installFogCurveIn } from './fog.js';
 // Time-axis depth lives in its own module so CI can check that no two tiles
 // share a depth (z-fighting) — see graph-depth.js and scripts/check-graph-depth.mjs
-import { projectDepths, timeZ, yearFraction, TILE_DEPTH } from './graph-depth.js';
+import { projectDepths, timeZ, yearFraction, TILE_DEPTH, Z_NEAR, Z_FAR, YEAR_MIN, YEAR_MAX } from './graph-depth.js';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const AXIS_RANGE = 5; // ±5 units — axis-line length and label anchors only; tile spread comes from the fill layout below
@@ -100,6 +101,10 @@ const TEXTURE_FADE_MS      = 220;  // crossfade for a thumbnail that arrives aft
 // a camera. On a slow connection the intro stops waiting after PRELOAD_MAX_MS;
 // any thumbnail still missing crossfades in when it arrives.
 const PRELOAD_MAX_MS        = 8000;
+
+// The top projects' pulse and bounce stay switched off (not drawn at all) until
+// the intro zoom is over, then ease in over this long — the zoom has enough to do.
+const HIGHLIGHT_FADE_IN_MS  = 900;
 const GPU_UPLOADS_PER_FRAME = 4;   // spreads texture uploads so no single frame stalls
 
 // ─── Intro zoom-out ───────────────────────────────────────────────────────────
@@ -146,6 +151,10 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
   // Scene
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('#FFFFFF');
+  // Distance fog; near/far are re-aimed every frame (see fog.js). Set before any
+  // shader compiles so every material is built with fog support.
+  scene.fog = new THREE.Fog(FOG.color, 1, 1e9);
+  const UNITS_PER_YEAR = (Z_NEAR - Z_FAR) / (YEAR_MAX - YEAR_MIN);
 
   // Renderer
   const renderer = new THREE.WebGLRenderer({
@@ -341,6 +350,7 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
 
     if (pulseIds.has(p.id)) {
       attachPulse(THREE, mesh, pulseTextures, PULSE, TILE_DEPTH, pulseRank.get(p.id) * PULSE.staggerMs);
+      mesh.userData.bounce = createBounce();
     }
     mesh.userData.appliedOpacity = initOp;
     mesh.userData.textureFade = 1;   // 0→1 while a freshly loaded thumbnail crossfades in
@@ -730,7 +740,10 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     renderer.setSize(w, h, false);
-    if (aspectChanged) layoutScene(); // re-flow tiles to fill the new shape
+    if (aspectChanged) {
+      layoutScene(); // re-flow tiles to fill the new shape
+      installFogCurveIn(gridGroup); // the grid was rebuilt with fresh materials
+    }
     wakeRender();
   }
 
@@ -749,10 +762,29 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
   let lastFrameTs = performance.now();
   let timeLabelOpacity = 0; // smoothly lerped 0→1 when angle threshold is met
   let animFrameId;
+  let highlightStart = null;
   const _basePos = new THREE.Vector3();
   const _dragEuler = new THREE.Euler();
   const _dragQuat = new THREE.Quaternion();
   const _frameCorner = new THREE.Vector3();
+  const _viewDir = new THREE.Vector3();
+  const _fogPoint = new THREE.Vector3();
+  const fogState = createFogState();
+  const FOG_MIN_DEPTH = 1; // cards closer than this are passing the camera; don't start fog there
+
+  // Camera-forward depth of the nearest card that's on screen and not ghosted
+  function nearestCardDepth() {
+    let best = null;
+    for (const mesh of prismMeshes) {
+      if (mesh.userData.ghostTarget !== 1) continue;
+      const depth = _fogPoint.copy(mesh.position).sub(camera.position).dot(_viewDir);
+      if (depth < FOG_MIN_DEPTH || (best !== null && depth >= best)) continue;
+      _fogPoint.copy(mesh.position).project(camera);
+      if (Math.abs(_fogPoint.x) > 1.05 || Math.abs(_fogPoint.y) > 1.05) continue;
+      best = depth;
+    }
+    return best;
+  }
   const ORIGIN = new THREE.Vector3(0, 0, 0);
   const TIME_A = new THREE.Vector3(0, 0, TIME_LABEL_Z);
   const TIME_B = new THREE.Vector3(0, 0, TIME_LABEL_Z + 1);
@@ -814,6 +846,10 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     // Must run after camera matrices are updated (post-lookAt, pre-render)
     camera.updateMatrixWorld();
 
+    // Fog starts at the nearest card on screen, so whatever you zoom to is crisp
+    camera.getWorldDirection(_viewDir);
+    updateFog(scene.fog, FOG, fogState, nearestCardDepth(), zDataMax - zDataMin, UNITS_PER_YEAR, dt);
+
     // Endpoint labels: project the 3D tip of each axis, pin to screen edge
     const pOrigin = project3D(ORIGIN, camera);
     axisEndpoints.forEach(({ id, pos, entry }) => {
@@ -871,12 +907,24 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
       lastLabelPt = pt;
     }
 
+    // Highlights start once the zoom has finished (or the visitor took over)
+    if (highlightStart === null && intro.startAt !== Infinity && !intro.active) highlightStart = now;
+    const hl = highlightStart === null ? 0 : Math.min(1, (now - highlightStart) / HIGHLIGHT_FADE_IN_MS);
+    const hlEase = hl * hl * (3 - 2 * hl);
+
     // Update prism scale springs + opacity. Opacity is the product of the entry
     // fade, the thumbnail crossfade and the year-filter ghost, applied in one place.
     prismMeshes.forEach(mesh => {
       const ud = mesh.userData;
       const s = tickSpring(ud.scaleSpring, TILE_HOVER_STIFFNESS, TILE_HOVER_DAMPING);
-      mesh.scale.set(s, s, 1);
+      if (ud.bounce && hl > 0) {
+        // Highlighted tile: larger at rest, floating, pressed on each pulse
+        const b = updateBounce(ud.bounce, BOUNCE, pulsePhase(ud.pulse, PULSE, now), dt, reducedMotion, now);
+        mesh.scale.set(s * (1 + (b.sx - 1) * hlEase), s * (1 + (b.sy - 1) * hlEase), 1);
+        mesh.rotation.set(b.rx * hlEase, b.ry * hlEase, 0);
+      } else {
+        mesh.scale.set(s, s, 1);
+      }
 
       const entryOp = intro.startAt === Infinity ? 0 : entryDone ? 1 : cardOpacity(ud.revealMs);
       if (ud.textureFadeStart != null) {
@@ -895,7 +943,15 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
         setMatOpacity(mesh.material[4], frontOp);
       }
 
-      if (ud.pulse) updatePulse(ud.pulse, PULSE, now, op, mesh === hoveredMesh, reducedMotion);
+      if (ud.pulse) {
+        if (hl > 0) {
+          updatePulse(ud.pulse, PULSE, now, op * hlEase, mesh === hoveredMesh, reducedMotion);
+          ud.pulse.glow.visible = true;
+        } else {
+          ud.pulse.glow.visible = false;
+          ud.pulse.ring.visible = false;
+        }
+      }
     });
 
     if (intro.settleAt !== null && !intro.settled && now >= intro.settleAt && window.scrollY === 0) {
@@ -974,18 +1030,46 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
   // with a short crossfade instead of holding the intro hostage.
   // Frosted loading screen over the graph. Only appears if the preload is slow
   // (a first visit on a slow connection); cached repeat visits never see it.
-  const loadingEl = document.createElement('div');
-  loadingEl.className = 'graph-loading';
-  loadingEl.setAttribute('role', 'status');
-  loadingEl.innerHTML = '<div class="graph-loading-inner"><span class="graph-loading-text"></span><span class="graph-loading-bar"><i></i></span></div>';
-  document.getElementById('hero')?.appendChild(loadingEl);
-  const loadingText = loadingEl.querySelector('.graph-loading-text');
-  const loadingBar = loadingEl.querySelector('.graph-loading-bar i');
+  //
+  // It is only ever created if loading is actually slow, and it is gone before
+  // the zoom starts. Adding or removing a full-size backdrop-filter layer makes
+  // Safari rebuild its compositing layers, WebGL canvas included: when this was
+  // removed on a timer after the intro began, it froze the zoom for ~250 ms,
+  // 0.8 s in, on every load.
+  let loadingEl = null;
+  let loadingProgress = 0;
+  function showLoading(total) {
+    if (loadingEl) return;
+    loadingEl = document.createElement('div');
+    loadingEl.className = 'graph-loading';
+    loadingEl.setAttribute('role', 'status');
+    loadingEl.innerHTML = '<div class="graph-loading-inner"><span class="graph-loading-text"></span><span class="graph-loading-bar"><i></i></span></div>';
+    loadingEl.querySelector('.graph-loading-text').textContent = `Loading ${total} projects`;
+    document.getElementById('hero')?.appendChild(loadingEl);
+    updateLoadingBar();
+    requestAnimationFrame(() => loadingEl?.classList.add('visible'));
+  }
+  function updateLoadingBar() {
+    const bar = loadingEl?.querySelector('.graph-loading-bar i');
+    if (bar) bar.style.transform = `scaleX(${loadingProgress})`;
+  }
+  // Resolves once the loading screen has faded out and left the page
+  async function hideLoading() {
+    if (!loadingEl) return;
+    const el = loadingEl;
+    el.classList.remove('visible');
+    await new Promise(resolve => setTimeout(resolve, 550)); // matches the CSS fade
+    el.remove();
+    loadingEl = null;
+    await nextFrame(); // let the browser settle its layers before anything animates
+    await nextFrame();
+  }
 
   function attachTexture(mesh, texture, crossfade) {
     const mats = Array.from(mesh.material);
     const old = mats[4];
     mats[4] = new THREE.MeshLambertMaterial({ map: texture, transparent: true, opacity: old.opacity });
+    installFogCurve(mats[4]);
     old.dispose();
     mesh.material = mats;
     if (crossfade) {
@@ -1008,8 +1092,6 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
   function scheduleIntro() {
     if (introScheduled) return;
     introScheduled = true;
-    loadingEl.classList.remove('visible');
-    setTimeout(() => loadingEl.remove(), 600);
     // Cards wait for the axis labels' own reveal on a first visit
     const earliest = sceneInitTime + (skipEntry ? INTRO_REPEAT_DELAY_MS : CARD_REVEAL_START_MS);
     intro.startAt = Math.max(performance.now(), earliest);
@@ -1027,11 +1109,11 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     const withThumbs = prismMeshes.filter(m => m.userData.project.thumbnail);
     let decoded = 0;
     const updateLoading = () => {
-      loadingText.textContent = `Loading ${withThumbs.length} projects`;
-      loadingBar.style.transform = `scaleX(${withThumbs.length ? decoded / withThumbs.length : 1})`;
+      loadingProgress = withThumbs.length ? decoded / withThumbs.length : 1;
+      updateLoadingBar();
     };
     // Only cover the graph if loading is actually slow
-    const loadingTimer = setTimeout(() => loadingEl.classList.add('visible'), 700);
+    const loadingTimer = setTimeout(() => showLoading(withThumbs.length), 700);
     updateLoading();
 
     let preloadOver = false;
@@ -1070,6 +1152,7 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     }
     ready.forEach(({ mesh, texture }) => attachTexture(mesh, texture, false));
     warmUpGpu();
+    await hideLoading();
     await nextFrame();
     scheduleIntro();
   }
@@ -1089,8 +1172,11 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
     const rings = [];
     prismMeshes.forEach(m => {
       if (!m.userData.pulse) return;
+      // Glow and ripple are hidden until the zoom ends, so show them for the warm-up
       rings.push([m.userData.pulse.ring, m.userData.pulse.ring.visible]);
+      rings.push([m.userData.pulse.glow, m.userData.pulse.glow.visible]);
       m.userData.pulse.ring.visible = true;
+      m.userData.pulse.glow.visible = true;
       m.userData.pulse.glow.frustumCulled = false;
       m.userData.pulse.ring.frustumCulled = false;
     });
@@ -1124,6 +1210,8 @@ export function initThreeScene(projects, { onProjectClick, onYearCutoffChange, o
 
   // Pre-compile the untextured shaders before the first visible frame — otherwise
   // the GPU-driver compile lands on the first render() call.
+  // Every fogged material gets the front-loaded fog curve before its first compile
+  installFogCurveIn(scene);
   renderer.compile(scene, camera);
 
   animate();

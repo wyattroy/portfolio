@@ -594,43 +594,6 @@ function setupNav() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // "Back to 3D Graph" nav button — appears once the card stack covers most
-  // of the graph, lets the user jump back up to the hero without scrolling by
-  // hand. (The stack now peeks up from the start, so "grid in view" can't be
-  // the trigger any more.) Fades in/out (rather than snapping via `hidden`) at
-  // the same transition-micro rate as the nav's own scrolled-state fade, so the
-  // two don't visually fight each other while the user scrolls.
-  const graphBtn = document.getElementById('nav-graph-btn');
-  const workBg = document.getElementById('work-bg');
-  if (graphBtn && workBg) {
-    graphBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    graphBtn.addEventListener('transitionend', e => {
-      if (e.propertyName === 'opacity' && !graphBtn.classList.contains('visible')) {
-        graphBtn.hidden = true;
-      }
-    });
-    let graphBtnShown = false;
-    const syncGraphBtn = () => {
-      const show = workBg.getBoundingClientRect().top < window.innerHeight * 0.5;
-      if (show === graphBtnShown) return;
-      graphBtnShown = show;
-      if (show) {
-        graphBtn.hidden = false;
-        // Force layout before adding the class so the opacity change is
-        // picked up as a transition rather than an instant jump.
-        void graphBtn.offsetWidth;
-        graphBtn.classList.add('visible');
-      } else {
-        graphBtn.classList.remove('visible');
-      }
-    };
-    window.addEventListener('scroll', syncGraphBtn, { passive: true });
-    window.addEventListener('resize', syncGraphBtn, { passive: true });
-    syncGraphBtn();
-  }
-
   // Drawer work link: close and scroll
   const drawerWork = document.getElementById('drawer-work');
   if (drawerWork) {
